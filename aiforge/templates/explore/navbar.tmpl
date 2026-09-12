@@ -1,0 +1,47 @@
+<div class="tablet only mobile only sixteen wide mobile sixteen wide tablet column row">
+	<div class="ui secondary pointing tabular top attached borderless menu navbar">
+		<a class="{{if .PageIsExploreRepositories}}active{{end}} item" href="{{AppSubUrl}}/explore/repos/square">
+			{{svg "octicon-repo" 16}} {{.i18n.Tr "explore.repos"}}
+		</a>
+		<a class="{{if .PageIsDatasets}}active{{end}} item" href="{{AppSubUrl}}/explore/datasets">
+			{{svg "octicon-inbox" 16}} {{.i18n.Tr "datasets"}}
+		</a>
+		{{/* <a class="{{if .PageIsExploreUsers}}active{{end}} item" href="{{AppSubUrl}}/explore/users">
+			{{svg "octicon-person" 16}} {{.i18n.Tr "explore.users"}}
+		</a> */}}
+		<a class="{{if .PageIsExploreOrganizations}}active{{end}} item" href="{{AppSubUrl}}/explore/organizations">
+			{{svg "octicon-organization" 16}} {{.i18n.Tr "explore.organizations"}}
+		</a>
+		{{/* {{if .IsRepoIndexerEnabled}}
+		<a class="{{if .PageIsExploreCode}}active{{end}} item" href="{{AppSubUrl}}/explore/code">
+			{{svg "octicon-code" 16}} {{.i18n.Tr "explore.code"}}
+		</a>
+		{{end}} */}}
+	</div>
+</div>
+<!--平板、移动端-->
+
+<div class="computer only three wide computer column">
+	<div class="ui grid">
+		<div class="sixteen wide column ui secondary sticky pointing tabular vertical menu">
+			<a class="{{if .PageIsExploreRepositories}}active{{end}} item" href="{{AppSubUrl}}/explore/repos/square">
+				{{svg "octicon-repo" 16}} {{.i18n.Tr "explore.repos"}}
+			</a>
+			<a class="{{if .PageIsDatasets}}active{{end}} item" href="{{AppSubUrl}}/explore/datasets">
+				{{svg "octicon-inbox" 16}} {{.i18n.Tr "datasets"}}
+			</a>
+			<a class="{{if .PageIsExploreUsers}}active{{end}} item" href="{{AppSubUrl}}/explore/users">
+				{{svg "octicon-person" 16}} {{.i18n.Tr "explore.users"}}
+			</a>
+			<a class="{{if .PageIsExploreOrganizations}}active{{end}} item" href="{{AppSubUrl}}/explore/organizations">
+				{{svg "octicon-organization" 16}} {{.i18n.Tr "explore.organizations"}}
+			</a>
+			{{/* {{if .IsRepoIndexerEnabled}}
+			<a class="{{if .PageIsExploreCode}}active{{end}} item" href="{{AppSubUrl}}/explore/code">
+				{{svg "octicon-code" 16}} {{.i18n.Tr "explore.code"}}
+			</a>
+			{{end}} */}}
+		</div>
+	</div>
+</div>
+<!--电脑、宽屏-->

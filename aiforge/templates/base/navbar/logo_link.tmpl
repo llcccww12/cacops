@@ -1,0 +1,26 @@
+<div class="item brand" style="display:flex;height:62px;align-items:center;">
+  <a href="/">
+    <img class="ui mini image" src="{{StaticUrlPrefix}}/img/century-albert-logo.png" alt="Century Albert" style="height:40px;width:auto;max-width:200px;object-fit:contain;">
+  </a>
+  <div class="web-hide-mobile-show right stackable menu" style="display:flex;flex-direction:row;flex:1;justify-content:flex-end">
+    <div style="display:flex;align-items:center;justify-content:flex-end">{{template "base/navbar/lan_and_help" .}}</div>
+    <div>
+      <div class="ui simple item" style="border-bottom:none;margin-left:-2px;" id="navbar-expand-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(187, 187, 187)" viewBox="0 0 32 32" width="30" height="30"><defs></defs><g><path d="M4 5.333h24v2.667h-24v-2.667zM4 14.667h24v2.667h-24v-2.667zM4 24h24v2.667h-24v-2.667z"></path></g></svg>
+      </div>
+    </div>
+  </div>
+</div>
+{{template "base/navbar/mobile_expand_menu" .}}
+<style>
+@media only screen and (max-width: 767.98px) {
+  .web-hide-mobile-show.right.stackable.menu .item {
+    width: auto !important;
+    margin-right: -1px !important;
+    border-bottom:none !important;
+  }
+  .web-hide-mobile-show.right.stackable.menu .item i.globe.icon {
+    color: rgb(187, 187, 187);
+  }
+}
+</style>

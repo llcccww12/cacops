@@ -1,0 +1,292 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/detail/components/Header.vue?vue&type=style&index=0&id=2eb96ddd&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.bg[data-v-2eb96ddd] {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e3ea;
+  box-sizing: border-box;
+}
+.title-c[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  flex-wrap: wrap;
+  grid-gap: 10px;
+  gap: 10px;
+}
+.title-c .title-l[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.title-c .title-l .icon-c[data-v-2eb96ddd] {
+  flex-shrink: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 10px;
+}
+.title-c .title-l .icon-c .lock[data-v-2eb96ddd] {
+  position: absolute;
+  right: 4px;
+  bottom: 9px;
+  background: white;
+  border-radius: 4px;
+}
+.title-c .title-l .title[data-v-2eb96ddd] {
+  color: #101010;
+  font-size: 18px;
+  font-family: Arial;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  width: 0;
+  line-height: 28px;
+  display: flex;
+}
+.title-c .title-l .reconmend-icon[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.title-c .title-r[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.title-c .title-r .run-btn[data-v-2eb96ddd] {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  background: #40a9ff;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.title-c .title-r .run-btn svg[data-v-2eb96ddd] {
+  margin-right: 5px;
+}
+.title-c .title-r .count-items[data-v-2eb96ddd] {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border-color: #e1e3e6;
+  border-style: solid;
+  border-width: 1px;
+  background: #f7f7f7;
+  margin-left: 12px;
+}
+.title-c .title-r .count-items .l[data-v-2eb96ddd] {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #e1e3e6;
+  padding: 0 8px;
+}
+.title-c .title-r .count-items .l svg[data-v-2eb96ddd] {
+  margin-right: 4px;
+}
+.title-c .title-r .count-items .r[data-v-2eb96ddd] {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.labels[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.labels .label[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  line-height: 17px;
+  border-radius: 3px;
+  background-color: #dbe5ff;
+  color: #0066ff;
+  font-size: 12px;
+  padding: 0 8px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+.tabs[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: -1px;
+}
+.tabs .tab[data-v-2eb96ddd] {
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-size: 14px;
+  height: 40px;
+  padding: 0 10px;
+}
+.tabs .tab svg[data-v-2eb96ddd] {
+  margin-right: 6px;
+}
+.tabs .tab.focus[data-v-2eb96ddd] {
+  border: 1px solid rgba(16, 16, 16, 0.1);
+  border-radius: 5px 5px 0px 0px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #f9f9f9;
+}
+.tabs .tab.edit[data-v-2eb96ddd] {
+  cursor: pointer;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/detail/index.vue?vue&type=style&index=0&id=724de12e&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.full.height {
+  background-color: #f9f9f9;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/detail/index.vue?vue&type=style&index=1&id=724de12e&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-724de12e] {
+  background-color: #f9f9f9;
+}
+.content .container[data-v-724de12e] {
+  display: flex;
+}
+.content .container .left[data-v-724de12e] {
+  width: 0;
+  flex: 1;
+  padding-top: 20px;
+}
+.content .container .left .title[data-v-724de12e] {
+  color: rgba(16, 16, 16, 0.5);
+  font-size: 14px;
+}
+.content .container .left .box[data-v-724de12e] {
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #e0e3ea;
+  min-height: 250px;
+  padding: 50px 60px;
+}
+.content .container .left .box .field-tit[data-v-724de12e] {
+  color: #76a2d3;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  border-bottom: 1px solid rgba(16, 16, 16, 0.2);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.content .container .left .box .fields[data-v-724de12e] {
+  margin-bottom: 25px;
+}
+.content .container .left .box .fields .item[data-v-724de12e] {
+  display: flex;
+  font-size: 14px;
+}
+.content .container .left .box .fields .item .item-l[data-v-724de12e] {
+  width: 180px;
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+  color: rgba(16, 16, 16, 0.5);
+}
+.content .container .left .box .fields .item .item-r[data-v-724de12e] {
+  overflow: hidden;
+  width: 0;
+  flex: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.content .container .left .box .fields .item .item-r[data-v-724de12e] .list {
+  margin-bottom: 8px;
+}
+.content .container .left .box .fields .item .item-r[data-v-724de12e] .list .item {
+  display: block;
+  margin-bottom: 5px;
+}
+.content .container .right[data-v-724de12e] {
+  width: 340px;
+  margin-left: 20px;
+  padding-top: 38px;
+}
+.content .container .right .row[data-v-724de12e] {
+  display: flex;
+}
+.content .container .right .row .row-l[data-v-724de12e] {
+  height: 36px;
+  width: 148px;
+  color: rgba(16, 16, 16, 0.5);
+  display: flex;
+  justify-content: flex-start;
+}
+.content .container .right .row .row-r[data-v-724de12e] {
+  min-height: 36px;
+  width: 0;
+  flex: 1;
+  line-height: 20px;
+}
+.content .container .right .row .row-r.descr[data-v-724de12e] {
+  white-space: pre-wrap;
+  padding-bottom: 10px;
+}
+.content .container .right .row .avatar-c[data-v-724de12e] {
+  display: flex;
+  align-items: center;
+}
+.content .container .right .row .avatar-c .avatar[data-v-724de12e] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.content .container .right .row .private[data-v-724de12e] {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fa8c16;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0px 3px;
+  grid-gap: 3px;
+  gap: 3px;
+}
+.content .container .right .row .private svg[data-v-724de12e]:not([stroke]) {
+  fill: #ffffff;
+}
+.content.zh .item-l[data-v-724de12e] {
+  width: 170px !important;
+}
+.content.zh .right .row-l[data-v-724de12e] {
+  width: 80px !important;
+}
+@media only screen and (max-width: 768px) {
+.left[data-v-724de12e] {
+    width: 100% !important;
+}
+.left .box[data-v-724de12e] {
+    padding: 20px 10px 10px 10px !important;
+}
+.left .box .item-l[data-v-724de12e] {
+    width: 100px !important;
+}
+.right[data-v-724de12e] {
+    width: 100% !important;
+}
+}
+

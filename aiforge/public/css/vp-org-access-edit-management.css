@@ -1,0 +1,679 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/user/role/opRoleDialog.vue?vue&type=style&index=0&id=d4271788&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-content[data-v-d4271788] {
+  margin: 24px 0px;
+}
+.dlg-content .form .form-row[data-v-d4271788] {
+  display: flex;
+  margin-bottom: 20px;
+}
+.dlg-content .form .form-row.border[data-v-d4271788] {
+  border: 1px solid #d4d4d5;
+  border-radius: 5px;
+  min-height: 100px;
+  position: relative;
+  margin: 32px 80px 32px 80px;
+}
+.dlg-content .form .form-row.border .title[data-v-d4271788] {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  color: #101010;
+}
+.dlg-content .form .form-row label[data-v-d4271788] {
+  width: 170px;
+  color: #888888;
+  font-size: 14px;
+  box-sizing: border-box;
+  text-align: right;
+}
+.dlg-content .form .form-row label.required[data-v-d4271788]::before {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}
+.dlg-content .form .form-row .content[data-v-d4271788] {
+  flex: 1;
+}
+.dlg-content .form .form-row .content.box[data-v-d4271788] {
+  padding: 20px;
+}
+.dlg-content .form .form-row .content.box .el-checkbox[data-v-d4271788] {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.dlg-content .form .form-row .content.box .el-checkbox[data-v-d4271788]:last-child {
+  margin-top: -4px;
+}
+.dlg-content .form .form-row .content.box .el-checkbox-group[data-v-d4271788] {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-input__inner,
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-textarea__inner {
+  color: #9f3a38;
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-input__inner:visited,
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-textarea__inner:visited {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-input__inner:focus,
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-textarea__inner:focus {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-input__inner:active,
+.dlg-content .form .form-row .content.error[data-v-d4271788] .el-textarea__inner:active {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content .tips[data-v-d4271788] {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 10px;
+}
+.dlg-content .btn[data-v-d4271788] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.dlg-content .btn.confirm-btn[data-v-d4271788] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+[data-v-d4271788] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background-color: #409eff;
+  border-color: #DCDFE6;
+}
+[data-v-d4271788] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: #fff;
+}
+[data-v-d4271788] .el-input.is-disabled .el-input__inner {
+  color: #101010;
+}
+[data-v-d4271788] .el-checkbox__input.is-disabled + span.el-checkbox__label {
+  color: #101010;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/user/role/resourceRoleDialog.vue?vue&type=style&index=0&id=4a13802e&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-wrap[data-v-4a13802e] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.dlg-wrap .dlg-content[data-v-4a13802e] {
+  margin: 12px;
+  margin-bottom: 0px;
+  display: flex;
+}
+.dlg-wrap .dlg-content .form .form-row[data-v-4a13802e] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dlg-wrap .dlg-content .form .form-row.border[data-v-4a13802e] {
+  border: 1px solid #d4d4d5;
+  border-radius: 5px;
+  min-height: 100px;
+  margin-top: 24px;
+  position: relative;
+}
+.dlg-wrap .dlg-content .form .form-row.border .title[data-v-4a13802e] {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  color: #101010;
+}
+.dlg-wrap .dlg-content .form .form-row label[data-v-4a13802e] {
+  width: 140px;
+  text-align: right;
+  color: #888888;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.dlg-wrap .dlg-content .form .form-row label.required[data-v-4a13802e]::before {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}
+.dlg-wrap .dlg-content .form .form-row .content[data-v-4a13802e] {
+  flex: 1;
+}
+.dlg-wrap .dlg-content .form .form-row .content.box[data-v-4a13802e] {
+  padding: 20px;
+}
+.dlg-wrap .dlg-content .form .form-row .content.box .el-checkbox[data-v-4a13802e] {
+  display: flex;
+  margin-bottom: 12px;
+}
+.dlg-wrap .dlg-content .form .form-row .content.box .el-checkbox-group[data-v-4a13802e] {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-input__inner,
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-textarea__inner {
+  color: #9f3a38;
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-input__inner:visited,
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-textarea__inner:visited {
+  border-color: #e0b4b4;
+}
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-input__inner:focus,
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-textarea__inner:focus {
+  border-color: #e0b4b4;
+}
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-input__inner:active,
+.dlg-wrap .dlg-content .form .form-row .content.error[data-v-4a13802e] .el-textarea__inner:active {
+  border-color: #e0b4b4;
+}
+.dlg-wrap .dlg-content .form .form-row .content .tips[data-v-4a13802e] {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 10px;
+}
+.dlg-wrap .resource-wrap[data-v-4a13802e] {
+  margin: 24px;
+  margin-top: 0;
+  height: calc(100% - 128px);
+}
+.dlg-wrap .resource-wrap .resource-container[data-v-4a13802e] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.dlg-wrap .resource-wrap .table-wrap[data-v-4a13802e] {
+  margin: 12px 0px;
+}
+.dlg-wrap .resource-wrap .btn[data-v-4a13802e] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.dlg-wrap .resource-wrap .btn.confirm-btn[data-v-4a13802e] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+[data-v-4a13802e] .el-dialog {
+  margin-top: 5% !important;
+  flex-direction: column;
+  display: flex;
+}
+[data-v-4a13802e] .el-dialog__body {
+  height: 0;
+  flex: 1;
+}
+[data-v-4a13802e] .el-radio-button:first-child .el-radio-button__inner {
+  border-radius: 4px 0 0 0;
+}
+[data-v-4a13802e] .el-radio-button:last-child .el-radio-button__inner {
+  border-radius: 0 4px 0 0;
+}
+[data-v-4a13802e] .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  color: #3894ff;
+  background-color: #f5f5f6;
+  border-color: #DCDFE6;
+  box-shadow: none;
+}
+[data-v-4a13802e] .el-table thead tr th {
+  background-color: #F5F5F6;
+}
+[data-v-4a13802e] .el-table td {
+  border-right: none;
+  border-bottom: 1px solid rgba(17,0,17,0.18824);
+}
+[data-v-4a13802e] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background-color: #409eff;
+  border-color: #DCDFE6;
+}
+[data-v-4a13802e] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: #fff;
+}
+[data-v-4a13802e] .el-input.is-disabled .el-input__inner {
+  color: #101010;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/user/role/storageRoleDialog.vue?vue&type=style&index=0&id=4c77d86c&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-content[data-v-4c77d86c] {
+  margin: 24px 0px;
+}
+.dlg-content .form .form-row[data-v-4c77d86c] {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.dlg-content .form .form-row.border[data-v-4c77d86c] {
+  border: 1px solid #d4d4d5;
+  border-radius: 5px;
+  min-height: 100px;
+  position: relative;
+  margin: 32px 80px 32px 80px;
+}
+.dlg-content .form .form-row.border .title[data-v-4c77d86c] {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  color: #101010;
+}
+.dlg-content .form .form-row label[data-v-4c77d86c] {
+  width: 170px;
+  color: #888888;
+  font-size: 14px;
+  box-sizing: border-box;
+  text-align: right;
+}
+.dlg-content .form .form-row label.required[data-v-4c77d86c]::before {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}
+.dlg-content .form .form-row .content[data-v-4c77d86c] {
+  flex: 1;
+}
+.dlg-content .form .form-row .content.box[data-v-4c77d86c] {
+  padding: 20px;
+}
+.dlg-content .form .form-row .content.box .el-checkbox[data-v-4c77d86c] {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.dlg-content .form .form-row .content.box .el-checkbox-group[data-v-4c77d86c] {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-input__inner,
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-textarea__inner {
+  color: #9f3a38;
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-input__inner:visited,
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-textarea__inner:visited {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-input__inner:focus,
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-textarea__inner:focus {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-input__inner:active,
+.dlg-content .form .form-row .content.error[data-v-4c77d86c] .el-textarea__inner:active {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content .tips[data-v-4c77d86c] {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 10px;
+}
+.dlg-content .btn-wrap[data-v-4c77d86c] {
+  margin-left: 170px;
+}
+.dlg-content .btn-wrap .btn[data-v-4c77d86c] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.dlg-content .btn-wrap .btn.confirm-btn[data-v-4c77d86c] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+[data-v-4c77d86c] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background-color: #409eff;
+  border-color: #DCDFE6;
+}
+[data-v-4c77d86c] .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: #fff;
+}
+[data-v-4c77d86c] .el-input.is-disabled .el-input__inner {
+  color: #101010;
+}
+[data-v-4c77d86c] .el-checkbox__input.is-disabled + span.el-checkbox__label {
+  color: #101010;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/accessedit/resourceTable.vue?vue&type=style&index=0&id=4f8507ba&lang=less&scoped=true ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-content[data-v-4f8507ba] {
+  margin: 12px;
+  margin-bottom: 0px;
+  display: flex;
+}
+.dlg-content .form .form-row[data-v-4f8507ba] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.dlg-content .form .form-row.border[data-v-4f8507ba] {
+  border: 1px solid #d4d4d5;
+  border-radius: 5px;
+  min-height: 100px;
+  margin-top: 24px;
+  position: relative;
+}
+.dlg-content .form .form-row.border .title[data-v-4f8507ba] {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  padding: 0 4px;
+  background: #fff;
+  color: #101010;
+}
+.dlg-content .form .form-row label[data-v-4f8507ba] {
+  width: 140px;
+  text-align: right;
+  color: #888888;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.dlg-content .form .form-row label.required[data-v-4f8507ba]::before {
+  content: "*";
+  color: red;
+  margin-right: 5px;
+}
+.dlg-content .form .form-row .content[data-v-4f8507ba] {
+  flex: 1;
+}
+.dlg-content .form .form-row .content.box[data-v-4f8507ba] {
+  padding: 20px;
+}
+.dlg-content .form .form-row .content.box .el-checkbox[data-v-4f8507ba] {
+  display: flex;
+  margin-bottom: 12px;
+}
+.dlg-content .form .form-row .content.box .el-checkbox-group[data-v-4f8507ba] {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-input__inner,
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-textarea__inner {
+  color: #9f3a38;
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-input__inner:visited,
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-textarea__inner:visited {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-input__inner:focus,
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-textarea__inner:focus {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-input__inner:active,
+.dlg-content .form .form-row .content.error[data-v-4f8507ba] .el-textarea__inner:active {
+  border-color: #e0b4b4;
+}
+.dlg-content .form .form-row .content .tips[data-v-4f8507ba] {
+  font-size: 12px;
+  color: #888888;
+  margin-top: 10px;
+}
+[data-v-4f8507ba] .el-radio-button:first-child .el-radio-button__inner {
+  border-radius: 4px 0 0 0;
+}
+[data-v-4f8507ba] .el-radio-button:last-child .el-radio-button__inner {
+  border-radius: 0 4px 0 0;
+}
+[data-v-4f8507ba] .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+  color: #3894ff;
+  background-color: #f5f5f6;
+  border-color: #DCDFE6;
+  box-shadow: none;
+}
+[data-v-4f8507ba] .el-table--border td {
+  border-right: none;
+  border-bottom: 1px solid rgba(17,0,17,0.18824);
+}
+[data-v-4f8507ba] .el-table--border th {
+  border-right: none;
+}
+[data-v-4f8507ba] .el-table thead tr th {
+  background-color: #F5F5F6;
+}
+[data-v-4f8507ba] .el-input.is-disabled .el-input__inner {
+  color: #101010;
+}
+[data-v-4f8507ba]::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0;
+}
+[data-v-4f8507ba]::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+  height: 4px;
+}
+[data-v-4f8507ba]::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.15);
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/accessedit/index.vue?vue&type=style&index=0&id=15109695&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.page-title[data-v-15109695] {
+  display: flex;
+  height: 50px;
+}
+.page-title span[data-v-15109695] {
+  font-weight: 700;
+  font-size: 16px;
+  color: #101010;
+  line-height: 30px;
+}
+.resource-title[data-v-15109695] {
+  margin-top: 30px;
+}
+.resource-title span[data-v-15109695] {
+  font-weight: 700;
+  font-size: 14px;
+  color: #101010;
+  line-height: 30px;
+}
+.btn-wrap[data-v-15109695] {
+  margin-top: 22px;
+  height: 32px;
+  width: 91px;
+  border-radius: 5px;
+  background-color: #5bb973;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-wrap span[data-v-15109695] {
+  line-height: 32px;
+  color: #fff;
+}
+.operate-wrap[data-v-15109695] {
+  display: flex;
+  flex-direction: column;
+}
+.operate-wrap .operate-container[data-v-15109695] {
+  max-height: calc(100% - 40px);
+  flex: 1;
+  border: 1px solid #e8e8e8;
+  display: flex;
+}
+.operate-wrap .operate-container .operate-list[data-v-15109695] {
+  width: 45%;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.operate-wrap .operate-container .operate-list .title[data-v-15109695] {
+  font-weight: 600;
+  color: #101010;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap[data-v-15109695] {
+  flex: 1;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap .check-wrap[data-v-15109695] {
+  display: flex;
+  flex-direction: column;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap .check-wrap .el-checkbox[data-v-15109695] {
+  height: 34px;
+  font-size: 14px;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap .check-wrap .detail-a[data-v-15109695] {
+  color: #409EFF;
+  margin-left: 6px;
+  border-bottom: 1px solid #409EFF;
+  vertical-align: super;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap .check-wrap[data-v-15109695] .el-checkbox__input {
+  vertical-align: baseline;
+  overflow: hidden;
+}
+.operate-wrap .operate-container .operate-list .checkbox-wrap .check-wrap[data-v-15109695] .el-checkbox__label {
+  width: 95%;
+}
+.operate-wrap .operate-container .operate-collection[data-v-15109695] {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 12px;
+}
+.operate-wrap .operate-container .operate-collection .title[data-v-15109695] {
+  font-weight: 600;
+  color: #101010;
+  margin-top: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  border-left: 1px solid #e8e8e8;
+}
+.operate-wrap .operate-container .operate-collection ul[data-v-15109695] {
+  margin-top: 0px;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  border-left: 1px solid #e8e8e8;
+}
+.operate-wrap .operate-container .operate-collection ul li[data-v-15109695] {
+  color: #101010;
+  line-height: 30px;
+}
+.operate-wrap .operate-container .operate-collection ul li[data-v-15109695]::marker {
+  color: #0191ff;
+}
+.sub-content-wrap[data-v-15109695] {
+  height: 40px;
+  line-height: 40px;
+  background-color: #eaeae7;
+}
+.sub-content-wrap .content[data-v-15109695] {
+  font-weight: 600;
+  color: #101010;
+  margin-left: 8px;
+}
+.resource-wrap[data-v-15109695] {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  flex-direction: column;
+}
+.resource-wrap .resource-container[data-v-15109695] {
+  max-height: calc(100% - 40px);
+  flex: 1;
+  overflow-y: auto;
+}
+.resource-wrap .resource-container .title[data-v-15109695] {
+  font-weight: 600;
+  color: #101010;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  margin-left: 100px;
+}
+.resource-wrap .resource-container .check-wrap[data-v-15109695] {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.resource-wrap .resource-container .check-wrap .el-checkbox[data-v-15109695] {
+  width: 50%;
+  padding-left: 100px;
+  margin-right: 0;
+  height: 34px;
+  font-size: 14px;
+}
+.resource-wrap .resource-container .check-wrap .el-checkbox .detail-a[data-v-15109695] {
+  color: #409EFF;
+  margin-left: 6px;
+  border-bottom: 1px solid #409EFF;
+  vertical-align: super;
+}
+.resource-wrap .resource-container .check-wrap[data-v-15109695] .el-checkbox__input {
+  vertical-align: baseline;
+  overflow: hidden;
+}
+.resource-wrap .resource-container .check-wrap[data-v-15109695] .el-checkbox__label {
+  width: 95%;
+}
+[data-v-15109695]::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0;
+}
+[data-v-15109695]::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0px;
+  height: 4px;
+}
+[data-v-15109695]::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.15);
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+

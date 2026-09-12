@@ -1,0 +1,212 @@
+{{template "base/head" .}}
+<div class="user settings profile">
+	{{template "user/settings/navbar" .}}
+	<div class="alert" style="top: 0;"></div>
+	<div class="ui container">
+		{{template "base/alert" .}}
+		<div style="display:none;" class="ui negative message">
+			<p></p>
+		</div>
+		<h4 class="ui top attached header">
+			{{.i18n.Tr "settings.public_profile"}}
+		</h4>
+		<div class="ui attached segment">
+			<p>{{.i18n.Tr "settings.profile_desc"}}</p>
+			<form class="ui form" action="{{.Link}}" method="post">
+				{{.CsrfTokenHtml}}
+				<div class="required field {{if .Err_Name}}error{{end}}">
+					<label for="username">{{.i18n.Tr "username"}}<span class="text red hide" id="name-change-prompt"> {{.i18n.Tr "settings.change_username_prompt"}}</span></label>
+					<input id="username" name="name" value="{{.SignedUser.Name}}" data-name="{{.SignedUser.Name}}" autofocus required {{if and (not .SignedUser.IsLocal) (not .SignedUser.IsOAuth2)}}disabled{{end}}>
+					{{if and (not .SignedUser.IsLocal) (not .SignedUser.IsOAuth2)}}
+					<p class="help text blue">{{$.i18n.Tr "settings.password_username_disabled"}}</p>
+					{{end}}
+				</div>
+				<div class="field {{if .Err_FullName}}error{{end}}">
+					<label for="full_name">{{.i18n.Tr "settings.full_name"}}</label>
+					<input id="full_name" name="full_name" value="{{.SignedUser.FullName}}">
+				</div>
+				<div class="field required {{if .Err_Occupation}}error{{end}}">
+					<label for="occupation">{{.i18n.Tr "occupation_status"}}</label>
+					<div class="ui language selection dropdown" id="occupation">
+						<input name="occupation" type="hidden" value="{{.SignedUser.Occupation}}">
+						<i class="dropdown icon"></i>
+						<div class="text">
+							{{if eq $.SignedUser.Occupation 2}}{{.i18n.Tr "occupation_student"}}{{end}}
+							{{if eq $.SignedUser.Occupation 3}}{{.i18n.Tr "occupation_researcher"}}{{end}}
+							{{if eq $.SignedUser.Occupation 4}}{{.i18n.Tr "occupation_enterprise_personnel"}}{{end}}
+							{{if eq $.SignedUser.Occupation 1}}{{.i18n.Tr "occupation_other"}}{{end}}
+						</div>
+						<div class="menu">
+							<div class="item{{if eq $.SignedUser.Occupation 2}} active selected{{end}}" data-value="2">{{.i18n.Tr "occupation_student"}}</div>
+							<div class="item{{if eq $.SignedUser.Occupation 3}} active selected{{end}}" data-value="3">{{.i18n.Tr "occupation_researcher"}}</div>
+							<div class="item{{if eq $.SignedUser.Occupation 4}} active selected{{end}}" data-value="4">{{.i18n.Tr "occupation_enterprise_personnel"}}</div>
+							<div class="item{{if eq $.SignedUser.Occupation 1}} active selected{{end}}" data-value="1">{{.i18n.Tr "occupation_other"}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="field {{if .Err_Email}}error{{end}}">
+					<label for="email">{{.i18n.Tr "email"}}</label>
+					<input type="hidden"  id="email" name="email" value="{{.SignedUser.Email}}" >
+					<input  disabled value="{{.SignedUser.Email}}">
+				</div>
+				<div class="inline field">
+					<div class="ui checkbox" id="keep-email-private">
+						<label class="poping up" data-content="{{.i18n.Tr "settings.keep_email_private_popup"}}"><strong style="font-weight:500;">{{.i18n.Tr "settings.keep_email_private"}}</strong></label>
+						<input name="keep_email_private" type="checkbox" {{if .SignedUser.KeepEmailPrivate}}checked{{end}}>
+					</div>
+				</div>
+				{{if .EnablePhone }}
+					<div class="field required" style="width:391px;">
+						<label for="phone">{{.i18n.Tr "phone.phone_number"}}</label>
+						<div class="use-type" usetype="2" ophonenumber="{{.SignedUser.PhoneNumber}}" readonly="true" verifycodenorequired="true">
+							{{template "user/auth/phone_verify" .}}
+						</div>
+					</div>
+					<style>
+						.use-type .modify-phone-number { display: flex;}
+						.use-type .slide-bar-wrap, .use-type .verify-code-c{ display: none; }							
+					</style>
+				{{end}}
+				<div class="field {{if .Err_Description}}error{{end}}">
+					<label for="description">{{$.i18n.Tr "user.user_bio"}}</label>
+					<textarea id="description" name="description" rows="2" maxlength="255">{{.SignedUser.Description}}</textarea>
+				</div>
+				<div class="field {{if .Err_Website}}error{{end}}">
+					<label for="website">{{.i18n.Tr "settings.website"}}</label>
+					<input id="website" name="website" type="url" value="{{.SignedUser.Website}}">
+				</div>
+				<div class="field">
+					<label for="location">{{.i18n.Tr "settings.location"}}</label>
+					<input id="location" name="location"  value="{{.SignedUser.Location}}">
+				</div>
+
+					<div class="field">
+						<label for="language">{{.i18n.Tr "settings.language"}}</label>
+						<div class="ui language selection dropdown" id="language">
+							<input name="language" type="hidden" value="{{.SignedUser.Language}}">
+							<i class="dropdown icon"></i>
+							<div class="text">{{range .AllLangs}}{{if eq $.SignedUser.Language .Lang}}{{.Name}}{{end}}{{end}}</div>
+							<div class="menu">
+							{{range .AllLangs}}
+								<div class="item{{if eq $.SignedUser.Language .Lang}} active selected{{end}}" data-value="{{.Lang}}">{{.Name}}</div>
+							{{end}}
+							</div>
+						</div>
+					</div>
+
+				<div class="field">
+					<button class="ui green button">{{$.i18n.Tr "settings.update_profile"}}</button>
+				</div>
+			</form>
+		</div>
+		<!--
+		<h4 class="ui top attached header">
+			{{.i18n.Tr "settings.avatar"}}
+		</h4>
+		<div class="ui attached segment">
+			<form class="ui form" action="{{.Link}}/avatar" method="post" enctype="multipart/form-data">
+				{{.CsrfTokenHtml}}
+				{{if not DisableGravatar}}
+				<div class="inline field">
+					<div class="ui radio checkbox">
+						<input name="source" value="lookup" type="radio" {{if not .SignedUser.UseCustomAvatar}}checked{{end}}>
+						<label>{{.i18n.Tr "settings.lookup_avatar_by_mail"}}</label>
+					</div>
+				</div>
+				<div class="field {{if .Err_Gravatar}}error{{end}}">
+					<label for="gravatar">Avatar {{.i18n.Tr "email"}}</label>
+					<input id="gravatar" name="gravatar" value="{{.SignedUser.AvatarEmail}}" />
+				</div>
+				{{end}}
+
+				<div class="inline field">
+					<div class="ui radio checkbox">
+						<input name="source" value="local" type="radio" {{if .SignedUser.UseCustomAvatar}}checked{{end}}>
+						<label>{{.i18n.Tr "settings.enable_custom_avatar"}}</label>
+					</div>
+				</div>
+
+				<div class="inline field">
+					<label for="avatar">{{.i18n.Tr "settings.choose_new_avatar"}}</label>
+					<input name="avatar" type="file" >
+				</div>
+
+				<div class="field">
+					<button class="ui green button">{{$.i18n.Tr "settings.update_avatar"}}</button>
+					<a class="ui red button delete-post" data-request-url="{{.Link}}/avatar/delete" data-done-url="{{.Link}}">{{$.i18n.Tr "settings.delete_current_avatar"}}</a>
+				</div>
+			</form>
+		</div>
+		-->
+
+		{{template "user/settings/avatar_setting" .}}
+
+		<h4 class="ui top attached header">
+			{{$.i18n.Tr "settings.wechat_bind"}}
+		</h4>
+		{{if not .SignedUser.IsBindWechat}}
+		<div class="ui attached segment">
+			<a href="/authentication/wechat/bind?redirect_to=/user/settings" class="ui green button">{{$.i18n.Tr "settings.bind_wechat"}}</a>
+		</div>
+		{{else}}
+		<div class="ui attached segment">
+			<table class="ui celled striped table provider titleless">
+				<thead>
+					<th class="center aligned">
+						{{$.i18n.Tr "settings.bind_account_information"}}
+					</th>
+					<th class="center aligned">
+						{{$.i18n.Tr "settings.bind_time"}}
+					</th>
+					<th class="center aligned">
+						{{$.i18n.Tr "repo.cloudbrain_operate"}}
+					</th>
+				</thead>
+				<tbody>
+					<td class="center aligned">
+						{{$.i18n.Tr "settings.wechat"}}
+					</td>
+					<td class="center aligned">
+						{{TimeSinceUnix1 .SignedUser.WechatBindUnix}}
+					<td class="center aligned">
+						<div>
+							<!--<a class="ui inverted orange button " onclick="showcreate(this)" href="javascript: void(0)">{{$.i18n.Tr "settings.unbind_wc"}}</a>-->
+							<a href="/authentication/wechat/bind?type=modify&redirect_to=/user/settings" class="ui green button">{{$.i18n.Tr "settings.modify_bind_wc"}}</a>
+						</div>
+					</td>
+				</tbody>
+			</table>
+		</div>
+		{{end}}
+	</div>
+	<div class="ui mini modal wx-unbind">
+		<div class="header">{{$.i18n.Tr "settings.unbind_wechat"}}</div>
+		<div class="content">
+			<p>{{$.i18n.Tr "settings.unbind_computing"}}</p>
+		</div>
+		<div class="actions">
+			<div class="ui blank cancel button">{{$.i18n.Tr "cancel"}}</div>
+			<div class="ui green approve button">{{$.i18n.Tr "repo.confirm_choice"}}</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}
+<script>
+function showcreate(obj){
+	const {csrf} = window.config
+	$('.ui.modal.wx-unbind')
+	.modal({
+		onShow:function(){
+		},
+		onHide:function(){
+		},
+		onApprove:function($element){
+			$.post('/authentication/wechat/unbind',{_csrf:csrf},(data)=>{
+				$('.alert').html('解绑成功!').removeClass('alert-danger').addClass('alert-success').show().delay(1500).fadeOut();
+				window.location.href = '/user/settings'
+			})
+		}
+	})
+	.modal('show')
+}
+</script>

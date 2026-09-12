@@ -1,0 +1,14 @@
+<!-- 头部导航栏 -->
+{{template "base/head" .}}
+<div class="alert" style="top: 0;"></div>
+<div class="repository release dataset-list view">
+    {{template "base/alert" .}}
+    <input id="WxAutorize-qrcode" type="hidden" value="{{.qrcode.Ticket}}">
+    <div id="WxAutorize">
+    </div> 
+</div>
+</div>
+</div>
+</div>
+{{template "base/footer" .}}
+

@@ -1,0 +1,69 @@
+<style>
+#dataset-base>.field>label{
+    width:120px !important;
+    text-align:right !important;
+}
+</style>
+<div id="mask">
+        <div id="loadingPage">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+</div>
+{{template "base/head" .}}
+<div class="repository">
+  {{template "repo/header" .}}
+  <div class="ui container">
+      <input type="hidden" id="postPath" value="{{.Link}}">
+      <div style="width: 80%;margin: auto;">
+        <h4 class="ui top attached header">
+            {{.i18n.Tr "dataset.create_new_dataset"}}
+        </h4>
+        <div class="ui attached segment" style="padding: 2em 3em;">
+            <div class="ui form" id="dataset-base">
+                <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="140px">
+                    {{.CsrfTokenHtml}}
+                    <el-form-item label='{{.i18n.Tr "dataset.dataset_name"}}' prop="title">
+                        <el-input v-model="ruleForm.title"></el-input>
+                        <span style="font-size: 12px;color: #888;line-height: 1;margin-top: 0.5em;display: inline-block;">{{.i18n.Tr "dataset.dataset_name_tooltips"}}</span>
+                        <!-- <span>请输入字母、数字、_和-，最长64个字符，且不能以中划线（-）结尾。</span> -->
+                    </el-form-item>
+                    <el-form-item label='{{.i18n.Tr "dataset.dataset_description"}}' prop="description">
+                        <el-input type="textarea" :rows="3" maxlength="1024" placeholder="{{.i18n.Tr "dataset.dataset_desc"}}" v-model="ruleForm.description"></el-input>
+                    </el-form-item>
+                    <el-form-item label='{{.i18n.Tr "dataset.category"}}' prop="category">
+                        <el-select v-model="ruleForm.category" placeholder='{{.i18n.Tr "dataset.select_category"}}' style="width: 60%;">
+                            {{range $category := categories}}
+                            <el-option label='{{$.i18n.Tr (printf "dataset.category.%s" $category)}}' value='{{$category}}'></el-option>
+                            {{end}}
+                            
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label='{{.i18n.Tr "dataset.task"}}' prop="task">
+                        <el-select v-model="ruleForm.task" placeholder='{{.i18n.Tr "dataset.select_task"}}' style="width: 60%;">
+                            {{range $task := tasks}}
+                            <el-option label='{{$.i18n.Tr (printf "dataset.task.%s" $task)}}' value='{{$task}}'></el-option>
+                            {{end}}
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label='{{.i18n.Tr "repo.license"}}' prop="license">
+                        <el-select v-model="ruleForm.license" placeholder='{{.i18n.Tr "repo.license_helper"}}' style="width: 60%;">
+                            {{range $license := licenses}}
+                            <el-option label='{{$license}}' value='{{$license}}'></el-option>
+                            {{end}}
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button style="background-color: #21ba45;" type="success" @click="createDataset('ruleForm')">{{.i18n.Tr "repo.confirm_choice"}}</el-button>
+                        <el-button type="info" @click="cancelDataset('create','')">{{.i18n.Tr "cancel"}}</el-button>
+                    </el-form-item>
+                </el-form>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+{{template "base/footer" .}}

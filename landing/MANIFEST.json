@@ -1,0 +1,1588 @@
+{
+  "source": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/",
+  "downloadedAt": "2026-08-21T02:57:39.786Z",
+  "counts": {
+    "total": 208,
+    "ok": 161,
+    "failed": 47,
+    "images": 4,
+    "js": 48,
+    "fonts": 44,
+    "videos": 0,
+    "pages": 54
+  },
+  "failed": [
+    {
+      "url": "https://fonts.gstatic.com/",
+      "dest": "assets/fonts/google-fonts.css",
+      "status": 404,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/GZCY9D64urjkplIPrRNXzJRUZg.png?width=400&amp;height=400",
+      "dest": "assets/images/GZCY9D64urjkplIPrRNXzJRUZg.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/fVMiLVdIGT0AN8jEbHCiJldTIN0.png?width=400&amp;height=400",
+      "dest": "assets/images/fVMiLVdIGT0AN8jEbHCiJldTIN0.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/xboVAVsFz8ohsrVOUjCZlR95k.png?width=600&amp;height=600",
+      "dest": "assets/images/xboVAVsFz8ohsrVOUjCZlR95k.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/oYM3nb3E1NP2EYbBBxkPANJcij0.png?width=320&amp;height=320",
+      "dest": "assets/images/oYM3nb3E1NP2EYbBBxkPANJcij0.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/H7z8EbNqhUfo6nP5leVjXjHHdbw.png?width=800&amp;height=800",
+      "dest": "assets/images/H7z8EbNqhUfo6nP5leVjXjHHdbw.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/qptQMn3OVWBUqed8lGR70oxo6c.png?width=256&amp;height=256",
+      "dest": "assets/images/qptQMn3OVWBUqed8lGR70oxo6c.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/GlgQYu4oRP4ZAqXNRhR2zrS1l38.png?width=1042&amp;height=1043",
+      "dest": "assets/images/GlgQYu4oRP4ZAqXNRhR2zrS1l38.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/eZUnlYJgMP5jIyYJXJATUGY1c4.svg?width=86&amp;height=26",
+      "dest": "assets/images/eZUnlYJgMP5jIyYJXJATUGY1c4.svg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/bTP6xGg8PiOx8AaOnFFrXjXw0W8.png?width=1200&amp;height=904",
+      "dest": "assets/images/bTP6xGg8PiOx8AaOnFFrXjXw0W8.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/U39VIGSxOPphAgwZO1pgWvYyXIo.svg?width=84&amp;height=26",
+      "dest": "assets/images/U39VIGSxOPphAgwZO1pgWvYyXIo.svg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/uod8rx0ugTfxgLOxqxzrBKz1PM.jpg?width=1200&amp;height=908",
+      "dest": "assets/images/uod8rx0ugTfxgLOxqxzrBKz1PM.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/AKiOBuQOdjk3AitLftJzcqNo9Y.svg?width=89&amp;height=26",
+      "dest": "assets/images/AKiOBuQOdjk3AitLftJzcqNo9Y.svg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/smvPy6gTr2ffjltGlrGDxYyNQA.png?width=512&amp;height=512",
+      "dest": "assets/images/smvPy6gTr2ffjltGlrGDxYyNQA.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/ZENQCWaohS60yIYO0VBXT2cNE.png?width=906&amp;height=1200",
+      "dest": "assets/images/ZENQCWaohS60yIYO0VBXT2cNE.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/DjrPa9uyvUUA4rfA3Gu0YSp7jc.gif?width=300&amp;height=300",
+      "dest": "assets/images/DjrPa9uyvUUA4rfA3Gu0YSp7jc.gif",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/wUVYSA9rLJKDvp9exIo7xmXsZY.gif?width=300&amp;height=300",
+      "dest": "assets/images/wUVYSA9rLJKDvp9exIo7xmXsZY.gif",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/Rdh7SceYVcuGSRholFXzvtW5Lx4.gif?width=300&amp;height=300",
+      "dest": "assets/images/Rdh7SceYVcuGSRholFXzvtW5Lx4.gif",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/AgKH0AssjAcyBW0MXiWvwTwm6Qk.png?width=96&amp;height=96",
+      "dest": "assets/images/AgKH0AssjAcyBW0MXiWvwTwm6Qk.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/9WyJicl6qPXqB2lirXqcfAaULPQ.png?width=96&amp;height=96",
+      "dest": "assets/images/9WyJicl6qPXqB2lirXqcfAaULPQ.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/jsd8zilgvCN9gaKTfI6FQtM.png?width=1200&amp;height=800",
+      "dest": "assets/images/jsd8zilgvCN9gaKTfI6FQtM.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/RANiSU96CsDvEqy3KnKv3oJm0.png?width=1200&amp;height=1200",
+      "dest": "assets/images/RANiSU96CsDvEqy3KnKv3oJm0.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/$%7Be%7D",
+      "dest": "assets/js/${e}",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/NzQYTIbmI-indexes-default-0.framercms",
+      "dest": "assets/js/NzQYTIbmI-indexes-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/NzQYTIbmI-chunk-default-0.framercms",
+      "dest": "assets/js/NzQYTIbmI-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/HXsMfyUig-chunk-default-0.framercms",
+      "dest": "assets/js/HXsMfyUig-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/U4KuzxxTnWdrJpiIhadjTTVfOk.jpg?width=480&amp;height=480",
+      "dest": "assets/images/U4KuzxxTnWdrJpiIhadjTTVfOk.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/K4uKhD2smla4ExNN8mu6M6vC6g.jpg?width=480&amp;height=480",
+      "dest": "assets/images/K4uKhD2smla4ExNN8mu6M6vC6g.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/QqV7Tmz3JUeQKGeyCEkr4WWHUtk.jpg?width=480&amp;height=452",
+      "dest": "assets/images/QqV7Tmz3JUeQKGeyCEkr4WWHUtk.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/TFslKyzyV1uHUhhMmjqafGHAPM.jpg?width=480&amp;height=480",
+      "dest": "assets/images/TFslKyzyV1uHUhhMmjqafGHAPM.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/GE1CM6Di1cUzXBArEp30WIivCqI.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/GE1CM6Di1cUzXBArEp30WIivCqI.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/oZishM5H10VgtH5wVAZ6jm0k60.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/oZishM5H10VgtH5wVAZ6jm0k60.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/S5Opcvf88VU3WtZzKxBX3fB8o.jpg?width=1200&amp;height=817",
+      "dest": "assets/images/S5Opcvf88VU3WtZzKxBX3fB8o.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/lN097K19QC01pKG0YENhZQAMvD4.jpg?width=1200&amp;height=806",
+      "dest": "assets/images/lN097K19QC01pKG0YENhZQAMvD4.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/djPu3wosPriIJFmFjhj6xWJ8KO8.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/djPu3wosPriIJFmFjhj6xWJ8KO8.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/8y8zVv3visLbJndh4gCnQ6r9RuA.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/8y8zVv3visLbJndh4gCnQ6r9RuA.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/dIWTaoz6p8zzqU0XoVCp4UQUJoc.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/dIWTaoz6p8zzqU0XoVCp4UQUJoc.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/ISDM1yCDaWrNPBzYPOdOE8WCP10.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/ISDM1yCDaWrNPBzYPOdOE8WCP10.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/diMYNFgiOGoK4mN3AadhRP3Aog.jpg?width=1200&amp;height=800",
+      "dest": "assets/images/diMYNFgiOGoK4mN3AadhRP3Aog.jpg",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/images/S1OR8H7gjqsmee787bAZnWpGhLo.png?width=900&amp;height=1200",
+      "dest": "assets/images/S1OR8H7gjqsmee787bAZnWpGhLo.png",
+      "status": 400,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/z6qrsHYyS-chunk-default-0.framercms",
+      "dest": "assets/js/z6qrsHYyS-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/z6qrsHYyS-indexes-default-0.framercms",
+      "dest": "assets/js/z6qrsHYyS-indexes-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/kcqJjQM2l-chunk-default-0.framercms",
+      "dest": "assets/js/kcqJjQM2l-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/kcqJjQM2l-indexes-default-0.framercms",
+      "dest": "assets/js/kcqJjQM2l-indexes-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/drok4pokm-chunk-default-0.framercms",
+      "dest": "assets/js/drok4pokm-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/drok4pokm-indexes-default-0.framercms",
+      "dest": "assets/js/drok4pokm-indexes-default-0.framercms",
+      "status": 403,
+      "ok": false
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/EGcBiDP_o-chunk-default-0.framercms",
+      "dest": "assets/js/EGcBiDP_o-chunk-default-0.framercms",
+      "status": 403,
+      "ok": false
+    }
+  ],
+  "files": [
+    {
+      "url": "https://framerusercontent.com/assets/0SEEmmWc3vovhaai4RlRQSWRrz0.woff2",
+      "dest": "assets/fonts/0SEEmmWc3vovhaai4RlRQSWRrz0.woff2",
+      "status": 200,
+      "bytes": 4100,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/1K3W8DizY3v4emK8Mb08YHxTbs.woff2",
+      "dest": "assets/fonts/1K3W8DizY3v4emK8Mb08YHxTbs.woff2",
+      "status": 200,
+      "bytes": 4628,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/2A4Xx7CngadFGlVV4xrO06OBHY.woff2",
+      "dest": "assets/fonts/2A4Xx7CngadFGlVV4xrO06OBHY.woff2",
+      "status": 200,
+      "bytes": 4236,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/43sJ6MfOPh1LCJt46OvyDuSbA6o.woff2",
+      "dest": "assets/fonts/43sJ6MfOPh1LCJt46OvyDuSbA6o.woff2",
+      "status": 200,
+      "bytes": 4960,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2",
+      "dest": "assets/fonts/4RAEQdEOrcnDkhHiiCbJOw92Lk.woff2",
+      "status": 200,
+      "bytes": 7080,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2",
+      "dest": "assets/fonts/5vvr9Vy74if2I6bQbJvbw7SY1pQ.woff2",
+      "status": 200,
+      "bytes": 8896,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/867QObYax8ANsfX4TGEVU9YiCM.woff2",
+      "dest": "assets/fonts/867QObYax8ANsfX4TGEVU9YiCM.woff2",
+      "status": 200,
+      "bytes": 7408,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/b6Y37FthZeALduNqHicBT6FutY.woff2",
+      "dest": "assets/fonts/b6Y37FthZeALduNqHicBT6FutY.woff2",
+      "status": 200,
+      "bytes": 4168,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/cdAe8hgZ1cMyLu9g005pAW3xMo.woff2",
+      "dest": "assets/fonts/cdAe8hgZ1cMyLu9g005pAW3xMo.woff2",
+      "status": 200,
+      "bytes": 7228,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/CfMzU8w2e7tHgF4T4rATMPuWosA.woff2",
+      "dest": "assets/fonts/CfMzU8w2e7tHgF4T4rATMPuWosA.woff2",
+      "status": 200,
+      "bytes": 9500,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/DOfvtmE1UplCq161m6Hj8CSQYg.woff2",
+      "dest": "assets/fonts/DOfvtmE1UplCq161m6Hj8CSQYg.woff2",
+      "status": 200,
+      "bytes": 26696,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2",
+      "dest": "assets/fonts/DpPBYI0sL4fYLgAkX8KXOPVt7c.woff2",
+      "status": 200,
+      "bytes": 8892,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/EOr0mi4hNtlgWNn9if640EZzXCo.woff2",
+      "dest": "assets/fonts/EOr0mi4hNtlgWNn9if640EZzXCo.woff2",
+      "status": 200,
+      "bytes": 7116,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/gazZKZuUEtvr9ULhdA4SprP0AZ0.woff2",
+      "dest": "assets/fonts/gazZKZuUEtvr9ULhdA4SprP0AZ0.woff2",
+      "status": 200,
+      "bytes": 8812,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/GIryZETIX4IFypco5pYZONKhJIo.woff2",
+      "dest": "assets/fonts/GIryZETIX4IFypco5pYZONKhJIo.woff2",
+      "status": 200,
+      "bytes": 4268,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2",
+      "dest": "assets/fonts/GrgcKwrN6d3Uz8EwcLHZxwEfC4.woff2",
+      "status": 200,
+      "bytes": 27380,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v4/gyBhhwUxId8gMGYQMKR3pzfaWI_Re-Q4mJPby1QNtA.woff2",
+      "dest": "assets/fonts/gyBhhwUxId8gMGYQMKR3pzfaWI_Re-Q4mJPby1QNtA.woff2",
+      "status": 200,
+      "bytes": 30440,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v4/gyBhhwUxId8gMGYQMKR3pzfaWI_RruM4mJPby1QNtA.woff2",
+      "dest": "assets/fonts/gyBhhwUxId8gMGYQMKR3pzfaWI_RruM4mJPby1QNtA.woff2",
+      "status": 200,
+      "bytes": 30364,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyBjhwUxId8gMEwZAluvzlxA9ojEVKA32Zna6VEdtKCL.woff2",
+      "dest": "assets/fonts/gyBjhwUxId8gMEwZAluvzlxA9ojEVKA32Zna6VEdtKCL.woff2",
+      "status": 200,
+      "bytes": 35472,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyBjhwUxId8gMEwZAluvzlxA9ojEVKDi3pna6VEdtKCL.woff2",
+      "dest": "assets/fonts/gyBjhwUxId8gMEwZAluvzlxA9ojEVKDi3pna6VEdtKCL.woff2",
+      "status": 200,
+      "bytes": 35520,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwcGFU.woff2",
+      "dest": "assets/fonts/gyByhwUxId8gMEwcGFU.woff2",
+      "status": 200,
+      "bytes": 29400,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwRGFWfOw.woff2",
+      "dest": "assets/fonts/gyByhwUxId8gMEwRGFWfOw.woff2",
+      "status": 200,
+      "bytes": 7420,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwSGFWfOw.woff2",
+      "dest": "assets/fonts/gyByhwUxId8gMEwSGFWfOw.woff2",
+      "status": 200,
+      "bytes": 16512,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwTGFWfOw.woff2",
+      "dest": "assets/fonts/gyByhwUxId8gMEwTGFWfOw.woff2",
+      "status": 200,
+      "bytes": 8004,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/geist/v5/gyByhwUxId8gMEwYGFWfOw.woff2",
+      "dest": "assets/fonts/gyByhwUxId8gMEwYGFWfOw.woff2",
+      "status": 200,
+      "bytes": 15084,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/H89BbHkbHDzlxZzxi8uPzTsp90.woff2",
+      "dest": "assets/fonts/H89BbHkbHDzlxZzxi8uPzTsp90.woff2",
+      "status": 200,
+      "bytes": 9564,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/ia3uin3hQWqDrVloC1zEtYHWw.woff2",
+      "dest": "assets/fonts/ia3uin3hQWqDrVloC1zEtYHWw.woff2",
+      "status": 200,
+      "bytes": 30368,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2",
+      "dest": "assets/fonts/JeYwfuaPfZHQhEG8U5gtPDZ7WQ.woff2",
+      "status": 200,
+      "bytes": 25348,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/MJ3N6lfN4iP5Um8rJGqLYl03tE.woff2",
+      "dest": "assets/fonts/MJ3N6lfN4iP5Um8rJGqLYl03tE.woff2",
+      "status": 200,
+      "bytes": 26132,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/Oyn2ZbENFdnW7mt2Lzjk1h9Zb9k.woff2",
+      "dest": "assets/fonts/Oyn2ZbENFdnW7mt2Lzjk1h9Zb9k.woff2",
+      "status": 200,
+      "bytes": 4756,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2",
+      "dest": "assets/fonts/OYrD2tBIBPvoJXiIHnLoOXnY9M.woff2",
+      "status": 200,
+      "bytes": 6652,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/pe8RoujoPxuTZhqoNzYqHX2MXA.woff2",
+      "dest": "assets/fonts/pe8RoujoPxuTZhqoNzYqHX2MXA.woff2",
+      "status": 200,
+      "bytes": 7040,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/PfdOpgzFf7N2Uye9JX7xRKYTgSc.woff2",
+      "dest": "assets/fonts/PfdOpgzFf7N2Uye9JX7xRKYTgSc.woff2",
+      "status": 200,
+      "bytes": 27612,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/pKRFNWFoZl77qYCAIp84lN1h944.woff2",
+      "dest": "assets/fonts/pKRFNWFoZl77qYCAIp84lN1h944.woff2",
+      "status": 200,
+      "bytes": 29380,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/qQHxgTnEk6Czu1yW4xS82HQWFOk.woff2",
+      "dest": "assets/fonts/qQHxgTnEk6Czu1yW4xS82HQWFOk.woff2",
+      "status": 200,
+      "bytes": 6528,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/syRNPWzAMIrcJ3wIlPIP43KjQs.woff2",
+      "dest": "assets/fonts/syRNPWzAMIrcJ3wIlPIP43KjQs.woff2",
+      "status": 200,
+      "bytes": 27900,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/teGhWnhH3bCqefKGsIsqFy3hK8.woff2",
+      "dest": "assets/fonts/teGhWnhH3bCqefKGsIsqFy3hK8.woff2",
+      "status": 200,
+      "bytes": 4624,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/tKtBcDnBMevsEEJKdNGhhkLzYo.woff2",
+      "dest": "assets/fonts/tKtBcDnBMevsEEJKdNGhhkLzYo.woff2",
+      "status": 200,
+      "bytes": 4052,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/tUSCtfYVM1I1IchuyCwz9gDdQ.woff2",
+      "dest": "assets/fonts/tUSCtfYVM1I1IchuyCwz9gDdQ.woff2",
+      "status": 200,
+      "bytes": 6672,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/u6gJwDuwB143kpNK1T1MDKDWkMc.woff2",
+      "dest": "assets/fonts/u6gJwDuwB143kpNK1T1MDKDWkMc.woff2",
+      "status": 200,
+      "bytes": 7556,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/VgYFWiwsAC5OYxAycRXXvhze58.woff2",
+      "dest": "assets/fonts/VgYFWiwsAC5OYxAycRXXvhze58.woff2",
+      "status": 200,
+      "bytes": 26076,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/wccHG0r4gBDAIRhfHiOlq6oEkqw.woff2",
+      "dest": "assets/fonts/wccHG0r4gBDAIRhfHiOlq6oEkqw.woff2",
+      "status": 200,
+      "bytes": 7360,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/WZ367JPwf9bRW6LdTHN8rXgSjw.woff2",
+      "dest": "assets/fonts/WZ367JPwf9bRW6LdTHN8rXgSjw.woff2",
+      "status": 200,
+      "bytes": 27736,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/assets/Y9k9QrlZAqio88Klkmbd8VoMQc.woff2",
+      "dest": "assets/fonts/Y9k9QrlZAqio88Klkmbd8VoMQc.woff2",
+      "status": 200,
+      "bytes": 4504,
+      "type": "font/woff2",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/images/hyDXj88MCw3frEowkcIYgc5Bew.png",
+      "dest": "assets/images/hyDXj88MCw3frEowkcIYgc5Bew.png",
+      "status": 200,
+      "bytes": 1334,
+      "type": "image/png",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/images/npCQaIREUBALWiuOJaWcR6FAVhE.png",
+      "dest": "assets/images/npCQaIREUBALWiuOJaWcR6FAVhE.png",
+      "status": 200,
+      "bytes": 546,
+      "type": "image/png",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/images/pGiXYozQ3mE4cilNOItfe2L2fUA.svg",
+      "dest": "assets/images/pGiXYozQ3mE4cilNOItfe2L2fUA.svg",
+      "status": 200,
+      "bytes": 201,
+      "type": "image/svg+xml",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/images/v9c0a1Gwr0RiHsDteaYwY9FfpGo.png",
+      "dest": "assets/images/v9c0a1Gwr0RiHsDteaYwY9FfpGo.png",
+      "status": 200,
+      "bytes": 543,
+      "type": "image/png",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/0G0Awsug-TwZGSbIAX3Q9LAaeozG1EqzoQ64lERypM0.so56ZRta.mjs",
+      "dest": "assets/js/0G0Awsug-TwZGSbIAX3Q9LAaeozG1EqzoQ64lERypM0.so56ZRta.mjs",
+      "status": 200,
+      "bytes": 1973,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/1k0kiAK-8SRN0PLbQN6Wb2p1Sp0ZnJ-dYx3FeIUJTR8.cmxk7SU3.mjs",
+      "dest": "assets/js/1k0kiAK-8SRN0PLbQN6Wb2p1Sp0ZnJ-dYx3FeIUJTR8.cmxk7SU3.mjs",
+      "status": 200,
+      "bytes": 867,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/53FQvdJW0RmzL9DOXYMP2oOIhTLW3FXQTvzSblkqER4.BD4bnMXP.mjs",
+      "dest": "assets/js/53FQvdJW0RmzL9DOXYMP2oOIhTLW3FXQTvzSblkqER4.BD4bnMXP.mjs",
+      "status": 200,
+      "bytes": 15738,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/8i7UfjkChZ6r1NN3Tb5id3auSY_5_PRedwZ-5j8-FXM.ConU7Ab6.mjs",
+      "dest": "assets/js/8i7UfjkChZ6r1NN3Tb5id3auSY_5_PRedwZ-5j8-FXM.ConU7Ab6.mjs",
+      "status": 200,
+      "bytes": 238722,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/aBsbsoSw7EhBL5Bh7_bbz6OdtIgkpTAP1ujbKjRn-1Y.CLr3lw_d.mjs",
+      "dest": "assets/js/aBsbsoSw7EhBL5Bh7_bbz6OdtIgkpTAP1ujbKjRn-1Y.CLr3lw_d.mjs",
+      "status": 200,
+      "bytes": 28316,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/AvoidLayoutJumping_Prod.ErXXdlcl.mjs",
+      "dest": "assets/js/AvoidLayoutJumping_Prod.ErXXdlcl.mjs",
+      "status": 200,
+      "bytes": 1281,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/BXoSL5wdWyMNjgr2FVAY2IWhwYJuXnQeAqIAft-bU-U.D3YNotPb.mjs",
+      "dest": "assets/js/BXoSL5wdWyMNjgr2FVAY2IWhwYJuXnQeAqIAft-bU-U.D3YNotPb.mjs",
+      "status": 200,
+      "bytes": 44192,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/DbEypWLMWgzLD8_vjsytA348_Y6dmWfLIDCKDBP2RNk.yp_dLOCu.mjs",
+      "dest": "assets/js/DbEypWLMWgzLD8_vjsytA348_Y6dmWfLIDCKDBP2RNk.yp_dLOCu.mjs",
+      "status": 200,
+      "bytes": 26436,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/Dpu_9zxud.BrnrY-xv.mjs",
+      "dest": "assets/js/Dpu_9zxud.BrnrY-xv.mjs",
+      "status": 200,
+      "bytes": 3303,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/drok4pokm.jqsEJbNe.mjs",
+      "dest": "assets/js/drok4pokm.jqsEJbNe.mjs",
+      "status": 200,
+      "bytes": 33250,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/dy9ZJAmwW28ySo5ZnRngHU7NXUc-CTogSLFX-1qWgi8.BVcNv6oj.mjs",
+      "dest": "assets/js/dy9ZJAmwW28ySo5ZnRngHU7NXUc-CTogSLFX-1qWgi8.BVcNv6oj.mjs",
+      "status": 200,
+      "bytes": 861,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/ebFyL_2q4.BXMot9bc.mjs",
+      "dest": "assets/js/ebFyL_2q4.BXMot9bc.mjs",
+      "status": 200,
+      "bytes": 57493,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/EGcBiDP_o.CI7PYfG1.mjs",
+      "dest": "assets/js/EGcBiDP_o.CI7PYfG1.mjs",
+      "status": 200,
+      "bytes": 19424,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/eLkqHmc5w.Dk_GFKNc.mjs",
+      "dest": "assets/js/eLkqHmc5w.Dk_GFKNc.mjs",
+      "status": 200,
+      "bytes": 5399,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/ev64ul5sa.BRoIKCsQ.mjs",
+      "dest": "assets/js/ev64ul5sa.BRoIKCsQ.mjs",
+      "status": 200,
+      "bytes": 3474,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/framer.C-hn6b0s.mjs",
+      "dest": "assets/js/framer.C-hn6b0s.mjs",
+      "status": 200,
+      "bytes": 511967,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/gO5hemBqoC1c6w_PtzWstGj9bj_3Kw7GMjbFZBSrbCo.B4Kh9H3h.mjs",
+      "dest": "assets/js/gO5hemBqoC1c6w_PtzWstGj9bj_3Kw7GMjbFZBSrbCo.B4Kh9H3h.mjs",
+      "status": 200,
+      "bytes": 1920,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/gY7GyKIGchV54-7YK77A6mZ05lIzCN3bjoIbYzazAIw.CYKNstOK.mjs",
+      "dest": "assets/js/gY7GyKIGchV54-7YK77A6mZ05lIzCN3bjoIbYzazAIw.CYKNstOK.mjs",
+      "status": 200,
+      "bytes": 1972,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/HXsMfyUig.13N89rje.mjs",
+      "dest": "assets/js/HXsMfyUig.13N89rje.mjs",
+      "status": 200,
+      "bytes": 20189,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/iEsCki3tboMsskrjdaUpk1wKk8NeTOtPqUdmXposBGQ.B5y5904Z.mjs",
+      "dest": "assets/js/iEsCki3tboMsskrjdaUpk1wKk8NeTOtPqUdmXposBGQ.B5y5904Z.mjs",
+      "status": 200,
+      "bytes": 49323,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/jL8jtEjC2.Bp4P4_dO.mjs",
+      "dest": "assets/js/jL8jtEjC2.Bp4P4_dO.mjs",
+      "status": 200,
+      "bytes": 3300,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/jzKwqENK6.1dRcTZMy.mjs",
+      "dest": "assets/js/jzKwqENK6.1dRcTZMy.mjs",
+      "status": 200,
+      "bytes": 3470,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/kcqJjQM2l.Lde57R9H.mjs",
+      "dest": "assets/js/kcqJjQM2l.Lde57R9H.mjs",
+      "status": 200,
+      "bytes": 35628,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/Lenis.UA4Rq0rY.mjs",
+      "dest": "assets/js/Lenis.UA4Rq0rY.mjs",
+      "status": 200,
+      "bytes": 28184,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/LO0UG6ZVHQObuGCDFowC9S2j7E4mF_Oe7crN_yZYI4o.DgRHbZ1Z.mjs",
+      "dest": "assets/js/LO0UG6ZVHQObuGCDFowC9S2j7E4mF_Oe7crN_yZYI4o.DgRHbZ1Z.mjs",
+      "status": 200,
+      "bytes": 43024,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/motion.D-M1P7LI.mjs",
+      "dest": "assets/js/motion.D-M1P7LI.mjs",
+      "status": 200,
+      "bytes": 150869,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/NQzlk5aux.Dg2aW5E-.mjs",
+      "dest": "assets/js/NQzlk5aux.Dg2aW5E-.mjs",
+      "status": 200,
+      "bytes": 23311,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/nY7NyXVxv.CsDnBqyr.mjs",
+      "dest": "assets/js/nY7NyXVxv.CsDnBqyr.mjs",
+      "status": 200,
+      "bytes": 10772,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/OMB8M56dq.BDO31pgB.mjs",
+      "dest": "assets/js/OMB8M56dq.BDO31pgB.mjs",
+      "status": 200,
+      "bytes": 2897,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/PfK6bLEAHmVUz3exC-bmA416ILv10x6iR9RgA5g73Oo.is802URR.mjs",
+      "dest": "assets/js/PfK6bLEAHmVUz3exC-bmA416ILv10x6iR9RgA5g73Oo.is802URR.mjs",
+      "status": 200,
+      "bytes": 21428,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/react.BNsJAPhr.mjs",
+      "dest": "assets/js/react.BNsJAPhr.mjs",
+      "status": 200,
+      "bytes": 144659,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/rKIP0Hkab43QigwEBhhKzd_o-T8908K7PtnCaG435f0._VMDXR3w.mjs",
+      "dest": "assets/js/rKIP0Hkab43QigwEBhhKzd_o-T8908K7PtnCaG435f0._VMDXR3w.mjs",
+      "status": 200,
+      "bytes": 876,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/rolldown-runtime.Dh6celcD.mjs",
+      "dest": "assets/js/rolldown-runtime.Dh6celcD.mjs",
+      "status": 200,
+      "bytes": 629,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/script_main.DAR_FhIi.mjs",
+      "dest": "assets/js/script_main.DAR_FhIi.mjs",
+      "status": 200,
+      "bytes": 110395,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/shared-lib.ClU8nFYD.mjs",
+      "dest": "assets/js/shared-lib.ClU8nFYD.mjs",
+      "status": 200,
+      "bytes": 2863,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/siteMetadata.MJq_yQ5B.mjs",
+      "dest": "assets/js/siteMetadata.MJq_yQ5B.mjs",
+      "status": 200,
+      "bytes": 514,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/sK8qzTckVClrNJfEw_0UYFaSBIqFTKjnoclgP1-oBqk.BDHGBr1t.mjs",
+      "dest": "assets/js/sK8qzTckVClrNJfEw_0UYFaSBIqFTKjnoclgP1-oBqk.BDHGBr1t.mjs",
+      "status": 200,
+      "bytes": 870,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/sVekswbGt.ChBlOBUh.mjs",
+      "dest": "assets/js/sVekswbGt.ChBlOBUh.mjs",
+      "status": 200,
+      "bytes": 18675,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/tzRZAD5uP.CwHzPOTM.mjs",
+      "dest": "assets/js/tzRZAD5uP.CwHzPOTM.mjs",
+      "status": 200,
+      "bytes": 1581,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/UFJAkrukq.CHSsFOWd.mjs",
+      "dest": "assets/js/UFJAkrukq.CHSsFOWd.mjs",
+      "status": 200,
+      "bytes": 5911,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/VP7RyaoRSybuhE4PcMrin354yeMq2zAeTmnLWuHiLMs.DPm6ZDsR.mjs",
+      "dest": "assets/js/VP7RyaoRSybuhE4PcMrin354yeMq2zAeTmnLWuHiLMs.DPm6ZDsR.mjs",
+      "status": 200,
+      "bytes": 27154,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/W3xQHPEH3zAaSM8L0JIyQWfoNlbCPNzWA1ouEaWKeDI.DikaUydB.mjs",
+      "dest": "assets/js/W3xQHPEH3zAaSM8L0JIyQWfoNlbCPNzWA1ouEaWKeDI.DikaUydB.mjs",
+      "status": 200,
+      "bytes": 892,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/wgQrHD7rZbb3PpZmWyYyVn74AFH4GzNLcV0rwBr1Rek.CBwuKfl4.mjs",
+      "dest": "assets/js/wgQrHD7rZbb3PpZmWyYyVn74AFH4GzNLcV0rwBr1Rek.CBwuKfl4.mjs",
+      "status": 200,
+      "bytes": 12136,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/XJpxGw8x9tR6zCtFPEgMu4HbaCVHUw_rh97P2e-Plos.DihC3rna.mjs",
+      "dest": "assets/js/XJpxGw8x9tR6zCtFPEgMu4HbaCVHUw_rh97P2e-Plos.DihC3rna.mjs",
+      "status": 200,
+      "bytes": 870,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/yj6cRUva6.JXOLNK6P.mjs",
+      "dest": "assets/js/yj6cRUva6.JXOLNK6P.mjs",
+      "status": 200,
+      "bytes": 13185,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/yl6Ip5oMt8eug_2mkda9IYVGA2Ku3o-J3eMtptmcJEU.Cajw4CRn.mjs",
+      "dest": "assets/js/yl6Ip5oMt8eug_2mkda9IYVGA2Ku3o-J3eMtptmcJEU.Cajw4CRn.mjs",
+      "status": 200,
+      "bytes": 1006,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/z6qrsHYyS.DwpX6amC.mjs",
+      "dest": "assets/js/z6qrsHYyS.DwpX6amC.mjs",
+      "status": 200,
+      "bytes": 30062,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/ZKGXC76Eo.DVlNwqP-.mjs",
+      "dest": "assets/js/ZKGXC76Eo.DVlNwqP-.mjs",
+      "status": 200,
+      "bytes": 2302,
+      "type": "text/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/sites/2In5ROfZwFkDIVZgZtLHuX/searchIndex-MWWLCicVHnle.json",
+      "dest": "assets/json/searchIndex-MWWLCicVHnle.json",
+      "status": 200,
+      "bytes": 54893,
+      "type": "application/json",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/yZW0rTkBQPT5mFsFaz3W/eXOm5FdMywCWQ9gUB00o/drok4pokm-chunk-default-0.framercms",
+      "dest": "assets/misc/drok4pokm-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 14557,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/yZW0rTkBQPT5mFsFaz3W/eXOm5FdMywCWQ9gUB00o/drok4pokm-indexes-default-0.framercms",
+      "dest": "assets/misc/drok4pokm-indexes-default-0.framercms",
+      "status": 200,
+      "bytes": 15508,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/Eq3O28eHRzyQu8w9Kuzz/EIwEPgpy6CHcart4uU31/EGcBiDP_o-chunk-default-0.framercms",
+      "dest": "assets/misc/EGcBiDP_o-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 676,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/cBviOr5SvzWWztSNLgPh/feyzDaSUsWZvj7h7cfkO/HXsMfyUig-chunk-default-0.framercms",
+      "dest": "assets/misc/HXsMfyUig-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 830,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/m1uF4nUCB8CiiY9NiBnP/opoq4spakyCSdLFvlkmz/kcqJjQM2l-chunk-default-0.framercms",
+      "dest": "assets/misc/kcqJjQM2l-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 12361,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/m1uF4nUCB8CiiY9NiBnP/opoq4spakyCSdLFvlkmz/kcqJjQM2l-indexes-default-0.framercms",
+      "dest": "assets/misc/kcqJjQM2l-indexes-default-0.framercms",
+      "status": 200,
+      "bytes": 13412,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/ciRHFhcUnn8erONPM4RJ/meT0ay9YqJNnWSxucS2X/NzQYTIbmI-chunk-default-0.framercms",
+      "dest": "assets/misc/NzQYTIbmI-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 27984,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/ciRHFhcUnn8erONPM4RJ/meT0ay9YqJNnWSxucS2X/NzQYTIbmI-indexes-default-0.framercms",
+      "dest": "assets/misc/NzQYTIbmI-indexes-default-0.framercms",
+      "status": 200,
+      "bytes": 29125,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/1DODGm1THjew8f5pkxNb/oo1VD4uqmfZJZP9o0Z1b/z6qrsHYyS-chunk-default-0.framercms",
+      "dest": "assets/misc/z6qrsHYyS-chunk-default-0.framercms",
+      "status": 200,
+      "bytes": 8244,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://framerusercontent.com/cms/1DODGm1THjew8f5pkxNb/oo1VD4uqmfZJZP9o0Z1b/z6qrsHYyS-indexes-default-0.framercms",
+      "dest": "assets/misc/z6qrsHYyS-indexes-default-0.framercms",
+      "status": 200,
+      "bytes": 8591,
+      "type": "application/javascript",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/404",
+      "dest": "pages/404.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/404",
+      "dest": "pages/404.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/about",
+      "dest": "pages/about.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/about",
+      "dest": "pages/about.html",
+      "status": 200,
+      "bytes": 281449,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog",
+      "dest": "pages/blog.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog",
+      "dest": "pages/blog.html",
+      "status": 200,
+      "bytes": 282294,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/designing-an-ai-agent-that-actually-ships-work",
+      "dest": "pages/blog/designing-an-ai-agent-that-actually-ships-work.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/designing-an-ai-agent-that-actually-ships-work",
+      "dest": "pages/blog/designing-an-ai-agent-that-actually-ships-work.html",
+      "status": 200,
+      "bytes": 262726,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/from-spreadsheet-chaos-to-a-single-source-of-truth",
+      "dest": "pages/blog/from-spreadsheet-chaos-to-a-single-source-of-truth.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/from-spreadsheet-chaos-to-a-single-source-of-truth",
+      "dest": "pages/blog/from-spreadsheet-chaos-to-a-single-source-of-truth.html",
+      "status": 200,
+      "bytes": 262411,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/how-kepler-cut-lead-response-time-by-65",
+      "dest": "pages/blog/how-kepler-cut-lead-response-time-by-65.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/how-kepler-cut-lead-response-time-by-65",
+      "dest": "pages/blog/how-kepler-cut-lead-response-time-by-65.html",
+      "status": 200,
+      "bytes": 262513,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/the-operations-audit-that-saves-twenty-hours-a-week",
+      "dest": "pages/blog/the-operations-audit-that-saves-twenty-hours-a-week.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/the-operations-audit-that-saves-twenty-hours-a-week",
+      "dest": "pages/blog/the-operations-audit-that-saves-twenty-hours-a-week.html",
+      "status": 200,
+      "bytes": 262411,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/what-to-automate-first-%E2%80%94-a-decision-framework",
+      "dest": "pages/blog/what-to-automate-first-—-a-decision-framework.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/what-to-automate-first-%E2%80%94-a-decision-framework",
+      "dest": "pages/blog/what-to-automate-first-—-a-decision-framework.html",
+      "status": 200,
+      "bytes": 261490,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/blog/why-most-automation-projects-stall-at-the-pilot-stage",
+      "dest": "pages/blog/why-most-automation-projects-stall-at-the-pilot-stage.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/blog/why-most-automation-projects-stall-at-the-pilot-stage",
+      "dest": "pages/blog/why-most-automation-projects-stall-at-the-pilot-stage.html",
+      "status": 200,
+      "bytes": 261533,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/contact",
+      "dest": "pages/contact.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/contact",
+      "dest": "pages/contact.html",
+      "status": 200,
+      "bytes": 304185,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/designing-an-ai-agent-that-actually-ships-work",
+      "dest": "pages/designing-an-ai-agent-that-actually-ships-work.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/from-spreadsheet-chaos-to-a-single-source-of-truth",
+      "dest": "pages/from-spreadsheet-chaos-to-a-single-source-of-truth.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/how-altura-increased-qualified-leads-by-48",
+      "dest": "pages/how-altura-increased-qualified-leads-by-48.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/how-brightfold-tripled-content-output-without-hiring",
+      "dest": "pages/how-brightfold-tripled-content-output-without-hiring.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/how-halcyon-cleared-a-three-week-intake-backlog",
+      "dest": "pages/how-halcyon-cleared-a-three-week-intake-backlog.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/how-kepler-cut-lead-response-time-by-65",
+      "dest": "pages/how-kepler-cut-lead-response-time-by-65.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/how-meridian-automated-dispatch-across-three-depots",
+      "dest": "pages/how-meridian-automated-dispatch-across-three-depots.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/",
+      "dest": "pages/index.html",
+      "status": 200,
+      "bytes": 598801,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/",
+      "dest": "pages/index.html",
+      "status": 200,
+      "bytes": 598801,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/legals/privacy-policy",
+      "dest": "pages/legals/privacy-policy.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/legals/privacy-policy",
+      "dest": "pages/legals/privacy-policy.html",
+      "status": 200,
+      "bytes": 241126,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/legals/terms-of-service",
+      "dest": "pages/legals/terms-of-service.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/legals/terms-of-service",
+      "dest": "pages/legals/terms-of-service.html",
+      "status": 200,
+      "bytes": 238576,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/pricing",
+      "dest": "pages/pricing.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/pricing",
+      "dest": "pages/pricing.html",
+      "status": 200,
+      "bytes": 326478,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/privacy-policy",
+      "dest": "pages/privacy-policy.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/terms-of-service",
+      "dest": "pages/terms-of-service.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/the-operations-audit-that-saves-twenty-hours-a-week",
+      "dest": "pages/the-operations-audit-that-saves-twenty-hours-a-week.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/what-to-automate-first-%E2%80%94-a-decision-framework",
+      "dest": "pages/what-to-automate-first-—-a-decision-framework.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/why-most-automation-projects-stall-at-the-pilot-stage",
+      "dest": "pages/why-most-automation-projects-stall-at-the-pilot-stage.html",
+      "status": 404,
+      "bytes": 221407,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work",
+      "dest": "pages/work.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work",
+      "dest": "pages/work.html",
+      "status": 200,
+      "bytes": 282065,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-altura-increased-qualified-leads-by-48",
+      "dest": "pages/work/how-altura-increased-qualified-leads-by-48.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-altura-increased-qualified-leads-by-48",
+      "dest": "pages/work/how-altura-increased-qualified-leads-by-48.html",
+      "status": 200,
+      "bytes": 261724,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-brightfold-tripled-content-output-without-hiring",
+      "dest": "pages/work/how-brightfold-tripled-content-output-without-hiring.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-brightfold-tripled-content-output-without-hiring",
+      "dest": "pages/work/how-brightfold-tripled-content-output-without-hiring.html",
+      "status": 200,
+      "bytes": 261089,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-halcyon-cleared-a-three-week-intake-backlog",
+      "dest": "pages/work/how-halcyon-cleared-a-three-week-intake-backlog.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-halcyon-cleared-a-three-week-intake-backlog",
+      "dest": "pages/work/how-halcyon-cleared-a-three-week-intake-backlog.html",
+      "status": 200,
+      "bytes": 261755,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-kepler-cut-lead-response-time-by-65",
+      "dest": "pages/work/how-kepler-cut-lead-response-time-by-65.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-kepler-cut-lead-response-time-by-65",
+      "dest": "pages/work/how-kepler-cut-lead-response-time-by-65.html",
+      "status": 200,
+      "bytes": 260856,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-meridian-automated-dispatch-across-three-depots",
+      "dest": "pages/work/how-meridian-automated-dispatch-across-three-depots.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-meridian-automated-dispatch-across-three-depots",
+      "dest": "pages/work/how-meridian-automated-dispatch-across-three-depots.html",
+      "status": 200,
+      "bytes": 261754,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816-ab6b6f8bb.framer.app/work/how-novex-improved-conversion-rate-by-2.3x",
+      "dest": "pages/work/how-novex-improved-conversion-rate-by-2.3x.html",
+      "status": 200,
+      "bytes": 26133,
+      "type": "text/html",
+      "ok": true
+    },
+    {
+      "url": "https://sociable-nonogon-193816.framer.app/work/how-novex-improved-conversion-rate-by-2.3x",
+      "dest": "pages/work/how-novex-improved-conversion-rate-by-2.3x.html",
+      "status": 200,
+      "bytes": 261274,
+      "type": "text/html",
+      "ok": true
+    }
+  ]
+}

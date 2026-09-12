@@ -1,0 +1,299 @@
+
+<div class="profile-mobile">
+  <div class="profile-info-mobile"> 
+    <div class="profile-avatar-mobile">
+      {{if eq .SignedUserName .Owner.Name}}
+        <a href="{{AppSubUrl}}/user/settings" id="profile-avatar" data-content="{{.i18n.Tr "user.change_avatar"}}" data-variation="inverted tiny" data-position="bottom center">
+          <img class="profile-img-mobile" src="{{.Owner.SizedRelAvatarLink 290}}" title="{{.Owner.Name}}"/>
+        </a>
+      {{else}}
+        <img class="profile-img-mobile" src="{{.Owner.SizedRelAvatarLink 290}}" title="{{.Owner.Name}}"/>
+      {{end}}
+    </div>
+
+    <div class="profile-content-mobile">
+      {{if .Owner.FullName}}
+        <div class="profile-fullname-mobile">{{.Owner.FullName}}</div>
+      {{end}}
+        <div class="profile-username-mobile">{{.Owner.Name}}</div>
+
+        <div class="profile-badges-mobile">
+          {{range $k,$v :=.RecentBadges}}
+            {{if le $k 3}}
+              <div class="profile-badge-mobile">
+                <img style="width: 100%;height: 100%;" src="{{.LightedIcon}}" class="ui poping up" data-content="{{.Name}}" data-position="top center" data-variation="tiny inverted">
+              </div>
+            {{else}}
+              <a class="profile-badge-mobile" href="{{$.Owner.HomeLink}}?tab=badge">
+                <i class="ri-more-fill"></i>
+              </a>
+            {{end}}
+          {{end}}
+          
+        </div>
+    </div>
+  </div>
+
+  <div class="profile-tabs-mobile">
+    <div class="profile-menu-mobile">
+      <a class='{{if eq .TabName "activity"}}active{{end}} item' href="{{.Owner.HomeLink}}?tab=activity">
+        {{if eq .TabName "activity"}}
+          <object class="profile-icons" data="/img/svg-icon/profile-activities-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-activities.svg" type="image/svg+xml"></object>
+        {{end}}
+        {{.i18n.Tr "user.activity"}}
+      </a>
+      <a class='{{if or (eq .TabName "repository") (eq .TabName "stars") }}active{{end}} item' href="{{.Owner.HomeLink}}?tab=repository">
+        {{if or (eq .TabName "repository") (eq .TabName "stars")}}
+          <object class="profile-icons" data="/img/svg-icon/profile-repo-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-repo.svg" type="image/svg+xml"></object>
+        {{end}} 
+        {{.i18n.Tr "home.repositories"}}
+      </a>
+      <a class='{{if eq .TabName "datasets"}}active{{end}} item' href="{{.Owner.HomeLink}}?tab=datasets">
+        {{if eq .TabName "datasets"}}
+          <object class="profile-icons" data="/img/svg-icon/profile-database-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-database.svg" type="image/svg+xml"></object>
+        {{end}}
+        {{.i18n.Tr "user.datasets"}}
+      </a>
+      <a class='{{if eq .TabName "model"}}active{{end}} item' href="{{.Owner.HomeLink}}?tab=model">
+        {{if eq .TabName "model"}}
+          <object class="profile-icons" data="/img/svg-icon/profile-model-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-model.svg" type="image/svg+xml"></object>
+        {{end}}
+        {{.i18n.Tr "admin.models"}}
+      </a>
+      <a class='{{if eq .TabName "computetasktemplate"}}active{{end}}  item' href="{{.Owner.HomeLink}}?tab=computetasktemplate">
+        {{if eq .TabName "computetasktemplate"}}
+          <object class="profile-icons" data="/img/svg-icon/profile-aitasktmpl-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-aitasktmpl.svg" type="image/svg+xml"></object>
+        {{end}}
+        {{.i18n.Tr "admin.computing_task_template"}}
+      </a>
+
+      <a class='{{if or (eq .TabName "following") (eq .TabName "followers")}}active{{end}} item' href="{{.Owner.HomeLink}}?tab=following">
+        {{if or (eq .TabName "following") (eq .TabName "followers")}}
+          <object class="profile-icons" data="/img/svg-icon/profile-follow-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-follow.svg" type="image/svg+xml"></object>
+        {{end}}  
+        {{.i18n.Tr "user.follow"}}
+      </a>
+      <a class='{{if eq .TabName "badge"}}active{{end}} item' href="{{.Owner.HomeLink}}?tab=badge">
+        {{if eq .TabName "badge"}}
+          <object class="profile-icons" data="/img/svg-icon/profile-medal-active.svg" type="image/svg+xml"></object>
+        {{else}}
+          <object class="profile-icons" data="/img/svg-icon/profile-medal.svg" type="image/svg+xml"></object>
+        {{end}} 
+        {{.i18n.Tr "user.badge"}}
+      </a>
+    </div>
+
+    {{if eq .TabName "activity"}}
+      {{if .EnableHeatmap}}
+        
+        <div id="user-heatmap" style="padding-right: 40px">
+          <activity-heatmap :locale="locale" :suburl="suburl" :user="heatmapUser">
+            <div slot="loading">
+              <div class="ui active centered inline indeterminate text loader" id="loading-heatmap">{{.i18n.Tr "user.heatmap.loading"}}</div>
+            </div>
+          </activity-heatmap>
+        </div>
+
+      {{end}}
+      <div class="feeds">
+        {{template "user/dashboard/feeds" .}}
+      </div>
+    {{else if or (eq .TabName "repository") (eq .TabName "stars")}}
+      <div class="stars">
+        {{template "explore/repo_search_mobile" .}}
+        {{template "explore/repo_list" .}}
+        {{template "base/paginate" .}}
+      </div>
+    {{else if eq .TabName "following"}}
+      {{template "repo/user_cards_follow" .}}
+    {{else if eq .TabName "followers"}}
+      {{template "repo/user_cards_follow" .}}
+    {{else if eq .TabName "datasets"}}
+      {{template "explore/dataset_profile" .}}
+      {{/* {{template "explore/dataset_search" .}} */}}
+      {{/* {{template "explore/dataset_list" .}} */}}
+      {{/* {{template "base/paginate" .}} */}}
+    {{else if eq .TabName "model"}}
+      {{template "explore/model_profile" .}}
+    {{else if eq .TabName "computetasktemplate"}}
+      {{template "explore/compute_profile" .}}
+    {{else if eq .TabName "badge"}}
+      {{template "repo/badge" .}}
+    {{else}}
+      {{template "explore/repo_search_mobile" .}}
+      {{template "explore/repo_list" .}}
+      {{template "base/paginate" .}}
+    {{end}}
+
+  </div>
+</div>
+{{if not .HasLoadedScripts}}
+<script src="{{StaticUrlPrefix}}/js/jquery.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/js/jsencrypt.min.js?v={{MD5 AppVer}}"></script>
+
+<script src="{{StaticUrlPrefix}}/fomantic/semantic.min.js?v={{MD5 AppVer}}"></script>
+{{if not .PageIsHome}}
+	<script src="{{StaticUrlPrefix}}/js/index.js?v={{MD5 AppVer}}"></script>
+{{end}}
+{{end}}
+
+<script>
+// 当页面加载完成后执行
+$(document).ready(function() {
+  // 找到当前激活的标签
+  const activeItem = $('.profile-menu-mobile .active');
+  if (activeItem.length > 0) {
+    // 将激活的标签滚动到容器左边
+    const menuContainer = $('.profile-menu-mobile');
+    const activeItemOffset = activeItem.offset().left - menuContainer.offset().left;
+    menuContainer.scrollLeft(activeItemOffset);
+  }
+  
+  // 为所有标签添加点击事件
+  $('.profile-menu-mobile .item').on('click', function() {
+    // 延迟执行，确保标签已经被激活
+    setTimeout(() => {
+      const menuContainer = $('.profile-menu-mobile');
+      const activeItem = $('.profile-menu-mobile .active');
+      if (activeItem.length > 0) {
+        const activeItemOffset = activeItem.offset().left - menuContainer.offset().left;
+        menuContainer.scrollLeft(activeItemOffset);
+      }
+    }, 100);
+  });
+});
+</script>
+
+
+	
+	
+
+
+
+<style>
+.profile-mobile {
+  width: auto;
+  margin:0 1em;
+}
+.profile-info-mobile {
+  padding: 30px 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+.profile-avatar-mobile {
+  display: flex;
+  margin-right: 1em;
+}
+.profile-img-mobile { 
+  width: 64px;
+  height: 64px;
+  border-radius: 100px;
+}
+.profile-fullname-mobile {
+  line-height: 25px;
+  color: rgba(16,16,16,1);
+  font-size: 18px;
+  font-weight: 700;
+  
+}
+.profile-username-mobile {
+  line-height: 20px;
+  color: rgb(16,16,16);
+  font-size: 14px;
+  margin: 0.4em 0;
+}
+.profile-badges-mobile { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.profile-badge-mobile {
+  margin-right: 0.5em;
+  width: 24px;
+  height: 24px;
+}
+/* 容器样式：启用横向滚动 */
+.profile-menu-mobile {
+  display: flex;            
+  flex-wrap: nowrap;         
+  overflow-x: auto;          
+  overflow-y: hidden;        
+  -webkit-overflow-scrolling: touch; 
+  scroll-behavior: smooth;   
+  width: 100%;              
+  max-width: 100%;           
+  scrollbar-width: none;    
+  -ms-overflow-style: none; 
+}
+
+/* 兼容 Webkit 浏览器 (Chrome, Safari, Android) 隐藏滚动条 */
+.profile-menu-mobile::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-menu-mobile .item {
+  border-bottom: 2px solid rgba(34, 36, 38, .15);
+  flex-shrink: 0;            
+  white-space: nowrap;       
+  padding: 8px 10px 12px 10px;         
+  display: flex;             
+  align-items: center;       
+  color: inherit;          
+}
+.profile-menu-mobile .active {
+  color: rgba(0,102,255,1);
+  border-bottom: 3px solid rgba(0,102,255,1) ;
+}
+
+/* 在 profile_mobile.tmpl 的 <style> 标签中添加 */
+
+/* 1. 确保包含热力图的父容器不继承横向滚动行为 */
+.profile-tabs-mobile {
+  width: 100%;
+  overflow-x: visible; /* 关键：防止父级意外裁剪 */
+  clear: both;         /* 清除浮动影响 */
+}
+
+/* 2. 强制热力图容器占满全宽 */
+#user-heatmap {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  padding-right: 0 !important; /* 移除内联样式中的 padding-right: 40px，防止右侧留白过多导致换行或溢出 */
+  margin-top: 20px;            /* 增加一点与上方菜单的间距 */
+  margin-bottom: 20px;
+  display: block !important;   /* 确保它是块级元素 */
+  visibility: visible !important;
+}
+
+/* 3. 针对 activity-heatmap 组件内部的潜在样式修复 */
+/* 如果组件内部有 canvas 或 svg，确保它们也自适应宽度 */
+#user-heatmap canvas, 
+#user-heatmap svg, 
+#user-heatmap div {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 4. 修复 feeds 容器在移动端的可能的宽度问题 */
+.profile-tabs-mobile .feeds {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px; /* 移动端适当减小 padding */
+  margin-top: 10px;
+}
+
+</style>

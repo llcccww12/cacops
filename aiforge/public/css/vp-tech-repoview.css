@@ -1,0 +1,434 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/TopMenu.vue?vue&type=style&index=0&id=3894af1c&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu[data-v-3894af1c] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu .menu-l[data-v-3894af1c] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.menu .menu-r[data-v-3894af1c] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.menu .menu-item[data-v-3894af1c] {
+  display: flex;
+  border-color: #bbbbbb;
+  border-width: 1px 1px 0px 0px;
+  border-style: solid;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background: #18349b;
+  height: 40px;
+  width: 178px;
+  cursor: pointer;
+}
+.menu .menu-item[data-v-3894af1c]:first-child {
+  border-left-width: 1px;
+}
+.menu .menu-item.focused[data-v-3894af1c] {
+  border-color: #16ceff;
+  color: #ffffff;
+  background: #162fff;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/TopHeader.vue?vue&type=style&index=0&id=347f200a&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.bg-container[data-v-347f200a] {
+  height: 200px;
+  width: 100%;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(0.9059999999999998%2C%20-0.8390000000000001%2C%200.016184413580246918%2C%200.9059999999999998%2C%20-0.183%2C%200.683)%22%3E%3Cstop%20stop-color%3D%22%233bb6fe%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%232250cf%22%20stop-opacity%3D%221%22%20offset%3D%220.61%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%237c23b4%22%20stop-opacity%3D%221%22%20offset%3D%220.99%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+  overflow: hidden;
+  position: relative;
+}
+.bg-container .bg[data-v-347f200a] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 67%;
+  top: 23%;
+}
+.bg-container .bg .bg-01[data-v-347f200a] {
+  position: absolute;
+  top: -296.85px;
+  left: -100.21px;
+  width: 11.52px;
+  height: 430.36px;
+  transform: rotate(46deg);
+  border-radius: 45px;
+  display: flex;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(2.6570000000000005%2C%20-1.366%2C%201906.3802884596842%2C%202.6570000000000005%2C%20-0.714%2C%201.313)%22%3E%3Cstop%20stop-color%3D%22%2315cf16%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ed6bc9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.bg-container .bg .bg-02[data-v-347f200a] {
+  position: absolute;
+  top: -130.68px;
+  left: -213.01px;
+  width: 3.64px;
+  height: 430.36px;
+  transform: rotate(46deg);
+  border-radius: 45px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(2.6570000000000005%2C%20-1.366%2C%2019094.65120710059%2C%202.6570000000000005%2C%20-0.714%2C%201.313)%22%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ed6bc9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.bg-container .bg .bg-03[data-v-347f200a] {
+  position: absolute;
+  top: -178.07px;
+  left: -50.045px;
+  width: 111.15px;
+  height: 306.28px;
+  transform: rotate(46deg);
+  border-radius: 63px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(2.6570000000000005%2C%20-1.366%2C%2010.372156049382713%2C%202.6570000000000005%2C%20-0.714%2C%201.313)%22%3E%3Cstop%20stop-color%3D%22%23f8da77%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ed6bc9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.bg-container .bg .bg-04[data-v-347f200a] {
+  position: absolute;
+  top: -218.72px;
+  left: 239.81px;
+  width: 20.38px;
+  height: 306.28px;
+  transform: rotate(46deg);
+  border-radius: 45px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(2.6570000000000005%2C%20-1.366%2C%20308.5173674049777%2C%202.6570000000000005%2C%20-0.714%2C%201.313)%22%3E%3Cstop%20stop-color%3D%22%2377f8f8%22%20stop-opacity%3D%220.6%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ed6bc9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.bg-container .title-c[data-v-347f200a] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.bg-container .title-c .title-main[data-v-347f200a] {
+  text-align: center;
+  color: #ffe615;
+  font-weight: 700;
+  text-shadow: rgb(34 7 94) 0px 2px 6px;
+  line-height: 39px;
+  font-size: 28px;
+  margin: 26px 0 4px;
+}
+.bg-container .title-c .title-second[data-v-347f200a] {
+  text-align: center;
+  font-weight: 700;
+  text-shadow: rgb(34 7 94) 0px 2px 6px;
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 50px;
+}
+.bg-container .menu[data-v-347f200a] {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  z-index: 2;
+  padding: 0 140px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/SearchBar.vue?vue&type=style&index=0&id=162c56da&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.search-bar[data-v-162c56da] {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.search-bar .search-bar-l[data-v-162c56da] {
+  display: flex;
+}
+.search-bar .search-bar-l .search-c[data-v-162c56da] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.search-bar .search-bar-l .search-c .search-input-c[data-v-162c56da] {
+  width: 268px;
+  height: 40px;
+  border-color: rgba(0, 61, 192, 0.73);
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px;
+  display: flex;
+  color: #888888;
+  align-items: center;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(6.123233995736766e-17%2C%201%2C%20-0.014005111865831027%2C%206.123233995736766e-17%2C%200.5%2C%200)%22%3E%3Cstop%20stop-color%3D%22%23e2d1ea%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%220.3%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.search-bar .search-bar-l .search-c .search-input-c input[data-v-162c56da] {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.search-bar .search-bar-l .search-c .search-btn[data-v-162c56da] {
+  height: 40px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0px;
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 0 20px;
+  cursor: pointer;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(-1.1800000000000002%2C%200.9499999999999998%2C%20-0.23749999999999996%2C%20-1.1800000000000002%2C%201.024%2C%200.047)%22%3E%3Cstop%20stop-color%3D%22%23bbd2f2%22%20stop-opacity%3D%221%22%20offset%3D%220.02%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23003dc0%22%20stop-opacity%3D%220.73%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.search-bar .search-bar-l .apply-btn[data-v-162c56da] {
+  margin-left: 20px;
+  border-color: #1f0173;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  font-size: 14px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(6.123233995736766e-17%2C%201%2C%20-0.08281144868278038%2C%206.123233995736766e-17%2C%200.5%2C%200)%22%3E%3Cstop%20stop-color%3D%22%233291f8%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23060075%22%20stop-opacity%3D%220.73%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.search-bar .search-bar-l .apply-btn[data-v-162c56da]:hover {
+  opacity: 0.9;
+}
+.search-bar .search-bar-l .apply-btn[data-v-162c56da]:active {
+  opacity: 0.8;
+}
+.search-bar .search-bar-l .openi-link-c[data-v-162c56da] {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar .search-bar-l .openi-link-c .openi-link[data-v-162c56da] {
+  text-decoration: underline;
+  color: #3291f8;
+}
+.search-bar .sort-c[data-v-162c56da] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/Filters.vue?vue&type=style&index=0&id=3964e17a&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.filter-c[data-v-3964e17a] {
+  margin-bottom: 32px;
+}
+.filter-c .filter-title[data-v-3964e17a] {
+  font-size: 18px;
+  color: #101010;
+  margin: 14px 0;
+}
+.filter-c .filter-item-c[data-v-3964e17a] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter-c .filter-item-c .filter-item[data-v-3964e17a] {
+  border-radius: 3px;
+  padding: 3px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.filter-c .filter-view-more-c[data-v-3964e17a] {
+  margin-top: 6px;
+}
+.filter-c .filter-view-more-c .filter-view-more[data-v-3964e17a] {
+  color: #3291f8;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filter-c .filter-view-more-c .filter-view-more i[data-v-3964e17a] {
+  margin-right: 4px;
+}
+.filter-second .filter-second-hd[data-v-3964e17a] {
+  margin: 14px 0 24px 0;
+}
+.filter-second .filter-second-hd .filter-second-go-back[data-v-3964e17a] {
+  color: #3291f8;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filter-second .filter-second-hd .filter-second-go-back i[data-v-3964e17a] {
+  margin-right: 4px;
+}
+.filter-second .filter-title[data-v-3964e17a] {
+  font-size: 18px;
+  color: #101010;
+  margin: 14px 0;
+}
+.filter-second .filter-search[data-v-3964e17a] {
+  margin: 5px 10px 10px 0;
+}
+.filter-second .filter-item-c[data-v-3964e17a] {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 605px;
+  overflow-y: auto;
+}
+.filter-second .filter-item-c .filter-item[data-v-3964e17a] {
+  border-radius: 3px;
+  padding: 3px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/PrjResultsItem.vue?vue&type=style&index=0&id=4fc61249&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.item[data-v-4fc61249] {
+  border-color: #e8e0ec;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: rgba(168, 157, 226, 0.2) 0px 5px 10px 0px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(-0.01900000000000005%2C%200.997%2C%20-0.12862587255310284%2C%20-0.01900000000000005%2C%200.995%2C%200.014)%22%3E%3Cstop%20stop-color%3D%22%23f2edf5%22%20stop-opacity%3D%221%22%20offset%3D%220.01%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%220.31%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+  overflow: hidden;
+  padding: 15px;
+}
+.title-c[data-v-4fc61249] {
+  display: flex;
+  align-items: center;
+}
+.title-c .avatar-c[data-v-4fc61249] {
+  height: 28px;
+  width: 28px;
+  margin-right: 6px;
+}
+.title-c .avatar-c img[data-v-4fc61249] {
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+}
+.title-c .title[data-v-4fc61249] {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.title-c .title span[data-v-4fc61249] {
+  color: #101010;
+  font-size: 16px;
+  font-weight: 400;
+}
+.descr[data-v-4fc61249] {
+  height: 40px;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 41px;
+  overflow: hidden;
+}
+.topics[data-v-4fc61249] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-top: 5px;
+  height: 20px;
+}
+.topics .topic[data-v-4fc61249] {
+  color: rgba(16, 16, 16, 0.8);
+  border-radius: 4px;
+  font-size: 12px;
+  background: rgba(232, 232, 232, 0.6);
+  padding: 2px 6px;
+  margin-right: 8px;
+}
+.footer[data-v-4fc61249] {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+}
+.footer .contractor[data-v-4fc61249] {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 40, 192, 0.73);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.footer .update-time[data-v-4fc61249] {
+  text-align: right;
+  min-width: 140px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/components/PrjResultsList.vue?vue&type=style&index=0&id=59cb8a54&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container .list-item-container[data-v-59cb8a54] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container .list-item-container .item-container[data-v-59cb8a54] {
+  width: 50%;
+  padding: 12px;
+}
+.center[data-v-59cb8a54] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-59cb8a54] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+.no-data .item-empty[data-v-59cb8a54] {
+  height: 180px;
+  width: 100%;
+  padding: 12px;
+  border-color: #e8e0ec;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: rgba(168, 157, 226, 0.2) 0px 5px 10px 0px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(-0.01900000000000005%2C%200.997%2C%20-0.06169646324801269%2C%20-0.01900000000000005%2C%200.995%2C%200.014)%22%3E%3Cstop%20stop-color%3D%22%23f2edf5%22%20stop-opacity%3D%221%22%20offset%3D%220.01%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%220.31%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.no-data .item-empty .item-empty-icon[data-v-59cb8a54] {
+  height: 80px;
+  width: 100%;
+}
+.no-data .item-empty .item-empty-tips[data-v-59cb8a54] {
+  font-size: 16px;
+  color: #101010;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/tech/repoview/index.vue?vue&type=style&index=0&id=8c5eb08a&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.conent-c[data-v-8c5eb08a] {
+  display: flex;
+}
+.filter-c[data-v-8c5eb08a] {
+  flex: 1;
+  padding-left: 12px;
+}
+.result-c[data-v-8c5eb08a] {
+  margin-left: 10px;
+  flex: 3;
+  width: 0;
+}
+

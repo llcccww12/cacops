@@ -1,0 +1,35 @@
+{{if and .OrderedOAuth2Names .OAuth2Providers}}
+	<div style="display:flex;align-items:center;margin:22px 0 16px 0">
+		<div style="flex:1;height:1px;
+			border-top: 1px solid rgba(34, 36, 38, .15);
+			border-bottom: 1px solid rgba(255, 255, 255, .1);"></div>
+		<div style="margin:0 12px;color: rgba(136, 136, 136, 1);
+    	font-size:14px;">{{.i18n.Tr "phone.other_login_methods"}}</div>
+		<div style="flex:1;height:1px;
+			border-top: 1px solid rgba(34, 36, 38, .15);
+			border-bottom: 1px solid rgba(255, 255, 255, .1);"></div>
+	</div>
+	<div class="ui centered grid">
+		<div class="sixteen wide mobile ten wide tablet ten wide computer column">
+			<div class="oauth2 center">
+				<div id="oauth2-login-loader" class="ui disabled centered  loader"></div>
+				<div>
+					<div id="oauth2-login-navigator">
+						<p style="display:none">{{.i18n.Tr "sign_in_with"}}</p>
+						{{range $key := .OrderedOAuth2Names}}
+							{{$provider := index $.OAuth2Providers $key}}
+							<a href="{{AppSubUrl}}/user/oauth2/{{$key}}">
+								<img
+									alt="{{$provider.DisplayName}}{{if eq $provider.Name "openidConnect"}} ({{$key}}){{end}}"
+									title="{{$provider.DisplayName}}{{if eq $provider.Name "openidConnect"}} ({{$key}}){{end}}"
+									class="{{$provider.Name}}"
+									src="{{AppSubUrl}}{{$provider.Image}}"
+									onclick="window.onOAuthLoginClick()"
+								></a>
+						{{end}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{{end}}

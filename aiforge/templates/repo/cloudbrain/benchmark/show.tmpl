@@ -1,0 +1,493 @@
+{{template "base/head" .}}
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <h4 class="ui header" id="vertical-segment">
+            <div class="ui breadcrumb">
+                <a class="section" href="{{.RepoLink}}/debugjob?debugListType=all">
+                    {{$.i18n.Tr "repo.cloudbrain"}}
+                </a>
+                <div class="divider"> / </div>
+                <!--<a class="section" href="{{$.RepoLink}}/cloudbrain/benchmark">
+                    {{$.i18n.Tr "repo.modelarts.evaluate_job"}}
+                </a>-->
+                <div class="active section">{{$.i18n.Tr "repo.modelarts.evaluate_job"}}</div>
+                <div class="divider"> / </div>
+                <div class="active section">{{.displayJobName}}</div>
+            </div>
+        </h4>
+        {{range $k ,$v := .version_list_task}}
+        <div class="ui accordion border-according" id="accordion{{.VersionName}}"
+            data-repopath="{{$.RepoRelPath}}/cloudbrain" data-jobid="{{.ID}}" data-version="{{.VersionName}}">
+            <input type="hidden" id="jobId_input" name="jobId_input" value="{{.JobID}}">
+            <div class="{{if eq $k 0}}active{{end}} title padding0">
+                <div class="according-panel-heading">
+                    <div class="accordion-panel-title">
+                        <i class="dropdown icon"></i>
+                        <span class="accordion-panel-title-content">
+                            <span>
+                                <div class="ac-display-inblock title_text acc-margin-bottom">
+                                    <span class="cti-mgRight-sm">
+                                        <td>{{TimeSinceUnix1 .CreatedUnix}}</td>
+                                    </span>
+
+                                    <span class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.status"}}：
+                                        <span id="{{.VersionName}}-status-span"><i id="icon"
+                                                style="vertical-align: middle;" class="{{.Status}}"></i><span id="text"
+                                                style="margin-left: 0.4em;font-size: 12px;">{{.Status}}</span></span>
+                                    </span>
+                                    <span
+                                        class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.train_job.dura_time"}}：</span>
+                                    <span class="cti-mgRight-sm uc-accordionTitle-black"
+                                        id="{{.VersionName}}-duration-span">{{$.duration}}</span>
+
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="{{if eq $k 0}}active{{end}} content">
+                <div class="content-pad">
+                    <div class="ui pointing secondary menu" style="border-bottom: 1px solid rgba(34,36,38,.15);">
+                        <a class="active item"
+                            data-tab="first{{$k}}">{{$.i18n.Tr "repo.modelarts.train_job.config"}}</a>
+            
+                        <a class="item detail-log-tab" data-tab="second{{$k}}"
+                            data-version="{{.VersionName}}">{{$.i18n.Tr "repo.modelarts.log"}}</a>
+                    </div>
+                    <div class="ui tab active" data-tab="first{{$k}}">
+                        <div style="padding-top: 10px;">
+                            <div class="tab_2_content">
+                                <div class="ac-grid ac-grid-col2">
+                                    <div class="ac-grid-col">
+                                        <table class="ti-form">
+                                            <tbody class="ti-text-form">
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain_task"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            {{.DisplayJobName}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.status"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="{{.VersionName}}-status">
+                                                            {{.Status}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.createtime"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            <span style="font-size: 12px;" class="">
+                                                                {{TimeSinceUnix1 .CreatedUnix}}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.time.starttime"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-startTime">
+                                                            {{if not (eq .StartTime 0)}}
+                                                            {{TimeSinceUnix1 .StartTime}}
+                                                            {{else}}
+                                                            --
+                                                            {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.time.endtime"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-EndTime">
+                                                            {{if not (eq .EndTime 0)}}
+                                                            {{TimeSinceUnix1 .EndTime}}
+                                                            {{else}}
+                                                            --
+                                                            {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.dura_time"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-duration">
+                                                            {{$.duration}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "cloudbrain.mirror"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="{{.VersionName}}-mirror">
+                                                            <span class="ui poping up clipboard" data-position="top center" id="clipboard-btn" style="cursor:pointer" 
+                                                                data-clipboard-text="{{.Image}}"
+                                                                data-success="{{$.i18n.Tr "repo.copy_link_success"}}" 
+                                                                data-error="{{$.i18n.Tr "repo.copy_link_error"}}"
+                                                                data-content="{{$.i18n.Tr "repo.copy_link"}}"
+                                                                data-variation="inverted tiny"
+                                                            >
+                                                            <span title="{{.Image}}">{{.Image}}</span> 
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_scenes"}}
+
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-BenchmarkTypeName">
+                                                            {{.BenchmarkType}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_type"}}
+
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-BenchmarkTypeName">
+                                                            {{.BenchmarkTypeName}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="ac-grid-col">
+                                        <table class="ti-form">
+                                            <tbody class="ti-text-form">
+
+                                                {{if eq .JobType "BENCHMARK"}}
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_train"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            train.py
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_test"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                            test.py
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {{else}}
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.model_name"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">{{if .ModelName}}{{.ModelName}}{{else}}--{{end}}</div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelconvert.modelversion"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">{{if .ModelVersion}}{{.ModelVersion}}{{else}}--{{end}}</div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.infer_job_model_file"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" {{if .CkptName}}title="{{.CkptName}}"{{end}}>{{if .CkptName}}{{.CkptName}}{{else}}--{{end}}</div>
+                                                    </td>
+                                                </tr>
+                                                {{end}}
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.description"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" title="{{.Description}}">
+                                                            {{if .Description}}
+                                                            {{.Description}}
+                                                            {{else}}
+                                                            --
+                                                            {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "cloudbrain.gpu_type"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content resorce_type">
+                                                        <div class="text-span text-span-w"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.standard"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content spec">
+                                                        <div class="text-span text-span-w"></div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain_creator"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="{{.VersionName}}-mirror">
+                                                            {{if .User}}
+                                                            {{.User.Name}}
+                                                            {{else}}
+                                                            --
+                                                            {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{if eq .BenchmarkTypeName "BRAINSCORE"}}
+                                                        {{$.i18n.Tr "cloudbrain.brain_area"}}
+                                                        {{else if eq .BenchmarkTypeName "SIM2BRAIN_SNN"}}
+                                                        {{$.i18n.Tr "datasets"}}
+                                                        {{else}}
+                                                        {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_child_type"}}
+                                                        {{end}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w"
+                                                            id="{{.VersionName}}-BenchmarkChildTypeName">
+
+                                                            {{if $.BenchmarkChildTypeName}}
+                                                            {{$.BenchmarkChildTypeName}}
+                                                            {{else}}
+                                                            --
+                                                            {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="ui tab" data-tab="second{{$k}}">
+                        <!--
+                        <div class="file-info">
+                             <a id="{{.VersionName}}-log-down"
+                                 class='{{if $.canDownload}}ti-download-file{{else}}disabled{{end}} file-info'
+                                 href="/api/v1/repos/{{$.RepoRelPath}}/cloudbrain/{{.ID}}/download_log_file">
+                                 <i class="ri-download-cloud-2-line"></i>
+                                 <span style="margin-left: 0.3rem;">{{$.i18n.Tr "repo.modelarts.download_log"}}</span>
+                             </a>
+                             <div class="file-info full-log-dialog" data-version="{{.VersionName}}" data-log="{{$.i18n.Tr "repo.modelarts.log_file"}}"  
+                                data-exit="{{$.i18n.Tr "repo.modelarts.exit_full_screen"}}" style="margin-left: 1rem;color:#0366d6;cursor: pointer;"
+                                data-log-down="{{$.i18n.Tr "repo.modelarts.download_log"}}" data-href="/api/v1/repos/{{$.RepoRelPath}}/cloudbrain/{{.ID}}/download_log_file"
+                                data-scroll-top="{{$.i18n.Tr "repo.log_scroll_start"}}" data-scroll-bottom="{{$.i18n.Tr "repo.log_scroll_end"}}">
+                                <i class="ri-aspect-ratio-line"></i>
+                                <span style="margin-left: 0.3rem;">{{$.i18n.Tr "repo.modelarts.fullscreen_log_file"}}</span>
+                            </div>
+                        </div>
+                        <div
+                             style="position: relative;border: 1px solid rgba(0,0,0,.2);padding: 0 10px;margin-top: 10px;">
+                             <span>
+                                 <a title="{{$.i18n.Tr "repo.log_scroll_start"}}" style="position: absolute; right: -32px;cursor: pointer;"
+                                     class="log_top" data-version="{{.VersionName}}"><i class="icon-to-top"></i></a>
+                             </span>
+                             <span class="log-info-{{.VersionName}}">
+                                 <a title="{{$.i18n.Tr "repo.log_scroll_end"}}" style="position: absolute; bottom: 10px;right: -32px;cursor: pointer;"
+                                     class="log_bottom" data-version="{{.VersionName}}"><i
+                                         class="icon-to-bottom"></i></a>
+                             </span>
+                             <div class="ui message message{{.VersionName}}" style="display: none;">
+                                 <div id="header"></div>
+                             </div>
+                             <div class="ui attached  log log-scroll" id="log{{.VersionName}}" data-version="{{.VersionName}}"
+                                 style="height: 300px !important; overflow: auto;">
+                                <div class="ui inverted active dimmer">
+                                    <div class="ui loader"></div>
+                                </div>
+                                <input type="hidden" name="end_line" value>
+                                <input type="hidden" name="end_line-max" value>
+                                <input type="hidden" name="start_line-max" value>
+                                <input type="hidden" name="start_line-max-copy" value>
+                                <input type="hidden" name="start_line" value> 
+                                <input type="hidden" name="init_log" value>
+                                <pre id="log_file{{.VersionName}}"></pre>
+                            </div>
+ 
+                        </div>
+                        -->
+                        <div class="detail-log-content detail-log-content-{{.VersionName}}"
+                            data-multiplenode=""
+                            data-logapiurl="{{$.RepoLink}}/cloudbrain/{{.ID}}/log"
+                            data-logdownloadurl="/api/v1/repos{{$.RepoLink}}/cloudbrain/{{.ID}}/download_log_file"
+                            data-workservernumber="{{.WorkServerNumber}}"
+                            data-version="{{.VersionName}}">
+                            {{template "custom/task_log" Dict "$" $ "i18n" $.i18n }}
+                        </div>
+                        <div class="ui modal full-log-dlg-{{.VersionName}} container" style="height:90%;margin:3rem auto;">
+                            <div id="log-file-title" style="font-size: 16px;font-weight:600;padding:20px 30px 16px;">{{$.i18n.Tr "repo.modelarts.log_file"}}</div>
+                            <div style="padding:0 50px 10px 30px;height:100%">
+                                <div class="detail-log-fullscreen-content detail-log-fullscreen-content-{{.VersionName}}" style="height:100%;"
+                                    data-multiplenode=""
+                                    data-logapiurl="{{$.RepoLink}}/cloudbrain/{{.ID}}/log"
+                                    data-logdownloadurl="/api/v1/repos{{$.RepoLink}}/cloudbrain/{{.ID}}/download_log_file"
+                                    data-workservernumber="{{.WorkServerNumber}}"
+                                    data-version="{{.VersionName}}">
+                                    {{template "custom/task_log" Dict "$" $ "i18n" $.i18n "Full" true }}
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- {{template "custom/max_log" .}} -->
+        {{end}} {{template "base/paginate" .}}
+    </div>
+    <!-- 确认模态框 -->
+    <div id="deletemodel">
+        <div class="ui basic modal">
+            <div class="ui icon header">
+                <i class="trash icon"></i> {{$.i18n.Tr "cloudbrain.delete_task"}}
+            </div>
+
+            <div class="content">
+                <p>{{$.i18n.Tr "cloudbrain.task_delete_confirm"}}</p>
+            </div>
+            <div class="actions">
+                <div class="ui red basic inverted cancel button">
+                    <i class="remove icon"></i> {{$.i18n.Tr "cloudbrain.operate_cancel"}}
+                </div>
+                <div class="ui green basic inverted ok button">
+                    <i class="checkmark icon"></i> {{$.i18n.Tr "cloudbrain.operate_confirm"}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{{template "base/footer" .}}
+<script src="{{StaticUrlPrefix}}/js/specsuse.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script>
+;(function() {
+    var SPEC = {{ $.Spec }};        
+    var showPoint = false;
+    var specStr = window.renderSpecStr(SPEC, showPoint, {
+        gpu_memory: {{$.i18n.Tr "cloudbrain.gpu_memory"}},
+        free: {{$.i18n.Tr "cloudbrain.free"}},
+        point_hr: {{$.i18n.Tr "cloudbrain.point_hr"}},
+        memory: {{$.i18n.Tr "cloudbrain.memory"}},
+        shared_memory: {{$.i18n.Tr "cloudbrain.shared_memory"}},
+        no_use_resource:{{$.i18n.Tr "cloudbrain.no_use_resource"}},
+    });
+    $('td.ti-text-form-content.spec div').text(specStr);
+    SPEC && $('td.ti-text-form-content.resorce_type div').text(getListValueWithKey(ACC_CARD_TYPE, SPEC.AccCardType));
+})();
+</script>
+<script>
+    $('.menu .item').tab()
+
+    $(document).ready(function () {
+        $('.ui.accordion').accordion({ selector: { trigger: '.icon' } });
+    });
+    $(document).ready(function () {
+        $('.secondary.menu .item').tab();
+    });
+
+    let userName
+    let repoPath
+    let jobName
+    $(document).ready(function () {
+        let url = window.location.href;
+        let urlArr = url.split('/')
+        userName = urlArr.slice(-5)[0]
+        repoPath = urlArr.slice(-4)[0]
+        jobName = urlArr.slice(-1)[0]
+    })
+
+    function loadLog(version_name) {
+        document.getElementById("mask").style.display = "block"
+        $.get(`/api/v1/repos/${userName}/${repoPath}/cloudbrain/${jobName}/log?version_name=${version_name}&lines=50&order=asc`, (data) => {
+            $('input[name=end_line]').val(data.EndLine)
+            $('input[name=start_line]').val(data.StartLine)
+            $(`#log_file${version_name}`).text(data.Content)
+            document.getElementById("mask").style.display = "none"
+        }).fail(function (err) {
+            console.log(err);
+            document.getElementById("mask").style.display = "none"
+        });
+    }
+
+    
+</script>

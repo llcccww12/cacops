@@ -1,0 +1,358 @@
+<style>
+  #avatar-setting-c {
+    display: flex;
+  }
+
+  #avatar-setting-c .preview-c {
+    width: 240px;
+    height: 240px;
+    border-radius: 5px;
+    border: 1px solid rgb(225, 227, 230);
+    margin-right: 22px;
+  }
+
+  #avatar-setting-c .preview-c img.preview {
+    width: 100%;
+    height: 100%;
+  }
+
+  #avatar-setting-c .preview-c .loading-c {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+  }
+
+  #avatar-setting-c .preview-c .loading-c i {
+    font-size: 32px;
+    margin-bottom: 12px;
+    animation: loader 2s infinite linear;
+  }
+
+  #avatar-setting-c .right-c {
+    flex: 1;
+    width: 0;
+  }
+
+  #avatar-setting-c .type-select-c .ui.checkbox input:checked~label:before {
+    background: #fff;
+    border-color: rgb(22, 132, 252);
+  }
+
+  #avatar-setting-c .type-select-c .ui.checkbox input:checked~label:after {
+    background-color: rgb(22, 132, 252);
+  }
+
+  #avatar-setting-c .avatar-type-select-c {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 14px;
+    cursor: pointer;
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item:hover {
+    opacity: 0.8;
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item .img-c {
+    height: 59px;
+    width: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3px;
+    border-radius: 5px;
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item img {
+    height: 56px;
+    width: 56px;
+    border-radius: 5px;
+    border: 1px solid rgb(225, 227, 230);
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item.active .img-c {
+    height: 59px;
+    width: 59px;
+    border: 1px solid rgb(1, 135, 255);
+  }
+
+  #avatar-setting-c .avatar-type-select-c .avatar-type-item.active .type-name {
+    color: rgba(1, 135, 255, 1);
+  }
+
+  #avatar-setting-c .tab-c .tab-content {
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 767px) {
+    #avatar-setting-c {
+      display: block;
+    }
+
+    #avatar-setting-c .preview-c {
+      margin-bottom: 12px;
+    }
+
+    #avatar-setting-c .right-c {
+      width: auto;
+    }
+
+    #avatar-setting-c .tab-c .tab-content {
+      height: auto;
+    }
+
+    #avatar-setting-c .avatar-type-select-c {
+      margin-bottom: 12px;
+    }
+
+    #avatar-setting-c input[name="avatar"] {
+      margin-bottom: 12px !important;
+    }
+  }
+</style>
+<h4 class="ui top attached header">
+  {{.i18n.Tr "settings.avatar"}}
+</h4>
+<div class="ui attached segment">
+  <div id="avatar-setting-c">
+    <div class="preview-c">
+      <img class="preview ui tiny image" src="{{.SignedUser.RelAvatarLink}}"></img>
+      <div class="loading-c">
+        <i class="ri-loader-2-fill"></i>
+        <div class="tips" style="color: rgba(136, 136, 136, 1);padding:0 10px;text-align: center;">
+          {{.i18n.Tr "settings.generating_wait_tip"}}
+        </div>
+      </div>
+    </div>
+    <div class="right-c">
+      <div class="data-info" link="{{.Link}}" style="display:none;" avatar="{{.SignedUser.RelAvatarLink}}"
+        lang_avatar_generate='{{$.i18n.Tr "settings.avatar_generate"}}'
+        lang_avatar_generating='{{$.i18n.Tr "settings.avatar_generating"}}'
+        lang_generating_wait_tip='{{$.i18n.Tr "settings.generating_wait_tip"}}'
+        lang_avatar_generate_failed_tip='{{$.i18n.Tr "settings.avatar_generate_failed_tip"}}'></div>
+      <div class="type-select-c" style="margin-bottom:10px;">
+        <div class="ui radio checkbox" style="margin-right:32px;">
+          <input name="type" value="tab1" type="radio" checked>
+          <label>{{$.i18n.Tr "settings.set_avatar_by_model"}}</label>
+        </div>
+        <div class="ui radio checkbox">
+          <input name="type" value="tab2" type="radio">
+          <label>{{$.i18n.Tr "settings.set_avatar_by_upload"}}</label>
+        </div>
+      </div>
+      <div class="tab-c">
+        <div class="inline field tab-content tab1">
+          <div class="avatar-type-select-c">
+            <div class="avatar-type-item active" type="0">
+              <div class="img-c"><img src="/img/user/animal.png"></img></div>
+              <span class="type-name">{{$.i18n.Tr "settings.avatar_animal"}}</span>
+            </div>
+            <div class="avatar-type-item" type="4">
+              <div class="img-c"><img src="/img/user/boy.png"></img></div>
+              <span class="type-name">{{$.i18n.Tr "settings.avatar_boy"}}</span>
+            </div>
+            <div class="avatar-type-item" type="3">
+              <div class="img-c"><img src="/img/user/girl.png"></img></div>
+              <span class="type-name">{{$.i18n.Tr "settings.avatar_girl"}}</span>
+            </div>
+            <div class="avatar-type-item" type="1">
+              <div class="img-c"><img src="/img/user/landscape.png"></img></div>
+              <span class="type-name">{{$.i18n.Tr "settings.avatar_landscape"}}</span>
+            </div>
+          </div>
+          <div>
+            <form class="ui form form1" style="display:flex;align-items:center;"
+              action="{{.Link}}/avatar/change_diffusion" method="post" enctype="multipart/form-data">
+              {{.CsrfTokenHtml}}
+              <input type="hidden" name="image_base64" value="">
+              <a class="ui blue button generate-btn">{{$.i18n.Tr "settings.avatar_generate"}}</a>
+              <a class="ui green button confirm-btn" style="display:none">{{$.i18n.Tr "settings.confirm_change"}}</a>
+            </form>
+            <div style="color: rgba(136, 136, 136, 1);margin-top:6px;">{{$.i18n.Tr "settings.avatar_model_tips" | Safe}}
+            </div>
+          </div>
+        </div>
+        <div class="inline field tab-content tab2" style="display:none">
+          <form class="ui form form2" action="{{.Link}}/avatar" method="post" enctype="multipart/form-data">
+            {{.CsrfTokenHtml}}
+            <input name="source" value="local" type="hidden">
+            <input name="avatar" style="padding:13px;margin-top:5px;margin-bottom:119px;" type="file"
+              accept=".png, .jpg, .jpeg">
+            <div class="field submit-c">
+              <a class="ui green button confirm-btn">{{$.i18n.Tr "settings.update_avatar"}}</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  ; (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      var avatarSettingEl = $('#avatar-setting-c');
+      var previewImgEl = avatarSettingEl.find('img.preview');
+      var activeTab = 'tab1';
+      var generating = false;
+      var submitting = false;
+      var avatarType = '0';
+      var link = avatarSettingEl.find('.data-info').attr('link');
+      var originAvatarUrl = avatarSettingEl.find('.data-info').attr('avatar');
+      var lang = {
+        avatar_generate: avatarSettingEl.find('.data-info').attr('lang_avatar_generate'),
+        avatar_generating: avatarSettingEl.find('.data-info').attr('lang_avatar_generating'),
+        generating_wait_tip: avatarSettingEl.find('.data-info').attr('lang_generating_wait_tip'),
+        avatar_generate_failed_tip: avatarSettingEl.find('.data-info').attr('lang_avatar_generate_failed_tip'),
+      };
+
+      var init = function () {
+        eventInit();
+        changeTab('tab1');
+      };
+
+      var reset = function () {
+        generating = false;
+        submitting = false;
+        changeAvatarType('0');
+        avatarSettingEl.find('.tab1 input[name="image_base64"]').val('');
+        avatarSettingEl.find('.tab1 .generate-btn').text(lang.avatar_generate).removeClass('disabled');
+        avatarSettingEl.find('.tab1 .confirm-btn').hide().addClass('disabled');
+        avatarSettingEl.find('.tab2 [name="avatar"]')[0].value = null;
+        avatarSettingEl.find('.tab2 .confirm-btn').addClass('disabled');
+        previewAvatar('');
+      };
+
+      var previewAvatar = function (url, type) {
+        if (type == 'loading') {
+          avatarSettingEl.find('img.preview').hide();
+          avatarSettingEl.find('.loading-c').css('display', 'flex');
+          avatarSettingEl.find('.loading-c i').show();
+          avatarSettingEl.find('.loading-c .tips').text(lang.generating_wait_tip);
+        } else if (type == 'error') {
+          avatarSettingEl.find('img.preview').hide();
+          avatarSettingEl.find('.loading-c').css('display', 'flex');
+          avatarSettingEl.find('.loading-c i').hide();
+          avatarSettingEl.find('.loading-c .tips').text(lang.avatar_generate_failed_tip);
+        } else {
+          avatarSettingEl.find('.loading-c').hide();
+          if (url) {
+            avatarSettingEl.find('img.preview').show()[0].src = url;
+          } else {
+            avatarSettingEl.find('img.preview').show()[0].src = originAvatarUrl;
+          }
+        }
+      };
+
+      var changeTab = function (tab) {
+        activeTab = tab;
+        avatarSettingEl.find('.tab-content').hide();
+        avatarSettingEl.find('.' + tab).show();
+        reset();
+      };
+
+      var changeAvatarType = function (type) {
+        avatarType = type;
+        avatarSettingEl.find('.avatar-type-item').removeClass('active');
+        avatarSettingEl.find('.avatar-type-item[type="' + type + '"]').addClass('active');
+      };
+
+      var eventInit = function () {
+        avatarSettingEl.find('input[name="type"]').on('change', function (e) {
+          changeTab($(this).val());
+        });
+
+        avatarSettingEl.find('.avatar-type-item').on('click', function (e) {
+          if (generating) return;
+          changeAvatarType($(this).attr('type'));
+        });
+
+        avatarSettingEl.find('.tab1 .generate-btn').on('click', function (e) {
+          if (generating) return;
+          avatarSettingEl.find('.tab1 .generate-btn').text(lang.avatar_generating).addClass('disabled');
+          avatarSettingEl.find('.tab1 .confirm-btn').hide().addClass('disabled');
+          previewAvatar('', 'loading');
+          generating = true;
+          $.ajax({
+            url: link + '/avatar/diffusion',
+            type: 'post',
+            dataType: 'json',
+            data: {
+              _csrf: avatarSettingEl.find('input[name="_csrf"]').val(),
+              generate_type: avatarType,
+            },
+            success: function (res) {
+              if (res.code == 0) {
+                var avatarBase64 = 'data:image/png;base64,' + res.message;
+                avatarSettingEl.find('input[name="image_base64"]').val(res.message);
+                previewAvatar(avatarBase64);
+                avatarSettingEl.find('.tab1 .confirm-btn').show().removeClass('disabled');
+              } else {
+                previewAvatar('', 'error');
+                avatarSettingEl.find('.ui.negative.message').show().find('p').text(res.message);
+              }
+              generating = false;
+              avatarSettingEl.find('.tab1 .generate-btn').text(lang.avatar_generate).removeClass('disabled');
+            },
+            error: function (err) {
+              console.log(err);
+              generating = false;
+              avatarSettingEl.find('.tab1 .generate-btn').text(lang.avatar_generate).removeClass('disabled');
+              avatarSettingEl.find('.tab1 .confirm-btn').hide().addClass('disabled');
+              previewAvatar('', 'error');
+            }
+          });
+        });
+
+        avatarSettingEl.find('.tab1 .confirm-btn').on('click', function (e) {
+          if (submitting) return;
+          var imagebase64 = avatarSettingEl.find('.tab1 input[name="image_base64"]').val();
+          if (imagebase64) {
+            avatarSettingEl.find('form.form1').submit();
+            submitting = true;
+          }
+        });
+
+        avatarSettingEl.find('.tab2 input[name="avatar"]').on('change', function (event) {
+          var file = event.target.files[0];
+          if (file && file.type.startsWith('image/')) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+              previewAvatar(event.target.result);
+              avatarSettingEl.find('.tab2 .confirm-btn').removeClass('disabled');
+            };
+            reader.readAsDataURL(file);
+          } else {
+            previewAvatar('');
+            avatarSettingEl.find('.tab2 .confirm-btn').addClass('disabled');
+          }
+        });
+
+        avatarSettingEl.find('.tab2 .confirm-btn').on('click', function (e) {
+          if (submitting) return;
+          var fileInputEl = avatarSettingEl.find('.tab2 input[name="avatar"]');
+          if (fileInputEl[0].value) {
+            avatarSettingEl.find('form.form2').submit();
+            submitting = true;
+          }
+        });
+      };
+
+      init();
+    });
+  })()
+</script>

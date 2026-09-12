@@ -1,0 +1,17 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-org-model-suqre.css?v={{MD5 AppVer}}" />
+<style>
+.el-tabs__nav-wrap::after {
+  position: static !important;
+}
+</style>
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+	<div id="nav_left_right_content" class="explore repositories">
+    <div id="org-info" data-orgid="{{.Org.ID}}" data-cancreate="{{.CanCreateOrgAimodel}}"></div>
+		<div id="__vue-root"></div>
+	</div>
+</div>
+
+<script src="{{StaticUrlPrefix}}/js/vp-org-model-suqre.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

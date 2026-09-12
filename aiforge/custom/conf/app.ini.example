@@ -1,0 +1,95 @@
+APP_NAME = CacOps 智算服务平台
+RUN_MODE = prod
+
+[repository]
+ROOT = data/git/repositories
+
+[repository.local]
+LOCAL_COPY_PATH = data/gitea/tmp/local-repo
+
+[repository.upload]
+TEMP_PATH = data/gitea/uploads
+
+[server]
+PROTOCOL         = http
+DOMAIN           = 127.0.0.1
+HTTP_ADDR        = 0.0.0.0
+HTTP_PORT        = 8787
+ROOT_URL         = http://127.0.0.1:8787/
+DISABLE_SSH      = true
+START_SSH_SERVER = false
+SSH_DOMAIN       = 127.0.0.1
+LFS_START_SERVER = true
+LFS_CONTENT_PATH = data/git/lfs
+OFFLINE_MODE     = false
+
+[database]
+DB_TYPE  = postgres
+HOST     = 127.0.0.1:5433
+NAME     = gitea
+USER     = gitea
+PASSWD   = gitea
+SSL_MODE = disable
+CHARSET  = utf8
+LOG_SQL  = false
+
+[database_statistic]
+DB_TYPE  = postgres
+HOST     = 127.0.0.1:5433
+NAME     = statistic
+USER     = gitea
+PASSWD   = gitea
+SSL_MODE = disable
+CHARSET  = utf8
+
+[indexer]
+ISSUE_INDEXER_PATH = data/gitea/indexers/issues.bleve
+
+[session]
+PROVIDER_CONFIG = data/gitea/sessions
+
+[picture]
+AVATAR_UPLOAD_PATH            = data/gitea/avatars
+REPOSITORY_AVATAR_UPLOAD_PATH = data/gitea/repo-avatars
+DISABLE_GRAVATAR              = true
+ENABLE_FEDERATED_AVATAR       = false
+
+[attachment]
+ENABLED                 = true
+PATH                    = data/gitea/attachments
+STORE_TYPE              = minio
+MAX_SIZE                = 2048
+ALLOWED_TYPES           = */*
+MAX_FILES               = 50
+MINIO_ENDPOINT          = 127.0.0.1:9000
+MINIO_ACCESS_KEY_ID     = minioadmin
+MINIO_SECRET_ACCESS_KEY = minioadmin
+MINIO_BUCKET            = gitea
+MINIO_LOCATION          = us-east-1
+MINIO_BASE_PATH         = attachments/
+MINIO_USE_SSL           = false
+MINIO_REAL_PATH         = data/minio/
+
+[storage]
+DEFAULT = minio
+
+[log]
+MODE      = console
+LEVEL     = info
+ROOT_PATH = data/gitea/log
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY   = please-change-this-secret-key
+
+[service]
+DISABLE_REGISTRATION = false
+REQUIRE_SIGNIN_VIEW  = false
+ENABLE_NOTIFY_MAIL   = false
+
+[mailer]
+ENABLED = false
+
+[flow_control]
+IGNORE_FLAG                    = local
+ATTACHEMENT_NUM_A_USER_LAST10M = 100

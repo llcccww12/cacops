@@ -1,0 +1,39 @@
+{{template "base/head" .}}
+<div class="extension model" >
+    <div class="ui container model_app_wrap">
+        <h1 class="title">{{.i18n.Tr "model_app.model_case"}}</h1>
+        <div class="ui stackable two column grid" style="margin: 0;">
+            <div class="column" style="padding-right: 3rem;">
+                <a href="/extension/wenxin" class="model_app_instance model_bg_1">
+                    <div class="img_container">
+                        <img src="/img/model/wenxin.jpg">
+                    </div>
+                </a>
+                <div class="model_app_text">
+                    <span class="desc_header">{{.i18n.Tr "model_app.wenxin_paint_model"}}</span>
+                    <span class="desc_content">{{.i18n.Tr "model_app.wenxin_paint_model_desc"}}</span>
+                </div>
+            </div>
+            <div class="column" style="padding-left: 3rem;">
+                <a href="/extension/tuomin/upload" class="model_app_instance model_bg_1">
+                    <div class="img_container">
+                        <img src="/img/model/tuomin.png">
+                    </div>
+                </a>
+                <div class="model_app_text">
+                    <span class="desc_header">{{.i18n.Tr "model_app.desensitize_model"}}</span>
+                    <span class="desc_content">{{.i18n.Tr "model_app.desensitize_model_desc"}}</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="model_app_more">
+                <div class="content">
+                    <span>{{.i18n.Tr "model_app.more_model_case"}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{{template "base/footer" .}}

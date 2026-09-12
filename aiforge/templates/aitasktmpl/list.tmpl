@@ -1,0 +1,10 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-aitasktmpl-list.css?v={{MD5 AppVer}}" />
+<link rel="stylesheet" href="/swiper/swiper-bundle.min.css?v={{MD5 AppVer}}">
+<script src="/swiper/swiper-bundle.min.js?v={{MD5 AppVer}}"></script>
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9"><div id="__vue-root"></div></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-aitasktmpl-list.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

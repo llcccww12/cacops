@@ -1,0 +1,6 @@
+<div class="ui top attached tabular menu">
+  <a class="item{{if .PageIsOrgTeamMembers}} active{{end}}" href="{{.OrgLink}}/teams/{{.Team.LowerName}}">{{svg "octicon-person" 16}} <strong>{{.Team.NumMembers}}</strong>&nbsp; {{$.i18n.Tr "org.lower_members"}}</a>
+  <a class="item{{if .PageIsOrgTeamRepos}} active{{end}}" href="{{.OrgLink}}/teams/{{.Team.LowerName}}/repositories">{{svg "octicon-repo" 16}} <strong>{{.Team.NumRepos}}</strong>&nbsp; {{$.i18n.Tr "org.lower_repositories"}}</a>
+  <a class="item{{if .PageIsOrgTeamDatasets}} active{{end}}" href="{{.OrgLink}}/teams/{{.Team.LowerName}}/datasets">{{svg "octicon-database" 16}} <strong>{{.Team.NumDatasets}}</strong>&nbsp; {{$.i18n.Tr "org.lower_datasets"}}</a>
+  <a class="item{{if .PageIsOrgTeamAimodels}} active{{end}}" href="{{.OrgLink}}/teams/{{.Team.LowerName}}/aimodels">{{svg "octicon-server" 16}} <strong>{{.Team.NumAimodels}}</strong>&nbsp; {{$.i18n.Tr "org.lower_models"}}</a>
+</div>

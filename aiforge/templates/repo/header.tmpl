@@ -1,0 +1,361 @@
+<style>
+.repo-head-navbar-c .navbar {
+	flex-wrap: wrap;
+}
+
+.repo-head-navbar-c .navbar::-webkit-scrollbar {
+	height: 1px;
+}
+.dataset_old_tip{
+	transform: translate(20px, -26px);
+	background: rgb(255, 98, 0);
+    box-shadow: none;
+    border-radius: 20px 20px 20px 0px;
+	position: absolute;
+    right: 0;
+    height: 20px;
+	color: #fff;
+	line-height: 20px;
+	font-size: 12px;
+	z-index: 999;
+}
+.dataset_old_tip .text{
+	padding: 0 2px;
+}
+.create-btn{
+	position: relative;
+	height: 40px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.create-btn .bg-1{
+	height: 100%;
+  border-radius: 4px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(0.596%2C%200.9139999999999999%2C%20-0.07461224489795917%2C%200.596%2C%20-0.016%2C%200.047)%22%3E%3Cstop%20stop-color%3D%22%2350a0f7%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%230b3ff7%22%20stop-opacity%3D%220.88%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.create-btn .bg-1 .bg-2 {
+	height: 100%;
+	border-radius: 4px;
+	background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%221%22%20cx%3D%220%22%20cy%3D%220%22%20r%3D%221%22%20gradientTransform%3D%22matrix(-1.295%2C%200.9540000000000001%2C%20-0.16112865306122448%2C%20-2.6793549999999997%2C%200.998%2C%200.061)%22%3E%3Cstop%20stop-color%3D%22%23ffb798%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23650bf7%22%20stop-opacity%3D%220%22%20offset%3D%220.82%22%3E%3C%2Fstop%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.create-btn .bg-1 .bg-2 .content-c {
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 10px;
+	z-index: 1;
+}
+.create-btn .bg-1 .bg-2 .content-c .icon-c {
+	position: relative;
+	border: 0.8px solid rgb(255, 255, 255);
+	border-radius: 100%;
+	height: 22px;
+	width: 22px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 6px;
+}
+.create-btn .bg-1 .bg-2 .content-c .icon-c svg{
+	width: calc(100% - 4px);
+  height: calc(100% - 4px);
+}
+.create-btn .bg-1 .bg-2 .content-c .title{
+	color: rgb(255, 255, 255);
+  font-size: 14px;
+}
+@media only screen and (max-width: 767px) {
+	.repo-head-navbar-c .navbar {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+	.create-btn{
+		display: none;
+	}
+	.dataset_old_tip{
+		transform: translate(20px, -18px);
+		height: 16px;
+		line-height: 16px;
+	}
+}
+</style>
+<div class="header-wrapper">
+{{with .Repository}}
+	<div class="ui container">
+		<div class="repo-header">
+			<div class="ui huge breadcrumb repo-title">
+				{{if .RelAvatarLink}}
+					<img class="ui avatar image" src="{{.RelAvatarLink}}">
+				{{else if .IsTemplate}}
+					{{if .IsPrivate}}
+						{{svg "octicon-repo-template-private" 32}}
+					{{else}}
+						{{svg "octicon-repo-template" 32}}
+					{{end}}
+				{{else}}
+					{{if .IsPrivate}}
+						{{svg "octicon-lock" 32}}
+					{{else if .IsMirror}}
+						{{svg "octicon-repo-clone" 32}}
+					{{else if .IsFork}}
+						{{svg "octicon-repo-forked" 32}}
+					{{else}}
+						{{svg "octicon-repo" 32}}
+					{{end}}
+				{{end}}
+				<a href="{{AppSubUrl}}/{{.Owner.Name}}">{{.Owner.Name}}</a>
+				<div class="divider"> / </div>
+				<a href="{{$.RepoLink}}">{{.DisplayName}}</a>
+				<i class="ri-file-copy-line clipboard poping up" id="clipboard-btn"
+					data-content="{{$.i18n.Tr "repo.copy"}}"  data-success="{{$.i18n.Tr "repo.copied"}}"
+					data-variation="inverted tiny" data-clipboard-text="{{.Owner.Name}}/{{.Name}}"
+					data-error="{{$.i18n.Tr "repo.copied_error"}}"
+					data-position="top center"
+					style="color: #919191;font-size: 14px;display:none;cursor:pointer">
+				</i>
+				{{if .RelAvatarLink}}
+					{{if .IsTemplate}}
+						{{if .IsPrivate}}
+							{{svg "octicon-repo-template-private" 32}}
+						{{else}}
+							{{svg "octicon-repo-template" 32}}
+						{{end}}
+					{{else}}
+						{{if .IsPrivate}}
+							{{svg "octicon-lock" 32}}
+						{{else if .IsMirror}}
+							{{svg "octicon-repo-clone" 32}}
+						{{else if .IsFork}}
+							{{svg "octicon-repo-forked" 32}}
+						{{else}}
+							{{svg "octicon-repo" 32}}
+						{{end}}
+					{{end}}
+				{{end}}
+				{{if .IsArchived}}<i class="archive icon archived-icon"></i>{{end}}
+				{{if .IsMirror}}<div class="fork-flag">{{$.i18n.Tr "repo.mirror_from"}} <a target="_blank" rel="noopener noreferrer" href="{{if .SanitizedOriginalURL}}{{.SanitizedOriginalURL}}{{else}}{{MirrorAddress $.Mirror}}{{end}}">{{if .SanitizedOriginalURL}}{{.SanitizedOriginalURL}}{{else}}{{MirrorAddress $.Mirror}}{{end}}</a></div>{{end}}
+				{{if .IsFork}}<div class="fork-flag">{{$.i18n.Tr "repo.forked_from"}} <a href="{{.BaseRepo.Link}}">{{.BaseRepo.FullDisplayName}}</a></div>{{end}}
+				{{if .IsGenerated}}<div class="fork-flag">{{$.i18n.Tr "repo.generated_from"}} <a href="{{.TemplateRepo.Link}}">{{SubStr .TemplateRepo.RelLink 1 -1}}</a></div>{{end}}
+			</div>
+			{{if not .IsBeingCreated}}
+				<div class="repo-buttons">
+					<div class="ui labeled button" tabindex="0">
+						<div style="position:relative;" class="ui compact basic button repo-button-item" onclick="$('.__watch_btn__').dropdown('show')">
+							<i class="icon fa-eye{{if not $.IsWatchingRepo}}-slash{{end}}"></i><span>{{if $.IsWatchingRepo}}{{$.i18n.Tr "repo.watched"}}{{else}}{{$.i18n.Tr "repo.notWatched"}}{{end}}</span>
+							<i class="dropdown icon" style="margin:0 -8px 0 4px"></i>
+							<div style="position:absolute;left:0;top:23px;" class="ui dropdown floating __watch_btn__" onclick="event.stopPropagation();">
+								<div class="text" style="display:none;"></div>
+								{{$WatchNotifyType := or $.WatchNotifyType 0}}
+								<div class="menu">
+									<div class="item {{if not $.IsWatchingRepo}}active selected{{end}}">
+										<form method="post" style="margin: 0;" action="{{$.RepoLink}}/action/unwatch?redirect_to={{$.Link}}">
+											{{$.CsrfTokenHtml}}
+											<button type="submit" style="border:none;background:transparent;width:100%;text-align:left;font-weight:inherit;cursor:pointer;">
+												<i class="check icon" style="{{if $.IsWatchingRepo}}opacity:0{{end}}"></i>
+												{{$.i18n.Tr "repo.un_watch"}}
+											</button>
+										</form>
+									</div>
+									<div class="item {{if and $.IsWatchingRepo (eq $WatchNotifyType 9)}}active selected{{end}}">
+										<form method="post" style="margin: 0;" action="{{$.RepoLink}}/action/watch?redirect_to={{$.Link}}">
+											{{$.CsrfTokenHtml}}
+											<button type="submit" style="border:none;background:transparent;width:100%;text-align:left;font-weight:inherit;cursor:pointer;">
+												<i class="check icon" style="{{if not (and $.IsWatchingRepo (eq $WatchNotifyType 9))}}opacity:0{{end}}"></i>
+												{{$.i18n.Tr "repo.watch_all"}}
+											</button>
+										</form>
+									</div>
+									<div class="item {{if and $.IsWatchingRepo (eq $WatchNotifyType 0)}}active selected{{end}}">
+										<form method="post" style="margin: 0;" action="{{$.RepoLink}}/action/watch_but_reject?redirect_to={{$.Link}}">
+											{{$.CsrfTokenHtml}}
+											<button type="submit" style="border:none;background:transparent;width:100%;text-align:left;font-weight:inherit;cursor:pointer;">
+												<i class="check icon" style="{{if not (and $.IsWatchingRepo (eq $WatchNotifyType 0))}}opacity:0{{end}}"></i>
+												{{$.i18n.Tr "repo.watch_no_notify"}}
+											</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<a class="ui basic label" href="{{.Link}}/watchers">
+							{{.NumWatches}}
+						</a>
+					</div>
+					<form method="post" style="margin: 0;" action="{{$.RepoLink}}/action/{{if $.IsStaringRepo}}un{{end}}star?redirect_to={{$.Link}}">
+						{{$.CsrfTokenHtml}}
+						<div class="ui labeled button" tabindex="0">
+							<button type="submit" class="ui compact basic button repo-button-item">
+								<i class="icon star{{if not $.IsStaringRepo}} outline{{end}}"></i><span>{{if $.IsStaringRepo}}{{$.i18n.Tr "repo.unstar"}}{{else}}{{$.i18n.Tr "repo.star"}}{{end}}</span>
+							</button>
+							<a class="ui basic label" href="{{.Link}}/stars">
+								{{.NumStars}}
+							</a>
+						</div>
+					</form>
+					{{if and (not .IsEmpty) ($.Permission.CanRead $.UnitTypeCode)}}
+						<div class="ui labeled button {{if and ($.IsSigned) (not $.CanSignedUserFork)}}disabled-repo-button{{end}}" tabindex="0">
+							<a class="ui compact basic button repo-button-item {{if or (not $.IsSigned) (not $.CanSignedUserFork)}}poping up{{end}}" {{if $.CanSignedUserFork}}href="{{AppSubUrl}}/repo/fork/{{.ID}}"{{else if $.IsSigned}} data-content="{{$.i18n.Tr "repo.fork_from_self"}}" {{ else }} data-content="{{$.i18n.Tr "repo.fork_guest_user" }}" rel="nofollow" href="{{AppSubUrl}}/user/login?redirect_to={{AppSubUrl}}/repo/fork/{{.ID}}" {{end}} data-position="top center" data-variation="tiny">
+								{{svg "octicon-repo-forked" 15}}<span>{{$.i18n.Tr "repo.fork"}}</span>
+							</a>
+							<a class="ui basic label" href="{{.Link}}/forks">
+								{{.NumForks}}
+							</a>
+						</div>
+					{{end}}
+				</div>
+			{{end}}
+		</div><!-- end grid -->
+	</div><!-- end container -->
+{{end}}
+	<div class="ui tabs container repo-head-navbar-c">
+		{{if not .Repository.IsBeingCreated}}
+			<div class="ui tabular menu navbar">
+				{{if .Permission.CanRead $.UnitTypeCode}}
+				<div class="dropdown-menu dropdown-menu-mobile">
+					<a class="{{if or .PageIsViewCode .PageIsReleaseList .PageIsWiki .PageIsActivity .PageIsViewCode}}active{{end}} item hover_active cloud-code" href="{{.RepoLink}}{{if (ne .BranchName .Repository.DefaultBranch)}}/src/{{.BranchNameSubURL | EscapePound}}{{end}}">
+							{{svg "octicon-code" 16}} {{.i18n.Tr "repo.code"}} <i class="dropdown icon"></i>
+					</a>
+					<div class="dropdown-content">
+						{{if and (.Permission.CanRead $.UnitTypeReleases) (not .IsEmptyRepo) }}
+						<a style="border: none;" class="{{if .PageIsReleaseList}}active{{end}} item" href="{{.RepoLink}}/releases">
+							{{svg "octicon-tag" 16}} {{.i18n.Tr "repo.releases"}} <span class="ui {{if not .NumReleases}}gray{{else}}blue{{end}} small label">{{.NumReleases}}</span>
+						</a>
+						{{end}}
+						{{if or (.Permission.CanRead $.UnitTypeWiki) (.Permission.CanRead $.UnitTypeExternalWiki)}}
+						<a style="border: none;" class="{{if .PageIsWiki}}active{{end}} item" href="{{.RepoLink}}/wiki" {{if (.Permission.CanRead $.UnitTypeExternalWiki)}} target="_blank" rel="noopener noreferrer" {{end}}>
+							{{svg "octicon-book" 16}} {{.i18n.Tr "repo.wiki"}}
+						</a>
+						{{end}}
+						{{if and (.Permission.CanReadAny $.UnitTypePullRequests $.UnitTypeIssues $.UnitTypeReleases) (not .IsEmptyRepo)}}
+						<a style="border: none;" class="{{if .PageIsActivity}}active{{end}} item" href="{{.RepoLink}}/activity">
+								{{svg "octicon-pulse" 16}} {{.i18n.Tr "repo.activity"}}
+						</a>
+						{{end}}
+					</div>
+				</div>
+
+				{{end}}
+
+
+
+				{{if .Permission.CanRead $.UnitTypeIssues}}
+					<a class="{{if .PageIsIssueList}}active{{end}} item" href="{{.RepoLink}}/issues">
+						{{svg "octicon-issue-opened" 16}} {{.i18n.Tr "repo.issues"}} <span class="ui {{if not .Repository.NumOpenIssues}}gray{{else}}blue{{end}} small label">{{.Repository.NumOpenIssues}}</span>
+					</a>
+				{{end}}
+
+				{{if .Permission.CanRead $.UnitTypeExternalTracker}}
+					<a class="{{if .PageIsIssueList}}active{{end}} item" href="{{.RepoExternalIssuesLink}}" target="_blank" rel="noopener noreferrer">
+						{{svg "octicon-link-external" 16}} {{.i18n.Tr "repo.issues"}} </span>
+					</a>
+				{{end}}
+
+				{{if and .Repository.CanEnablePulls (.Permission.CanRead $.UnitTypePullRequests)}}
+					<a class="{{if or .PageIsComparePull .PageIsPullList}}active{{end}} item" href="{{.RepoLink}}/pulls">
+						{{svg "octicon-git-pull-request" 16}} {{.i18n.Tr "repo.pulls"}} <span class="ui {{if not .Repository.NumOpenPulls}}gray{{else}}blue{{end}} small label">{{.Repository.NumOpenPulls}}</span>
+					</a>
+				{{end}}
+				{{if .Permission.CanRead $.UnitTypeCloudBrain}}
+				<a class="{{if .PageIsCloudBrain}}active{{end}} item" style="position: relative;" href="{{.RepoLink}}/debugjob?debugListType=all">
+						<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M4 3h16a1 1 0 0 1 1 1v7H3V4a1 1 0 0 1 1-1zM3 13h18v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7zm4 3v2h3v-2H7zM7 6v2h3V6H7z"/></svg>
+						{{.i18n.Tr "repo.cloudbrain"}}
+						<i class="question circle icon link cloudbrain-question" data-content={{.i18n.Tr "repo.cloudbrain_helper"}} data-position="top center" data-variation="mini"></i>
+						<div class="dataset_old_tip">
+							<div class="text">{{.i18n.Tr "old_dataset_tips"}}</div>
+						</div>
+				</a>
+				{{end}}
+				<a class="item" style="padding: 0;" href="/cloudbrains/create?id={{.Repository.ID}}&onwer={{.Repository.OwnerName}}&alias={{.Repository.Alias}}&name={{.Repository.Name}}">
+					<div class="create-btn">
+						<div class="bg-1">
+							<div class="bg-2">
+								<div class="content-c">
+									<div class="icon-c">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20"><defs></defs><g><path fill="#ffffff" d="M478.21 334.093L336 256l142.21-78.093c11.795-6.477 15.961-21.384 9.232-33.037l-19.48-33.741c-6.728-11.653-21.72-15.499-33.227-8.523L296 186.718l3.475-162.204C299.763 11.061 288.937 0 275.48 0h-38.96c-13.456 0-24.283 11.061-23.994 24.514L216 186.718 77.265 102.607c-11.506-6.976-26.499-3.13-33.227 8.523l-19.48 33.741c-6.728 11.653-2.562 26.56 9.233 33.037L176 256 33.79 334.093c-11.795 6.477-15.961 21.384-9.232 33.037l19.48 33.741c6.728 11.653 21.721 15.499 33.227 8.523L216 325.282l-3.475 162.204C212.237 500.939 223.064 512 236.52 512h38.961c13.456 0 24.283-11.061 23.995-24.514L296 325.282l138.735 84.111c11.506 6.976 26.499 3.13 33.227-8.523l19.48-33.741c6.728-11.653 2.563-26.559-9.232-33.036z"></path></g></svg>
+									</div>
+									<div class="title">{{.i18n.Tr "repo.cloudbrain.newtask"}} </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</a>
+				{{if .Permission.CanRead $.UnitTypeCode}}
+				{{if and MLOPS .IsMonitorAdmin }}
+				<div class="dropdown-menu dropdown-menu-mobile">
+					<a class="{{if or .PageIsPipeline .PageIsPipelineTemplate}}active{{end}} item hover_active cloud-code" href="{{.RepoLink}}/pipeline">
+							{{svg "octicon-git-commit" 16}} AI流水线 <i class="dropdown icon"></i>
+					</a>
+					<div class="dropdown-content">
+						{{if and (.Permission.CanRead $.UnitTypeReleases) (not .IsEmptyRepo) }}
+						<a style="border: none;" class="{{if .PageIsPipeline}}active{{end}} item" href="{{.RepoLink}}/pipeline">
+							{{svg "octicon-workflow" 16}} Pipeline
+						</a>
+						{{end}}
+						{{if and (.Permission.CanRead $.UnitTypeReleases) (not .IsEmptyRepo) }}
+						<a style="border: none;" class="{{if .PageIsPipelineTemplate}}active{{end}} item" href="{{.RepoLink}}/pipeline/template">
+							{{svg "octicon-project" 16}} 模版库
+						</a>
+						{{end}}
+						{{if and (.Permission.CanRead $.UnitTypeReleases) (not .IsEmptyRepo) }}
+						<a style="border: none;" class="{{if .PageIsComparisonTemplate}}active{{end}} item" href="{{.RepoLink}}/pipeline/comparison">
+							{{svg "octicon-project" 16}} 训练任务对比
+						</a>
+						{{end}}
+					</div>
+				</div>
+				{{end}}
+				{{end}}
+        <!-- {{if .IsSigned}}
+				<a class="{{if .PageIsBlockChain}}active{{end}} item " href="{{.RepoLink}}/blockchain">
+					{{svg "octicon-law" 16}}
+					{{.i18n.Tr "repo.balance"}}
+				</a>
+				{{end}} -->
+
+				{{template "custom/extra_tabs" .}}
+
+				{{if .Permission.IsAdmin}}
+					<div class="right menu">
+						<a class="{{if .PageIsSettings}}active{{end}} item" href="{{.RepoLink}}/settings">
+							{{svg "octicon-tools" 16}} {{.i18n.Tr "repo.settings"}}
+						</a>
+					</div>
+				{{end}}
+			</div>
+		{{end}}
+	</div>
+	<div class="ui tabs divider"></div>
+</div>
+
+
+<script src="{{StaticUrlPrefix}}/js/jquery.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/es5-shim.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/marked.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/purify.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/ansi_up.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/prism.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/katex.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/katex-auto-render.min.js?v={{MD5 AppVer}}"></script>
+<script src="{{StaticUrlPrefix}}/self/js/notebook/notebook.min.js?v={{MD5 AppVer}}"></script>
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/self/css/notebook/katex.min.css?v={{MD5 AppVer}}" />
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/self/css/notebook/prism.css?v={{MD5 AppVer}}" />
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/self/css/notebook/notebook.css?v={{MD5 AppVer}}" />
+<script>
+;(function () {
+	var navbarEl = $('.repo-head-navbar-c .navbar');
+	var navbarWidth = navbarEl[0].clientWidth;
+	var activeMenu = $('.repo-head-navbar-c .navbar .item.active')[0];
+	if (activeMenu) {
+		var width = activeMenu.clientWidth;
+		var left = activeMenu.offsetLeft || activeMenu.parentNode.offsetLeft;
+		if (left + width >= navbarWidth - 100) {
+			navbarEl[0].scrollTo(left + width - navbarWidth + 100, 0);
+		}
+	}
+	console.log({{.Repository}})
+})();
+</script>

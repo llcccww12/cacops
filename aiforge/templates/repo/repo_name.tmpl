@@ -1,0 +1,55 @@
+<div class="inline required field {{if .Err_RepoName}}error{{end}}" >
+        <label for="Alias">{{.i18n.Tr "form.Alias"}}</label>
+        <input id="alias" name="alias" value="{{.alias}}" autofocus required maxlength="100">
+        <span class="help">{{.i18n.Tr "form.reponame_dash_dot_error"}}</span>
+    </div>
+
+    <div class="inline required fields" style="margin-bottom: 0;">
+        <label style="text-align: right;width: 250px!important;word-wrap: break-word;">{{.i18n.Tr "form.RepoPath"}}</label>
+        <div class="required field {{if .Err_Owner}}error{{end}}" style="padding: 0;">
+            <!-- <label>{{.i18n.Tr "repo.owner"}}</label> -->
+            <div class="ui selection owner dropdown" id="ownerDropdown">
+                <input type="hidden" id="uid" name="uid" value="{{.ContextUser.ID}}" required>
+                <div class="text"  title="{{.ContextUser.Name}}">
+                    <img class="ui mini image" src="{{.ContextUser.RelAvatarLink}}">
+                    {{.ContextUser.ShortName 20}}
+                </div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" data-value="{{.SignedUser.ID}}" title="{{.SignedUser.Name}}">
+                        <img class="ui mini image" src="{{.SignedUser.RelAvatarLink}}">
+                        {{.SignedUser.ShortName 20}}
+                    </div>
+                    {{range .Orgs}}
+                        <div class="item" data-value="{{.ID}}" title="{{.Name}}">
+                            <img class="ui mini image" src="{{.RelAvatarLink}}">
+                            {{.ShortName 20}}
+                        </div>
+                    {{end}}
+                </div>
+            </div>
+            <!-- <span class="help">{{.i18n.Tr "repo.repo_owner_helper"}}</span> -->
+        </div>
+        <!-- <div class="required field {{if .Err_RepoName}}error{{end}}">
+            <input  id="repo_name" name="repo_name" value="{{.repo_name}}" autofocus required>
+        </div> -->
+         <div class="ui interval" style="width: 0.6em;font-size: 2rem;line-height: 0px;text-align: center;">/</div>
+        <div class="required field {{if .Err_RepoName}}error{{end}}">
+            <!-- <label for="repo_name">{{.i18n.Tr "repo.repo_name"}}</label> -->
+            <input style="width: 100% !important;" id="repo_name" name="repo_name" value="{{.repo_name}}" maxlength="100" autofocus required>
+            
+        </div>
+        
+        
+    </div>
+    <span style="display: block;margin-bottom: 1em;" class="help">{{.i18n.Tr "form.repoadd_dash_dot_error"}}</span>
+    <div class="inline field" id="repoAdress" style="display: none;word-break: break-all;">
+        <label for="">{{.i18n.Tr "form.RepoAdress"}}:</label>
+    
+            <span style="flex: 1;"></span>
+        
+        
+        
+    </div>
+
+  

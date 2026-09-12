@@ -1,0 +1,97 @@
+<div class="web-show-mobile-hide max-mid-menu" style="display:flex">
+  {{template "base/navbar/mid_menu_link" .}}
+</div>
+<div class="min-mid-menu" style="display:flex">
+  <div class="item edge">
+    <div class="ui dropdown-menu">
+      <span class="item lfpd" style="cursor:pointer">
+        <a style="color:inherit" href="javascript:;">{{.i18n.Tr "home"}}</a>
+        <i class="dropdown icon mglf" ></i>
+      </span>
+      <div class="menu dropdown-content">
+        <div class="ui menu vertical">
+          {{template "base/navbar/mid_menu_link" .}}
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>
+<style>
+  #navbar .min-mid-menu .dropdown-content,
+  #navbar .min-mid-menu .dropdown-content .ui.vertical.menu {
+    background-color: #101010;
+    border-color: #101010;
+  }
+
+  #navbar .min-mid-menu .dropdown-content .edge {
+    padding: 0.78571429em 0.62857143em !important;
+    margin: 0 .35714286em !important;
+    margin-right: 0 !important;
+  }
+
+  #navbar .min-mid-menu .dropdown-content a {
+    padding: 0;
+  }
+
+  #navbar .min-mid-menu .dropdown-content a:hover {
+    background: none;
+  }
+
+  #navbar .min-mid-menu .dropdown-content .web-hide-mobile-show {
+    display: flex !important;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item {
+    margin-right: 0;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item .menu {
+    left: -1000%;
+    background: #101010;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item:hover .menu {
+    left: 100%;
+  }
+  
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item .menu.visible {
+    left: 100%;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item .menu .item {
+    color: white !important;
+    border: none;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item.active {
+    border: none;
+  }
+
+  #navbar .min-mid-menu .ui.vertical.menu .dropdown.item .menu .item:hover {
+    color: #40a9ff !important;
+  }
+
+  @media only screen and (max-width: 767px) {
+    .min-mid-menu {
+      display: none !important;
+    }
+  }
+
+  @media only screen and (min-width:767px) and (max-width:1360px) {
+    .min-mid-menu {
+      display: flex !important;
+    }
+  }
+
+  @media only screen and (min-width:1360px) {
+    .min-mid-menu {
+      display: none !important;
+    }
+  }
+
+  @media only screen and (max-width:1360px) {
+    .max-mid-menu {
+      display: none !important;
+    }
+  }
+</style>

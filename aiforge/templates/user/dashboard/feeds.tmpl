@@ -1,0 +1,387 @@
+{{range .Feeds}}
+  <style>
+  .news {
+    border-bottom: 1px solid rgba(234, 234, 234, 1);
+    padding: 15px 0;
+  }
+  </style>
+	<div class="news">
+		<div class="ui left">
+			<img class="ui avatar image" src="{{.GetActAvatar}}" alt="">
+		</div>
+		<div class="ui grid">
+			<div class="ui fourteen wide column">
+				<div class="{{if or (eq .GetOpType 5) (eq .GetOpType 18)}}push news{{end}}">
+					<p class="text truncate">
+						{{if gt .ActUser.ID 0}}
+							<a href="{{AppSubUrl}}/{{.GetActUserName}}" title="{{.GetDisplayNameTitle}}">{{.GetDisplayName}}</a>
+						{{else}}
+							{{.ShortActUserName}}
+						{{end}}
+						{{if eq .GetOpType 1}}
+							{{$.i18n.Tr "action.create_repo" .GetRepoLink .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 2}}
+							{{$.i18n.Tr "action.rename_repo" .GetContent .GetRepoLink .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 5}}
+							{{ $branchLink := .GetBranch | EscapePound | Escape}}
+							{{$.i18n.Tr "action.commit_repo" .GetRepoLink $branchLink (Escape .GetBranch) .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 6}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.create_issue" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 7}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.create_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 8}}
+							{{$.i18n.Tr "action.transfer_repo" .GetContent .GetRepoLink .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 9}}
+							{{ $branchLink := .GetBranch | EscapePound | Escape}}
+							{{$.i18n.Tr "action.push_tag" .GetRepoLink $branchLink .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 10}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.comment_issue" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 11}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.merge_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 12}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.close_issue" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 13}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.reopen_issue" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 14}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.close_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 15}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.reopen_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 16}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.delete_tag" .GetRepoLink .GetBranch .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 17}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.delete_branch" .GetRepoLink .GetBranch .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 18}}
+							{{ $branchLink := .GetBranch | EscapePound}}
+							{{$.i18n.Tr "action.mirror_sync_push" .GetRepoLink $branchLink .GetBranch .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 19}}
+							{{$.i18n.Tr "action.mirror_sync_create" .GetRepoLink .GetBranch .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 20}}
+							{{$.i18n.Tr "action.mirror_sync_delete" .GetRepoLink .GetBranch .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 21}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.approve_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 22}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.reject_pull_request" .GetRepoLink $index .ShortRepoFullDisplayName | Str2html}}
+						{{else if eq .GetOpType 23}}
+							{{ $index := index .GetIssueInfos 0}}
+							{{$.i18n.Tr "action.comment_pull" .GetRepoLink $index .ShortRepoPath | Str2html}}
+						{{else if eq .GetOpType 24}}
+							{{$.i18n.Tr "action.upload_dataset" .GetRepoLink .RefName | Str2html}}
+						{{else if eq .GetOpType 25}}
+							{{if .Cloudbrain}}
+								{{.RefName}}
+								{{$.i18n.Tr "action.task_gpudebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_gpudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 26}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_npudebugjob"  (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_npudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 27}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_nputrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_nputrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 28}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_inferencejob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_inferencejob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 50}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpu_inferencejob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpu_inferencejob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 51}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_iluvatar_inferencejob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_iluvatar_inferencejob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 29}}
+							{{$.i18n.Tr "action.task_benchmark" .Content .RefName | Str2html}}
+						{{else if eq .GetOpType 30}}
+						{{ $refNewUrl:= encodeURIComponent .RefName }}
+							{{$.i18n.Tr "action.task_createmodel" .GetRepoLink $refNewUrl .RefName | Str2html}}
+						{{else if eq .GetOpType 31}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_gputrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_gputrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 32}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2netnputrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2netnputrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 33}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2netgputrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2netgputrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 35}}
+							{{if gt .RepoID 0}}
+								{{$.i18n.Tr "action.dataset_recommended1"  (index .GetIssueInfos 1 | RenderEmoji) | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.dataset_recommended" (Printf "%s/%s" .Dataset.Owner.Name .Dataset.Name) (.Dataset.DisplayName) | Str2html}}
+							{{end}}
+						{{else if eq .GetOpType 39}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_npudebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_npudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 40}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 41}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_gcudebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_gcudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 42}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_gcutrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_gcutrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 43}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_mludebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_mludebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 46}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_dcudebugjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_dcudebugjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 47}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_cpusupercomputejob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_cpusupercomputejob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 48}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob1" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob1" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 49}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob2" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpudebugjob2" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 44}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_mlutrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_mlutrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 53}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_iluvatar_trainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_iluvatar_trainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 65}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_metax_trainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_gpgpu_metax_trainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 54}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2netgeneraljob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2netgeneraljob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 45}}
+							{{$.i18n.Tr "action.task_c2ent_onlineinferjob" .Content .RefName | Str2html}}
+						{{else if eq .GetOpType 55}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_modelexperience" .Cloudbrain.ComputeResource (Printf "/modelbase/experience/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_modelexperience_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 56}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_sftfinetune" .Cloudbrain.ComputeResource (Printf "/modelbase/nlp/sft/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_sftfinetune_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 57}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_dcutrainjob" (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_dcutrainjob" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 58}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_sftfinetune" .Cloudbrain.ComputeResource (Printf "/modelbase/nlp/sft/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_sftfinetune_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 59}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_modelexperience" .Cloudbrain.ComputeResource (Printf "/modelbase/experience/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_modelexperience_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 60}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_loratrain" .Cloudbrain.ComputeResource (Printf "/modelbase/cv/sft/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_loratrain_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 61}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_comfyui" .Cloudbrain.ComputeResource (Printf "/modelbase/cv/comfyui/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_comfyui_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 62}}
+							{{$.i18n.Tr "action.create_datasets" (Printf "%s/%s" .Dataset.Owner.Name .Dataset.Name) (.Dataset.DisplayName) | Str2html}}
+						{{else if eq .GetOpType 63}}
+							{{$.i18n.Tr "action.delete_datasets"}}<span style="">{{(.Dataset.DisplayName)}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+						{{else if eq .GetOpType 66}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2ent_modelevaluate" .Cloudbrain.ComputeResource (Printf "/modelbase/evaluate/detail/%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2ent_modelevaluate_d" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 67}}
+							{{$.i18n.Tr "action.create_models" (Printf "%s/%s" .Aimodel.Owner.Name .Aimodel.Name) (.Aimodel.DisplayName) | Str2html}}
+						{{else if eq .GetOpType 68}}
+							{{$.i18n.Tr "action.delete_models"}}<span style="">{{(.Aimodel.DisplayName)}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+						{{else if eq .GetOpType 70}}
+							{{$.i18n.Tr "action.model_recommended" (Printf "%s/%s" .Aimodel.Owner.Name .Aimodel.Name) (.Aimodel.DisplayName) | Str2html}}
+						{{else if eq .GetOpType 71}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_birendebugjob" .GetRepoLink (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_birendebugjob" "" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{else if eq .GetOpType 72}}
+							{{if .Cloudbrain}}
+								{{$.i18n.Tr "action.task_c2net_birentrainjob" .GetRepoLink (Printf "%d" .Cloudbrain.ID) .RefName | Str2html}}
+							{{else}}
+								{{$.i18n.Tr "action.task_c2net_birentrainjob" "" "" "" | Str2html}}<span style="">{{.RefName}}{{$.i18n.Tr "repo.issues.deleted_milestone"}}</span>
+							{{end}}
+						{{end}}
+					</p>
+					{{if or (eq .GetOpType 5) (eq .GetOpType 18)}}
+						<div class="content">
+							<ul>
+								{{ $push := ActionContent2Commits .}}
+								{{ $repoLink := .GetRepoLink}}
+								{{if $push.Commits}}
+									{{range $push.Commits}}
+										<li><img class="img-8" src="{{$push.AvatarLink .AuthorEmail}}"> <a class="commit-id" href="{{$repoLink}}/commit/{{.Sha1}}">{{ShortSha .Sha1}}</a> <span class="text truncate light grey">{{.Message}}</span></li>
+									{{end}}
+								{{end}}
+								{{if and (gt $push.Len 1) $push.CompareURL}}<li><a href="{{AppSubUrl}}/{{$push.CompareURL}}">{{$.i18n.Tr "action.compare_commits" $push.Len}} »</a></li>{{end}}
+							</ul>
+						</div>
+					{{else if eq .GetOpType 6}}
+						<span class="text truncate issue title">{{index .GetIssueInfos 1 | RenderEmoji}}</span>
+					{{else if eq .GetOpType 7}}
+						<span class="text truncate issue title">{{index .GetIssueInfos 1 | RenderEmoji}}</span>
+					{{else if or (eq .GetOpType 10) (eq .GetOpType 21) (eq .GetOpType 22) (eq .GetOpType 23)}}
+						<a href="{{.GetCommentLink}}" class="text truncate issue title">{{.GetIssueTitle | RenderEmoji}}</a>
+						<p class="text truncate pre-wrap light grey">{{index .GetIssueInfos 1 | RenderEmoji}}</p>
+					{{else if eq .GetOpType 11}}
+						<p class="text truncate pre-wrap light grey">{{index .GetIssueInfos 1}}</p>
+					{{else if or (eq .GetOpType 12) (eq .GetOpType 13) (eq .GetOpType 14) (eq .GetOpType 15)}}
+						<span class="text truncate pre-wrap issue title">{{.GetIssueTitle | RenderEmoji}}</span>
+					{{end}}
+					<p class="text italic light grey">{{TimeSince .GetCreate $.i18n.Lang}}</p>
+				</div>
+			</div>
+			<div class="ui two wide right aligned column">
+				{{if eq .GetOpType 24}}
+				     <span class="text grey"><i class="ri-uninstall-line icon big"></i></span>
+				{{else if eq .GetOpType 25}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 26}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 39}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 40}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 41}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 42}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 57}}
+				<span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 43}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 44}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 45}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 46}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 47}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 48}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 49}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 27}}
+				     <span class="text grey"><i class="ri-character-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 28}}
+				     <span class="text grey"><i class="ri-haze-2-line icon big"></i></span>
+				{{else if eq .GetOpType 50}}
+				     <span class="text grey"><i class="ri-haze-2-line icon big"></i></span>
+				{{else if eq .GetOpType 51}}
+				     <span class="text grey"><i class="ri-haze-2-line icon big"></i></span>
+				{{else if eq .GetOpType 53}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 54}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 55}}
+				     <span class="text grey"><i class="ri-voice-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 29}}
+				     <span class="text grey"><i class="ri-vip-crown-line icon big"></i></span>
+				{{else if eq .GetOpType 30}}
+				     <span class="text grey"><i class="ri-picture-in-picture-exit-line icon big"></i></span>
+				{{else if eq .GetOpType 31}}
+				     <span class="text grey"><i class="ri-character-recognition-line icon big"></i></span>
+				{{else if eq .GetOpType 35}}
+				     <span class="text grey"><i class="thumbs up outline icon big"></i></span>
+				{{else}}
+             <span class="text grey">{{svg (printf "octicon-%s" (ActionIcon .GetOpType)) 32}}</span>
+				{{end}}
+			</div>
+		</div>
+		{{/* <div class="ui divider"></div> */}}
+	</div>
+{{end}}

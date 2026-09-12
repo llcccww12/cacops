@@ -1,0 +1,38 @@
+{{if .Dirs}}
+    <table id="repo-files-table" class="ui single line table">
+      <tbody>
+        {{range .Dirs}}
+        <tr>
+          <td class="name four wide">
+            <span class="truncate">
+                <span class="octicon octicon-file-directory"></span>
+                <a class="title" href="{{if .IsDir}}{{$.RepoLink}}/datasets/dirs/{{$.Uuid}}?parentDir={{.ParenDir}}{{end}}">
+                  <span class="fitted">{{if .IsDir}} {{svg "octicon-file-directory" 16}}{{else}}{{svg "octicon-file" 16}}{{end}}</span> {{.FileName}}
+                </a>
+            </span>
+          </td>
+          <td class="message nine wide">
+            <span class="truncate has-emoji">
+              {{.Size | FileSize}}
+            </span>
+          </td>
+          <td class="text right age three wide">
+            <span class="time-since poping up">{{.ModTime}}</span>
+          </td>
+        </tr>
+        {{end}}
+      </tbody>
+    </table>
+
+   <table id="dataset-files-table" class="ui single line table">
+       
+   </table>
+   <script src="{{StaticUrlPrefix}}/self/test.js?v={{MD5 AppVer}}"></script>
+
+
+   <script type="text/javascript">
+       displayDir({{$.Uuid}})
+   </script>
+
+
+{{end}}

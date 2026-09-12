@@ -1,0 +1,43 @@
+<style>
+    .dis {
+        margin-bottom: 20px;
+    }
+    
+    .disabled {
+        cursor: pointer;
+        pointer-events: none;
+    }
+
+    .ui.segment.bottom.attached {
+        border: none;
+    }
+    
+    .ui.secondary.vertical.pointing.menu{
+        border-right-width: 0px !important;
+    }
+
+    .vertical.menu .item {
+        border-right-color: white !important;
+    }
+
+    .vertical.menu .activate.item {
+        font-weight: 700;
+    }
+</style>
+<div class="three wide column">
+    <div class="ui grid">
+        <div class="sixteen wide column ui secondary sticky pointing tabular vertical menu">
+            <a class="{{if .PageIsNotebook}}active{{end}} item" href="{{.RepoLink}}/modelarts/notebook">
+                {{svg "octicon-repo" 16}} {{.i18n.Tr "repo.modelarts.notebook"}}
+            </a>
+            <a class="{{if .PageIsTrainJob}}active{{end}} item" href="{{.RepoLink}}/modelarts/train-job">
+                {{svg "octicon-inbox" 16}} {{.i18n.Tr "repo.modelarts.train_job"}}
+            </a>
+            <!--
+            <a class="{{if .PageIsParaManage}}active{{end}} item" href="{{.RepoLink}}/modelarts/train-job/para-manage">
+                {{svg "octicon-inbox" 16}} {{.i18n.Tr "repo.modelarts.train_job_para_admin"}}
+            </a>
+            -->
+        </div>
+    </div>
+</div> 

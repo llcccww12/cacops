@@ -1,0 +1,299 @@
+
+.content-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .main-body {
+      flex: 1;
+      height: 0;
+      position: relative;
+      display: flex;
+  
+      .main-content {
+        flex: 1;
+        margin: 20px;
+        overflow-y: auto;
+        padding: 10px 0;
+        border-color: rgba(157, 197, 226, 0.4);
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        .create-tips{
+          margin-top:1rem;
+          margin-left:2rem;
+          color:#FA8C16;
+          justify-content: flex-start;
+          display: flex;
+          align-items: center;
+        }
+        .area {
+          padding: 42px;
+          width: 1200px;
+  
+          .area-content {
+            .area-main-wrap {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+  
+              .area-main-btn {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 2rem;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+    
+}
+.list-wrap{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .main-body{
+    flex: 1;
+    height: 0;
+    position: relative;
+    display: flex;
+    .content {
+      height: calc(100% - 40px);
+      margin: 20px;
+      overflow-y: auto;
+      padding: 0 0 10px 0;
+      border-color: rgba(157, 197, 226, 0.4);
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 10px;
+      background: rgb(255, 255, 255);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .body {
+        flex: 1;
+        position: relative;
+  
+        .table-container {
+          height: calc(100% - 20px);
+  
+          .el-table::before {
+            background-color: rgba(157, 197, 226, 0.4);
+          }
+  
+          /deep/ .el-table__header {
+            th {
+              height: 42px;
+              background: #f0f0f0;
+              color: rgba(0, 0, 0, 0.87);
+              font-weight: 400;
+              font-size: 14px;
+              border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+            }
+          }
+  
+          /deep/ .el-table__body {
+            td {
+              height: 50px;
+              border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+            }
+          }
+  
+          /deep/ .el-table__empty-block {
+            height: 100px !important;
+          }
+  
+          /deep/ .el-table__fixed-right-patch {
+            background: #f0f0f0;
+          }
+  
+          /deep/ td:last-child {
+            border-right: 1px solid rgba(157, 197, 226, 0.4);
+          }
+  
+          .dispaly-job-name {
+            font-size: 14px;
+            font-weight: bold;
+          }
+  
+          .status-wrap {
+            display: flex;
+            align-items: center;
+  
+            i,
+            span {
+              margin-right: 4px;
+            }
+          }
+  
+          .op-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+  
+            a {
+              margin: 0 10px;
+              font-size: 14px;
+              color: #1678c2;
+  
+              &.disabled {
+                color: rgba(0, 0, 0, .87);
+              }
+  
+              &.delete {
+                color: red;
+              }
+            }
+  
+            .el-dropdown {
+              margin: 0 10px;
+              color: rgba(0, 0, 0, .87);
+              cursor: pointer;
+            }
+          }
+        }
+      }
+  
+      .foot {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 10px;
+      }
+    }
+  }
+  .tips {
+    padding-left: 20px;
+    margin-top: 1rem;
+    
+    color: #888888;
+    font-size: 14px;
+  
+    /deep/ span {
+      color: #f2711c;
+    }
+  }
+  .op-btn {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-size: 14px;
+    background: rgba(22, 132, 252, 0.9);
+    border-radius: 4px;
+  
+    &:active {
+      background: rgb(22, 132, 252, 1);
+    }
+  
+  
+    &:focus,
+    &:hover {
+      background: rgba(22, 132, 252, 0.8);
+    }
+  
+    .btn-content {
+      display: flex;
+      align-items: center;
+  
+      i {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+.err-msg-box-c {
+  padding: 0 42px;
+  width: 1200px;
+  margin-top: 20px;
+
+  .err-msg-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff6f6;
+    color: #9f3a38;
+    box-shadow: 0 0 0 1px #e0b4b4 inset, 0 0 0 0 transparent;
+    margin: 1em 0;
+    padding: 1em 1.5em;
+    border-radius: 0.28571429rem;
+    transition: opacity .1s ease, color .1s ease, background .1s ease, box-shadow .1s ease, -webkit-box-shadow .1s ease;
+
+    >p {
+      opacity: .85;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .content-box {
+      .main-body {
+      .main-content {
+          width: 100%;
+          padding: 10px;
+          margin: 0;
+          margin-top: 12px;
+          .area {
+          padding: 10px;
+          width: 100%;
+          }
+      }
+      }
+  }
+  .err-msg-box-c {
+    padding: 0 16px; /* 减少左右内边距 */
+    width: 100%; /* 宽度占满父容器 */
+    margin-top: 10px; /* 减少上边距 */
+
+    .err-msg-box {
+      margin: 0.5em 0; /* 减少外边距 */
+      padding: 0.8em 1em; /* 减少内边距 */
+      border-radius: 0.2rem; /* 调整圆角 */
+      font-size: 14px; /* 调整字体大小 */
+      flex-direction: column; /* 垂直排列内容 */
+      text-align: center; /* 文字居中 */
+
+      >p {
+        margin-top: 0.5em; /* 增加段落间距 */
+      }
+    }
+  }
+  .list-wrap{
+    .foot {
+      justify-content: center !important;
+      .el-pagination {
+
+        /deep/ .el-pagination__total,
+        /deep/ .el-pagination__sizes,
+        /deep/ .el-pagination__jump {
+          display: none;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .el-message-box__wrapper .el-message-box {
+    width: calc(100% - 20px);
+  }
+
+  .el-popup-parent--hidden {
+    padding-right: 0px !important;
+  }
+
+  .explore.users {
+    margin-right: 0px !important;
+  }
+
+  .repository .header-wrapper {
+    margin-bottom: 0;
+  }
+
+  .repo-header {
+    display: none;
+  }
+}

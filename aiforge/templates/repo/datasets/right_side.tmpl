@@ -1,0 +1,96 @@
+<div class="ui segment metas">
+  <div class="ui basic">
+		<span class="text branch-name">{{.i18n.Tr "dataset.dataset_setting"}}</span>
+	</div>
+  <div class="ui divider"></div>
+  <div class="ui floating jump select-milestone dropdown">
+    {{if $.Permission.CanWrite $.UnitTypeDatasets}}
+      <span class="text" id="menutext_1">
+        <strong>{{.i18n.Tr "dataset.category"}}</strong>
+        {{svg "octicon-gear" 16}}
+      </span>
+      <div class="filter menu">
+        <input type="hidden" name="category" id="category" value="{{.dataset.Category}}">
+        {{range $category := categories}}
+          <a class="checked item" data-category-id="{{$category}}">
+            {{if eq $category $.dataset.Category}}
+              <span class="octicon-check">{{svg "octicon-check" 16}}</span>
+            {{end}}
+            {{$.i18n.Tr (printf "dataset.category.%s" $category)}}
+          </a>
+        {{end}}
+      </div>
+    {{else}}
+      <span class="text"><strong>{{.i18n.Tr "dataset.category"}}</strong></span>
+    {{end}}
+  </div>
+  <div class="ui select-milestone list">
+    {{if .dataset.Category}}
+      <a class="item" href="javascript:void(0)"> {{$.i18n.Tr (printf "dataset.category.%s" .dataset.Category)}}</a>
+    {{else}}
+      <span class="no-select item">{{.i18n.Tr "dataset.no_category"}}</span>
+    {{end}}
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui floating jump select-milestone dropdown">
+    {{if $.Permission.CanWrite $.UnitTypeDatasets}}
+      <span class="text" id="menutext_2">
+        <strong>{{.i18n.Tr "dataset.task"}}</strong>
+        {{svg "octicon-gear" 16}}
+      </span>
+      <div class="filter menu">
+        <input type="hidden" name="task" id="task" value="{{.dataset.Task}}">
+        {{range $task := tasks}}
+          <a class="item" data-task-id="{{$task}}">
+            {{if eq $task $.dataset.Task}}
+              <span class="octicon-check">{{svg "octicon-check" 16}}</span>
+            {{end}}
+            {{$.i18n.Tr (printf "dataset.task.%s" $task)}}
+          </a>
+        {{end}}
+      </div>
+    {{else}}
+      <span class="text">
+        <strong>{{.i18n.Tr "dataset.task"}}</strong>
+      </span>
+    {{end}}
+  </div>
+  <div class="ui select-milestone list">
+    {{if .dataset.Task}}
+      <a class="item" href="javascript:void(0)"> {{$.i18n.Tr (printf "dataset.task.%s" .dataset.Task)}}</a>
+    {{else}}
+      <span class="no-select item">{{.i18n.Tr "dataset.no_task"}}</span>
+    {{end}}
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui floating jump select-milestone dropdown">
+    {{if $.Permission.CanWrite $.UnitTypeDatasets}}
+      <span class="text" id="menutext_3">
+        <strong>{{.i18n.Tr "dataset.license"}}</strong>
+        {{svg "octicon-gear" 16}}
+      </span>
+      <div class="filter menu">
+        <input type="hidden" name="license" id="license" value="{{.dataset.License}}">
+        {{range $license := licenses}}
+          <a class="item" data-license-id="{{$license}}">
+            {{if eq $license $.dataset.License}}
+              <span class="octicon-check">{{svg "octicon-check" 16}}</span>
+            {{end}}
+            {{$license}}
+          </a>
+        {{end}}
+      </div>
+    {{else}}
+      <span class="text">
+        <strong>{{.i18n.Tr "dataset.license"}}</strong>
+      </span>
+    {{end}}
+  </div>
+  <div class="ui select-milestone list">
+    {{if .dataset.License}}
+      <a class="item" href="javascript:void(0)"> {{.dataset.License}}</a>
+    {{else}}
+      <span class="no-select item">{{.i18n.Tr "dataset.no_license"}}</span>
+    {{end}}
+  </div>
+</div>

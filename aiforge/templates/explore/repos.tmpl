@@ -1,0 +1,31 @@
+{{template "base/head_home" .}}
+<div class="explore repositories">
+	{{template "explore/repo_search" .}}
+	{{template "explore/repo_orgtop" .}}
+	<div class="ui container">
+		<div class="ui grid">
+			{{template "explore/repo_left" .}}
+
+			<div class="ui sixteen wide mobile twelve wide tablet ten wide computer column">
+				{{template "explore/repo_list" .}}
+				<div id="app" style="margin-top: 2rem;">
+					<div class="center">
+						<el-pagination
+						background
+						@current-change="handleCurrentChange"
+						:current-page="page"
+						:page-sizes="[20]"
+						:page-size="20"
+						layout="total, sizes, prev, pager, next, jumper"
+						:total="{{.Page.Paginater.Total}}">
+						</el-pagination>
+					</div>
+				</div>
+			</div>
+			<div class="computer only ui three wide computer column">
+				{{template "explore/repo_right" .}}
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

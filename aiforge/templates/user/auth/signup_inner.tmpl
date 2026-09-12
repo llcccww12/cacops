@@ -1,0 +1,265 @@
+<style>
+.full.height{background-color: #F9F9F9;}
+</style>
+<style>
+	@media only screen and (max-width: 1200px) {
+		._container {
+			display:block !important;
+		}
+   	._left-img-area {
+	 		display: none;
+	 	}
+	 	._right_content_area {
+	 
+	 	}
+	 	._right_content_area .segment {	 
+			margin-left: auto !important;
+			border-top-left-radius: .28571429rem !important;
+			border-bottom-left-radius: .28571429rem !important;
+			border-left: border: 1px solid rgba(34,36,38,.15) !important;
+	 	}
+  }
+</style>
+<div class="ui container very padded {{if .LinkAccountMode}} icon{{end}}" style=" padding-top: 5.0rem; padding-bottom: 3.0rem;">	
+	<div class="_container" style="display:flex;justify-content:center;">
+		<div class="_left-img-area" style="padding-right:0;flex:2">
+			<div style="width:450px;height:100%;float:right;border-radius:0.28571429rem;border-top-right-radius: 0;
+				border-bottom-right-radius: 0;border-right:none !important;overflow: hidden;
+				-webkit-box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+				box-shadow: 0 2px 4px 0rgba(34,36,38,.12),0 2px 10px 0rgba(34,36,38,.15);">
+				{{ if .ActivityTpl }}
+					{{ .ActivityTpl | Safe}}
+				{{ else }}
+					{{ template "user/auth/signin_up_img_default" .}}
+				{{ end }}
+			</div>
+		</div>
+		<div class="_right_content_area" style="padding-left:0;flex:3;">
+			<div class="ui raised very padded text container segment" style="margin-left:0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-left: none !important;
+			">
+				<div class="ui centered grid">
+					<div class="sixteen wide mobile ten wide tablet ten wide computer column">
+						<div class="ui bottom aligned two column grid">
+							<div class="column">
+								<h2 class="ui header">
+								{{if .LinkAccountMode}}
+									{{.i18n.Tr "auth.oauth_signup_title"}}
+								{{else}}
+									{{if .WechatSignUpRequired}}
+										{{.i18n.Tr "auth.fill_registration_info"}}
+									{{else}}
+										{{.i18n.Tr "sign_up"}}
+									{{end}}
+								{{end}}
+								</h2>
+							</div>
+							{{if not .LinkAccountMode}}
+							<div class="ui right floated column">
+								<a href="{{AppSubUrl}}/user/login">{{.i18n.Tr "auth.register_helper_msg"}}</a>
+							</div>
+							{{end}}
+						</div>
+						<div class="ui grid">
+							<div class="column">
+								<form id="submitForm" class="ui form" action="{{.SignUpLink}}" method="post" onsubmit="return submitFormFn()" onclick="return checkSubmitForm();">
+									{{.CsrfTokenHtml}}
+									{{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeRegister)}}
+										{{template "base/alert" .}}
+									{{end}}
+									{{if and .Err_Wechat .Err_Wechat_Type .Err_Wechat_Content}}
+									<div class="ui negative message err_wechat">
+										{{if eq .Err_Wechat_Type "should_bind_wechat"}}
+										<p>{{.i18n.Tr "auth.wechat_err_1"}} <a class="re-scan-code" href="">{{.i18n.Tr "auth.re_scaning_code"}}</a></p>
+										{{else if eq .Err_Wechat_Type "qr_code_expire"}}
+										<p>{{.i18n.Tr "auth.wechat_err_2"}} <a class="re-scan-code" href="">{{.i18n.Tr "auth.re_scaning_code"}}</a></p>
+										{{else if eq .Err_Wechat_Type "wechat_account_used"}}
+										<p>{{.i18n.Tr "auth.wechat_err_3"}} <a class="re-scan-code" href="">{{.i18n.Tr "auth.re_scaning_code"}}</a></p>
+										{{else}}
+										<p>{{.Err_Wechat_Content}}</p>
+										{{end}}
+									</div>
+									{{end}}
+									{{if .DisableRegistration}}
+										<p>{{.i18n.Tr "auth.disable_register_prompt"}}</p>
+									{{else}}
+										<div class="field invitation_tips" style="font-weight:400;font-size:14px;color:rgba(250,140,22,1);{{if not .invitationCode}}display:none;{{end}}">
+											<span>{{.i18n.Tr "your_friend"}} <span class="__invitation_code__">{{.invitationCode}}</span> {{.i18n.Tr "invite_you_to_join_the_OpenI_AI_Collaboration_Platform_and_enjoy_abundant_free_computing_resources"}}</span>
+										</div>
+										<div class="field {{if and (.Err_UserName) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeRegister))}}error{{end}}">
+											<input id="user_name" name="user_name" value="{{.user_name}}" placeholder="{{.i18n.Tr "username"}}" autofocus required>
+										</div>
+										<!--
+										<div class="field {{if .Err_Email}}error{{end}}">
+											<input id="email" name="email" type="email" value="{{.email}}" placeholder="{{.i18n.Tr "email"}}" required>
+										</div>	
+										-->
+										{{if .WechatSignUpRequired}}
+										<input id="signUpId" name="sign_up_id" value="" autocomplete="off" style="display:none">
+										{{end}}
+										{{if not .DisablePassword}}
+										<div class="field {{if and (.Err_Password) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeRegister))}}error{{end}}">											
+											<input id="input_password" type="password" value="{{.password}}" placeholder="{{.i18n.Tr "password"}}" autocomplete="off" required>
+											<input id="password" name="password" type="hidden" value="">
+										</div>
+										<div class="field {{if and (.Err_Password) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeRegister))}}error{{end}}">
+											<input id="input_retype" type="password" value="{{.retype}}" placeholder="{{.i18n.Tr "re_type"}}" autocomplete="off" required>
+											<input id="retype" name="retype" type="hidden" value="">
+										</div>
+										{{end}}
+										
+										{{if and .EnableCaptcha (eq .CaptchaType "image")}}
+										<div class="field">
+											{{.Captcha.CreateHtml}}
+										</div>
+										<div class="field {{if .Err_Captcha}}error{{end}}">
+											<input id="captcha" name="captcha" value="{{.captcha}}" placeholder="{{.i18n.Tr "captcha"}}" autocomplete="off">
+										</div>
+										{{end}}
+										
+										{{if and .EnableCaptcha (eq .CaptchaType "recaptcha")}}
+										<div class="field required">
+											<div class="g-recaptcha" data-sitekey="{{ .RecaptchaSitekey }}"></div>
+										</div>
+										{{end}}
+										
+										{{if .EnablePhone }}
+											<div class="use-type" usetype="0">
+												{{template "user/auth/phone_verify" .}}
+											</div>
+										{{end}}
+
+										<div class="field required {{if .Err_Occupation}}error{{end}}">											
+											<div class="ui language selection dropdown" id="occupation">
+												<input name="occupation" type="hidden" value="">
+												<i class="dropdown icon"></i>
+												{{if or (eq .occupation  2) (eq .occupation  3) (eq .occupation  4) (eq .occupation  1)}}
+													<div class="text">
+														{{if eq .occupation  2}}{{.i18n.Tr "occupation_student"}}{{end}}
+														{{if eq .occupation  3}}{{.i18n.Tr "occupation_researcher"}}{{end}}
+														{{if eq .occupation  4}}{{.i18n.Tr "occupation_enterprise_personnel"}}{{end}}
+														{{if eq .occupation  1}}{{.i18n.Tr "occupation_other"}}{{end}}
+													</div>
+												{{else}}
+													<div class="default text" style="">{{.i18n.Tr "occupation_status"}}</div>
+												{{end}}																						
+												<div class="menu">
+													<div class="item{{if eq .occupation 2}} active selected{{end}}" data-value="2">{{.i18n.Tr "occupation_student"}}</div>
+													<div class="item{{if eq .occupation 3}} active selected{{end}}" data-value="3">{{.i18n.Tr "occupation_researcher"}}</div>
+													<div class="item{{if eq .occupation 4}} active selected{{end}}" data-value="4">{{.i18n.Tr "occupation_enterprise_personnel"}}</div>
+													<div class="item{{if eq .occupation 1}} active selected{{end}}" data-value="1">{{.i18n.Tr "occupation_other"}}</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="field">
+											<div style="display:flex;">
+												<div style="display:flex;align-items:center;">
+													<span>{{.i18n.Tr "recommender"}}</span>
+												</div>
+												<input style="flex:1;margin-left:12px;" id="invitation_code" name="invitation_code" value="{{.invitationCode}}" {{if .invitationCode}}readonly="true"{{end}} autocomplete="off" />
+											</div>
+										</div>
+
+										<div class="field">
+											<div class="ui checkbox">
+												<input name="agree" type="checkbox" tabindex="0" class="hidden" {{if .agree}}checked{{end}}><label>{{.i18n.Tr "use_and_privacy_agree" "/home/term" "/home/privacy" | Safe}}</label>
+											</div>
+										</div>
+										<div class="ui hidden divider"></div>
+										<div class="center aligned field">
+											<button class="fluid large ui blue button submitFormButton">
+												{{if .LinkAccountMode}}
+													{{.i18n.Tr "auth.oauth_signup_submit"}}
+												{{else}}
+													{{.i18n.Tr "auth.create_new_account"}}
+												{{end}}
+											</button>
+										</div>
+									{{end}}
+								</form>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+  ; (function () {
+    // 清除后端渲染的错误提示
+    function clearFlashMessages() {
+      var messages = document.querySelectorAll('.ui.negative.message, .ui.positive.message, .ui.info.message');
+      messages.forEach(function(msg) {
+        msg.style.display = 'none';
+      });
+      // 清除 input 的 error 状态
+      var errorInputs = document.querySelectorAll('.field.error');
+      errorInputs.forEach(function(field) {
+        field.classList.remove('error');
+      });
+    }
+
+    // 监听所有输入字段，修改时清除错误提示
+    var inputFields = document.querySelectorAll('#submitForm input[type="text"], #submitForm input[type="password"], #submitForm input[type="checkbox"]');
+    inputFields.forEach(function(input) {
+      input.addEventListener('input', clearFlashMessages);
+      input.addEventListener('change', clearFlashMessages);
+    });
+
+    // 监听 occupation dropdown 变化
+    var occupationDropdown = document.querySelector('#occupation');
+    if (occupationDropdown) {
+      occupationDropdown.addEventListener('change', clearFlashMessages);
+    }
+
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var signUpId = urlSearchParams.get('signUpId');
+		var signUpIdEl = document.querySelector('#signUpId');
+    if (signUpId && signUpIdEl) {
+      document.querySelector('#signUpId').value = signUpId;
+    }
+    var sharedUser = urlSearchParams.get('sharedUser');
+    if (sharedUser) {
+      document.querySelector('.invitation_tips').style.display = "block";
+      document.querySelector('.__invitation_code__').innerText = sharedUser;
+      document.querySelector('#invitation_code').value = sharedUser;
+      document.querySelector('#invitation_code').setAttribute("readonly", "true");
+    }
+    var submitActionUrl = document.querySelector('#submitForm').getAttribute('action');
+    document.querySelector('#submitForm').setAttribute('action', submitActionUrl + '?' + urlSearchParams.toString());
+    var errWechatEl = document.querySelector('.err_wechat');
+    if (errWechatEl) {
+      var _urlSearchParams = new URLSearchParams(window.location.search);
+      _urlSearchParams.delete('signUpId');
+      errWechatEl.querySelector('.re-scan-code').setAttribute('href', '/user/sign_up_scancode?' + _urlSearchParams.toString());
+    }
+  })();
+	
+	function submitFormFn() {
+		document.querySelector('.submitFormButton').classList.add('disabled');
+	};
+
+	function checkSubmitForm() {
+		var isNeedEncrypt={{.LoginEncrypt}};
+		if (isNeedEncrypt) {
+			document.getElementById('password').value = rsaEncrypt(document.getElementById('input_password').value);
+			document.getElementById('retype').value = rsaEncrypt(document.getElementById('input_retype').value);
+		} else {
+			document.getElementById('password').value = document.getElementById('input_password').value;
+			document.getElementById('retype').value = document.getElementById('input_retype').value;
+		}
+		return true;
+	}
+
+	function rsaEncrypt(txt) {
+		var publicKey = {{.RSAPublicKey}};
+		const encrypted = new JSEncrypt();
+		encrypted.setPublicKey(publicKey);
+		return encrypted.encrypt(txt);
+	}
+</script>

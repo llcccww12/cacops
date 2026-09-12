@@ -1,0 +1,401 @@
+._tree-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-top: 20px;
+  z-index: 2;
+}
+
+._tree-toolbar .legend-c {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid #e9edf2;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 10px 0;
+  padding: 6px 12px;
+}
+
+._tree-toolbar .legend {
+  display: flex;
+  align-items: center;
+  margin-right: 18px;
+}
+
+._tree-toolbar .legend:last-child {
+  margin-right: 0;
+}
+
+._tree-toolbar .legend .legend-icon {
+  margin-right: 5px;
+  height: 14px;
+  width: 18px;
+  border-radius: 2px;
+}
+
+._tree-toolbar .legend .legend-name {
+  font-size: 12px;
+  color: rgba(136, 136, 136, 1);
+}
+
+._tree-toolbar .legend .legend-isprarent {
+  background: rgb(98, 69, 246);
+}
+
+._tree-toolbar .legend .legend-iscurrent {
+  background: rgb(15, 170, 171);
+}
+
+._tree-toolbar .legend .legend-isderive {
+  background: rgb(3, 102, 214);
+}
+
+._tree-toolbar .legend .legend-isderive.private {
+  background: rgb(85, 85, 85);
+  position: relative;
+}
+
+._tree-toolbar .legend .legend-isderive.private .lock-c {
+  background: rgb(85, 85, 85);
+}
+
+._tree-toolbar .legend .legend-isrepo {
+  border-radius: 8px;
+  border: 1px solid rgb(3, 102, 214);
+  background: rgb(255, 255, 255);
+  position: relative;
+}
+
+._tree-toolbar .legend .legend-isrepo.private .lock-c {
+  background: rgb(16, 16, 16);
+}
+
+._tree-toolbar .legend .lock-c {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+._tree-toolbar .legend .lock-c i {
+  font-size: 12px;
+  color: white;
+}
+
+._tree-layout {
+  position: absolute;
+  width: 1500px;
+  height: 500px;
+  /* border: 1px solid gray; */
+  transition: scale 30ms;
+  z-index: 1;
+}
+
+._tree-layout ._tree-layout-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+._tree-layout ._tree-layout-svg path {
+  transition: all 250ms ease;
+}
+
+._tree-layout ._tree-node {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-all;
+  transition: all 250ms ease;
+}
+
+._tree-layout ._tree-node-block {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px;
+}
+
+._tree-layout ._tree-node .name {
+  color: white;
+}
+
+._tree-layout ._tree-node a.name {
+  cursor: pointer;
+}
+
+._tree-layout ._tree-node a.name:hover {
+  text-decoration: underline;
+}
+
+._tree-layout ._tree-node.model-parent {
+  border-style: none;
+  border-color: unset;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  line-height: 17px;
+  font-weight: normal;
+  font-style: normal;
+  background: rgb(98, 69, 246);
+}
+
+._tree-layout ._tree-node.model-parent .name {
+  cursor: default;
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+._tree-layout ._tree-node.model-current {
+  border-style: none;
+  border-color: unset;
+  box-shadow: rgba(15, 170, 171, 0.4) 0px 0px 20px 0px;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  line-height: 17px;
+  font-weight: bold;
+  font-style: normal;
+  background: rgb(15, 170, 171);
+}
+
+._tree-layout ._tree-node.model-current .name {
+  cursor: default;
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+._tree-layout ._tree-node.model-parent .name:hover,
+._tree-layout ._tree-node.model-current .name:hover {
+  text-decoration: none;
+}
+
+._tree-layout ._tree-node.model-derive {
+  border-style: none;
+  border-color: unset;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  line-height: 17px;
+  font-weight: normal;
+  font-style: normal;
+  background: rgb(3, 102, 214);
+}
+
+._tree-layout ._tree-node.model-derive.private {
+  background: rgb(85, 85, 85);
+}
+
+._tree-layout ._tree-node .lock-c {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(85, 85, 85);
+}
+
+._tree-layout ._tree-node .lock-c i {
+  font-size: 12px;
+  color: white;
+}
+
+._tree-layout ._tree-node.model-derive .name {
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+._tree-layout ._tree-node.repo {
+  border-color: rgb(3, 102, 214);
+  border-width: 1px;
+  border-style: solid;
+  color: rgb(16, 16, 16);
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  line-height: 17px;
+  font-weight: normal;
+  font-style: normal;
+  background: rgb(255, 255, 255);
+}
+
+._tree-layout ._tree-node.repo.private .lock-c {
+  background: rgb(16, 16, 16);
+}
+
+._tree-layout ._tree-node.repo .name {
+  color: #101010;
+  max-height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+._tree-layout ._tree-node .descr {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: rgb(136, 136, 136);
+  font-weight: 300;
+  height: 22px;
+  padding-top: 6px;
+  line-height: 17px;
+}
+
+._tree-layout ._tree-node .creator {
+  position: absolute;
+  right: 100%;
+  font-size: 12px;
+  font-weight: normal;
+  width: 80px;
+  height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 4px;
+}
+
+._tree-layout ._tree-node .creator a {
+  color: rgb(136, 136, 136);
+}
+
+._tree-layout ._tree-node .creator a:hover {
+  text-decoration: underline;
+}
+
+._tree-layout ._tree-node .node-expand-c {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+}
+
+._tree-layout ._tree-node .node-expand-line {
+  position: absolute;
+  height: 1px;
+  width: 20px;
+  background-color: rgb(122, 184, 251);
+}
+
+._tree-layout ._tree-node .node-expand-icon {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: rgb(122, 184, 251);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 13px;
+  top: -8px;
+  border-radius: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 14px;
+  font-size: 13px;
+  user-select: none;
+}
+
+._model-info {
+  position: fixed;
+  width: 326px;
+  border-color: rgb(225, 227, 230);
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: rgb(225, 227, 230) 0px 2px 6px 0px;
+  border-radius: 5px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 10px;
+  z-index: 10001;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+._model-info .line {
+  border-bottom: 1px solid #e1e3e6;
+  margin: 7px 0;
+}
+
+._model-info .tit {
+  font-size: 12px;
+  color: rgb(22, 132, 252);
+}
+
+._model-info .row {
+  display: flex;
+  padding-left: 2px;
+  margin: 4px 0;
+}
+
+._model-info .row > div:nth-child(1) {
+  width: 88px;
+  color: rgb(136, 136, 136);
+  text-align: right;
+}
+
+._model-info .row > div:nth-child(2) {
+  flex: 1;
+  color: rgb(16, 16, 16);
+  width: 0;
+  word-break: normal;  /* 正常换行行为 */
+  word-break: break-all;
+  hyphens: none;  /* 禁用连字符换行 */
+}
+._model-info .row > div:nth-child(2) > a:last-child >span{
+  display: none;
+}
+._model-info .row .dataset-c {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:lang(en-US) ._model-info .row > div:nth-child(1) {
+  width: 120px;
+}

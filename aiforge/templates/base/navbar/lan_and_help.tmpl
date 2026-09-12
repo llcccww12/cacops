@@ -1,0 +1,59 @@
+<style>
+.ui.language.simple.jump.dropdown.item.poping.up.active,
+.ui.language.simple.jump.dropdown.item.poping.up:hover {background:transparent;}
+</style>
+<div class="ui language simple jump dropdown item poping up" data-content="{{.i18n.Tr "language"}}" data-variation="tiny">  
+  <div class="language-set-text" style="width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+    border-radius: 20px;border:1px solid rgba(16, 16, 16, 0.2);color:rgba(32,37,101,0.9)">{{$.Lang}}</div>
+  <div class="menu">
+    {{range .AllLangs}}
+      <a lang="{{.Lang}}" class="item {{if eq $.Lang .Lang}}active selected{{end}}" href="javascript:;" olang="{{$.Lang}}" lang="{{.Lang}}" >{{.Name}}</a>
+    {{end}}
+  </div>
+</div>
+<div class="ui simple item  poping up" data-content="{{.i18n.Tr "help"}}" data-variation="tiny">
+  <a target="_blank" href="{{AppSubUrl}}/docs/index.html">
+    <div style="display:flex;justify-content:center;align-items:center;font-size:10px;cursor:pointer;    
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(16, 16, 16, 0.2);
+      border-radius:100%;
+      text-align:center;
+      background-size: cover;
+      background-position: center;">      
+      <svg xmlns="http://www.w3.org/2000/svg" class="styles__StyledSVGIconPathComponent-sc-1sh3oaa-0 bFqWRb svg-icon-path-icon fill" viewBox="0 0 48 48" width="16" height="16"><defs></defs><g><path d="M5 7H16C20.4183 7 24 10.5817 24 15V42C24 38.6863 21.3137 36 18 36H5V7Z" fill="none" stroke="rgba(32, 37, 101, 0.9)" stroke-width="4" stroke-linejoin="round"></path><path d="M43 7H32C27.5817 7 24 10.5817 24 15V42C24 38.6863 26.6863 36 30 36H43V7Z" fill="none" stroke="rgba(32, 37, 101, 0.9)" stroke-width="4" stroke-linejoin="round"></path></g></svg>
+    </div>
+  </a>
+</div>
+<script>
+  ;(function() {
+    var lang = {{$.Lang}};
+    document.querySelector('.language-set-text').innerHTML = lang.split('-')[0].toLocaleUpperCase();
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始化语言切换事件
+      function initLanguageSwitcher(){
+        let items = document.querySelectorAll('.ui.language .menu .item');
+        items.forEach(function(item) {
+          item.addEventListener('click', function() {
+            let lang = this.getAttribute('lang');
+            let oLang = this.getAttribute('olang');
+            if (oLang === lang) return;
+            let origin = window.location.origin;
+            let pathname = window.location.pathname;
+            let search = window.location.search;
+            let hash = window.location.hash;
+            let urlSearchParams = new URLSearchParams(search);
+            urlSearchParams.set('lang', lang);
+            window.location.href = origin + pathname + '?' + urlSearchParams.toString() + hash;
+          });
+        });
+       
+      }
+      // 页面加载时执行
+      initLanguageSwitcher();
+    });
+  })();
+</script>

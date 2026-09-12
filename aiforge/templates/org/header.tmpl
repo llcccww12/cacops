@@ -1,0 +1,146 @@
+<style>
+.org-header-c {
+	display: flex;
+	padding-top: 30px;
+}
+
+.org-header-c .org-header-img-c .image {
+    width: 80px;
+    height: 80px;
+}
+.org-header-c .org-header-content {
+	flex: 1;
+	width: 0;
+	margin-left: 32px;
+}
+.org-header-c .org-header-content .name-c {
+	display: flex;
+	align-items: center;
+  	justify-content: space-between;
+
+}
+.org-header-c .org-header-content .desc-c{
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 2; /* 可选：明确行高 */
+	color: rgba(16,16,16,0.8);
+	margin-top: 10px;
+}
+.org-header-c .org-header-content .name-c .name-text{
+	color:#101010;
+	font-size:28px;
+	font-weight:700;
+	line-height:24px;
+	margin-right: 10px;
+}
+.org-header-c .org-header-content .create-btn {
+	height: 30px; 
+	color: rgba(0,102,255,1);
+	background-color: rgba(255,255,255,0.7);
+	border-radius: 4px;
+  	display: flex;
+  	align-items: center;
+	margin-left:5px;
+	font-weight: 400;
+}
+.org-header-c .org-header-content .create-btn:hover {
+	opacity: 0.8;
+}
+@media only screen and (max-width: 767px) {
+	.org-header-content .meta { flex-wrap: wrap; }
+	.org-header-btn-tools {
+		display:none !important;
+	}
+	.org-header-btn-tools-mobile {
+		display:flex !important;
+		margin-top: 10px;
+    	margin-left: -5px;
+	}
+	.org-header-content .name-c {
+		height: auto !important;
+		margin-top: 5px;
+	}
+	.org-header-content .name-c .name {
+		display: block !important;
+		overflow-wrap: break-word;
+		word-break: break-all;
+		white-space: normal;
+	}
+	.org-header-content .name-c .name-text {
+		font-size: 20px !important;
+	}
+	.org-header-content .name-c .settings-icon svg {
+		margin-top: -2px;
+		margin-left: -4px;
+	}
+}
+</style>
+<div class="organization-header">
+	<div class="ui container" style="position: relative;height: 100%;">
+		<div class="org-header-c">
+			<div class="org-header-img-c">
+				<img class="ui image" src="{{.Org.SizedRelAvatarLink 100}}">
+			</div>			
+			<div class="org-header-content">
+				<div class="name-c">
+					<div class="name">
+						<a class="name-text" href="{{.Org.HomeLink}}">{{.Org.DisplayName}}</a>
+						{{if .IsOrganizationOwner}}<a class="settings-icon" href="{{.OrgLink}}/settings">{{svg "octicon-gear" 16}}</a>{{end}}
+						</div>
+						<div style="display:flex" class="org-header-btn-tools">
+						{{if .CanCreateOrgRepo}}
+							<div class="ui">
+								<a class="ui button create-btn" href="{{AppSubUrl}}/repo/create?org={{.Org.ID}}">{{svg "octicon-plus" 14}} {{.i18n.Tr "new_repo"}}</a>
+							</div>
+						{{end}}
+						{{if .CanCreateOrgDataset}}
+							<div class="ui">
+								<a class="ui button create-btn" href="{{AppSubUrl}}/guide/create_dataset?org={{.Org.ID}}">{{svg "octicon-plus" 14}} {{.i18n.Tr "new_dataset"}}</a>
+							</div>
+						{{end}}
+						{{if .CanCreateOrgAimodel}}
+							<div class="ui">
+								<a class="ui button create-btn" href="{{AppSubUrl}}/guide/create_model?org={{.Org.ID}}">{{svg "octicon-plus" 14}} {{.i18n.Tr "new_model"}}</a>
+							</div>
+						{{end}}
+						{{if .IsOrganizationOwner}}
+							<div class="ui">
+								<a class="ui button create-btn" href="{{.OrgLink}}/teams/new">{{svg "octicon-plus" 14}} {{.i18n.Tr "org.create_new_team"}}</a>
+							</div>
+						{{end}}
+					</div>
+				</div>
+				{{if .Org.Description}}
+				<p class="desc-c">
+					{{.Org.Description}}
+				</p>
+				{{end}}
+				<div class="meta" style="display:flex;align-items:center;margin-top:10px">
+					{{if .Org.Location}}<div class="item" style="margin-right:10px;">{{svg "octicon-location" 16}} <span>{{.Org.Location}}</span></div>{{end}}
+					{{if .Org.Website}}<div class="item">{{svg "octicon-link" 16}} <a target="_blank" rel="noopener noreferrer" href="{{.Org.Website}}">{{.Org.Website}}</a></div>{{end}}
+				</div>
+				<div style="display:none" class="org-header-btn-tools-mobile">
+					{{if .CanCreateOrgRepo}}
+						<div class="ui">
+							<a class="ui button create-btn" href="{{AppSubUrl}}/repo/create?org={{.Org.ID}}">{{svg "octicon-plus" 14}} {{.i18n.Tr "new_repo"}}</a>
+						</div>
+					{{end}}
+					{{if .CanCreateOrgDataset}}
+						<div class="ui">
+							<a class="ui button create-btn" href="{{AppSubUrl}}/repo/create?org={{.Org.ID}}">{{svg "octicon-plus" 14}} {{.i18n.Tr "new_dataset"}}</a>
+						</div>
+					{{end}}
+					{{if .IsOrganizationOwner}}
+						<div class="ui">
+							<a class="ui button create-btn" href="{{.OrgLink}}/teams/new">{{svg "octicon-plus" 14}} {{.i18n.Tr "org.create_new_team"}}</a>
+						</div>
+					{{end}}
+				</div>
+			</div>
+		</div>
+		{{template "org/navber" .}}
+	</div>
+</div>

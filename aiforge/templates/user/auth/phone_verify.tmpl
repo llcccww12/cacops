@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/_phoneverify.css?v={{MD5 AppVer}}" />
+<div class="__phone-verify-code">
+  <div class="phone-c">
+    <div class="phone-label _label-c required">
+      <span class="_label">{{.i18n.Tr "phone.phone_number"}}</span>
+    </div>
+    <div class="phone-area-c">
+      <select value="+86">
+        <option value="+86">+86</option>
+      </select>
+    </div>
+    <div class="field phone-num-c">
+      <input class="phoneNumber" style="width:100% !important" name="phone_number" value="{{.phone_number}}" placeholder="{{.i18n.Tr "phone.phone_number"}}" required autocomplete="off" />
+      <div class="modify-phone-number"><div style="display:flex;align-items:center;height:100%;"><a>{{.i18n.Tr "phone.modify_phone_number"}}</a></div></div>
+    </div>
+  </div>
+  <div class="slide-bar-wrap">
+    <div class="slide-bar-label  _label-c required" style=""></div>
+    <div class="slide-bar-c" style="flex:1;">
+      <div class="slide-bar-bg">
+        <div class="slide-txt">{{.i18n.Tr "phone.drag_the_slider_to_fill_the_puzzle"}}</div>
+        <div class="slide-bar"></div>
+        <div class="slide-trigger">
+          <i class="arrow right icon"></i>
+          <i class="check icon" style="display:none;"></i>
+          <i class="close icon" style="display:none;"></i>
+        </div>
+      </div>
+      <div class="slide-image-big">
+        <div class="slide-image-small" style="top:{{.SlideImageInfo.ImageY}}px"></div>
+      </div>
+    </div>
+  </div>
+  <div class="verify-code-c">
+    <div class="verify-code-label _label-c required">
+      <span class="_label">{{.i18n.Tr "phone.mobile_phone_verification_code"}}</span>
+    </div>
+    <div class="verify-code-num-c">
+      <input class="verifyCode" style="width:100% !important" name="verify_code" value="{{.verify_code}}" placeholder="{{.i18n.Tr "phone.please_enter_SMS_verification_code"}}" required autocomplete="off" />
+    </div>
+    <div class="verify-code-send">
+      <div class="verify-code-send-btn __disabled">{{.i18n.Tr "phone.get_verification_code"}}</div>
+    </div>
+  </div>
+  <div class="new-pass-word-wrap">
+    <div class="new-pass-word-label _label-c required">
+      <span class="_label">{{.i18n.Tr "phone.new_login_password"}}</span>
+    </div>
+    <div class="new-pass-word-c">
+      <input class="newPassword" style="width:100% !important" name="password" type="password" placeholder="{{.i18n.Tr "phone.please_enter_new_password"}}" required autocomplete="off" />
+    </div>    
+  </div>
+  <div class="new-pass-word-wrap">
+    <div class="new-pass-word-label _label-c required"></div>
+    <div class="field" style="flex:1;">
+      <div class="ui checkbox">
+        <label>{{.i18n.Tr "auth.remember_me"}}</label>
+        <input name="remember" type="checkbox">
+      </div>
+    </div>							
+  </div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/phoneverify.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script>
+ (function(){
+  window.addEventListener('load', function () {
+    var phoneVerifyCode = new PhoneVerifyCode($('.__phone-verify-code'), {
+      Lang: {
+        second_resend: {{.i18n.Tr "phone.second_resend"}},
+        get_verification_code: {{.i18n.Tr "phone.get_verification_code"}},
+      },
+    });
+  });
+ })();
+</script>

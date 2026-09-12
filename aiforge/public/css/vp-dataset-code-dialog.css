@@ -1,0 +1,75 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/CommonTipsDialog.vue?vue&type=style&index=0&id=3c858837&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.trigger-container[data-v-3c858837] {
+  display: inline-block;
+}
+.markdown[data-v-3c858837] {
+  font-size: 14px;
+  max-height: 65vh;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.markdown[data-v-3c858837] .code-content {
+  position: relative;
+}
+.markdown[data-v-3c858837] .code-content .copy-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+.dialog-footer[data-v-3c858837] {
+  text-align: center;
+}
+.dialog-footer .close-btn[data-v-3c858837] {
+  color: #fff;
+  background-color: #21ba45;
+  border-color: #21ba45;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/CommonTipsDialog.vue?vue&type=style&index=1&id=3c858837&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ui.popup {
+  z-index: 2003;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/dataset/codedialog/index.vue?vue&type=style&index=0&id=30babd57&scoped=true&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.use-dlg-btn[data-v-30babd57] {
+  text-decoration: underline;
+}
+

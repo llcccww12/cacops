@@ -1,0 +1,22 @@
+{
+  "tagInformation": {
+    "frame": {
+      "0": "PyTorch",
+      "2": "MindSpore",
+      "1": "TensorFlow",
+      "4": "PaddlePaddle",
+      "6": "MXNet",
+      "5": "OneFlow",
+      "3": "Other"
+    },
+    "label": {
+      "large_models": "Large Models",
+      "target_detection": "Target Detection",
+      "Yolo": "Yolo",
+      "target_tracking": "Target Tracking",
+      "NLP": "NLP",
+      "pan_gu": "Pan Gu",
+      "huggingface": "Huggingface"
+    }
+  }
+}

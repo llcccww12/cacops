@@ -1,0 +1,48 @@
+
+{{template "base/head_home" .}}
+<div class="ui container">
+  <h3 class="ui center am-pt-30 am-pb-20">{{.i18n.Tr "notice_announcement"}}</h3>
+  <div class="notice-container">
+  </div>
+</div>
+{{template "base/footer" .}}
+<script>
+  ;(function() {    
+    function getNotice() {
+      $.ajax({
+        type:"GET",
+        url:"/dashboard/invitation",
+        dataType:"json",
+        data: {
+          filename: 'notice/notice.json',
+        },
+        success:function(data){
+          var isZh = document.documentElement.getAttribute('lang') == 'zh-CN';
+          if (!data) return;
+          try {
+            var noticeList = JSON.parse(data).Notices || [];
+            var noticeEl = $('.notice-container');
+            for (var i = 0, iLen = noticeList.length; i < iLen; i++) {              
+              var noticeObj = noticeList[i];
+              noticeEl.append(`<div class="notice-row">
+                <div class="notice-title">
+                   <a class="_hm-notice" href="${noticeObj.Link}">
+                    <i class="ri-arrow-right-s-line" style="vertical-align:-2px;"></i>
+                    <span>${isZh ? noticeObj.Title : (noticeObj.TitleEn || noticeObj.Title)}</span>
+                  </a>
+                </div>
+                <div class="notice-time">${noticeObj.Date || ''}</div>
+              </div>`);              
+            }
+          } catch (e) {
+            console.info(e);
+          }
+        },
+        error:function(err) {
+          console.info(err);
+        }
+      });
+    }
+    getNotice();
+  })();
+</script>

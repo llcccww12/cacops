@@ -1,0 +1,16 @@
+<div style="position: relative;margin-bottom: -80px;">
+    <div class="ui center am-pt-30 am-pb-30" style="position:absolute;z-index:5;padding-bottom:2.5rem !important;left: 50%;transform: translate(-50%, 0%);">
+        <h2>{{.i18n.Tr "home.c2net_title"}}</h2>
+        <p><span class="ui text grey">{{.i18n.Tr "home.c2net_desc"}}</p>
+        <div style="display:flex;align-items:center;justify-content:center;">
+            <a style="border:1px solid rgb(0, 123, 255);color:rgb(0, 123, 255);margin-right:10px;padding: 4px 10px;" href="https://openi.pcl.ac.cn/C2NET/C2NET/src/branch/master/%E6%A0%87%E5%87%86%E8%A7%84%E5%88%92.md">{{.i18n.Tr "home.c2net_standards"}}</a>
+            <a style="border:1px solid rgb(0, 123, 255);color:rgb(0, 123, 255);margin-left:10px;padding: 4px 10px;" href="https://openi.pcl.ac.cn/C2NET/C2NET/src/branch/master/%e6%99%ba%e7%ae%97%e7%bd%91%e7%bb%9c%e6%8a%80%e6%9c%af.md">{{.i18n.Tr "home.c2net_technology"}}</a>
+        </div>
+    </div>
+    <div id="__vue-root"></div>
+</div>
+<script>
+    window.HOST_TYPE = "2";
+</script>
+<script type="text/javascript" src="https://api.map.baidu.com/getscript?v=3.0&ak=MSRIap3Scat9FPicR8TekAsA8uyvaWSE&s=1"></script>
+<script src="{{StaticUrlPrefix}}/js/vp-screen-map.js?v={{MD5 AppVer}}"></script>

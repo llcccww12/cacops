@@ -1,0 +1,45 @@
+{{template "base/head" .}}
+<div class="ui secondary pointing tabular top attached borderless menu new-menu navbar">
+	<a class="item" rel="nofollow" href="{{AppSubUrl}}/user/forgot_password">
+		{{.i18n.Tr "phone.email_retrieve_password"}}
+	</a>
+	<a class="active item" rel="nofollow" href="{{AppSubUrl}}/user/forgot_password?type=phone">
+		{{.i18n.Tr "phone.mobile_number_retrieve_password"}}
+	</a>
+</div>
+<div class="user forgot password">
+	<div class="ui middle very relaxed page grid">
+		<div class="column">
+			<form class="ui form ignore-dirty" action="{{AppSubUrl}}/user/recover_account_by_phone" method="post">
+				{{.CsrfTokenHtml}}
+				<h2 class="ui top attached header">
+					{{.i18n.Tr "auth.forgot_password_title"}}
+				</h2>
+				<div class="ui attached segment">
+					{{template "base/alert" .}}
+          <div style="display:none;" class="ui negative message">
+            <p></p>
+          </div>
+          {{if .EnablePhone }}
+            <div style="display:flex;justify-content:center;">
+              <div class="use-type" usetype="3" style="width:491px;" showlabel="true" shownewpwd="true" autofocus="true">
+                {{template "user/auth/phone_verify" .}}
+              </div>
+            </div>
+            <style>
+              .use-type ._label-c, .use-type .new-pass-word-wrap {
+                display: flex;
+              }
+            </style>
+          {{end}}
+          <div class="ui divider"></div>
+          <div class="inline field">
+            <label></label>
+            <button class="ui blue button">{{.i18n.Tr "phone.submit"}}</button>
+          </div>
+        </div>
+			</form>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

@@ -1,0 +1,99 @@
+{{template "base/head" .}}
+
+    <div class="explore seach">
+        <div class="repos--seach">
+            <div class="ui container">
+                <div id="search_div" class="ui two column centered grid">
+                    <div  class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty" style="margin-top:1.2rem;margin-bottom: 1.2rem;">
+                        <div class="ui fluid action input">
+                                <input name="q" id="keyword_input" value="{{.Keyword}}" placeholder="{{.i18n.Tr "home.search"}}..." autofocus="">
+                                <input type="hidden" name="topic" value="">
+                                <input type="hidden" name="tab" value="">
+                                <input type="hidden" name="sort" value="hot">
+                                <button class="ui green button" onclick="search()">{{.i18n.Tr "home.search"}}</button>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div id="search_label_div" style="display:none">
+                         
+                 </div>
+            </div>
+
+            
+ 
+            <div class="ui container seachnav">
+                <div class="ui secondary pointing menu">
+                    <a id="repo_item" class="item" href="javascript:searchItem(1,10);">
+                        {{.i18n.Tr "home.search_repo"}}
+                        <span class="ui circular mini label" id="repo_total"></span>
+                    </a>
+                    <a id="dataset_item" class="item" href="javascript:searchItem(5,50);">
+                        {{.i18n.Tr "home.search_dataset"}}
+                        <span class="ui circular mini label" id="dataset_total"></span>
+                    </a>
+                    <a id="model_item" class="item" href="javascript:searchItem(7,70);">
+                        {{.i18n.Tr "home.search_model"}}
+                        <span class="ui circular mini label" id="model_total"></span>
+                    </a>
+                    <a id="issue_item" class="item" href="javascript:searchItem(2,20);">
+                        {{.i18n.Tr "home.search_issue"}}
+                        <span class="ui circular mini label" id="issue_total"></span>
+                    </a>
+                    <a id="pr_item" class="item" href="javascript:searchItem(6,60);">
+                        {{.i18n.Tr "home.search_pr"}}
+                        <span class="ui circular mini label" id="pr_total"></span>
+                    </a>
+                    <a id="user_item" class="item" href="javascript:searchItem(3,30);">
+                        {{.i18n.Tr "home.search_user"}}
+                        <span class="ui circular mini label" id="user_total"></span>
+                    </a>
+                    <a id="org_item" class="item" href="javascript:searchItem(4,40);">
+                         {{.i18n.Tr "home.search_org"}} <span class="ui circular mini label" id="org_total"></span>
+                    </a>
+                </div>
+            </div>            
+        </div>
+
+        <div class="ui container">
+                
+            <span id="find_id">{{.i18n.Tr "home.search_finded"}}</span><span id="find_title"></span>
+            
+            <div class="ui right floated secondary filter menu">
+                <!-- Sort -->
+                <div class="ui right dropdown type jump item">
+                    <span class="text">
+                        {{.i18n.Tr "repo.issues.filter_sort"}}
+                            <i class="dropdown icon"></i>
+                    </span>
+                    <div class="menu" id="sort_type">
+                       
+                    </div>
+                </div>
+
+            </div>
+                
+            <div class="ui divider" style="margin-top: 1.25rem;"></div>
+
+            <div class="ui very relaxed divided list" id="child_search_item">
+
+                
+            </div><!--seach list end-->
+            
+            
+            <div class="center page buttons"  style="margin: 0px auto 15px">
+			   <div class="ui borderless mini pagination menu" id="page_menu">
+				
+			  </div>
+		    </div>
+            <div id="tipmsg"></div>
+        </div>
+
+    </div>
+    <script src="/self/js/jquery.min.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+    <script src="/home/search.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+    <div class="am-mt-30"></div>
+
+    
+
+{{template "base/footer" .}}

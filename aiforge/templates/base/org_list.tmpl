@@ -1,0 +1,255 @@
+<div id="nav-left-switcher">
+  <div class="switcher-current">
+    <img class="avatar" src="/img/avatar_default.png" alt="avatar">
+    <span class="name">加载中...</span>
+    <svg class="dropdown-icon" viewBox="0 0 24 24" width="16" height="16">
+      <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+    </svg>
+  </div>
+  <div class="switcher-dropdown" >
+    <!-- 用户个人项 -->
+    <div class="switcher-item user-item" data-type="user">
+      <img class="avatar" src="/img/avatar_default.png" alt="user-avatar">
+      <span class="name">个人</span>
+    </div>
+    <!-- 组织列表 -->
+    <div class="switcher-divider">组织</div>
+    <div class="switcher-empty">加载组织中...</div>
+    <!-- 组织项将通过JavaScript动态添加 -->
+  </div>
+</div>
+
+<script>
+  (function() {
+    let orgListCache = null; // 缓存组织列表
+    let orgListLoaded = false
+    let isDropdownOpen = false;
+    if(MENU_CONFIG.activeTopMenu!=='workspace'){
+      document.querySelector('#nav-left-switcher').style.display = 'none'
+    }
+    // 简化的切换器初始化函数
+    function initSimpleSwitcher() {
+      const switcherContainer = document.getElementById('nav-left-switcher');
+      if (!switcherContainer) return;
+      
+      const currentElm = switcherContainer.querySelector('.switcher-current');
+      const dropdownElm = switcherContainer.querySelector('.switcher-dropdown');
+      const userItemElm = dropdownElm.querySelector('.user-item');
+      const emptyOrgElm = dropdownElm.querySelector('.switcher-empty');
+
+      // 获取菜单配置中的路由信息
+      const menuConfig = window.MENU_CONFIG || {};
+      const routeInfo = menuConfig.routeInfo || {};
+      const userInfo = menuConfig.userInfo || {};
+      const workspaceMode = menuConfig.workspaceMode || 'personal';
+      function updateSwitcherDisplayImmediately(){
+        if (!currentElm) return;
+        const nameElem = currentElm.querySelector('.name');
+        const avatarElem = currentElm.querySelector('.avatar');
+        
+        const nameElem1 = userItemElm.querySelector('.name');
+        const avatarElem1 = userItemElm.querySelector('.avatar');
+        
+        // 渲染当前选中项
+        if (nameElem && routeInfo.orgName) {
+          nameElem.textContent = routeInfo.orgName;
+          nameElem1.textContent = userInfo.name;
+        }
+        
+        if (avatarElem && routeInfo.avatar_url) {
+          // 设置头像URL，添加错误处理
+          avatarElem.src = routeInfo.avatar_url;
+          avatarElem.alt = routeInfo.userName || '头像';
+          avatarElem1.src = userInfo.avatar_url;
+          avatarElem1.alt = userInfo.name || '头像';
+          // 头像加载失败时使用默认头像
+          avatarElem.onerror = function() {
+            this.src = '/img/avatar_default.png';
+            this.onerror = null; // 防止循环错误
+          };
+        }
+        userItemElm.classList.toggle('active', workspaceMode === 'personal');
+        
+      }
+      // 渲染组织列表
+      function renderOrgList(orgList) {
+        if(orgListLoaded) return
+        orgListLoaded = true
+        
+        // 清空并重新渲染组织列表
+        let orgItemsContainer = dropdownElm.querySelector('.switcher-items-container');
+        if (!orgItemsContainer) {
+          orgItemsContainer = document.createElement('div');
+          orgItemsContainer.className = 'switcher-items-container';
+          emptyOrgElm.parentNode.insertBefore(orgItemsContainer, emptyOrgElm);
+        }
+        
+        orgItemsContainer.innerHTML = '';
+        
+        if (orgList && orgList.length > 0) {
+          emptyOrgElm.style.display = 'none';
+          emptyOrgElm.onclick = null; // 移除点击事件
+          
+          orgList.forEach(org => {
+            const orgItem = document.createElement('div');
+            orgItem.className = 'switcher-item org-item';
+            orgItem.dataset.orgId = org.org_id || org.id;
+            orgItem.dataset.orgName = org.org_name || org.name;
+            orgItem.title = org.org_name || org.name;  // 添加title属性实现悬浮提示
+            // 标记当前激活的组织
+            if (workspaceMode === 'org' && routeInfo.orgName === org.org_name ) { 
+              orgItem.classList.add('active');
+            }
+            
+            const orgName = org.org_name || org.name;
+            const avatarUrl = org.rel_avatar_link || 
+                            `/user/avatar/${orgName}/-1?${org.org_id || org.id || Date.now()}`;
+            
+            orgItem.innerHTML = `
+              <img class="avatar" src="${avatarUrl}" alt="${orgName}" onerror="this.src='/img/avatar_default.png'">
+              <span class="name">${orgName}</span>
+            `;
+            
+            orgItem.addEventListener('click', function() {
+              const orgName = this.dataset.orgName;
+              const orgId = this.dataset.orgId;
+              
+              if (workspaceMode === 'org' && routeInfo.orgName === orgName) {
+                // 当前已选中此组织，关闭下拉列表
+                closeDropdown()
+                return;
+              }
+              // 切换到组织
+              switchToOrg(orgName, orgId);
+            });
+            
+            orgItemsContainer.appendChild(orgItem);
+          });
+        } else {
+          emptyOrgElm.textContent = '暂无组织';
+          emptyOrgElm.style.display = 'block';
+          emptyOrgElm.onclick = null; // 移除重试事件
+        }
+      }
+      async function fetchOrgList() {
+        try {
+          if(orgListCache){
+            return orgListCache
+          }
+          const { csrf } = window.config || {};
+          if (!csrf) {
+            console.warn("CSRF token not available");
+            return [];
+          }
+
+          const response = await fetch(`/api/v1/platform/org?_csrf=${csrf}`);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          const result = await response.json();
+
+          // 根据接口规范，返回格式为 {Code: 0, Data: [...]}
+          if (result.Code === 0) {
+            orgListCache = result.Data;
+            return result.Data || [];
+          } else {
+            console.error("API returned error:", result.Msg);
+            return [];
+          }
+        } catch (error) {
+          console.error("Failed to fetch org list:", error);
+          return [];
+        }
+      }
+      async function loadOrgListIfNeeded(){
+        const orgList = await fetchOrgList()
+        console.log("orgList",orgList)
+        renderOrgList(orgList);
+        return orgList
+      }
+      function switchToOrg(orgName, orgId) {
+        if (!orgName) return;
+        
+        const currentPath = window.location.pathname;
+        let targetPath = '';
+        
+        if (workspaceMode === 'personal') {
+          // 从个人切换到组织，默认跳转到该组织的概览页
+          targetPath = `/org/${orgName}/repositories`;
+        } else {
+          // 在组织间切换，保持相对路径
+          const currentOrgPattern = new RegExp(`^/org/${routeInfo.orgName}(/.*)?$`);
+          if (currentPath.match(currentOrgPattern)) {
+            // 当前在组织路径下，替换组织名称
+            targetPath = currentPath.replace(`/org/${routeInfo.orgName}`, `/org/${orgName}`);
+          } else {
+            // 当前不在组织路径下，跳转到该组织的默认页
+            targetPath = `/org/${orgName}/repositories`;
+          }
+        }
+        
+        // // 关闭下拉列表
+        closeDropdown();
+        
+        // 执行跳转
+        if (targetPath && targetPath !== currentPath) {
+          window.location.href = targetPath;
+        }
+      }
+      // 切换下拉菜单显示/隐藏
+      currentElm.addEventListener('click', async function(e) {
+        e.stopPropagation();
+        toggleDropdown()
+      });
+      
+      // 点击其他地方关闭下拉菜单
+      document.addEventListener('click', function(e) {
+        if (!switcherContainer.contains(e.target)) {
+          closeDropdown();
+        }
+      });
+      // 用户项点击事件
+      userItemElm.addEventListener('click', function() {
+        if (workspaceMode === 'org') {
+          // 从组织切换回个人，跳转到个人概览页
+          window.location.href = '/dashboard';
+        } else {
+          // 已经在个人模式，关闭下拉列表
+          closeDropdown();
+        }
+      });
+      function openDropdown() {
+        if (isDropdownOpen) return;
+        
+        isDropdownOpen = true;
+        currentElm.classList.add('expanded');
+        dropdownElm.classList.add('show');
+        
+        // 加载并渲染组织列表
+        loadOrgListIfNeeded();
+      }
+      function closeDropdown() {
+        if (!isDropdownOpen) return;
+        
+        isDropdownOpen = false;
+        currentElm.classList.remove('expanded');
+        dropdownElm.classList.remove('show');
+      }
+      function toggleDropdown() {
+        if (isDropdownOpen) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      }
+      updateSwitcherDisplayImmediately()
+      
+
+    }
+    
+   
+    initSimpleSwitcher();
+    // 页面加载完成后初始化
+  })();
+  </script>

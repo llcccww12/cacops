@@ -1,0 +1,44 @@
+<style>
+  form {margin-block-end: 0;}
+  #file_path_container .section {
+    color: rgb(50, 145, 248);
+  }
+</style>
+<div style="background:#fff">
+  {{template "base/head" .}}
+  <div class="repository dataset dir-list view">
+    {{template "repo/header" .}}
+    <script>
+      var DATASET_DATA = {        
+        csrf: {{.CsrfToken}},
+        repoLink: {{$.RepoLink}},
+        link: {{$.Link}},
+        uuid: {{$.Uuid}},
+        type: {{.Type}},
+        path: {{.Path}},
+        isDir: {{.Dirs}},
+      };
+    </script>
+    <div>
+      <form class="ui container">
+        <div class="ui stackable grid {{if .Error}}hide{{end}}" id="dir-content">
+          <div class="row" style="padding: 6px 0;">
+            <div class="column sixteen wide">
+              <div id="file_path_container" style="display:flex;flex-wrap:wrap;min-height:20px" class="ui breadcrumb "></div>
+            </div>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="row" style="padding-top: 0.5rem;padding-bottom: 0;">
+            <div class="ui sixteen wide column">
+              <div class="dir list">
+                {{template "repo/datasets/dirs/dir_preview" .}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>    
+  </div>
+</div>
+{{template "base/footer" .}}

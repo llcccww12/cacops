@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+{{if .IsRepo}}<div class="repository">{{template "repo/header" .}}</div>{{end}}
+
+<div class="ui container center" style="min-height: 70%;">
+	<div class="ui basic very padded segment">
+		<img class="ui centered medium image" src="{{StaticUrlPrefix}}/img/icon-500@2x.png">
+	
+		<h2>{{.i18n.Tr "error500_index"}}</h2>
+		<p>{{.i18n.Tr "error500" | Safe}}</p>
+	</div>
+</div>
+
+{{template "base/footer" .}}

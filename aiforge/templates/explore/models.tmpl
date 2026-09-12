@@ -1,0 +1,10 @@
+{{template "base/head_home" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-model-square.css?v={{MD5 AppVer}}" />
+<div class="container-menu-main">
+  {{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9">
+    <div id="__vue-root"></div>
+  </div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-square.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

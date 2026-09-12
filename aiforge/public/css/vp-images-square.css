@@ -1,0 +1,498 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/square/components/Filters.vue?vue&type=style&index=0&id=0e192925&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.top-title[data-v-0e192925] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.filter-c[data-v-0e192925] {
+  margin-bottom: 16px;
+}
+.filter-c .filter-title-c[data-v-0e192925] {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.filter-c .filter-title-c .filter-title[data-v-0e192925] {
+  color: #101010;
+  font-size: 14px;
+}
+.filter-c .filter-title-c .clear-btn[data-v-0e192925] {
+  text-decoration: underline;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  color: #9ca3af;
+}
+.filter-c .filter-item-c[data-v-0e192925] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter-c .filter-item-c .filter-item[data-v-0e192925] {
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(145, 213, 255, 0.5);
+  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.2);
+  background: #fff;
+  font-size: 12px;
+}
+.filter-c .filter-view-more-c[data-v-0e192925] {
+  margin-top: 6px;
+}
+.filter-c .filter-view-more-c .filter-view-more[data-v-0e192925] {
+  color: #3291f8;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filter-c .filter-view-more-c .filter-view-more i[data-v-0e192925] {
+  margin-right: 4px;
+}
+.filter-second .filter-second-hd[data-v-0e192925] {
+  margin: 14px 0 24px 0;
+}
+.filter-second .filter-second-hd .filter-second-go-back[data-v-0e192925] {
+  color: #3291f8;
+  font-size: 14px;
+  cursor: pointer;
+}
+.filter-second .filter-second-hd .filter-second-go-back i[data-v-0e192925] {
+  margin-right: 4px;
+}
+.filter-second .filter-title[data-v-0e192925] {
+  color: #101010;
+  font-size: 14px;
+  margin: 14px 0;
+}
+.filter-second .filter-search[data-v-0e192925] {
+  margin: 5px 10px 10px 0;
+}
+.filter-second .filter-item-c[data-v-0e192925] {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 605px;
+  overflow-y: auto;
+}
+.filter-second .filter-item-c .filter-item[data-v-0e192925] {
+  border-radius: 3px;
+  padding: 3px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/square/components/Condition.vue?vue&type=style&index=0&id=9b12b476&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.condition-wrap[data-v-9b12b476] {
+  margin: 10px 0 2px;
+}
+.condition-wrap .tab-c[data-v-9b12b476] {
+  display: flex;
+  align-items: center;
+}
+.condition-wrap .tab-c .tab-item[data-v-9b12b476] {
+  margin-right: 32px;
+  padding: 4px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #415058;
+  cursor: pointer;
+}
+.condition-wrap .tab-c .tab-item.focus[data-v-9b12b476] {
+  color: #3291f8;
+  font-weight: bold;
+  border-bottom: 2px solid;
+}
+.condition-wrap .condition-b[data-v-9b12b476] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.condition-wrap .condition-b .only-recommend-c[data-v-9b12b476] {
+  margin-right: 22px;
+}
+.condition-wrap .condition-b .sort-c[data-v-9b12b476] {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+}
+[data-v-9b12b476] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/square/components/Item.vue?vue&type=style&index=0&id=501d6d59&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dZJqQS.fill[data-v-501d6d59]:not([stroke]) {
+  fill: #ff6200;
+}
+.item[data-v-501d6d59] {
+  border: 1px solid #ffffff;
+  background: linear-gradient(176.14deg, #e5f6ef 0.84%, #ffffff 62.45%);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px rgba(221, 221, 221, 0.5);
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.item[data-v-501d6d59]:hover {
+  border-color: rgba(204, 204, 255, 0.6);
+  border: 1px solid rgba(187, 193, 246, 0.7);
+  background: #ffffff;
+}
+.item:hover .title span[data-v-501d6d59] {
+  color: #0066ff;
+}
+.title-c[data-v-501d6d59] {
+  display: flex;
+  align-items: center;
+}
+.title-c .title[data-v-501d6d59] {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-weight: 700;
+}
+.title-c .title a[data-v-501d6d59] {
+  max-width: calc(100% - 40px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.title-c .title a span[data-v-501d6d59] {
+  font-weight: 500;
+  font-size: 16px;
+  color: #0366d6;
+}
+.fav-c[data-v-501d6d59] {
+  display: flex;
+  font-size: 12px;
+}
+.fav-c i[data-v-501d6d59] {
+  color: #fa8c16;
+  cursor: pointer;
+}
+.fav-c span[data-v-501d6d59] {
+  color: #101010;
+}
+.fav-c.fav-disabled i[data-v-501d6d59] {
+  cursor: default;
+}
+.content-row[data-v-501d6d59] {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #888888;
+  margin-top: 4px;
+}
+.content-row .content-row-item[data-v-501d6d59] {
+  display: flex;
+  min-width: 100%;
+}
+.content-row .content-row-item.half[data-v-501d6d59] {
+  min-width: 50%;
+}
+.content-row .content-row-item div[data-v-501d6d59]:nth-child(1) {
+  width: 90px;
+  text-align: right;
+}
+.content-row .content-row-item div[data-v-501d6d59]:nth-child(2) {
+  flex: 1;
+  width: 0;
+  color: #101010;
+  word-break: break-all;
+}
+.content-row .content-row-item .package-wrap[data-v-501d6d59] {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* 限制显示的行数 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.descr[data-v-501d6d59] {
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  max-height: 41px;
+  overflow: hidden;
+}
+.labels[data-v-501d6d59] {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.labels .label[data-v-501d6d59] {
+  color: rgba(16, 16, 16, 0.8);
+  border-radius: 4px;
+  font-size: 12px;
+  background: rgba(232, 232, 232, 0.6);
+  padding: 0 6px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  cursor: default;
+}
+.labels .label-compute-resource[data-v-501d6d59] {
+  color: white;
+}
+.footer[data-v-501d6d59] {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 20px;
+  font-size: 12px;
+}
+.footer .footer-l[data-v-501d6d59] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.footer .footer-l .avatar-c[data-v-501d6d59] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.footer .footer-l .avatar-c .avatar[data-v-501d6d59] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.footer .footer-l .status[data-v-501d6d59] {
+  display: flex;
+  align-items: center;
+}
+.footer .footer-l .apply-status[data-v-501d6d59] {
+  display: flex;
+  align-items: center;
+}
+.footer .footer-r[data-v-501d6d59] {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  font-weight: 300;
+  color: #888888;
+  margin-left: auto;
+}
+.footer .footer-r .btn-op[data-v-501d6d59] {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+}
+.footer .footer-r .btn-op i[data-v-501d6d59] {
+  margin-right: 2px;
+}
+.footer .footer-r .btn-op.delete[data-v-501d6d59] {
+  color: #ff2525;
+}
+:lang(en-US) .content-row .content-row-item div[data-v-501d6d59]:nth-child(1) {
+  width: 112px;
+}
+@media only screen and (max-width: 800px) {
+.center .el-pagination[data-v-501d6d59] .el-pagination__total,
+  .center .el-pagination[data-v-501d6d59] .el-pagination__sizes,
+  .center .el-pagination[data-v-501d6d59] .el-pagination__jump {
+    display: none;
+}
+.status span[data-v-501d6d59] {
+    display: none;
+}
+.btn-op span[data-v-501d6d59] {
+    display: none;
+}
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/square/components/List.vue?vue&type=style&index=0&id=5a22e564&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container .list-item-container[data-v-5a22e564] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container .list-item-container .item-container[data-v-5a22e564] {
+  width: 50%;
+  padding: 12px;
+}
+.center[data-v-5a22e564] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-5a22e564] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-5a22e564] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-5a22e564] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-5a22e564] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+@media only screen and (max-width: 800px) {
+.center .el-pagination[data-v-5a22e564] .el-pagination__total,
+  .center .el-pagination[data-v-5a22e564] .el-pagination__sizes,
+  .center .el-pagination[data-v-5a22e564] .el-pagination__jump {
+    display: none;
+}
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/square/index.vue?vue&type=style&index=0&id=63c3d242&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-63c3d242] {
+  display: flex;
+  min-height: 100%;
+  padding-left: 20px;
+}
+.content .content-l[data-v-63c3d242] {
+  width: 25%;
+  max-width: 350px;
+  min-width: 250px;
+  padding: 30px 40px;
+}
+.content .content-r[data-v-63c3d242] {
+  flex: 1;
+  width: 0;
+  padding: 30px 20px;
+}
+.content .content-r .workspace-t[data-v-63c3d242] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 0 16px 0;
+}
+.content .content-r .filter-c[data-v-63c3d242] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .content-r .filter-c .tab-c[data-v-63c3d242] {
+  display: flex;
+  align-items: center;
+}
+.content .content-r .filter-c .tab-c .tab-item[data-v-63c3d242] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-bottom: 2px solid rgba(51, 38, 98, 0.3);
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgba(16, 16, 16, 0.5);
+}
+.content .content-r .filter-c .tab-c .tab-item[data-v-63c3d242]:hover {
+  opacity: 0.8;
+}
+.content .content-r .filter-c .tab-c .tab-item.active[data-v-63c3d242] {
+  color: #0066ff;
+  border-bottom: 2px solid #0066ff;
+}
+.content .content-r .filter-c .tab-c .tab-item.active[data-v-63c3d242]:hover {
+  opacity: 1;
+}
+.content .content-r .filter-c .right[data-v-63c3d242] {
+  display: flex;
+  align-items: center;
+}
+.content .content-r .filter-c .right .check-c[data-v-63c3d242] {
+  margin-right: 16px;
+}
+.content .content-r .filter-c .right .search-c[data-v-63c3d242] {
+  margin-right: 16px;
+}
+.content .content-r .filter-c .right .search-c .el-input .el-button[data-v-63c3d242] {
+  color: #101010;
+}
+.content .content-r .filter-c .right .sort-c[data-v-63c3d242] {
+  cursor: pointer;
+}
+[data-v-63c3d242] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 767.98px) {
+.content .content-l[data-v-63c3d242] {
+    display: none;
+}
+.content-r .right .search-c[data-v-63c3d242] {
+    display: none !important;
+}
+[data-v-63c3d242] .list-item-container .item-container {
+    width: 100% !important;
+    padding: 12px 0 !important;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 1250px) {
+[data-v-63c3d242] .list-item-container .item-container {
+    width: 100% !important;
+    padding: 12px 0 !important;
+}
+}
+@media only screen and (min-width: 1250px) and (max-width: 1700px) {
+[data-v-63c3d242] .list-item-container .item-container {
+    width: 100% !important;
+}
+[data-v-63c3d242] .list-item-container .item-container:nth-child(n+1) {
+    padding-left: 0;
+}
+[data-v-63c3d242] .list-item-container .item-container:nth-child(n) {
+    padding-right: 0;
+}
+}
+@media only screen and (min-width: 1700px) {
+[data-v-63c3d242] .list-item-container .item-container {
+    width: 50% !important;
+}
+[data-v-63c3d242] .list-item-container .item-container:nth-child(2n+1) {
+    padding-left: 0;
+}
+[data-v-63c3d242] .list-item-container .item-container:nth-child(2n) {
+    padding-right: 0;
+}
+}
+

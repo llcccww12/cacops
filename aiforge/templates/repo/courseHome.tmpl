@@ -1,0 +1,295 @@
+{{template "base/head" .}}
+<style>
+.repository.file.list #repo-desc {
+    font-size: 1.0em;
+    margin-bottom: 1.0rem;
+}
+#contributorInfo > a:nth-child(n+26){
+	display:none;
+}
+#contributorInfo > a{
+	width: 2.0em;
+	float: left;
+	margin: .25em;
+}
+.edit-link{
+	vertical-align: top;
+    display: inline-block;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 16.5em;
+}
+#contributorInfo > a.circular{
+	height: 2.0em;
+	padding: 0;
+	overflow: hidden;
+	letter-spacing:1.0em;
+	text-indent: 0.6em;
+	line-height: 2.0em;
+	text-transform:capitalize;
+	color: #FFF;
+}
+#contributorInfo > a.circular:nth-child(9n+1){
+	background-color: #4ccdec;
+}
+#contributorInfo > a.circular:nth-child(9n+2){
+	background-color: #e0b265;
+}
+#contributorInfo > a.circular:nth-child(9n+3){
+	background-color: #d884b7;
+}
+#contributorInfo > a.circular:nth-child(9n+4){
+	background-color: #8c6bdc;
+}
+#contributorInfo > a.circular:nth-child(9n+5){
+	background-color: #3cb99f;
+}
+#contributorInfo > a.circular:nth-child(9n+6){
+	background-color: #6995b9;
+}
+#contributorInfo > a.circular:nth-child(9n+7){
+	background-color: #ab91a7;
+}
+#contributorInfo > a.circular:nth-child(9n+8){
+	background-color: #bfd0aa;
+}
+.vue_menu {
+    cursor: auto;
+    position: absolute;
+    outline: none;
+    margin: 0em;
+    padding: 0em 0em;
+    background: #fff;
+    font-size: 1em;
+    text-shadow: none;
+    text-align: left;
+    /* -webkit-box-shadow: 0px 2px 3px 0px rgb(34 36 38 / 15%); */
+    box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
+    border: 1px solid rgba(34,36,38,0.15);
+    border-radius: 0.28571429rem;
+    -webkit-transition: opacity 0.1s ease;
+    transition: opacity 0.1s ease;
+    z-index: 11;
+    will-change: transform, opacity;
+	-webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-duration: 300ms;
+    animation-duration: 300ms;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.repo-topic{
+    background-color: rgba(179, 219, 219, 0.4) !important;
+    color: #0366D6 !important;
+    font-weight: 200 !important;
+}
+
+
+
+</style>
+<div class="repository file list">
+	{{template "repo/header" .}}
+	<div class="ui container">
+		{{template "base/alert" .}}		
+        <div class="hide" id="validate_prompt">
+            <span id="count_prompt">{{.i18n.Tr "repo.topic.count_prompt"}}</span>
+            <span id="format_prompt">{{.i18n.Tr "repo.topic.format_prompt"}}</span>
+        </div>
+		{{if .Repository.IsArchived}}
+			<div class="ui warning message">
+				{{.i18n.Tr "repo.archive.title"}}
+			</div>
+		{{end}}
+        <div>
+            <span>{{.i18n.Tr "repo.computing.Introduction"}}：</span>
+            {{if .Repository.DescriptionHTML}}
+                <span class="description" style="color: #8a8e99;">{{.Repository.DescriptionHTML}}</span>
+            {{else}}
+                <span class="no-description text-italic">{{.i18n.Tr "repo.no_desc"}}</span>
+            {{end}}
+            <!-- <span style="color: #8a8e99;">生课程的教学，在全国范围形成一批开放共享的教学材料。这类材料的风格、设想既不同于教材，也不同于IEEE CSs中对知识体系的描述，而是以一定的知识内容为背景，重在教师个人在教学实践中的心得，包括对某些内容独到的理解和课堂上的处理，等等。</span> -->
+        </div>
+        <div class="ui" id="repo-topics">
+            <div id="repo-topics1" style="display: inline-block;margin: 0.5rem 0;">
+                {{range .Topics}}
+                    <a class="ui repo-topic small label topic" href="{{AppSubUrl}}/explore/repos?q={{.Name}}&topic=">{{.Name}}</a>
+                {{end}}
+                
+            </div>
+            <a style="margin-left: 0.5rem;" id="manage_topic">
+                {{if and .Permission.IsAdmin (not .Repository.IsArchived)}}<i  style="cursor: pointer;" class="plus square outline icon"></i>{{.i18n.Tr "repo.issues.new.add_labels_title"}}{{end}}
+                
+            </a>
+                
+            <div id="topic_edit" class="vue_menu" style="display:none;">
+                <div id="topic_edit1">
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+		<div class="ui mobile reversed stackable grid" style="margin-top: -1.5rem;">
+			{{ $n := len .TreeNames}}
+			{{ $l := Subtract $n 1}}
+            <!-- If home page, show new PR. If not, show breadcrumb -->
+            <div class="ui ten wide tablet twelve wide computer column text right" style="margin-top: 1rem;">
+                <div class="right fitted item" id="file-buttons">
+                    <div class="ui tiny blue buttons">
+                        {{if .Repository.CanEnableEditor}}
+                            {{if .CanAddFile}}
+                                <a href="{{.RepoLink}}/_new/{{EscapePound .BranchName}}/{{EscapePound .TreePath}}" class="ui button">
+                                    {{.i18n.Tr "repo.editor.new_file"}}
+                                </a>
+                            {{end}}
+                            {{if .CanUploadFile}}
+                                <a href="{{.RepoLink}}/_upload/{{EscapePound .BranchName}}/{{EscapePound .TreePath}}" class="ui button">
+                                    {{.i18n.Tr "repo.editor.upload_file"}}
+                                </a>
+                            {{end}}
+                        {{end}}
+                        {{if and (ne $n 0) (not .IsViewFile) (not .IsBlame) }}
+                            <a href="{{.RepoLink}}/commits/{{EscapePound .BranchNameSubURL}}/{{EscapePound .TreePath}}" class="ui button">
+                                {{.i18n.Tr "repo.file_history"}}
+                            </a>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+			
+			
+		</div>
+		<div class="ui container">
+			<div class="ui mobile reversed stackable grid">
+				<div class="ui ten wide tablet twelve wide computer column">
+					{{if .IsViewFile}}
+						{{template "repo/view_file" .}}
+					{{else if .IsBlame}}
+						{{template "repo/blame" .}}
+					{{else}}
+                        <table id="repo-files-table" class="ui single line table">
+                            <thead>
+                                <tr class="commit-list">
+                                    <th colspan="2">
+                                        {{if .LatestCommitUser}}
+                                            <img class="ui avatar image img-12" src="{{.LatestCommitUser.RelAvatarLink}}" />
+                                            {{if .LatestCommitUser.FullName}}
+                                                <a href="{{AppSubUrl}}/{{.LatestCommitUser.Name}}"><strong>{{.LatestCommitUser.FullName}}</strong></a>
+                                            {{else}}
+                                                <a href="{{AppSubUrl}}/{{.LatestCommitUser.Name}}"><strong>{{if .LatestCommit.Author}}{{.LatestCommit.Author.Name}}{{else}}{{.LatestCommitUser.Name}}{{end}}</strong></a>
+                                            {{end}}
+                                        {{else}}
+
+                                            {{if .LatestCommit.Author}}
+                                                <img class="ui avatar image img-12" src="{{AvatarLink .LatestCommit.Author.Email}}" />
+                                                <strong>{{.LatestCommit.Author.Name}}</strong>
+                                            {{end}}
+                                        {{end}}
+                                        
+                                        {{if .LatestCommit.Author}}
+                                            <span style="margin: 0 0.5rem;color: #767676">{{TimeSince .LatestCommit.Author.When $.Lang}}</span>
+                                        {{end}}
+                                        {{ $commitLink:= printf "%s/commit/%s" .RepoLink .LatestCommit.ID }}
+                                        <span class="grey commit-summary" title="{{.LatestCommit.Summary}}"><span class="message-wrapper">{{RenderCommitMessageLinkSubject .LatestCommit.Message $.RepoLink $commitLink $.Repository.ComposeMetas}}</span>
+                                        {{if IsMultilineCommitMessage .LatestCommit.Message}}
+                                            <button class="basic compact mini ui icon button commit-button"><i class="ellipsis horizontal icon"></i></button>
+                                            <pre class="commit-body" style="display: none;">{{RenderCommitBody .LatestCommit.Message $.RepoLink $.Repository.ComposeMetas}}</pre>
+                                        {{end}}
+                                        </span>
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{if .HasParentPath}}
+                                    <tr class="has-parent">
+                                        <td colspan="3">{{svg "octicon-mail-reply" 16}}<a href="{{EscapePound .BranchLink}}{{.ParentPath}}">..</a></td>
+                                    </tr>
+                                {{end}}
+                                {{range $item := .Files}}
+                                    {{$entry := index $item 0}}
+                                    {{$commit := index $item 1}}
+                                    <tr>
+                                        {{if $entry.IsSubModule}}
+                                            <td>
+                                                <span class="truncate">
+                                                    {{svg "octicon-inbox" 16}}
+                                                    {{$refURL := $commit.RefURL AppUrl $.Repository.FullName}}
+                                                    {{if $refURL}}
+                                                        <a href="{{$refURL}}">{{$entry.Name}}</a> @ <a href="{{$refURL}}/commit/{{$commit.RefID}}">{{ShortSha $commit.RefID}}</a>
+                                                    {{else}}
+                                                        {{$entry.Name}} @ {{ShortSha $commit.RefID}}
+                                                    {{end}}
+                                                </span>
+                                            </td>
+                                        {{else}}
+                                            <td class="name thirteen wide">
+                                                <span class="truncate">
+                                                    {{if $entry.IsDir}}
+                                                        {{$subJumpablePathName := $entry.GetSubJumpablePathName}}
+                                                        {{$subJumpablePath := SubJumpablePath $subJumpablePathName}}
+                                                        {{svg "octicon-file-directory" 16}}
+                                                        <a href="{{EscapePound $.TreeLink}}/{{EscapePound $subJumpablePathName}}" title="{{$subJumpablePathName}}">
+                                                            {{if eq (len $subJumpablePath) 2}}
+                                                                <span class="jumpable-path">{{index  $subJumpablePath 0}}</span>{{index  $subJumpablePath 1}}
+                                                            {{else}}
+                                                                {{index $subJumpablePath 0}}
+                                                            {{end}}
+                                                        </a>
+                                                    {{else}}
+                                                   
+                                                        <i class="ri-file-pdf-line" style="font-size: 16px;margin-left: 3px;margin-right: 5px;vertical-align: text-top;color: #FA8C16;"></i>
+                                                        <a href="{{EscapePound $.TreeLink}}/{{EscapePound $entry.Name}}" title="{{$entry.Name}}">{{$entry.Name}}</a>
+                                                    {{end}}
+                                                </span>
+                                            </td>
+                                        {{end}}
+                                        <td class="text right age one wide" style="text-align: right;">{{TimeSince $commit.Committer.When $.Lang}}</td>
+                                    </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+                        {{if .ReadmeExist}}
+                            {{template "repo/view_file" .}}
+                        {{end}}
+					{{end}}
+                </div>
+                <!-- 贡献者框 -->
+				<div class="ui six wide tablet four wide computer column">			
+					<div style="border-radius: 5px;border: 1px solid rgba(225, 227, 230, 100);padding: 1rem;">
+						<h4 class="ui header" style="border-bottom: 1px solid rgba(225, 227, 230, 100);padding: 0.5rem 0;">
+							{{$lenCon := len .ContributorInfo}}
+							{{if lt $lenCon 25 }}
+							<strong>{{.i18n.Tr "home.contributors"}} ({{len .ContributorInfo}})</strong>
+							{{else}}
+							<strong>{{.i18n.Tr "home.contributors"}} ({{len .ContributorInfo}}+)</strong>
+							{{end}}
+							<div class="ui right">
+								<a class="membersmore text grey" href="{{.RepoLink}}/contributors?type={{if .IsViewBranch}}branch{{else}}tag{{end}}&name={{.BranchName}}">{{.i18n.Tr "repo.computing.all"}} {{svg "octicon-chevron-right" 16}}</a>
+							</div>
+						</h4>
+						<div class="ui members" id="contributorInfo">
+							{{range .ContributorInfo}}
+								{{if .UserInfo}}
+									<a href="{{AppSubUrl}}/{{.UserInfo.Name}}"><img class="ui avatar image" src="{{.UserInfo.RelAvatarLink}}"></a>
+								{{else if .Email}}
+									<a href="mailto:{{.Email}}" class="circular ui button">{{.Email}}</a>
+								{{end}}
+							{{end}}
+                        </div>
+                        <div style="clear: both;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{{template "base/footer" .}}

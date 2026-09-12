@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+<div class="repository" style="padding-top:32px;">
+    <script>
+        window._PageType = "submitAdmin";
+        window._Image = {{.Image}};
+        window._PageFrom = 'imageAdmin';
+        window._PageSubmitLink = "{{$.Link}}";
+    </script>
+    <link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-images-submit.css?v={{MD5 AppVer}}" />
+    <div id="__vue-root"></div>
+    <script src="{{StaticUrlPrefix}}/js/vp-images-submit.js?v={{MD5 AppVer}}"></script>
+</div>
+{{template "base/footer" .}}

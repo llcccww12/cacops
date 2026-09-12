@@ -1,0 +1,51 @@
+<div class="guide-entrance-c">
+  {{if not .SignedUser.Email}}
+  <div class="guide-entrance-email">
+    <i class="ri-alert-line"></i>
+    <span>{{.i18n.Tr "home.entry.please"}} <a href="/user/settings/account#manage-emails">
+    {{.i18n.Tr "home.entry.set_up_email"}} </a>{{.i18n.Tr "home.entry.convenience_code_manage"}}</span>
+  </div>
+  {{end}}
+  <div class="guide-entrance-item-c">
+    <a class="guide-entrance-item" href="/cloudbrains/create">
+      <div class="left">
+        <img src="/img/svg-icon/computingpower.svg" />
+      </div>
+      <div class="mid">
+        <div class="mid-tit">{{.i18n.Tr "home.entry.create_aitask"}}</div>
+        <div class="mid-desc" title="{{.i18n.Tr "home.entry.create_aitask_desc"}}">{{.i18n.Tr "home.entry.create_aitask_desc"}}</div>
+      </div>
+      <div class="right"><i class="ri-arrow-right-line"></i></div>
+    </a>
+    <a class="guide-entrance-item" href="/repo/create">
+      <div class="left">
+        <img src="/img/svg-icon/code.svg" />
+      </div>
+      <div class="mid">
+        <div class="mid-tit">{{.i18n.Tr "home.entry.create_repo"}}</div>
+        <div class="mid-desc" title="{{.i18n.Tr "home.entry.create_repo_desc"}}">{{.i18n.Tr "home.entry.create_repo_desc"}}</div>
+      </div>
+      <div class="right"><i class="ri-arrow-right-line"></i></div>
+    </a>
+    <a class="guide-entrance-item" href="/guide/create_dataset">
+      <div class="left">
+        <img src="/img/svg-icon/dataset.svg" />
+      </div>
+      <div class="mid">
+        <div class="mid-tit">{{.i18n.Tr "home.entry.create_dataset"}}</div>
+        <div class="mid-desc" title="{{.i18n.Tr "home.entry.create_dataset_desc"}}">{{.i18n.Tr "home.entry.create_dataset_desc"}}</div>
+      </div>
+      <div class="right"><i class="ri-arrow-right-line"></i></div>
+    </a>
+    <a class="guide-entrance-item" href="/guide/create_model">
+      <div class="left">
+        <img src="/img/svg-icon/model.svg" />
+      </div>
+      <div class="mid">
+        <div class="mid-tit">{{.i18n.Tr "home.entry.create_model"}}</div>
+        <div class="mid-desc" title="{{.i18n.Tr "home.entry.create_model_desc"}}">{{.i18n.Tr "home.entry.create_model_desc"}}</div>
+      </div>
+      <div class="right"><i class="ri-arrow-right-line"></i></div>
+    </a>
+  </div>
+</div>

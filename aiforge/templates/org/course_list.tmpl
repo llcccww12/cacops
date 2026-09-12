@@ -1,0 +1,137 @@
+<style>
+    .text-right{
+        float:right !important;
+    }
+    .header{
+        font-weight:bold;
+        font-size: 18px;
+        font-family: SourceHanSansSC-medium;
+    }
+    .cor{
+		color:#0366D6 !important;
+	}
+    .header_card{
+        /* color:#003A8C !important; */
+        color:#101010 !important;
+        margin: 10px 0 0px 0;
+        height: 25px;
+        font-size: 18px;
+    }
+    .marg{
+        margin: 0 5px !important;
+    }
+
+    .content_list{
+        max-height: 130px;
+        overflow: auto;
+    }
+    .Relist{
+        color:#0366D6 !important;
+	} 
+    .descript_height{
+        color: #999999 !important;
+        margin: 10px 0;
+        height: 40px !important;
+        word-break:break-all;
+        line-height: 20px; 
+        overflow: hidden;
+        /* overflow: hidden!important;
+        word-wrap:break-word!important; */
+
+
+    }
+
+    .tags_height{
+        height: 30px !important;
+    }
+    .full_height{
+        height: 100%;
+    }
+    .omit{
+        overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    }
+    /deep/ ui.checkbox input[type=checkbox]::after{
+        border: 1px solid #0366D6 !important;
+    }
+    .nowrap-2 {
+        /* height: 2.837em; */
+        /* line-height: 1.4285em; */
+        overflow: hidden;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .course_topic{
+        color:#0366D6 !important;
+        background-color: rgba(179, 219, 219, 0.4) !important;     
+        font-weight:normal !important
+    }
+    .tag_text{
+        /* margin-top: 2px; */
+        /* margin-left: 0.5em; */
+        font-size: 14px;
+    }
+	.card{
+        box-shadow: 0px 4px 4px 0px rgba(232, 232, 232, 60) !important;
+        border-radius: 5px;
+        border:1px solid  #E8E8E8 !important;
+	}
+    .tags{
+        position: relative;
+        overflow: hidden;
+        height: 30px; 
+        line-height: 30px; 
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+</style>
+    <div style="width: 100%;">
+        <div class="ui three cards" style="margin-bottom: 10px;">
+            {{range .Repos}}
+                <div class="card " >
+                    <div class="extra full_height cor"  >
+                        <div class="content " >
+                            {{if .Topics }} 
+                                <div class="omit  tags "  style="position: relative;">
+                                    {{range .Topics}}
+                                            {{if ne . "" }}<a  style="max-width:100%;margin: 5px 0;display:inline-flex;cursor:default"  ><span class="ui small label topic course_topic"  >{{.}}</span></a>{{end}}
+                                    {{end}}
+                                    
+                                </div>
+                            {{end}}  
+                        </div> 
+                        <div class=" header header_card omit" >
+                            <a class="header_card image poping up "   href="{{.Link}}" data-content="{{.Alias}}" data-position="top left" data-variation="tiny inverted">  {{.Alias}}</a>
+                        </div>
+                        
+                        <div class='content descript_height nowrap-2'>
+                            {{.Description}}
+                        </div>
+                    </div>
+                    <div class=" extra content" style="color:#888888;border-top: none !important;padding-top: 0px;margin-bottom: 15px;">                            
+                        <div class="left aligned author">
+                        <!-- <span > -->
+                           
+                            {{if  .Creator }}
+                            <a href="{{.Creator.Name}}" title="{{.Creator.Name}}">
+                                <img class="ui avatar image" style="width: 22px;height:22px;margin-top:-5px"  src="{{.Creator.RelAvatarLink}}">
+                            </a>
+                                
+                            {{else}}
+                            <a href="{{.Owner.Name}}" title="{{.Owner.Name}}">
+                                <img class="ui avatar image" style="width: 22px;height:22px;margin-top:-5px"  src="{{.Owner.RelAvatarLink}}">
+                            </a>
+                                
+                            {{end}}
+
+                            {{$.i18n.Tr "org.repo_released"}}&nbsp;: &nbsp; {{TimeSinceUnixShort  .CreatedUnix}}
+                        <!-- </span> -->
+                        </div>
+                    </div>
+                </div>   
+            {{end}}
+        </div>
+                    
+    </div>

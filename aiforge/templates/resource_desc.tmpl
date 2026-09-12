@@ -1,0 +1,89 @@
+{{template "base/head_home" .}}
+<style>
+	.resource-desc td ul {
+		margin: 0em;
+		padding-inline-start: 20px;
+		padding-right: 10px;
+	}
+</style>
+<div class="ui resource-desc" style="width: 90%; margin: 0 auto">
+	<h1 class="ui center am-pt-30 am-pb-20">平台资源说明</h1>
+	<div class="ui divider am-pb-10"></div>
+	<table class="ui celled structured table">
+		<thead>
+			<tr>
+				<th>集群</th>
+				<th>计算资源</th>
+				<th>任务类型</th>
+				<th>卡类型</th>
+				<th>可用镜像</th>
+				<th>网络类型</th>
+				<th>数据集处理方式</th>
+				<th>容器目录说明</th>
+				<th>示例代码仓</th>
+				<th>备注</th>
+			</tr>
+		</thead>
+		<tbody id="resource-desc"></tbody>
+	</table>
+</div>
+
+{{template "base/footer" .}}
+<script>
+	(function () {
+		$.ajax({
+			url: "/dashboard/invitation",
+			type: "get",
+			data: { filename: "resource/resource_desc.json" },
+			contentType: "application/json; charset=utf-8",
+			success(res) {
+				const fragment = document.createDocumentFragment();
+				const data = JSON.parse(res);
+				let html = "";
+				let reourceLength;
+				data.forEach((resource) => {
+					Object.keys(resource).forEach((cardType, index) => {
+						let reourceLength = 0;
+						let html1 = "";
+						resource[cardType].forEach((card) => {
+							Object.keys(card).forEach((item) => {
+								let html2 = "";
+								reourceLength += card[item].length;
+								let cardLength = 0;
+								card[item].forEach((el) => {
+									cardLength += 1;
+									html2 += `<tr class="wrap"><td class="single line">${el.taskType}</td>
+											<td class="single line">${el.cardType}</td>
+											<td>
+												${el.imageDesc}
+											</td>
+											<td class="single line">${el.net}</td>
+											<td >${el.dataset}</td>
+											<td>
+												${el.dockerDir}
+											</td>
+											<td><a href="${el.example_repo}">${el.example_repo}</a></td>
+											<td>${el.note}</td></tr>`;
+								});
+								html2 = html2.replace(
+									/^<tr class="wrap">/,
+									`<tr class="wrap"><td class="single line" rowspan="${cardLength}">${item}</td>`
+								);
+								html1 += html2;
+							});
+						});
+						html1 = html1.replace(
+							/^<tr class="wrap">/,
+							`<tr class="wrap"><td class="single line" rowspan="${reourceLength}">${cardType}</td>`
+						);
+						html += html1;
+					});
+				});
+				document.querySelector("tbody#resource-desc").innerHTML = html;
+			},
+			error(err) {
+				console.log(err);
+			},
+		});
+	})();
+</script>

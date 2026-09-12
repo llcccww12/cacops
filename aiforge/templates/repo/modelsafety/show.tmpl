@@ -1,0 +1,756 @@
+{{template "base/head" .}}
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <h4 class="ui header" id="vertical-segment">
+            <div class="ui breadcrumb">
+                <a class="section" href="{{.RepoLink}}/debugjob?debugListType=all">
+                    {{$.i18n.Tr "repo.cloudbrain"}}
+                </a>
+                <div class="divider"> / </div>
+                <!--<a class="section" href="{{$.RepoLink}}/cloudbrain/benchmark">
+                    {{$.i18n.Tr "repo.modelarts.evaluate_job"}}
+                </a>-->
+                <div class="active section">{{$.i18n.Tr "repo.modelarts.evaluate_job"}}</div>
+                <div class="divider"> / </div>
+                <div class="active section" vfield="DisplayJobName"></div>
+            </div>
+        </h4>
+        <div class="ui accordion border-according" id="accordion" data-repopath="{{$.RepoRelPath}}/cloudbrain" data-jobid="" vdatajobid="ID" data-version="">
+            <input type="hidden" id="jobId_input" name="jobId_input" value="" vvalue="JobID">
+            <div class="active title padding0">
+                <div class="according-panel-heading">
+                    <div class="accordion-panel-title">
+                        <i class="dropdown icon"></i>
+                        <span class="accordion-panel-title-content">
+                            <span>
+                                <div class="ac-display-inblock title_text acc-margin-bottom">
+                                    <span class="cti-mgRight-sm">
+                                        <span vtime="CreatedUnix"></span>
+                                    </span>
+                                    <span class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.status"}}：
+                                      <span id="-status-span">
+                                        <i id="icon" style="vertical-align: middle;" vclass="Status"></i>
+                                        <span id="text" style="margin-left: 0.4em;font-size: 12px;" vfield="Status"></span>
+                                      </span>
+                                    </span>
+                                    <span class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.train_job.dura_time"}}：</span>
+                                    <span class="cti-mgRight-sm uc-accordionTitle-black" id="-duration-span" vfield="TrainJobDuration"></span>
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="active content">
+                <div class="content-pad">
+                    <div class="ui pointing secondary menu" style="border-bottom: 1px solid rgba(34,36,38,.15);">
+                        <a class="active item" data-tab="first0">{{$.i18n.Tr "repo.modelarts.train_job.config"}}</a>            
+                        <a class="item detail-log-tab" data-tab="second0" data-version="">{{$.i18n.Tr "repo.modelarts.log"}}</a>
+                        <a class="item" data-tab="third0" data-version="">{{.i18n.Tr "modelsafety.evaluation_result"}}</a>
+                    </div>
+                    <div class="ui tab active" data-tab="first0">
+                        <div style="padding-top: 10px;">
+                            <div class="tab_2_content">
+                                <div class="ac-grid ac-grid-col2">
+                                    <div class="ac-grid-col">
+                                        <table class="ti-form">
+                                            <tbody class="ti-text-form">
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain_task"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="DisplayJobName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.status"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="-status" vfield="Status"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.createtime"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            <span style="font-size: 12px;" class="v-field" vtime="CreatedUnix"></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.time.starttime"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w v-field" vtime="StartTime" id="-startTime"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain.time.endtime"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w v-field" vtime="EndTime" id="-EndTime"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.dura_time"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="TrainJobDuration" id="-duration"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80" vimagetitle="Image">
+                                                        <span style="display:none;">{{$.i18n.Tr "cloudbrain.mirror"}}</span>
+                                                        <span style="display:none;">{{$.i18n.Tr "repo.modelarts.train_job.AI_driver"}}</span>
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="-mirror">
+                                                            <span class="ui poping up clipboard" data-position="top center" id="clipboard-btn" style="cursor:pointer" 
+                                                                data-clipboard-text="{{.Image}}"
+                                                                data-success="{{$.i18n.Tr "repo.copied"}}" 
+                                                                data-error="{{$.i18n.Tr "repo.copied_error"}}"
+                                                                data-content="{{$.i18n.Tr "repo.copy"}}"
+                                                                data-variation="inverted tiny"
+                                                                vdataclipboardtext="Image"
+                                                            >
+                                                            <span vtitle="Image" vimage="Image" ></span></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_scenes"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vfield="BenchmarkType"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{$.i18n.Tr "repo.cloudbrain.benchmark.evaluate_type"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vfield="BenchmarkTypeName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{.i18n.Tr "modelsafety.base_data_set"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vdataset0="DatasetName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{.i18n.Tr "modelsafety.combat_data_set"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vdataset1="DatasetName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{$.i18n.Tr "repo.modelarts.train_job.run_parameter"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vtitle="Parameters" vfield="Parameters"></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="ac-grid-col">
+                                        <table class="ti-form">
+                                            <tbody class="ti-text-form">
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{$.i18n.Tr "repo.modelarts.code_version"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="BranchName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                      {{$.i18n.Tr "repo.modelarts.train_job.description"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                      <div class="text-span text-span-w" vtitle="Description" vfield="Description"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        <span>{{$.i18n.Tr "repo.modelarts.train_job.resource_type"}}</span>
+                                                    </td>
+                                                    <td class="ti-text-form-content resorce_type">
+                                                        <div class="text-span text-span-w"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.standard"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content spec">
+                                                        <div class="text-span text-span-w"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.model_name"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="ModelName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelconvert.modelversion"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="ModelVersion"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.infer_job_model_file"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" vfield="CkptName"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain_creator"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="-mirror" vuser="User.Name"></div>
+                                                    </td>
+                                                </tr>                                                
+                                                <tr class="ti-no-ng-animate">
+                                                  <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                    {{$.i18n.Tr "repo.modelarts.train_job.start_file"}}
+                                                  </td>
+                                                  <td class="ti-text-form-content">
+                                                    <div class="text-span text-span-w" vfield="BootFile"></div>
+                                                  </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                  <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                    {{.i18n.Tr "modelsafety.evaluation_indicators"}}                                                     
+                                                  </td>
+                                                  <td class="ti-text-form-content">
+                                                    <div class="text-span text-span-w" vfield="LabelName"></div>
+                                                  </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div class="ui tab" data-tab="second0">
+                        <!--
+                        <div class="file-info">
+                          <a id="-log-down"
+                              class='{{if $.canDownload}}ti-download-file{{else}}disabled{{end}} file-info'
+                              href="/api/v1/repos/{{$.RepoRelPath}}/cloudbrain">
+                              <i class="ri-download-cloud-2-line"></i>
+                              <span style="margin-left: 0.3rem;">{{$.i18n.Tr "repo.modelarts.download_log"}}</span>
+                          </a>
+                          <div class="file-info full-log-dialog" data-version="{{.VersionName}}" data-log="{{$.i18n.Tr "repo.modelarts.log_file"}}"  
+                              data-exit="{{$.i18n.Tr "repo.modelarts.exit_full_screen"}}" style="margin-left: 1rem;color:#0366d6;cursor: pointer;"
+                              data-log-down="{{$.i18n.Tr "repo.modelarts.download_log"}}" data-href="/api/v1/repos/{{$.RepoRelPath}}/cloudbrain"
+                              data-scroll-top="{{$.i18n.Tr "repo.log_scroll_start"}}" data-scroll-bottom="{{$.i18n.Tr "repo.log_scroll_end"}}">
+                              <i class="ri-aspect-ratio-line"></i>
+                              <span style="margin-left: 0.3rem;">{{$.i18n.Tr "repo.modelarts.fullscreen_log_file"}}</span>
+                          </div>
+                        </div>
+                        <div
+                             style="position: relative;border: 1px solid rgba(0,0,0,.2);padding: 0 10px;margin-top: 10px;">
+                             <span>
+                                 <a title="{{$.i18n.Tr "repo.log_scroll_start"}}" style="position: absolute; right: -32px;cursor: pointer;"
+                                     class="log_top" data-version=""><i class="icon-to-top"></i></a>
+                             </span>
+                             <span class="log-info-">
+                                 <a title="{{$.i18n.Tr "repo.log_scroll_end"}}" style="position: absolute; bottom: 10px;right: -32px;cursor: pointer;"
+                                     class="log_bottom" data-version=""><i
+                                         class="icon-to-bottom"></i></a>
+                             </span>
+                             <div class="ui message message" style="display: none;">
+                                 <div id="header"></div>
+                             </div>
+                             <div class="ui attached  log log-scroll" id="log" data-version=""
+                                style="height: 300px !important; overflow: auto;">
+                                <div class="ui inverted active dimmer">
+                                  <div class="ui loader"></div>
+                                </div>
+                                <input type="hidden" name="end_line" value>
+                                <input type="hidden" name="end_line-max" value>
+                                <input type="hidden" name="start_line-max" value>
+                                <input type="hidden" name="start_line-max-copy" value>
+                                <input type="hidden" name="start_line" value>
+                                <input type="hidden" name="init_log" value>
+                                <pre id="log_file"></pre>
+                             </div>
+                        </div>
+                        -->
+                        <div class="detail-log-content detail-log-content-{{.VersionName}}"
+                            data-noScroll="true"
+                            data-multiplenode=""
+                            data-taskid=""
+                            data-logapiurl="{{$.RepoLink}}"
+                            data-logdownloadurl="/api/v1{{$.RepoLink}}/ai_task/log/download?id=ID"
+                            data-workservernumber="{{.WorkServerNumber}}"
+                            data-version="{{.VersionName}}">
+                            {{template "custom/task_log" Dict "$" $ "i18n" $.i18n }}
+                        </div>
+                        <div class="ui modal full-log-dlg-{{.VersionName}} container" style="height:90%;margin:3rem auto;">
+                            <div id="log-file-title" style="font-size: 16px;font-weight:600;padding:20px 30px 16px;">{{$.i18n.Tr "repo.modelarts.log_file"}}</div>
+                            <div style="padding:0 50px 10px 30px;height:100%">
+                                <div class="detail-log-fullscreen-content detail-log-fullscreen-content-{{.VersionName}}" style="height:100%;"
+                                    data-noScroll="true"
+                                    data-multiplenode=""
+                                    data-taskid=""
+                                    data-logapiurl="{{$.RepoLink}}"
+                                    data-logdownloadurl="/api/v1{{$.RepoLink}}/ai_task/log/download?id=ID"
+                                    data-workservernumber="{{.WorkServerNumber}}"
+                                    data-version="{{.VersionName}}">
+                                    {{template "custom/task_log" Dict "$" $ "i18n" $.i18n "Full" true }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui tab" data-tab="third0">                      
+                      <style>
+                        .__res_item {
+                          margin-bottom: 20px;
+                        }
+                        .__res_title {
+                          height: 50px;
+                          display: flex;
+                          align-items: center;
+                          margin-bottom: 10px;
+                        }
+                        .__res_title_icon {
+                          height: 48px;
+                          width: 48px;
+                          margin-right: 8px;
+                        }
+                        .bNIWIE.fill:not([stroke]) {
+                          fill: rgb(105, 192, 255);
+                        }
+                        .bNIWIE.fill:not([fill]) {
+                            fill: rgb(105, 192, 255);
+                        }
+                        .__res_title_txt {                      
+                          font-family: SourceHanSansSC;
+                          font-size: 14px;
+                          font-style: normal;
+                          line-height: 20px;
+                          text-decoration: none;
+                        }
+                        .__res_title_txt1 {
+                          font-weight: 700;
+                          color: rgb(3, 102, 214);
+                        }
+                        .__res_title_txt2 {                        
+                          font-weight: 300;
+                          color: rgba(136,136,136,1);
+                        }
+                        .__res_table_container {
+                          overflow-x: auto;
+                        }
+                        .__res_table_container table {
+                          border-bottom-left-radius: 0 !important;
+                          border-bottom-right-radius: 0 !important;
+                        }
+                        .__res_table_container th, .__res_table_container td {
+                          text-align: center !important;
+                        }
+                        .__res_chart_container {
+                          height:280px;
+                          border: 1px solid rgba(34,36,38,.1);
+                          margin-top: -1px;
+                          border-bottom-left-radius: .28571429rem;
+                          border-bottom-right-radius: .28571429rem;
+                        }
+                        .__res_no_data {
+                          height: 200px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        }
+                      </style>
+                      <div style="display:none;">
+                        {{template "repo/modelsafety/indicators_descr".}}
+                      </div>
+                      <div class="__res_container">
+                        <div class="__res_no_data">{{.i18n.Tr "modelsafety.no_data"}}</div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- {{template "custom/max_log" .}} -->
+        {{template "base/paginate" .}}
+    </div>
+    <!-- 确认模态框 -->
+    <div id="deletemodel">
+        <div class="ui basic modal">
+            <div class="ui icon header">
+                <i class="trash icon"></i> {{$.i18n.Tr "cloudbrain.delete_task"}}
+            </div>
+
+            <div class="content">
+                <p>{{$.i18n.Tr "cloudbrain.task_delete_confirm"}}</p>
+            </div>
+            <div class="actions">
+                <div class="ui red basic inverted cancel button">
+                    <i class="remove icon"></i> {{$.i18n.Tr "cloudbrain.operate_cancel"}}
+                </div>
+                <div class="ui green basic inverted ok button">
+                    <i class="checkmark icon"></i> {{$.i18n.Tr "cloudbrain.operate_confirm"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+
+<script src="{{StaticUrlPrefix}}/js/specsuse.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+
+<script>  
+  ;(function() {
+    function paddingZeros(str, len) {
+      str = str.toString();
+      if (str.length < len) {
+        str = new Array(len - str.length).fill('0').join('') + str;
+      }
+      return str;
+    }
+
+    function timeFormat(date) {
+      return `${date.getFullYear()}-${paddingZeros(date.getMonth() + 1, 2)}-${paddingZeros(date.getDate(), 2)} ${paddingZeros(date.getHours(), 2)}:${paddingZeros(date.getMinutes(), 2)}:${paddingZeros(date.getSeconds(), 2)}`;
+    }
+
+    function initTable(tableEl, data) {
+      tableEl.empty();
+      var lanUntargetted = {{.i18n.Tr "modelsafety.untargetted"}};
+      var lanTargetted = {{.i18n.Tr "modelsafety.targetted"}};
+      if (data.indicator === 'ALDp') {
+        tableEl.append(`
+          <table class="ui celled table">
+            <thead>
+              <tr class="tr-head"><th colspan="2" style="width:100px;">${data.indicator}</th></tr>
+            </thead>
+            <tbody>
+              <tr class="tr-untargetted"><td rowspan="3">${lanUntargetted}</td><td>L_0 norm</td></tr>
+              <tr class="tr-untargetted"><td style="border-left: 1px solid rgba(34,36,38,.1);">L_2 norm</td></tr>
+              <tr class="tr-untargetted"><td style="border-left: 1px solid rgba(34,36,38,.1);">L_inf norm</td></tr>
+              <tr class="tr-targetted"><td rowspan="3">${lanTargetted}</td><td>L_0 norm</td></tr>
+              <tr class="tr-targetted"><td style="border-left: 1px solid rgba(34,36,38,.1);">L_2 norm</td></tr>
+              <tr class="tr-targetted"><td style="border-left: 1px solid rgba(34,36,38,.1);">L_inf norm</td></tr>
+            </tbody>
+          </table>`);
+          var trHead = tableEl.find('tr.tr-head');
+          var trUntargetted = tableEl.find('tr.tr-untargetted');
+          var trTargetted = tableEl.find('tr.tr-targetted');
+          for (var i = 0, iLen = data.params.length; i < iLen; i++) {
+            var params = data.params;
+            var untargetted = data.untargetted;
+            var targetted = data.targetted;
+            trHead.append(`<th>param(${params[i]})</th>`);
+            trUntargetted.eq(0).append(`<td>${Number(untargetted[i][0]).toFixed(3)}</td>`);
+            trUntargetted.eq(1).append(`<td>${Number(untargetted[i][1]).toFixed(3)}</td>`);
+            trUntargetted.eq(2).append(`<td>${Number(untargetted[i][2]).toFixed(3)}</td>`);
+            trTargetted.eq(0).append(`<td>${Number(targetted[i][0]).toFixed(3)}</td>`);
+            trTargetted.eq(1).append(`<td>${Number(targetted[i][1]).toFixed(3)}</td>`);
+            trTargetted.eq(2).append(`<td>${Number(targetted[i][2]).toFixed(3)}</td>`);
+          }
+      } else {
+        tableEl.append(`
+          <table class="ui celled table">
+            <thead>
+              <tr class="tr-head"><th style="width:100px;">${data.indicator}</th></tr>
+            </thead>
+            <tbody>
+              <tr class="tr-untargetted"><td>{{.i18n.Tr "modelsafety.untargetted"}}</td></tr>
+              <tr class="tr-targetted"><td>{{.i18n.Tr "modelsafety.targetted"}}</td></tr>
+            </tbody>
+          </table>`);
+        var trHead = tableEl.find('tr.tr-head');
+        var trUntargetted = tableEl.find('tr.tr-untargetted');
+        var trTargetted = tableEl.find('tr.tr-targetted');
+        for (var i = 0, iLen = data.params.length; i < iLen; i++) {
+          var params = data.params;
+          var untargetted = data.untargetted;
+          var targetted = data.targetted;
+          trHead.append(`<th>param(${params[i]})</th>`);
+          trUntargetted.append(`<td>${Number(untargetted[i]).toFixed(3)}</td>`);
+          trTargetted.append(`<td>${Number(targetted[i]).toFixed(3)}</td>`);
+        }
+      }
+    }
+
+    function initChart(chartEl, data) {      
+      var chartHandle = chartEl.data('chart');
+      chartHandle && chartHandle.dispose();
+      chartHandle && window.removeEventListener('resize', chartHandle.resize);
+      chartHandle = echarts.init(chartEl[0]);
+      chartEl.data('chart', chartHandle);
+      var lanUntargetted = {{.i18n.Tr "modelsafety.untargetted"}};
+      var lanTargetted = {{.i18n.Tr "modelsafety.targetted"}};
+      var option = {
+        tooltip: {
+          trigger: 'axis'
+        },
+        color: ['rgb(80, 135, 236)', 'rgb(104, 187, 196)'],
+        legend: {
+          data: [lanUntargetted, lanTargetted],
+          top: '15',
+        },
+        grid: {
+          top: '50',
+          left: '20',
+          right: '20',
+          bottom: '20',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'category',        
+          data: data.params.map(function(item){ return `param(${item})`}),
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: lanUntargetted,
+            type: 'line',
+            data: (data.untargetted || []).map(function(item){ return Number(Number(item).toFixed(3)) }),
+          },
+          {
+            name: lanTargetted,
+            type: 'line',
+            data: (data.targetted || []).map(function(item){ return Number(Number(item).toFixed(3)) }),
+          }
+        ]
+      };
+      if (data.indicator === 'ALDp') {
+        option.color = ['rgb(80, 135, 236)', 'rgb(247, 238, 209)', 'rgb(231, 230, 238)', 'rgb(104, 187, 196)', 'rgb(211, 183, 136)', 'rgb(159, 131, 179)'];
+        option.legend.data = [`${lanUntargetted}(L_0)`, `${lanUntargetted}(L_2)`, `${lanUntargetted}(L_inf)`,
+                              `${lanTargetted}(L_0)`, `${lanTargetted}(L_2)`, `${lanTargetted}(L_inf)`];
+        option.series = [
+          {
+            name: `${lanUntargetted}(L_0)`,
+            type: 'line',
+            data: (data.untargetted || []).map(function(item){ return Number(item[0].toFixed(3)) }),
+          },
+          {
+            name: `${lanUntargetted}(L_2)`,
+            type: 'line',
+            data: (data.untargetted || []).map(function(item){ return Number(item[1].toFixed(3)) }),
+          },
+          {
+            name: `${lanUntargetted}(L_inf)`,
+            type: 'line',
+            data: (data.untargetted || []).map(function(item){ return Number(item[2].toFixed(3)) }),
+          },
+          {
+            name: `${lanTargetted}(L_0)`,
+            type: 'line',
+            data: (data.targetted || []).map(function(item){ return Number(item[0].toFixed(3)) }),
+          },
+          {
+            name: `${lanTargetted}(L_2)`,
+            type: 'line',
+            data: (data.targetted || []).map(function(item){ return Number(item[1].toFixed(3)) }),
+          },
+          {
+            name: `${lanTargetted}(L_inf)`,
+            type: 'line',
+            data: (data.targetted || []).map(function(item){ return Number(item[2].toFixed(3)) }),
+          }
+        ];                   
+      }
+      chartHandle.setOption(option);
+      window.addEventListener('resize', chartHandle.resize);
+    }
+
+    function initResItems(list) {
+      var resContainer = $('.__res_container');
+      resContainer.empty();
+      for (var i = 0, iLen = list.length; i < iLen; i++) {
+        var item = list[i], indicator = item.indicator;
+        var descr = $(`[indicator="${indicator}"]`).text();
+        var resItemContainer = $(`<div class="__res_item">
+          <div class="__res_title">
+            <div class="__res_title_icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="styles__StyledSVGIconPathComponent-sc-16fsqc8-0 bNIWIE svg-icon-path-icon fill" viewBox="0 0 32 32" width="48" height="48"><defs data-reactroot=""></defs><g><path d="M8.155 26.783c-3.342-2.449-5.488-6.36-5.488-10.771 0-0.004 0-0.008 0-0.012v0.001c0-7.364 5.969-13.333 13.333-13.333s13.333 5.969 13.333 13.333c0 0.003 0 0.007 0 0.011 0 4.412-2.146 8.323-5.451 10.745l-0.037 0.026-1.353-2.319c2.549-1.969 4.175-5.026 4.175-8.464 0-5.891-4.776-10.667-10.667-10.667s-10.667 4.776-10.667 10.667c0 3.437 1.626 6.494 4.15 8.445l0.025 0.018-1.353 2.319zM10.867 22.136c-1.758-1.477-2.867-3.677-2.867-6.136 0-4.418 3.582-8 8-8s8 3.582 8 8c0 2.459-1.109 4.658-2.854 6.126l-0.012 0.010-1.373-2.355c0.972-0.966 1.573-2.304 1.573-3.782 0-2.946-2.388-5.333-5.333-5.333s-5.333 2.388-5.333 5.333c0 1.478 0.601 2.816 1.573 3.782l0 0-1.373 2.355zM14.667 17.333h2.667v12h-2.667v-12z"></path></g></svg>
+            </div>
+            <div class="__res_title_txt">
+              <div class="__res_title_txt1">${indicator}-${item.name}</div>
+              <div class="__res_title_txt2">${descr}</div>
+            </div>
+          </div>
+          <div class="__res_table_container"></div>
+          <div class="__res_chart_container"></div>
+        </div>`);
+        resContainer.append(resItemContainer);
+        initTable(resItemContainer.find('.__res_table_container'), item);
+        initChart(resItemContainer.find('.__res_chart_container'), item);
+      }
+    };
+
+    function initResTab(data) {         
+      var name = data.name;
+      var params = data.params;
+      var indicators = Object.keys(data.targetted);
+      var list = [];
+      for (var i = 0, iLen = indicators.length; i < iLen; i++) {
+        var indicator = indicators[i];
+        var obj = {
+          name: name,
+          params: params.flat(),
+          indicator: indicator,
+          targetted: data.targetted[indicator]['targets'],
+          untargetted: data.untargetted[indicator],
+        };
+        list.push(obj);
+      }
+      initResItems(list);
+    }
+
+    var resultData;
+    function initData(isFirst) {
+      $.ajax({
+        url: window.location.href.replace('cloudbrain/benchmark', 'modelsafety'),
+        type: "get",
+        data: {},
+        contentType: "application/json; charset=utf-8",
+        success(res) {
+          for (var key in res) {
+            $(`[vfield="${key}"]`).text(res[key]);
+            $(`[vclass="${key}"]`).addClass(res[key]);
+            $(`[vtime="${key}"]`).text(res[key] ? timeFormat(new Date(res[key] * 1000)) : '--');          
+            $(`[vtitle="${key}"]`).attr('title', res[key]);
+            $(`[vdataset0="${key}"]`).text(res[key] ? res[key].toString().split(';')[0] : '');
+            $(`[vdataset1="${key}"]`).text(res[key] ? res[key].toString().split(';')[1] : '');
+            $(`[vvalue="${key}"]`).val(res[key]);
+            $(`[vdatajobid="${key}"]`).attr('data-jobid', res[key]);
+          }
+          
+          $(`[vfield="Description"]`).text(res['Description'] || '--');
+          $(`[vfield="Parameters"]`).text(res['Parameters'] || '--');
+          $(`[vfield="BranchName"]`).html(res['BranchName'] + '<span style="margin-left:1rem" class="ui label">' + res['CommitID'].slice(0, 10) + '</span>');
+
+          var imageName = res['Image'] || res['EngineName'];
+          $(`[vimagetitle="Image"] span`).hide();
+          if (res.Type === 0) {
+            imageName = res['Image'];
+            $(`[vimagetitle="Image"] span`).eq(0).show();
+          } else {
+            imageName = res['EngineName'];    
+            $(`[vimagetitle="Image"] span`).eq(1).show(); 
+          }
+          if (res.Status == 'TESTING') {
+            $(`[vClass="Status"]`).removeClass(res.Status).addClass('RUNNING');
+          }
+          if (isFirst && ['RUNNING', 'TESTING'].includes(res.Status)) {
+            setTimeout(function() {
+              $('.pointing.secondary.menu .item').eq(1).click();
+            }, 20);
+          }
+          $(`[vdataclipboardtext="Image"]`).attr('data-clipboard-text', imageName);
+          $(`[vimage="Image"]`).text(imageName);
+          $(`[vtitle="Image"]`).attr('title', imageName);
+          $(`[vuser="User.Name"]`).text(res['User'] && res['User']['Name']);
+
+          // 日志
+          let logapiurl = $('[data-logapiurl]').attr('data-logapiurl');
+          $('[data-logapiurl]').attr('data-logapiurl', logapiurl.replace('ID', res.ID))
+          let logdownloadurl = $('[data-logdownloadurl]').attr('data-logdownloadurl');
+          $('[data-logdownloadurl]').attr('data-logdownloadurl', logdownloadurl.replace('ID', res.ID))
+          $('[data-taskid]').attr('data-taskid', res.ID);
+
+          if (res.Spec) {
+            var SPEC = res.Spec;
+            var showPoint = false;
+            var specStr = window.renderSpecStr(SPEC, showPoint, {
+              gpu_memory: {{$.i18n.Tr "cloudbrain.gpu_memory"}},
+              free: {{$.i18n.Tr "cloudbrain.free"}},
+              point_hr: {{$.i18n.Tr "cloudbrain.point_hr"}},
+              memory: {{$.i18n.Tr "cloudbrain.memory"}},
+              shared_memory: {{$.i18n.Tr "cloudbrain.shared_memory"}},
+              no_use_resource:{{$.i18n.Tr "cloudbrain.no_use_resource"}},
+            });
+            $('td.ti-text-form-content.spec div').text(specStr);
+            SPEC && $('td.ti-text-form-content.resorce_type div').text(getListValueWithKey(ACC_CARD_TYPE, SPEC.AccCardType));
+          }
+          var repoPath = {{$.RepoRelPath}};
+          var oLogHref = `/api/v1/repos/${repoPath}/cloudbrain`;
+          $('#-log-down').attr('href', oLogHref + `/${res.ID}/download_log_file`);
+          $('.full-log-dialog').attr('data-href', oLogHref + `/${res.ID}/download_log_file`);
+          if (res.ResultJson) {
+            try {
+              resultData = JSON.parse(res.ResultJson);
+            } catch(e) {
+              resultData = res.ResultJson;
+            }            
+          }
+        },
+        error(err) {
+          console.log(err);
+        },
+      });
+    }
+
+    initData(true);
+    
+    $(document).ready(function () {
+      $('.ui.accordion').accordion({ selector: { trigger: '.icon' } });
+    });
+
+    $('.pointing.secondary.menu .item').tab({
+      onVisible: function(tabPath) {
+        if (tabPath === 'first0') {
+          initData();
+        }
+        if (tabPath === 'third0') {
+          if (resultData) {
+            if (typeof resultData === 'object') {
+              initResTab(resultData);
+            } else if (typeof resultData === 'string') {
+              var resContainer = $('.__res_container');
+              resContainer.find('.__res_no_data').text(resultData);
+            }
+          }
+        }
+      },
+    });
+
+  })();
+</script>

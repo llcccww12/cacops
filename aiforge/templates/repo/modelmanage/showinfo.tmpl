@@ -1,0 +1,10 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-modelmanage-common-detail.css?v={{MD5 AppVer}}" />
+<div class="repository release dataset-list view">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <div id="__vue-root"></div>
+    </div>    
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-modelmanage-common-detail.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

@@ -1,0 +1,66 @@
+<footer id="footer">
+	<div class="ui container">
+		<div class="ui grid">
+			<div class="footer-left sixteen wide mobile wide tablet four wide computer column min-screen-text-align-center">
+				<img style="width:180px;height:auto;margin-top:24px;" src="{{StaticUrlPrefix}}/img/century-albert-logo.png" alt="Century Albert" />
+				<p style="margin-top:8px;color:rgba(16,16,16,0.65);font-size:14px;">{{.i18n.Tr "custom.foot.tagline"}}</p>
+			</div>
+			<div class="footer-mid sixteen wide mobile wide tablet seven wide computer column" style="padding-left:20px;">
+				<div class="ui three column grid">
+					<div class="column ui vertical text menu">
+						<div class="header item">{{.i18n.Tr "custom.foot.product"}}</div>
+						<a href="#" class="item">{{.i18n.Tr "custom.foot.compute_service"}}</a>
+						<a href="#" class="item">{{.i18n.Tr "custom.foot.data_service"}}</a>
+						<a href="#" class="item">{{.i18n.Tr "custom.foot.model_service"}}</a>
+					</div>
+					<div class="column ui vertical text menu">
+						<div class="header item">{{.i18n.Tr "custom.foot.support"}}</div>
+						<a href="{{AppSubUrl}}/docs/index.html" class="item" target="_blank">{{.i18n.Tr "help_doc"}}</a>
+						<a href="#" class="item">{{.i18n.Tr "custom.Platform_Tutorial"}}</a>
+						<a href="#" class="item">{{.i18n.Tr "custom.foot.advice_feedback"}}</a>
+					</div>
+					<div class="column ui vertical text menu">
+						<div class="header item">{{.i18n.Tr "custom.foot.about"}}</div>
+						<a href="{{AppSubUrl}}/home/term/" class="item">{{.i18n.Tr "custom.foot.agreement"}}</a>
+						<a href="{{AppSubUrl}}/home/privacy" class="item">{{.i18n.Tr "custom.foot.privacy"}}</a>
+						<a href="#" class="item">{{.i18n.Tr "custom.foot.contact"}}</a>
+						{{template "custom/extra_links_footer" .}}
+					</div>
+				</div>
+			</div>
+			<div class="footer-right sixteen wide mobile wide tablet five wide computer column contacts-qr-code-c min-screen-justify-content-center">
+				<div style="text-align:center;">
+					<div style="width:80px;height:80px;border:1px dashed rgba(16,16,16,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto;background:rgba(16,16,16,0.03);">
+						<span style="font-size:12px;color:rgba(16,16,16,0.45);">{{.i18n.Tr "custom.foot.docs_placeholder"}}</span>
+					</div>
+					<p style="margin-top:4px;color:rgb(16, 16, 16);">{{.i18n.Tr "custom.foot.docs_center"}}</p>
+				</div>
+				<div style="text-align:center;margin-left:40px;">
+					<div style="width:80px;height:80px;border:1px dashed rgba(16,16,16,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto;background:rgba(16,16,16,0.03);">
+						<span style="font-size:12px;color:rgba(16,16,16,0.45);">{{.i18n.Tr "custom.foot.support_placeholder"}}</span>
+					</div>
+					<p style="margin-top:4px;color:rgb(16, 16, 16);">{{.i18n.Tr "custom.foot.tech_support"}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="ui grid copyright" style="margin-top:2rem;margin-bottom:2rem;border-top:1px solid #d6d6d6;">
+			<div class="sixteen wide mobile sixteen wide tablet wide computer column" style="margin:1.0rem 0;text-align:center;">
+				{{.i18n.Tr "custom.foot.copyright"}}
+			</div>
+		</div>
+	</div>
+</footer>
+<div class="__go-top" style="display:none;z-index:100;width:44px;height:44px;bottom:50px;right:50px;background:rgba(16, 16, 16, 0.1);position:fixed;cursor:pointer;border-radius:5px;">
+	<div style="display:flex;align-items:center;justify-content:center;height:100%;">
+		<svg xmlns="http://www.w3.org/2000/svg" class="styles__StyledSVGIconPathComponent-sc-16fsqc8-0 mHEdk svg-icon-path-icon fill" viewBox="0 0 32 32" width="30" height="30"><defs data-reactroot=""></defs><g><path fill="rgba(16, 16, 16, 0.6)" d="M17.333 10.437v16.229h-2.667v-16.229l-7.152 7.152-1.885-1.885 10.371-10.371 10.371 10.371-1.885 1.885-7.152-7.152z"></path></g></svg>
+	</div>
+</div>
+{{if not .PageIsHome}}
+<script>
+(function(){
+	if (window.MENU_CONFIG.activeLeftMenu) {
+		document.querySelector('#footer').style.display = 'none'
+	}
+})();
+</script>
+{{end}}

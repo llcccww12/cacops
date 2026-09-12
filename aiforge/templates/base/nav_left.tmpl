@@ -1,0 +1,250 @@
+
+<style>
+  body >.full.height {
+    padding-bottom: 0
+  }
+  #nav-left-c {
+    position: relative;   
+    border-right: 1px solid rgba(16, 16, 16, 0.1); 
+    background: linear-gradient(180deg, rgba(0,0,255,0.05) 0%,rgba(255,255,255,0) 100%);
+  }
+  #nav-left-c #workspace-switcher{
+    background-color: #fff;
+  }
+  #nav_left_right_content {
+    flex:1;
+    width:0;
+    /* background: linear-gradient(180deg, rgba(0, 0, 255, 0.05) 0%, #f9f9f9 100%); */
+    /* padding-bottom: 80px; */
+    /* background-color: #F9F9F9; */
+  }
+  .bg-f9f9f9{
+    background-color: #f9f9f9;
+  }
+  #nav-left {
+    width: 200px;
+    background-color: rgba(255, 255, 255);
+    box-sizing: border-box;
+    interpolate-size: allow-keywords;
+    transition: all .2s ease-in-out;
+    user-select: none;    
+    position: sticky;
+    top: 0;
+    /*box-shadow: rgba(16, 16, 16, 0.3) 0px 2px 6px 0px;*/
+    min-height: calc(100vh - 60px);
+  }
+  
+  #nav-left.collapsed {
+    width: 0;
+    overflow-x: hidden;
+  }
+  #nav-left .nav-item-1-c {
+    padding: 0 10px;
+  }
+  #nav-left .nav-item-1 {
+    height: 42px;    
+    color: rgb(111, 118, 165);
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    padding-left: 36px;
+    cursor: pointer;
+    border-top: 1.5px solid rgba(157,197,226,0.4);
+  }
+
+  #nav-left .nav-item-1 .text {
+    width: 126px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 0;
+    flex: 1;
+  }
+
+  #nav-left .nav-item-1 .drop-icon {
+    height: 16px;
+    width: 16px;
+    transition: all 0.1s linear;
+  }
+
+  #nav-left .nav-item-2-c {
+    transition: all .2s ease-in-out;
+    height: calc-size(auto, size);
+    overflow: hidden;
+  }
+
+  #nav-left .nav-item-1.collapsed+.nav-item-2-c {
+    height: 0;
+  }
+
+  #nav-left .nav-item-1.collapsed .drop-icon {
+    transform: rotate(180deg) translate(0, -2px);
+  }
+
+  #nav-left .nav-item-2 {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    color: rgba(32, 37, 101, 0.9);
+    padding: 0 8px;
+    cursor: pointer;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+  }
+
+  #nav-left .nav-item-2:hover {
+    color: rgb(0, 26, 199);
+  }
+
+  #nav-left .nav-item-2 .icon-c {
+    height: 18px;
+    width: 18px;
+    margin-right: 8px;
+  }
+
+  #nav-left .nav-item-2 .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 0;
+    flex: 1;
+  }
+
+  #nav-left .nav-item-3 {
+    height: 38px;
+    display: flex;
+    align-items: center;
+    color: rgba(32, 37, 101, 0.9);
+    padding-right: 8px;
+    padding-left: 42px;
+    cursor: pointer;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+  }
+
+  #nav-left .nav-item-3:hover {
+    color: rgb(0, 26, 199);
+  }
+
+  #nav-left .nav-item-3 .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 0;
+    flex: 1;
+  }
+
+  #nav-left .nav-item-2.focused,
+  #nav-left .nav-item-3.focused {
+    color: rgb(0, 26, 199);
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: rgba(230,240,255,1);
+  }
+</style>
+<div id="nav-left-c">
+  <div id="nav-left">
+    {{template "base/org_list" .}}
+  </div>
+</div>
+{{if not .PageIsHome}}
+<script>
+  ; (function () {
+    function navLeftInit() {
+      var MENU_CONFIG = window.MENU_CONFIG;
+      var lang = MENU_CONFIG.lang;
+      if (!MENU_CONFIG.showLeftMenu) {
+        document.querySelector('#nav-left').style.display = 'none';
+        return;
+      }
+      var menuData = MENU_CONFIG.menuData[MENU_CONFIG.activeTopMenu] || [];
+      var menuEl = document.getElementById('nav-left');
+      for (var i = 0, iLen = menuData.length; i < iLen; i++) {
+        var menuL1Data = menuData[i];
+        var navItem1c = document.createElement('div')
+        navItem1c.classList = ['nav-item-1-c']
+        var navItem1 = document.createElement('a')
+        navItem1.classList = ['nav-item-1']
+        var name = lang == 'CN' ? menuL1Data.name : (menuL1Data.name_en || menuL1Data.name)
+        navItem1.innerHTML = `<div class="text" title="${name}">${name}</div>
+        <div class="drop-icon">
+          <object data="/img/menu-icon/arrow.svg" type="image/svg+xml"></object>
+        </div>`;
+        navItem1c.append(navItem1)
+        if (menuL1Data.children && menuL1Data.children.length) {
+          var navItem2c = document.createElement('div')
+          navItem2c.classList = ['nav-item-2-c']
+          for (let j = 0, jLen = menuL1Data.children.length; j < jLen; j++) {
+            var menuL2Data = menuL1Data.children[j]
+            var navItem2 = document.createElement('a');
+            var focused = MENU_CONFIG.activeSubMenuUrl == menuL2Data.url;
+            var name = lang == 'CN' ? menuL2Data.name : (menuL2Data.name_en || menuL2Data.name);
+            navItem2.innerHTML = `<a class="nav-item-2 ${focused ? 'focused' : ''}" href="${menuL2Data.url ? menuL2Data.url : 'javascript:;'}">
+              <div class="icon-c">
+              ${menuL2Data.icon ? `<object data="/img/menu-icon/${focused ? (menuL2Data.icon + '_active.svg') : (menuL2Data.icon + '.svg')}" type="image/svg+xml"></object>` : ''}
+              </div>
+              <div class="text" title="${name}">${name}</div>
+            </a>`;
+            navItem2c.appendChild(navItem2)
+            if (menuL2Data.children && menuL2Data.children.length) {
+              var navItem3c = document.createElement('div')
+              navItem3c.classList = ['nav-item-3-c']
+              for (let k = 0, kLen = menuL2Data.children.length; k < kLen; k++) {
+                var menuL3Data = menuL2Data.children[k]
+                var navItem3 = document.createElement('a')             
+                var focused = MENU_CONFIG.activeSubMenuUrl == menuL3Data.url;
+                var name = lang == 'CN' ? menuL3Data.name : (menuL3Data.name_en || menuL3Data.name);
+                navItem3.innerHTML = `<a class="nav-item-3 ${focused ? 'focused' : ''}" href="${menuL3Data.url ? menuL3Data.url : 'javascript:;'}">
+              <div class="icon-c">
+              ${menuL3Data.icon ? `<object data="/img/menu-icon/${focused ? (menuL3Data.icon + '_active.svg') : (menuL3Data.icon + '.svg')}" type="image/svg+xml"></object>` : ''}
+              </div>
+              <div class="text" title="name">${name}</div>
+            </a>`;
+                navItem3c.appendChild(navItem3)
+              }
+              navItem2c.appendChild(navItem3c)
+            }
+          }
+          navItem1c.appendChild(navItem2c)
+        }
+        menuEl.append(navItem1c)
+      }
+    }
+
+    function eventInit() {
+      document.querySelectorAll('#nav-left .nav-item-1').forEach(function (ele) {
+        ele.onclick = function (e) {
+          var target = e.target
+          while (!target.classList.contains('nav-item-1')) {
+            target = target.parentNode
+          }
+          if (target.classList.contains('collapsed')) {
+            target.classList.remove('collapsed');
+          } else {
+            target.classList.add('collapsed');
+          }
+        }
+      })
+      document.querySelector('#nav-left-c').addEventListener('click', function(e) {
+        if (e.target.getAttribute('id') == 'nav-left-c') {
+          const evObj = document.createEvent('MouseEvents')
+          evObj.initMouseEvent('click', true, true, window)
+          document.querySelector('#navbar-mobile .nav-left .menu-expand-btn').dispatchEvent(evObj)
+        }
+      })      
+    }
+    if (document.documentElement.scrollWidth <= 1000) {
+      document.querySelector('#nav-left-c').style.display = 'none'
+      document.querySelector('#nav-left').style.display = 'none'
+      document.querySelector('#nav-left-c').classList.add('collapsed')
+      document.querySelector('#nav-left').classList.add('collapsed')
+      setTimeout(() => {
+        document.querySelector('#nav-left-c').style.display = 'block'
+        document.querySelector('#nav-left').style.display = 'block'
+      }, 1000)      
+    }
+    navLeftInit();
+    eventInit();
+  })();
+</script>
+{{end}}

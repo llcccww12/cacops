@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-computingpower-demand.css?v={{MD5 AppVer}}"/>
+{{if .IsOperator}}
+  <script>window.IS_OPERATOR = true;</script>
+{{end}}
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+	<div id="nav_left_right_content">
+		<div id="__vue-root"></div>
+	</div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-computingpower-demand.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

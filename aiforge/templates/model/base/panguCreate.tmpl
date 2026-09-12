@@ -1,0 +1,6 @@
+{{template "base/head_home" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-modelbase-create.css?v={{MD5 AppVer}}" />
+<script>window.notStopTaskCount = {{.NotStopTaskCount}};</script>
+<div id="__vue-root"></div>
+<script src="{{StaticUrlPrefix}}/js/vp-modelbase-create.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

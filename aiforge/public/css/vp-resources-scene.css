@@ -1,0 +1,384 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/resources/components/SpecSelect.vue?vue&type=style&index=0&id=0266aea4&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form-row[data-v-0266aea4] {
+  display: flex;
+  min-height: 42px;
+  margin-bottom: 4px;
+}
+.form-row .title[data-v-0266aea4] {
+  width: 255px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  color: #888888;
+  font-size: 14px;
+}
+.form-row .title.required span[data-v-0266aea4] {
+  position: relative;
+}
+.form-row .title.required span[data-v-0266aea4]::after {
+  position: absolute;
+  right: -10px;
+  top: -2px;
+  vertical-align: top;
+  content: '*';
+  color: #db2828;
+}
+.form-row .content[data-v-0266aea4] {
+  width: 10px;
+  display: flex;
+  align-items: center;
+}
+.form-row .select-btn[data-v-0266aea4] {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.row-detail[data-v-0266aea4] {
+  font-size: 12px;
+}
+.row-detail .table-c[data-v-0266aea4] {
+  padding-bottom: 2px;
+  padding-right: 8px;
+}
+.row-detail .table-c .table-content[data-v-0266aea4] {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: -1px;
+  padding-bottom: 2px;
+}
+.row-detail .table-c .row[data-v-0266aea4] {
+  display: flex;
+}
+.row-detail .table-c .row.header[data-v-0266aea4] {
+  background-color: #f5f5f6;
+}
+.row-detail .table-c .row.header .row-l[data-v-0266aea4] {
+  justify-content: center;
+  border-bottom: 1px solid gainsboro;
+}
+.row-detail .table-c .row.header .row-r[data-v-0266aea4] {
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid gainsboro;
+}
+.row-detail .table-c .row .row-l[data-v-0266aea4] {
+  display: flex;
+  align-items: center;
+  border: 1px solid gainsboro;
+  border-right: none;
+  border-bottom: none;
+  padding: 4px 8px;
+  width: 0;
+  overflow: hidden;
+}
+.row-detail .table-c .row .row-r[data-v-0266aea4] {
+  border: 1px solid gainsboro;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: none;
+  width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.row-detail .table-c .row:last-child .row-l[data-v-0266aea4] {
+  border-bottom: 1px solid gainsboro;
+}
+.row-detail .table-c .row:last-child .row-r[data-v-0266aea4] {
+  border-bottom: 1px solid gainsboro;
+}
+.dlg-content[data-v-0266aea4] {
+  margin: 0px 0 0 0;
+  display: flex;
+  font-size: 12px;
+}
+.dlg-content .left-area[data-v-0266aea4] {
+  flex: 1;
+  width: 0;
+}
+.dlg-content .left-area .tabs[data-v-0266aea4] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.dlg-content .left-area .tabs .tab[data-v-0266aea4] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.87);
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  margin-left: -1px;
+  height: 30px;
+  padding: 0 6px;
+  border-left: none;
+}
+.dlg-content .left-area .tabs .tab.focused[data-v-0266aea4] {
+  color: #0087f5;
+  border-color: #0087f5;
+  border-left: 1px solid #0087f5 !important;
+}
+.dlg-content .left-area .tabs .tab[data-v-0266aea4]:first-child {
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+}
+.dlg-content .left-area .tabs .tab:first-child.focus[data-v-0266aea4] {
+  border-color: #0087f5;
+}
+.dlg-content .left-area .tabs .tab[data-v-0266aea4]:last-child {
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
+}
+.dlg-content .left-area .tabs .tab[data-v-0266aea4]:hover:not(.focused) {
+  background: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+.dlg-content .left-area .table-c[data-v-0266aea4] {
+  padding-bottom: 2px;
+  padding-right: 8px;
+}
+.dlg-content .left-area .table-c .table-content[data-v-0266aea4] {
+  height: 400px;
+  overflow: auto;
+  margin-top: -1px;
+  padding-bottom: 2px;
+}
+.dlg-content .left-area .table-c .row[data-v-0266aea4] {
+  display: flex;
+}
+.dlg-content .left-area .table-c .row.header[data-v-0266aea4] {
+  background-color: #f5f5f6;
+}
+.dlg-content .left-area .table-c .row.header .row-l[data-v-0266aea4] {
+  justify-content: center;
+  border-bottom: 1px solid gainsboro;
+}
+.dlg-content .left-area .table-c .row.header .row-r[data-v-0266aea4] {
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid gainsboro;
+}
+.dlg-content .left-area .table-c .row .row-l[data-v-0266aea4] {
+  display: flex;
+  align-items: center;
+  border: 1px solid gainsboro;
+  border-right: none;
+  border-bottom: none;
+  padding: 4px 8px;
+  width: 0;
+  overflow: hidden;
+}
+.dlg-content .left-area .table-c .row .row-r[data-v-0266aea4] {
+  border: 1px solid gainsboro;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: none;
+  width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.dlg-content .left-area .table-c .row .row-r[data-v-0266aea4] .el-checkbox__label {
+  font-size: 12px;
+}
+.dlg-content .left-area .table-c .row .row-r .btn-c[data-v-0266aea4] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 1;
+}
+.dlg-content .left-area .table-c .row .row-r .btn-c button[data-v-0266aea4] {
+  background-color: #409EFF;
+  color: #FFF;
+  margin-left: 3px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  padding: 2px 4px;
+}
+.dlg-content .left-area .table-c .row .row-r .btn-c button[data-v-0266aea4]:focus,
+.dlg-content .left-area .table-c .row .row-r .btn-c button[data-v-0266aea4]:hover {
+  background: #66b1ff;
+}
+.dlg-content .left-area .table-c .row .row-r .btn-c button[data-v-0266aea4]:active {
+  background: #3a8ee6;
+}
+.dlg-content .left-area .table-c .row .row-r .row-item[data-v-0266aea4]:first-child {
+  margin-right: 80px;
+}
+.dlg-content .left-area .table-c .row .row-r .row-item[data-v-0266aea4] .el-checkbox {
+  white-space: break-spaces;
+  display: inline-flex;
+  align-items: center;
+}
+.dlg-content .left-area .table-c .row:last-child .row-l[data-v-0266aea4] {
+  border-bottom: 1px solid gainsboro;
+}
+.dlg-content .left-area .table-c .row:last-child .row-r[data-v-0266aea4] {
+  border-bottom: 1px solid gainsboro;
+}
+.dlg-content .left-area .confirm-btn-c[data-v-0266aea4] {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/resources/components/SceneDialog.vue?vue&type=style&index=0&id=2c04a86d&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-content[data-v-2c04a86d] {
+  margin: 20px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+.dlg-content .form[data-v-2c04a86d] {
+  width: 800px;
+}
+.dlg-content .form .form-row[data-v-2c04a86d] {
+  display: flex;
+  min-height: 42px;
+  margin-bottom: 4px;
+}
+.dlg-content .form .form-row .title[data-v-2c04a86d] {
+  width: 255px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  color: #888888;
+  font-size: 14px;
+}
+.dlg-content .form .form-row .title.required span[data-v-2c04a86d] {
+  position: relative;
+}
+.dlg-content .form .form-row .title.required span[data-v-2c04a86d]::after {
+  position: absolute;
+  right: -10px;
+  top: -2px;
+  vertical-align: top;
+  content: '*';
+  color: #db2828;
+}
+.dlg-content .form .form-row .content[data-v-2c04a86d] {
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.dlg-content .form .form-row .content[data-v-2c04a86d] .el-select {
+  width: 100%;
+}
+.dlg-content .form .form-row .specSel[data-v-2c04a86d] .el-tag.el-tag--info {
+  max-width: 81%;
+  display: flex;
+  align-items: center;
+}
+.dlg-content .form .form-row .specSel[data-v-2c04a86d] .el-tag.el-tag--info .el-select__tags-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dlg-content .form .form-row .specSel[data-v-2c04a86d] .el-tag.el-tag--info .el-tag__close {
+  flex-shrink: 0;
+  right: -5px;
+}
+.dlg-content .btn[data-v-2c04a86d] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.dlg-content .btn.confirm-btn[data-v-2c04a86d] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+.el-select-dropdown__item[data-v-2c04a86d] {
+  padding-left: 26px !important;
+}
+.el-select-dropdown__item.selected[data-v-2c04a86d]::after {
+  right: 0;
+  left: 6px;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/resources/scene/index.vue?vue&type=style&index=0&id=1ce05ced&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.title[data-v-1ce05ced] {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.title span[data-v-1ce05ced] {
+  font-weight: 700;
+  font-size: 16px;
+  color: #101010;
+}
+.tools-bar[data-v-1ce05ced] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tools-bar .select[data-v-1ce05ced] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.tools-bar .select[data-v-1ce05ced] .el-input__inner {
+  border-radius: 0;
+}
+.tools-bar .el-button[data-v-1ce05ced] {
+  margin-bottom: 10px;
+}
+.table-container[data-v-1ce05ced] {
+  margin-bottom: 16px;
+}
+.table-container[data-v-1ce05ced] .el-table__header th {
+  background: #f5f5f6;
+  font-size: 12px;
+  color: #242424;
+}
+.table-container[data-v-1ce05ced] .el-table__body td {
+  font-size: 12px;
+}
+.table-container .op-btn[data-v-1ce05ced] {
+  cursor: pointer;
+  font-size: 12px;
+  color: #1967fc;
+  margin: 0 5px;
+}
+.center[data-v-1ce05ced] {
+  display: flex;
+  justify-content: center;
+}
+

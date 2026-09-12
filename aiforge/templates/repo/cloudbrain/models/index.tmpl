@@ -1,0 +1,40 @@
+{{template "base/head" .}}
+<div class="repository dataset dir-list view">
+	{{template "repo/header" .}}
+	<form class="ui container">
+    <div class="ui stackable grid {{if .Error}}hide{{end}}" id="dir-content">
+      <div class="row">
+        <div class="column sixteen wide">
+          <p class="path-container"></p>
+        </div>
+      </div>
+    </div>
+    <div class="ui grid">
+      <div class="row">
+        <div class="ui sixteen wide column">
+          <div class="dir list">
+            {{template "repo/cloudbrain/models/dir_list" .}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+  (function(){
+    const PATH = {{.Path}};
+    const Link = {{$.Link}};
+    const pathEl = $('p.path-container');
+    PATH.unshift('model');
+    let pathList = [];
+    for (let i = 0, iLen = PATH.length; i < iLen; i++) {
+      const pathName = PATH[i];
+      const parent = PATH.slice(0, i + 1);
+      parent.shift();
+      pathList.push(i == iLen - 1 ? `<span>${pathName}</span>` : `<a href="${Link}/?parentDir=${parent.join('/')}">${pathName}</a>`);
+    }
+    pathEl.html(pathList.join(' / '));
+  })();
+</script>
+
+{{template "base/footer" .}}

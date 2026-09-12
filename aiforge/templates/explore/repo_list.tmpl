@@ -1,0 +1,295 @@
+<style>
+	.ui.repository.list>.item {
+		position: relative;
+		border: 1px solid #E1E3E6;
+		border-radius: 0.8rem;
+		margin-bottom: 1.0rem;
+		padding: 1.0rem !important;
+	}
+
+	.ui.repository.list>.item .header {
+		font-size: 1.4rem !important;
+		font-weight: 200;
+	}
+
+	.ui.list>.item>.content {
+		margin-left: 36px;
+	}
+
+	.ui.list .list>.item>img.image+.content,
+	.ui.list>.item>img.image+.content {
+		width: calc(100% - 34px);
+		margin-left: 0;
+	}
+
+	.ui.repository.list>.item::before {
+		position: absolute;
+		left: 0;
+		right: 0;
+		content: "";
+		height: 1px;
+		background-color: rgba(35, 36, 38, 0.1);
+		bottom: 2.8rem;
+	}
+
+	.repository .ui.mini.menu {
+		font-size: .6rem;
+	}
+
+	.repository .ui.right.compact .item {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+  
+  .repo-name {
+    font-size: 14px;
+  }
+
+  .repo-name strong {
+    color: #101010; 
+  }
+
+  .repo-name strong:hover {
+    color: rgb(0, 102, 255);
+  }
+
+  .repo-description {
+    font-size: 12px;
+  }
+
+  .repo-tags .list-tag {
+    font-size: 12px !important;
+  }
+
+	.ui.repository.list .item .time {
+		margin-top: 1.5rem;
+	}
+  .navbar {
+    display: none !important;
+  }
+  .lock-icon svg {
+    margin-top: -3px !important;
+  }
+  .ui.repository.list>.item {
+    border-radius: 10px;
+    background-color: rgba(255,255,255,1);
+    color: rgba(16,16,16,1);
+    font-size: 14px;
+    box-shadow: 0px 0px 20px 0px rgba(221,221,221,0.5);
+    font-family: PingFangSC-regular;
+    border: 1px solid rgba(255,255,255,1);
+  }
+  .list-tag {
+    background-color: #e8e8e8 !important;
+    color: rgba(16,16,16,0.5) !important;
+  }
+  .time {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem !important;
+  }
+  .icon-data__item {
+    border-top: 1px solid transparent !important;
+    color: rgba(136,136,136,1);
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+  }
+  .icon-data {
+    display: flex;
+    align-items: center;
+  }
+  .ri-eye-line, .ri-star-line {
+    margin-right: 5px;
+  }
+  @media only screen and (max-width: 767px) {
+    .sixteen {
+        padding-top: 1rem !important;
+    } 
+  }
+</style>
+
+<div class="ui secondary pointing tabular top attached borderless menu navbar">
+	{{if .PageIsExplore}}
+	<a class="{{if eq .SortType "hot"}}active{{end}} item"
+		href="{{$.Link}}?q={{$.Keyword}}&topic={{$.Topic}}&sort=hot&tab={{$.TabName}}">
+		<svg class="svg octicon-repo" width="16" height="16" aria-hidden="true">
+			<use xlink:href="#octicon-repo" />
+		</svg>
+		{{.i18n.Tr "explore.hot_repo"}}
+	</a>
+	<a class="{{if eq .SortType "active"}}active{{end}} item"
+		href="{{$.Link}}?q={{$.Keyword}}&topic={{$.Topic}}&sort=active&tab={{$.TabName}}">
+		<svg class="svg octicon-inbox" width="16" height="16" aria-hidden="true">
+			<use xlink:href="#octicon-inbox" />
+		</svg>
+		{{.i18n.Tr "explore.active_repo"}}
+	</a>
+	{{end}}
+	<a class="{{if eq .SortType "recentupdate"}}active{{end}} item"
+		href="{{$.Link}}?q={{$.Keyword}}&topic={{$.Topic}}&sort=recentupdate&tab={{$.TabName}}">
+		<svg class="svg octicon-organization" width="16" height="16" aria-hidden="true">
+			<use xlink:href="#octicon-organization" />
+		</svg> {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+	</a>
+
+	<div class="ui right floated secondary filter menu">
+		<!-- Sort -->
+		<div class="ui right dropdown type jump item">
+			<span class="text">
+				{{.i18n.Tr "repo.issues.filter_sort"}}
+				<i class="dropdown icon"></i>
+			</span>
+			<div class="menu">
+				<a class="{{if eq .SortType "newest"}}active{{end}} item"
+					href="{{$.Link}}?sort=newest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.latest"}}</a>
+				<a class="{{if eq .SortType "oldest"}}active{{end}} item"
+					href="{{$.Link}}?sort=oldest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.oldest"}}</a>
+				<a class="{{if eq .SortType "alphabetically"}}active{{end}} item"
+					href="{{$.Link}}?sort=alphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}</a>
+				<a class="{{if eq .SortType "reversealphabetically"}}active{{end}} item"
+					href="{{$.Link}}?sort=reversealphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}</a>
+				<a class="{{if eq .SortType "recentupdate"}}active{{end}} item"
+					href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}</a>
+				<a class="{{if eq .SortType "leastupdate"}}active{{end}} item"
+					href="{{$.Link}}?sort=leastupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}</a>
+				<a class="{{if eq .SortType "moststars"}}active{{end}} item"
+					href="{{$.Link}}?sort=moststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.moststars"}}</a>
+				<a class="{{if eq .SortType "feweststars"}}active{{end}} item"
+					href="{{$.Link}}?sort=feweststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.feweststars"}}</a>
+				<a class="{{if eq .SortType "mostforks"}}active{{end}} item"
+					href="{{$.Link}}?sort=mostforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.mostforks"}}</a>
+				<a class="{{if eq .SortType "fewestforks"}}active{{end}} item"
+					href="{{$.Link}}?sort=fewestforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui repository list">
+	{{range .Repos}}
+	<div class="item">
+		{{if .RelAvatarLink}}
+		<img class="ui avatar image" style="width: 28px;height: 28px;" src="{{.RelAvatarLink}}">
+		{{else}}
+		<img class="ui avatar image" style="width: 28px;height: 28px;" avatar="{{.Owner.Name}}">
+		{{end}}
+		<div class="content">
+			<div class="ui header">
+				<div class="ui grid">
+					<div class="ui sixteen wide mobile ten wide tablet twelve wide computer column">
+						<a class="name repo-name" href="{{.Link}}">
+							{{if or $.PageIsExplore $.PageIsProfileStarList }}{{if .Owner}}{{.Owner.Name}}
+							<span>/</span> {{end}}{{end}}<strong>{{.DisplayName}}</strong>
+							{{if .IsArchived}}<i class="archive icon archived-icon"></i>{{end}}
+						</a>
+						{{if .IsPrivate}}
+						<span class="middle text gold lock-icon">{{svg "octicon-lock" 16}}</span>
+						{{else if .IsFork}}
+						<span class="middle">{{svg "octicon-repo-forked" 16}}</span>
+						{{else if .IsMirror}}
+						<span class="middle">{{svg "octicon-repo-clone" 16}}</span>
+						{{else if .Owner}}
+						{{if .Owner.Visibility.IsPrivate}}
+						<span class="text gold">{{svg "octicon-lock" 16}}</span>
+						{{end}}
+						{{end}}
+					</div>
+					<div class="ui sixteen wide mobile six wide tablet four wide computer column">
+						<!-- <div class="ui mini right compact menu">
+							{{if eq $.SortType "hot"}}
+							<a class="item">
+								<svg class="svg octicon-inbox" width="16" height="16" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M17.66 11.2C17.43 10.9 17.15 10.64 16.89 10.38C16.22 9.78 15.46 9.35 14.82 8.72C13.33 7.26 13 4.85 13.95 3C13 3.23 12.17 3.75 11.46 4.32C8.87 6.4 7.85 10.07 9.07 13.22C9.11 13.32 9.15 13.42 9.15 13.55C9.15 13.77 9 13.97 8.8 14.05C8.57 14.15 8.33 14.09 8.14 13.93C8.08 13.88 8.04 13.83 8 13.76C6.87 12.33 6.69 10.28 7.45 8.64C5.78 10 4.87 12.3 5 14.47C5.06 14.97 5.12 15.47 5.29 15.97C5.43 16.57 5.7 17.17 6 17.7C7.08 19.43 8.95 20.67 10.96 20.92C13.1 21.19 15.39 20.8 17.03 19.32C18.86 17.66 19.5 15 18.56 12.72L18.43 12.46C18.22 12 17.66 11.2 17.66 11.2M14.5 17.5C14.22 17.74 13.76 18 13.4 18.1C12.28 18.5 11.16 17.94 10.5 17.28C11.69 17 12.4 16.12 12.61 15.23C12.78 14.43 12.46 13.77 12.33 13C12.21 12.26 12.23 11.63 12.5 10.94C12.69 11.32 12.89 11.7 13.13 12C13.9 13 15.11 13.44 15.37 14.8C15.41 14.94 15.43 15.08 15.43 15.23C15.46 16.05 15.1 16.95 14.5 17.5H14.5Z" />
+								</svg>
+								{{.Hot}}
+							</a>
+							{{else if eq $.SortType "active"}}
+							<a class="item">
+								<svg class="svg octicon-inbox" width="16" height="16" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66 .269 11 5.93C8.81 8.12 7.5 10.53 6.65 12.64C6.37 13.39 6.56 14.21 7.11 14.77L9.24 16.89C9.79 17.45 10.61 17.63 11.36 17.35C13.5 16.53 15.88 15.19 18.07 13C23.73 7.34 21.61 2.39 21.61 2.39M14.54 9.46C13.76 8.68 13.76 7.41 14.54 6.63S16.59 5.85 17.37 6.63C18.14 7.41 18.15 8.68 17.37 9.46C16.59 10.24 15.32 10.24 14.54 9.46M8.88 16.53L7.47 15.12L8.88 16.53M6.24 22L9.88 18.36C9.54 18.27 9.21 18.12 8.91 17.91L4.83 22H6.24M2 22H3.41L8.18 17.24L6.76 15.83L2 20.59V22M2 19.17L6.09 15.09C5.88 14.79 5.73 14.47 5.64 14.12L2 17.76V19.17Z" />
+								</svg> {{.Active}}
+							</a>
+							{{else}}
+							<a class="item">
+								{{svg "octicon-eye" 16}} {{.NumWatches}}
+							</a>
+							<a class="item">
+								{{svg "octicon-git-branch" 16}} {{.NumForks}}
+							</a>
+							{{end}}
+							<a class="item">
+								{{svg "octicon-star" 16}} {{.NumStars}}
+							</a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="description repo-description">
+				{{if .DescriptionHTML}}<p class="has-emoji">{{.DescriptionHTML}}</p>{{end}}
+				{{if .Topics }}
+				<div class="ui tags repo-tags">
+					{{range .Topics}}
+					{{if ne . "" }}<a href="{{AppSubUrl}}/explore/repos?q={{.}}&topic={{$.Topic}}">
+						<div class="ui small label topic list-tag">{{.}}</div>
+					</a>{{end}}
+					{{end}}
+				</div>
+				{{end}}
+			</div>
+		</div>
+    <p class="time">
+      <span>
+        {{$.i18n.Tr "org.repo_updated"}} {{TimeSinceUnix .UpdatedUnix $.i18n.Lang}}
+        {{if .PrimaryLanguage }}
+        <span class="text grey"><i class="color-icon"
+            style="background-color: {{.PrimaryLanguage.Color}}"></i>{{ .PrimaryLanguage.Language }}
+        </span>
+
+
+        {{end}}
+      </span>
+      <span class="icon-data">
+        {{if eq $.SortType "hot"}}
+        <a class="icon-data__item">
+          <svg class="svg octicon-inbox" width="16" height="16" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M17.66 11.2C17.43 10.9 17.15 10.64 16.89 10.38C16.22 9.78 15.46 9.35 14.82 8.72C13.33 7.26 13 4.85 13.95 3C13 3.23 12.17 3.75 11.46 4.32C8.87 6.4 7.85 10.07 9.07 13.22C9.11 13.32 9.15 13.42 9.15 13.55C9.15 13.77 9 13.97 8.8 14.05C8.57 14.15 8.33 14.09 8.14 13.93C8.08 13.88 8.04 13.83 8 13.76C6.87 12.33 6.69 10.28 7.45 8.64C5.78 10 4.87 12.3 5 14.47C5.06 14.97 5.12 15.47 5.29 15.97C5.43 16.57 5.7 17.17 6 17.7C7.08 19.43 8.95 20.67 10.96 20.92C13.1 21.19 15.39 20.8 17.03 19.32C18.86 17.66 19.5 15 18.56 12.72L18.43 12.46C18.22 12 17.66 11.2 17.66 11.2M14.5 17.5C14.22 17.74 13.76 18 13.4 18.1C12.28 18.5 11.16 17.94 10.5 17.28C11.69 17 12.4 16.12 12.61 15.23C12.78 14.43 12.46 13.77 12.33 13C12.21 12.26 12.23 11.63 12.5 10.94C12.69 11.32 12.89 11.7 13.13 12C13.9 13 15.11 13.44 15.37 14.8C15.41 14.94 15.43 15.08 15.43 15.23C15.46 16.05 15.1 16.95 14.5 17.5H14.5Z" />
+          </svg>
+          {{.Hot}}
+        </a>
+        {{else if eq $.SortType "active"}}
+        <a class="icon-data__item">
+          <svg class="svg octicon-inbox" width="16" height="16" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M13.13 22.19L11.5 18.36C13.07 17.78 14.54 17 15.9 16.09L13.13 22.19M5.64 12.5L1.81 10.87L7.91 8.1C7 9.46 6.22 10.93 5.64 12.5M21.61 2.39C21.61 2.39 16.66 .269 11 5.93C8.81 8.12 7.5 10.53 6.65 12.64C6.37 13.39 6.56 14.21 7.11 14.77L9.24 16.89C9.79 17.45 10.61 17.63 11.36 17.35C13.5 16.53 15.88 15.19 18.07 13C23.73 7.34 21.61 2.39 21.61 2.39M14.54 9.46C13.76 8.68 13.76 7.41 14.54 6.63S16.59 5.85 17.37 6.63C18.14 7.41 18.15 8.68 17.37 9.46C16.59 10.24 15.32 10.24 14.54 9.46M8.88 16.53L7.47 15.12L8.88 16.53M6.24 22L9.88 18.36C9.54 18.27 9.21 18.12 8.91 17.91L4.83 22H6.24M2 22H3.41L8.18 17.24L6.76 15.83L2 20.59V22M2 19.17L6.09 15.09C5.88 14.79 5.73 14.47 5.64 14.12L2 17.76V19.17Z" />
+          </svg> {{.Active}}
+        </a>
+        {{else}}
+        <a class="icon-data__item">
+          <i class="ri-eye-line"></i> {{.NumWatches}}
+        </a>
+        <a class="icon-data__item">
+          <svg class="svg octicon-repo-forked" width="13" height="13" aria-hidden="true">
+            <use xlink:href="#octicon-repo-forked"></use>
+          </svg>
+          {{.NumForks}}
+        </a>
+        {{end}}
+        <a class="icon-data__item">
+          <i class="ri-star-line"></i> {{.NumStars}}
+        </a>
+      </span>
+
+
+    </p>
+	</div>
+	{{else}}
+	<div>
+		{{$.i18n.Tr "explore.repo_no_results"}}
+	</div>
+	{{end}}
+</div>

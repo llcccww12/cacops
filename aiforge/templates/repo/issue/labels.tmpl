@@ -1,0 +1,36 @@
+{{template "base/head" .}}
+<div class="repository labels">
+	{{template "repo/header" .}}
+	<div class="ui container">
+			<div class="ui two column stackable grid">
+					<div class="column" style="display: flex;align-items: center;">
+							<div class="ui breadcrumb">
+									<a class="section" href="{{.RepoLink}}/issues">{{.i18n.Tr "repo.issues"}}</a>
+									<div class="divider"> / </div>
+									<div class="action section">{{.Title | RenderEmoji}}</div>
+							</div>
+					</div>
+					<div class="column right aligned">
+							{{template "repo/issue/navbar" .}}
+							{{if and (or .CanWriteIssues .CanWritePulls) (not .Repository.IsArchived)}}
+								<div class="ui right">
+									<div class="ui green new-label button">{{.i18n.Tr "repo.issues.new_label"}}</div>
+								</div>
+							{{end}}
+					</div>
+					
+			</div>
+		<div class="ui divider"></div>
+		{{if and (or .CanWriteIssues .CanWritePulls) (not .Repository.IsArchived)}}
+			{{template "repo/issue/labels/label_new" .}}
+		{{end}}
+		{{template "base/alert" .}}
+		{{template "repo/issue/labels/label_list" .}}
+	</div>
+</div>
+
+{{if and (or .CanWriteIssues .CanWritePulls) (not .Repository.IsArchived) }}
+{{template "repo/issue/labels/edit_delete_label" .}}
+{{end}}
+</div>
+{{template "base/footer" .}}

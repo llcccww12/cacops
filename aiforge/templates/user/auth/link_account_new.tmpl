@@ -1,0 +1,112 @@
+{{template "base/head" .}}
+<style>
+.full.height{background-color: #F9F9F9;}
+.err_wechat {
+	display:flex;
+	justify-content:center;
+	margin-bottom:10px;
+	color: red;
+}
+</style>
+<style>
+	@media only screen and (max-width: 1200px) {
+		._container {
+			display:block !important;
+		}
+   	._left-img-area {
+	 		display: none;
+	 	}
+	 	._right_content_area {
+	 
+	 	}
+	 	._right_content_area .segment {	 
+			margin-left: auto !important;
+			border-top-left-radius: .28571429rem !important;
+			border-bottom-left-radius: .28571429rem !important;
+			border-left: border: 1px solid rgba(34,36,38,.15) !important;
+	 	}
+  }
+</style>
+<div class="ui container very padded" style=" padding-top: 5.0rem; padding-bottom: 3.0rem;">	
+	<div class="_container" style="display:flex;justify-content:center;">
+		<div class="_left-img-area" style="padding-right:0;flex:2">
+			<div style="width:450px;height:100%;float:right;border-radius:0.28571429rem;border-top-right-radius: 0;
+				border-bottom-right-radius: 0;border-right:none !important;overflow: hidden;
+				-webkit-box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+				box-shadow: 0 2px 4px 0rgba(34,36,38,.12),0 2px 10px 0rgba(34,36,38,.15);">
+				{{ if .ActivityTpl }}
+					{{ .ActivityTpl | Safe}}
+				{{ else }}
+					{{ template "user/auth/signin_up_img_default" .}}
+				{{ end }}
+			</div>
+		</div>
+		<div class="_right_content_area" style="padding-left:0;flex:3;">
+			<div class="ui raised very padded text container segment" style="margin-left:0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-left: none !important;
+			">
+				<div class="ui centered grid">
+					<div class="sixteen wide mobile ten wide tablet ten wide computer column">
+						<div class="ui bottom aligned two column grid">
+							<div class="column">
+								<h2 class="ui header">
+								{{.i18n.Tr "auth.oauth_signup_add_info_title"}}
+								</h2>
+							</div>
+						</div>
+						<div class="ui grid">
+							<div class="column">
+								<form id="submitForm" class="ui form" action="{{.SignUpLink }}" method="post">
+									{{.CsrfTokenHtml}}
+									{{template "base/alert" .}}
+									<div class="ui negative message" style="display:none;">
+										<p></p>
+									</div>
+                  <div class="field {{if .Err_UserName }}error{{end}}">
+                    <input id="user_name" name="user_name" value="{{.user_name}}" placeholder="{{.i18n.Tr "username"}}" autofocus required>
+                  </div>
+                  
+                  {{if and .EnableCaptcha (eq .CaptchaType "image")}}
+                  <div class="field">
+                    {{.Captcha.CreateHtml}}
+                  </div>
+                  <div class="field {{if .Err_Captcha}}error{{end}}">
+                    <input id="captcha" name="captcha" value="{{.captcha}}" placeholder="{{.i18n.Tr "captcha"}}" autocomplete="off">
+                  </div>
+                  {{end}}
+                  
+                  {{if and .EnableCaptcha (eq .CaptchaType "recaptcha")}}
+                  <div class="field required">
+                    <div class="g-recaptcha" data-sitekey="{{ .RecaptchaSitekey }}"></div>
+                  </div>
+                  {{end}}
+                  
+                  {{if and .EnablePhone (not .has_phone) }}
+                    <div class="use-type" usetype="0">
+                      {{template "user/auth/phone_verify" .}}
+                    </div>
+                  {{end}}
+
+                  <div class="field">
+                    <div class="ui checkbox">
+                      <input name="agree" type="checkbox" tabindex="0" class="hidden" {{if .agree}}checked{{end}}><label>{{.i18n.Tr "use_and_privacy_agree" "/home/term" "/home/privacy" | Safe}}</label>
+                    </div>
+                  </div>
+                  <div class="ui hidden divider"></div>
+                  <div class="center aligned field">
+                    <button class="fluid large ui blue button">
+                      {{.i18n.Tr "auth.oauth_signup_submit"}}
+                    </button>
+                  </div>
+								</form>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

@@ -1,0 +1,20 @@
+/* Hide legacy OpenI acknowledgement banner on compute task pages */
+.ack-tips-c {
+  display: none !important;
+}
+
+/* Hide legacy OpenI compute power promo on task list */
+.cb-task-header .header-wrap .adv-space,
+.adv-space {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide invite-friend promo banners and floating ads */
+.__ad_profile_c__,
+.__ad_c__ {
+  display: none !important;
+}

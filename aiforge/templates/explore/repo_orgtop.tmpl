@@ -1,0 +1,131 @@
+<script src="/swiper/swiper-bundle.min.js?v={{MD5 AppVer}}"></script>
+<link href="/swiper/swiper-bundle.min.css?v={{MD5 AppVer}}" rel="stylesheet">
+
+<style>
+    .explore .repos--seach{
+        border-bottom:none;
+    }
+    .repos--orgtop {
+        margin-top: -2.2rem;
+    }
+    .repos--orgtop p{
+        margin-bottom:0.5rem
+    }
+
+    .repos--orgtop .ui.card {
+        box-shadow: none;
+        border: none;
+    }
+
+    .repos--orgtop .ui.card .content {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .repos--orgtop .swiper-pagination {
+        position: relative;
+        bottom: 0;
+    }
+</style>
+
+<div class="repos--seach repos--orgtop">
+    <div class="ui container">
+        <p class="text grey">这些优秀的组织正在使用：</p>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!--{{range .RecommendOrgs}}
+                    <div class="swiper-slide">
+                        <div class="ui card">
+                            <a class="image" href="{{$.HomeLink}}/{{.User.Name}}">
+                                <img class="ui avatar image" src="{{.User.RelAvatarLink}}" alt="{{.User.Name}}" title="{{.User.Name}}">
+                            </a>
+                        </div>
+                    </div>
+                {{end}}-->
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/OpenI">
+                            <img src="/img/org-openi@2x-80.jpg" alt="OpenI 启智社区" title="OpenI 启智社区">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/JDOpenISCT">
+                            <img src="/img/org-jd@2x-80.jpg" alt="京东智能供应链开源工具" title="京东智能供应链开源工具">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/OpenI/TensorLayerX">
+                            <img src="/img/org-tensorlayer@2x-80.jpg" alt="TensorLayer" title="TensorLayer">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/PCL-Platform.Intelligence">
+                            <img src="/img/org-platform@2x-80.jpg" alt="PCL-Platform.Intelligence" title="PCL-Platform.Intelligence">                                        
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/BAAI">
+                            <img src="/img/org-baai@2x-80.jpg" alt="BAAI" title="BAAI">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/OpenModelZoo">
+                            <img src="/img/org-modelzoo@2x-80.jpg" alt="OpenModelZoo" title="OpenModelZoo"> 
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="ui card">
+                        <a class="image" href="https://openi.pcl.ac.cn/PCL_EngineClub">
+                            <img src="/img/org-engineclub@2x-80.jpg" alt="PCL_EngineClub" title="PCL_EngineClub">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+<!-- Initialize Swiper -->
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            '@0.00': {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            },
+            '@0.75': {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            },
+            '@1.00': {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            }
+        }
+    });
+</script>

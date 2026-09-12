@@ -1,0 +1,28 @@
+<style>
+#file-name[readonly] {
+  background: rgba(16, 16, 16, 0.05);
+}
+.ui.top.attached.tabular.menu[data-write] {
+  display:none;
+}
+.ui.bottom.attached.active.tab.segment[data-tab="write"] {
+  border-top: 1px solid #d4d4d5;
+}
+.monaco-scrollable-element .cursors-layer {
+  display:none;
+}
+.monaco-editor-container {
+  height: 56vh;
+}
+.monaco-editor-container .lines-content {
+  opacity: 0.7;
+}
+</style>
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-tasktmpl-edit.css?v={{MD5 AppVer}}" />
+<script>
+window.TemplateListStr = {{.FileContent}};
+</script>
+<div class="task-tmpl-edit-container">
+  <div id="__vue-root-tasktmpl-edit"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-tasktmpl-edit.js?v={{MD5 AppVer}}"></script>

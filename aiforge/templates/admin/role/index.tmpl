@@ -1,0 +1,10 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-role-management.css?v={{MD5 AppVer}}" />
+<div class="admin resource">
+	{{template "admin/navbar" .}}
+	<div class="ui container">
+    <div id="__vue-root"></div>
+  </div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-role-management.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

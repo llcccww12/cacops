@@ -1,0 +1,273 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/cloudbrain/LoadingMask.vue?vue&type=style&index=0&id=6de925a6&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.loading-mask[data-v-6de925a6] {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  filter: alpha(opacity=60);
+  background-color: rgba(119, 119, 119, 0.8);
+  z-index: 9999;
+  color: #000000;
+}
+.loading-mask .loading-wrap[data-v-6de925a6] {
+  width: 20%;
+  height: 25%;
+  min-width: 360px;
+  min-height: 205px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.loading-mask .loading-wrap .loading-icon[data-v-6de925a6] {
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+  display: block;
+}
+.loading-mask .loading-wrap .loading-icon > div[data-v-6de925a6] {
+  background-color: green;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  animation: sk-stretchdelay-data-v-6de925a6 1.2s infinite ease-in-out;
+}
+.loading-mask .loading-wrap .loading-icon .rect2[data-v-6de925a6] {
+  animation-delay: -1.1s;
+}
+.loading-mask .loading-wrap .loading-icon .rect3[data-v-6de925a6] {
+  animation-delay: -1s;
+}
+.loading-mask .loading-wrap .loading-icon .rect4[data-v-6de925a6] {
+  animation-delay: -0.9s;
+}
+.loading-mask .loading-wrap .loading-icon .rect5[data-v-6de925a6] {
+  animation-delay: -0.8s;
+}
+.loading-mask .loading-wrap .loading-tips[data-v-6de925a6] {
+  margin-top: 10%;
+  font-size: 14px;
+  color: #101010;
+  font-family: SourceHanSansSC-regular;
+  text-align: center;
+  padding: 0 16px;
+}
+@keyframes sk-stretchdelay-data-v-6de925a6 {
+0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+}
+20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelmanage/migrate/index.vue?vue&type=style&index=0&id=51a21935&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content-wrap[data-v-51a21935] {
+  margin-top: 26px;
+}
+.content-wrap .form-wrap[data-v-51a21935] {
+  width: 800px;
+  margin: auto;
+}
+.content-wrap .header[data-v-51a21935] {
+  height: 46.7px;
+  border-color: #d4d4d5;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px 5px 0px 0px;
+  font-size: 14px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-wrap .header .title[data-v-51a21935] {
+  font-weight: 600;
+  font-size: 18px;
+  color: #101010;
+}
+.content-wrap .content[data-v-51a21935] {
+  margin-top: -1px;
+  border-color: #d4d4d5;
+  border-width: 1px;
+  border-style: solid;
+  padding: 30px 0;
+  border-top: none;
+}
+.content-wrap .content .row-c[data-v-51a21935] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+.content-wrap .content .row-c .row[data-v-51a21935] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  margin-left: -190px;
+}
+.content-wrap .content .row-c .row .r-title[data-v-51a21935] {
+  text-align: right;
+  font-size: 0.92857143em;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.87);
+  width: 200px;
+  margin-right: 28px;
+  position: relative;
+}
+.content-wrap .content .row-c .row .r-title .required[data-v-51a21935]::after {
+  position: absolute;
+  margin: -0.2em 0 0 0.2em;
+  content: '*';
+  color: #db2828;
+}
+.content-wrap .content .row-c .row .r-title.flex-start[data-v-51a21935] {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+.content-wrap .content .row-c .row.error .r-title[data-v-51a21935] {
+  color: #9f3a38;
+}
+.content-wrap .content .row-c .row.error .r-content[data-v-51a21935] .el-input__inner {
+  color: #9f3a38;
+  background: #fff6f6;
+  border-color: #e0b4b4;
+}
+.content-wrap .content .row-c .row.error .r-content[data-v-51a21935] .el-input__inner::-moz-placeholder {
+  color: #e0b4b4;
+}
+.content-wrap .content .row-c .row.error .r-content[data-v-51a21935] .el-input__inner::placeholder {
+  color: #e0b4b4;
+}
+.content-wrap .content .row-c .row .r-content[data-v-51a21935] {
+  flex: 1;
+  width: 0;
+}
+.content-wrap .content .row-c .row .r-content .tips[data-v-51a21935] {
+  color: #999999;
+  font-size: 14px;
+  margin-top: 6px;
+  line-height: 20px;
+}
+.content-wrap .content .row-c .row .r-content .cluster-type-btn[data-v-51a21935] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #DCDFE6;
+  height: 36px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.content-wrap .content .row-c .row .r-content .cluster-type-btn .icon[data-v-51a21935] {
+  margin-right: 5px;
+}
+.content-wrap .content .row-c .row .r-content .cluster-type-btn.focused[data-v-51a21935] {
+  border-color: #3291f8;
+  color: #3291f8;
+  cursor: default;
+}
+.content-wrap .content .row-c .row .r-content .cluster-type-btn.focused .icon[data-v-51a21935] :not([stroke]) {
+  fill: #3291f8;
+}
+.content-wrap .content .row-c .row .r-content.r-wrap[data-v-51a21935] {
+  word-break: break-all;
+}
+.license-sel[data-v-51a21935] .el-input--prefix .el-input__inner {
+  padding-left: 15px;
+}
+.license-sel[data-v-51a21935] .el-input__prefix {
+  position: absolute;
+  right: 0;
+}
+.license-sel[data-v-51a21935] .el-input__prefix .el-icon-close {
+  position: absolute;
+  right: 24px;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: bold;
+}
+.input-disabled[data-v-51a21935] .el-input__inner {
+  background-color: #f5f5f6 !important;
+  color: #888888 !important;
+}
+.el-select-dropdown__item.selected[data-v-51a21935] {
+  color: rgba(0, 0, 0, 0.95);
+}
+.btn-c[data-v-51a21935] .el-button {
+  background-color: #e0e1e2;
+  color: rgba(0, 0, 0, 0.6);
+  border-color: transparent;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  will-change: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-c[data-v-51a21935] .el-button:hover {
+  border-color: transparent;
+  background-color: #cacbcd;
+  color: rgba(0, 0, 0, 0.8);
+}
+.btn-c[data-v-51a21935] .el-button:focus {
+  background-color: #cacbcd;
+  color: rgba(0, 0, 0, 0.8);
+  border-color: transparent;
+}
+.btn-c[data-v-51a21935] .el-button:active {
+  background-color: #babbbc;
+  color: rgba(0, 0, 0, 0.9);
+  border-color: transparent;
+}
+.btn-c[data-v-51a21935] .el-button.green {
+  background-color: #5bb973;
+  color: #fff;
+}
+.btn-c[data-v-51a21935] .el-button.green:hover {
+  background-color: #16ab39;
+  border-color: transparent;
+}
+.btn-c[data-v-51a21935] .el-button.green:focus {
+  background-color: #0ea432;
+  border-color: transparent;
+}
+.btn-c[data-v-51a21935] .el-button.green:active {
+  background-color: #198f35;
+  border-color: transparent;
+}
+[data-v-51a21935] .el-select .is-focus .el-input__inner {
+  border-color: #85b7d9;
+}
+[data-v-51a21935] .el-input__inner:focus {
+  border-color: #85b7d9;
+}
+[data-v-51a21935] .el-textarea__inner:focus {
+  border-color: #85b7d9;
+}
+[data-v-51a21935] .el-radio.is-checked .el-radio__inner {
+  border-color: #101010;
+  background: #101010;
+}
+[data-v-51a21935] .el-radio.is-checked .el-radio__label {
+  color: #101010;
+}
+

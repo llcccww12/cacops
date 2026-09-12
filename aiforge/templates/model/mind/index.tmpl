@@ -1,0 +1,8 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-model-mind.css?v={{MD5 AppVer}}"/>
+<div>
+  <div id="isSignd" data-sign="{{$.IsSigned}}" style="display: none;"></div>
+  <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-mind.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

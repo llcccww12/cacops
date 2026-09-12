@@ -1,0 +1,110 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/components/Header.vue?vue&type=style&index=0&id=2610e984&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-header[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0 20px;
+}
+.main-header .area-l .area-l-title[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 28px;
+}
+.main-header .area-l .area-l-title .separator[data-v-2610e984] {
+  color: #6f76a5;
+  font-family: SourceHanSansSC;
+  margin-right: 10px;
+}
+.main-header .area-l .area-l-title .label[data-v-2610e984] {
+  line-height: 39px;
+  margin-right: 10px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+}
+.main-header .area-l .area-l-title .label.link[data-v-2610e984] {
+  color: #0366d6;
+  font-weight: 400;
+  cursor: pointer;
+}
+.main-header .area-l .area-l-title .label.link[data-v-2610e984]:hover {
+  color: rgba(3, 102, 214, 0.8);
+}
+.main-header .area-l .area-l-title i[data-v-2610e984] {
+  color: #919191;
+  font-size: 16px;
+  margin-left: 8px;
+}
+.main-header .area-l .area-l-title .task-status[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  margin-left: 10px;
+}
+.main-header .area-l .area-l-title .task-status i[data-v-2610e984],
+.main-header .area-l .area-l-title .task-status span[data-v-2610e984] {
+  margin-right: 4px;
+  font-size: 14px;
+}
+.main-header .area-l .special-label[data-v-2610e984] {
+  line-height: 39px;
+  margin-right: 10px;
+  font-family: SourceHanSansSC;
+  font-size: 28px;
+  font-weight: 500;
+}
+.main-header .real-r[data-v-2610e984] {
+  margin-left: 20px;
+}
+.descr[data-v-2610e984] {
+  color: #505559;
+  font-size: 14px;
+  font-family: SourceHanSansSC;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 8px;
+  padding-left: 20px;
+}
+/* 手机端样式 */
+@media (max-width: 768px) {
+.area-l .area-l-title .lable[data-v-2610e984] {
+    font-size: 22px !important;
+}
+.area-l .special-label[data-v-2610e984] {
+    display: none;
+}
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/finetuning/SFTDetail.vue?vue&type=style&index=0&id=2c52e12b&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content-box[data-v-2c52e12b] {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content-box .main-body[data-v-2c52e12b] {
+  flex: 1;
+  height: 0;
+  position: relative;
+  margin-right: 20px;
+}
+.content-box .main-body .main-content[data-v-2c52e12b] {
+  height: calc(100% - 40px);
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-color: rgba(157, 197, 226, 0.4);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+

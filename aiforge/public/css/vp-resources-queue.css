@@ -1,0 +1,135 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/resources/components/QueueDialog.vue?vue&type=style&index=0&id=e07cf29c&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dlg-content[data-v-e07cf29c] {
+  margin: 20px 0 25px 0;
+  display: flex;
+  justify-content: center;
+}
+.dlg-content .form[data-v-e07cf29c] {
+  width: 600px;
+}
+.dlg-content .form .form-row[data-v-e07cf29c] {
+  display: flex;
+  min-height: 42px;
+  margin-bottom: 4px;
+}
+.dlg-content .form .form-row .title[data-v-e07cf29c] {
+  width: 160px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+  color: #888888;
+  font-size: 14px;
+}
+.dlg-content .form .form-row .title.required span[data-v-e07cf29c] {
+  position: relative;
+}
+.dlg-content .form .form-row .title.required span[data-v-e07cf29c]::after {
+  position: absolute;
+  right: -10px;
+  top: -2px;
+  vertical-align: top;
+  content: '*';
+  color: #db2828;
+}
+.dlg-content .form .form-row .content[data-v-e07cf29c] {
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+.dlg-content .form .form-row .content[data-v-e07cf29c] .el-select {
+  width: 100%;
+}
+.dlg-content .btn[data-v-e07cf29c] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.dlg-content .btn.confirm-btn[data-v-e07cf29c] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/resources/queue/index.vue?vue&type=style&index=0&id=fec5899c&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.title[data-v-fec5899c] {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.title span[data-v-fec5899c] {
+  font-weight: 700;
+  font-size: 16px;
+  color: #101010;
+}
+.tools-bar[data-v-fec5899c] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.tools-bar .select[data-v-fec5899c] {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.tools-bar .select[data-v-fec5899c] .el-input__inner {
+  border-radius: 0;
+}
+.tools-bar .tools-bar-btn-c[data-v-fec5899c] {
+  display: flex;
+}
+.table-container[data-v-fec5899c] {
+  margin-bottom: 16px;
+}
+.table-container[data-v-fec5899c] .el-table__header th {
+  background: #f5f5f6;
+  font-size: 12px;
+  color: #242424;
+}
+.table-container[data-v-fec5899c] .el-table__body td {
+  font-size: 12px;
+}
+.table-container .op-btn[data-v-fec5899c] {
+  cursor: pointer;
+  font-size: 12px;
+  color: #1967fc;
+  margin: 0 5px;
+}
+.center[data-v-fec5899c] {
+  display: flex;
+  justify-content: center;
+}
+

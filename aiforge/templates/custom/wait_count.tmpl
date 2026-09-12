@@ -1,0 +1,27 @@
+<div class="tooltip-wati-count">
+	{{$queue := ""}}
+	{{$gpuQueue := 0}}
+	{{range $k,$v :=.gpu_types}}
+	{{if eq $k 0}}
+	{{ $queue = $v.Queue }}
+	{{ end }}
+	{{ end }}
+	{{ range $k,$v :=.QueuesDetail }}
+	{{if eq $k $queue}}
+	{{$gpuQueue =$v}}
+	{{ end }}
+	{{ end }}
+	<i
+		class="ri-error-warning-line"
+		style="margin-right: 0.5rem; font-size: 14px"
+	></i>
+	<span id="gpu-nums" style="font-size: 12px"
+		>{{.i18n.Tr "repo.wait_count_start"}}
+		{{if .QueuesDetail}}
+		{{ $gpuQueue }}
+		{{else}}
+		{{.WaitCount}}
+		{{ end }}
+		{{.i18n.Tr "repo.wait_count_end"}}</span
+	>
+</div>

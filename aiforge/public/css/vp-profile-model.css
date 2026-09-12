@@ -1,0 +1,313 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/profile/components/Item.vue?vue&type=style&index=0&id=bbde0424&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dZJqQS.fill[data-v-bbde0424]:not([stroke]) {
+  fill: #ff6200;
+}
+.item-card[data-v-bbde0424] {
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #101010;
+  font-size: 14px;
+  box-shadow: 0px 0px 20px 0px rgba(221, 221, 221, 0.5);
+  font-family: PingFangSC-regular;
+  border: 1px solid #ffffff;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.item-card:hover .item-title[data-v-bbde0424] {
+  color: #0066ff !important;
+}
+.item-card .card-part1[data-v-bbde0424] {
+  border-bottom: 1px solid rgba(35, 36, 38, 0.1);
+}
+.item-card .card-part1 .part1-content[data-v-bbde0424] {
+  padding: 15px 15px 5px 15px;
+}
+.item-card .card-part1 .part1-content .part1-content-display[data-v-bbde0424] {
+  display: flex;
+  align-items: center;
+}
+.item-card .card-part1 .part1-content .part1-content-display .item-icon[data-v-bbde0424] {
+  width: 24px;
+  height: 24px;
+}
+.item-card .card-part1 .part1-content .part1-content-display .icon-c[data-v-bbde0424] {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.item-card .card-part1 .part1-content .part1-content-display .icon-c .lock[data-v-bbde0424] {
+  position: absolute;
+  right: -3px;
+  bottom: 0;
+  background: white;
+  border-radius: 4px;
+}
+.item-card .card-part1 .part1-content .part1-content-display .item-title[data-v-bbde0424] {
+  color: #101010;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px 0 3px;
+}
+.item-card .card-part1 .part1-content .part1-content-display .item-recommend[data-v-bbde0424] {
+  display: flex;
+}
+.item-card .card-part1 .part1-content .part1-content-display .item-tag[data-v-bbde0424] {
+  border-radius: 3px;
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 0.7);
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.item-card .card-part1 .part1-content .part1-content-display .aitasktmpl-tag[data-v-bbde0424] {
+  display: flex;
+  padding-left: 10px;
+}
+.item-card .card-part1 .part1-content .part1-content-display .aitasktmpl-tag div[data-v-bbde0424] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  background: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 0.7);
+  border-radius: 3px;
+  padding: 0 5px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+.item-card .card-part1 .part1-content .aitasktmpl-content[data-v-bbde0424] {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.item-card .card-part1 .part1-content .aitasktmpl-content .aitasktmpl-item[data-v-bbde0424] {
+  display: flex;
+  padding-top: 2px;
+  font-size: 12px;
+}
+.item-card .card-part1 .part1-content .aitasktmpl-content .aitasktmpl-item .aitasktmpl-subtitle[data-v-bbde0424] {
+  color: rgba(16, 16, 16, 0.5);
+}
+.item-card .card-part1 .part1-content .aitasktmpl-content .aitasktmpl-item .val[data-v-bbde0424] {
+  width: 0;
+  flex: 1;
+  color: rgba(16, 16, 16, 0.8);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item-card .card-part1 .part1-content .tag-part[data-v-bbde0424] {
+  margin: 10px 0;
+}
+.item-card .card-part2[data-v-bbde0424] {
+  padding: 15px;
+  display: flex;
+  color: #888888;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.item-card .card-part2 .time-size[data-v-bbde0424] {
+  font-family: Arial-regular;
+}
+.item-card .card-part2 .item-link[data-v-bbde0424] {
+  display: flex;
+  align-items: center;
+}
+.item-card .card-part2 .item-link .heart[data-v-bbde0424] {
+  color: #fa8c16;
+}
+.item-card .card-part2 .item-link .r-item[data-v-bbde0424] {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.item-card .card-part2 .item-link .r-item i[data-v-bbde0424],
+.item-card .card-part2 .item-link .r-item svg[data-v-bbde0424] {
+  color: #888888;
+  margin-right: 5px;
+}
+.item-card .card-part2 .item-link .run-btn[data-v-bbde0424] {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  background: #0066ff;
+  height: 24px;
+  font-size: 12px;
+  padding: 0 6px;
+  border-color: rgba(157, 197, 226, 0.4);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.item-card .card-part2 .item-link .run-btn[data-v-bbde0424]:hover {
+  background: linear-gradient(47.69deg, #0066ff -2.37%, #8400eb 98.81%);
+}
+.item-card .card-part2 .item-link .run-btn svg[data-v-bbde0424] {
+  margin-right: 4px;
+}
+@media only screen and (max-width: 767px) {
+.size[data-v-bbde0424] {
+    display: none;
+}
+.aitasktmpl-tag[data-v-bbde0424] {
+    padding: 0 !important;
+}
+.run-btn[data-v-bbde0424] {
+    background: linear-gradient(47.69deg, #0066ff -2.37%, #8400eb 98.81%) !important;
+}
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/profile/components/Empty.vue?vue&type=style&index=0&id=64a91ffc&scoped=true&lang=less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.no-data[data-v-64a91ffc] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-64a91ffc] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.no-data .item-empty .item-empty-icon[data-v-64a91ffc] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-64a91ffc] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/profile/components/Filters.vue?vue&type=style&index=0&id=56015720&scoped=true&lang=less ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.filters-container[data-v-56015720] {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.2rem;
+  padding-bottom: 2rem;
+}
+.filter-order[data-v-56015720] {
+  position: absolute;
+  right: 0;
+  color: #101010;
+  cursor: pointer;
+  height: 36px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+}
+.filter-order[data-v-56015720]:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.filter-order-active[data-v-56015720] {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #40a9ff !important;
+}
+.filter-order-clicked[data-v-56015720] {
+  color: #40a9ff !important;
+}
+[data-v-56015720] .el-dropdown-link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: color 0.3s ease;
+}
+.filter-order:not(.filter-order-active).filter-order-clicked-style[data-v-56015720]  .el-dropdown-link {
+  color: #40a9ff !important;
+}
+.order-item[data-v-56015720] {
+  left: 1403px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 5px;
+  top: 176px;
+  white-space: nowrap;
+  min-width: 170px !important;
+}
+.order-item[data-v-56015720]  .el-dropdown-menu__item {
+  line-height: 1em;
+  color: rgba(0, 0, 0, 0.87) !important;
+  min-height: 2.57142857rem;
+  text-align: left;
+  font-size: 1em !important;
+  padding: 0.78571429em 1.14285714em !important;
+}
+.order-item[data-v-56015720]  .popper__arrow {
+  display: none;
+}
+[data-v-56015720] .el-dropdown-menu__item.active {
+  color: rgba(0, 0, 0, 0.95) !important;
+  font-weight: 700 !important;
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-bottom: 1px solid #409eff;
+}
+[data-v-56015720] .el-dropdown-menu__item:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+[data-v-56015720] .el-input__inner {
+  height: 38px;
+}
+[data-v-56015720] .el-input-group__append {
+  background-color: rgba(16, 16, 16, 0.05);
+  color: #101010;
+  font-size: 14px;
+  width: 70px;
+  height: 38px;
+  text-align: center;
+}
+[data-v-56015720] .el-input-group {
+  width: 62.5%;
+}
+@media only screen and (min-width: 992px) {
+.filters-container[data-v-56015720] {
+    width: 100%;
+}
+}
+@media only screen and (max-width: 767px) {
+.filters-container[data-v-56015720] {
+    justify-content: space-between;
+}
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/profile/model/index.vue?vue&type=style&index=0&id=14902264&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.profile-model[data-v-14902264] {
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+  flex-direction: column;
+}
+.center[data-v-14902264] {
+  text-align: center;
+  margin-top: 10px;
+}
+

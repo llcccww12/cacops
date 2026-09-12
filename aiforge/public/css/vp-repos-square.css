@@ -1,0 +1,598 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/components/Filters.vue?vue&type=style&index=0&id=5ce70e8e&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.container > .title[data-v-5ce70e8e] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.container .block-c[data-v-5ce70e8e] {
+  margin-top: 8px;
+}
+.container .block-c .title-c[data-v-5ce70e8e] {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+.container .block-c .title-c .title[data-v-5ce70e8e] {
+  color: #101010;
+  font-size: 14px;
+}
+.container .block-c .title-c .clear-btn[data-v-5ce70e8e] {
+  text-decoration: underline;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  color: #9ca3af;
+}
+.container .block-c .list[data-v-5ce70e8e] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .block-c .list .item[data-v-5ce70e8e] {
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0e2545;
+  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.2);
+  margin: 0 10px 10px 0;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.container .block-c .list.topic-c .item[data-v-5ce70e8e] {
+  border: 1px solid rgba(145, 213, 255, 0.5);
+  background-color: #ffffff;
+}
+.container .block-c .list.topic-c .item.active[data-v-5ce70e8e] {
+  background-color: #0066ff;
+  color: #fff;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/components/Item.vue?vue&type=style&index=0&id=5f1aa890&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.item[data-v-5f1aa890] {
+  display: flex;
+  width: 100%;
+  min-height: 146px;
+  box-shadow: 0px 4px 4px 0px rgba(16, 16, 16, 0.1);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  background: linear-gradient(176.14deg, #e9f7ff 0.84%, #ffffff 54.19%);
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.item[data-v-5f1aa890]:hover {
+  border: 1px solid #0066ff;
+}
+.item:hover .top .top-head .name[data-v-5f1aa890] {
+  color: #0066ff;
+}
+.item .top .top-head[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 55px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 16px;
+}
+.item .top .top-head .icon-c[data-v-5f1aa890] {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+.item .top .top-head .icon-c img[data-v-5f1aa890] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.item .top .top-head .name[data-v-5f1aa890] {
+  color: #0e2545;
+  font-size: 16px;
+  flex: 1;
+  width: 0;
+  display: flex;
+  align-items: center;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-head .name .title-2[data-v-5f1aa890] {
+  margin-right: 3px;
+}
+.item .top .top-head .reconmend-icon[data-v-5f1aa890] {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 19.28px;
+  width: 29.61px;
+}
+.item .top .top-head .reconmend-icon img[data-v-5f1aa890] {
+  height: 100%;
+  width: 100%;
+}
+.item .top .top-bottom[data-v-5f1aa890] {
+  padding: 16px;
+  padding-top: 12px;
+  padding-bottom: 0px;
+}
+.item .top .top-bottom .labels[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item .top .top-bottom .labels .label[data-v-5f1aa890] {
+  border-radius: 3px;
+  color: rgba(16, 16, 16, 0.7);
+  font-size: 12px;
+  padding: 0px 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-bottom .labels .label.normal[data-v-5f1aa890] {
+  background-color: rgba(16, 16, 16, 0.05);
+}
+.item .top .top-descr[data-v-5f1aa890] {
+  padding: 0 16px;
+}
+.item .top .top-descr .descr[data-v-5f1aa890] {
+  color: rgba(16, 16, 16, 0.75);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 40px;
+  white-space: break-spaces;
+}
+.item .footer[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 6px 16px 10px 16px;
+}
+.item .footer .footer-l[data-v-5f1aa890] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.item .footer .footer-l .avatar-c[data-v-5f1aa890] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.item .footer .footer-l .avatar-c .avatar[data-v-5f1aa890] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.item .footer .footer-l .greenPoint[data-v-5f1aa890] {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: #5dbf77;
+  border-radius: 50%;
+}
+.item .footer .footer-r[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.item .footer .footer-r .line[data-v-5f1aa890] {
+  height: 16px;
+  margin-left: 8px;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+}
+.item .footer .footer-r .r-item[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+.item .footer .footer-r .r-item i[data-v-5f1aa890] {
+  margin-right: 5px;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/components/ItemOwner.vue?vue&type=style&index=0&id=84658e9a&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.item[data-v-84658e9a] {
+  display: flex;
+  width: 100%;
+  min-height: 146px;
+  box-shadow: 0px 4px 4px 0px rgba(16, 16, 16, 0.1);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  background: linear-gradient(176.14deg, #e9f7ff 0.84%, #ffffff 54.19%);
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.item[data-v-84658e9a]:hover {
+  background: #fff;
+  border: 1px solid #ffffff;
+}
+.item:hover .top .top-head .name[data-v-84658e9a] {
+  color: #0066ff;
+}
+.item .top .top-head[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 55px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 21px 19px 8px 21px;
+}
+.item .top .top-head .icon-c[data-v-84658e9a] {
+  width: 32px;
+  height: 32px;
+  margin-right: 13px;
+  border-radius: 50%;
+}
+.item .top .top-head .icon-c img[data-v-84658e9a] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.item .top .top-head .name[data-v-84658e9a] {
+  color: rgba(16, 16, 16, 0.6);
+  font-size: 14px;
+  flex: 1;
+  width: 0;
+  display: flex;
+  align-items: center;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-head .name .title-2[data-v-84658e9a] {
+  color: #101010;
+  font-weight: 700;
+  margin-right: 8px;
+}
+.item .top .top-head .top-r[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.item .top .top-head .top-r .line[data-v-84658e9a] {
+  height: 16px;
+  margin-left: 8px;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+}
+.item .top .top-head .top-r .r-item[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+.item .top .top-head .top-r .r-item i[data-v-84658e9a] {
+  margin-right: 5px;
+}
+.item .top .top-head .reconmend-icon[data-v-84658e9a] {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 19.28px;
+  width: 29.61px;
+}
+.item .top .top-head .reconmend-icon img[data-v-84658e9a] {
+  height: 100%;
+  width: 100%;
+}
+.item .top .top-bottom[data-v-84658e9a] {
+  padding: 10px 19px 0 67px;
+}
+.item .top .top-bottom .labels[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item .top .top-bottom .labels .label[data-v-84658e9a] {
+  border-radius: 3px;
+  color: rgba(16, 16, 16, 0.7);
+  font-size: 12px;
+  padding: 0px 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-bottom .labels .label.normal[data-v-84658e9a] {
+  background-color: rgba(16, 16, 16, 0.05);
+}
+.item .top .top-descr[data-v-84658e9a] {
+  padding: 0 19px 0 67px;
+}
+.item .top .top-descr .descr[data-v-84658e9a] {
+  color: rgba(16, 16, 16, 0.75);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 40px;
+  white-space: break-spaces;
+}
+.item .footer[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 19px 16px 22px;
+  border-top: 1px solid rgba(0, 0, 255, 0.05);
+}
+.item .footer .footer-l[data-v-84658e9a] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.item .footer .footer-l .avatar-c[data-v-84658e9a] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.item .footer .footer-l .avatar-c .avatar[data-v-84658e9a] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.item .footer .footer-l .greenPoint[data-v-84658e9a] {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: #5dbf77;
+  border-radius: 50%;
+}
+.item .footer .footer-r[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #0066ff;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+.item .footer .footer-r .upload-bth[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+}
+.item .footer .footer-r .delete-bth[data-v-84658e9a] {
+  display: flex;
+  align-items: center;
+  margin-left: 23px;
+}
+.item .footer .footer-r svg[data-v-84658e9a] {
+  margin-right: 6px;
+}
+@media only screen and (max-width: 767.98px) {
+.updated-l[data-v-84658e9a] {
+    display: none;
+}
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/components/List.vue?vue&type=style&index=0&id=6920209b&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container[data-v-6920209b] {
+  min-height: 500px;
+}
+.list-container .list-item-container[data-v-6920209b] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container .list-item-container .item-container[data-v-6920209b] {
+  width: 33.3%;
+  padding: 12px;
+}
+.center[data-v-6920209b] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-6920209b] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-6920209b] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-6920209b] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-6920209b] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/index.vue?vue&type=style&index=0&id=600aca54&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-600aca54] {
+  display: flex;
+  min-height: 100%;
+  padding-left: 20px;
+}
+.content .content-l[data-v-600aca54] {
+  width: 25%;
+  max-width: 350px;
+  min-width: 250px;
+  padding: 30px 20px;
+}
+.content .content-r[data-v-600aca54] {
+  flex: 1;
+  width: 0;
+  padding: 30px 20px;
+}
+.content .content-r .workspace-t[data-v-600aca54] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 0 16px 0;
+}
+.content .content-r .filter-c[data-v-600aca54] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .content-r .filter-c .tab-c[data-v-600aca54] {
+  display: flex;
+  align-items: center;
+}
+.content .content-r .filter-c .tab-c .tab-item[data-v-600aca54] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-bottom: 2px solid rgba(51, 38, 98, 0.3);
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgba(16, 16, 16, 0.5);
+}
+.content .content-r .filter-c .tab-c .tab-item[data-v-600aca54]:hover {
+  color: #101010;
+  border-color: #332662;
+}
+.content .content-r .filter-c .tab-c .tab-item.active[data-v-600aca54] {
+  color: #0066ff;
+  border-bottom: 2px solid #0066ff;
+}
+.content .content-r .filter-c .right[data-v-600aca54] {
+  display: flex;
+  align-items: center;
+  grid-gap: 14px;
+  gap: 14px;
+}
+.content .content-r .filter-c .right .btn-loc[data-v-600aca54] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #000000;
+  cursor: pointer;
+}
+.content .content-r .filter-c .right .btn-add[data-v-600aca54] {
+  height: 32px;
+  background-color: #3291f8;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.content .content-r .filter-c .right .btn-add .fill[data-v-600aca54]:not([store]) {
+  fill: #ffffff;
+}
+[data-v-600aca54] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 767.98px) {
+.content[data-v-600aca54] {
+    padding-left: 0 !important;
+}
+.content .content-l[data-v-600aca54] {
+    display: none;
+}
+.content .content-r[data-v-600aca54] {
+    padding: 20px 16px !important;
+}
+.content .content-r .filter-c[data-v-600aca54] {
+    flex-direction: column;
+    justify-content: center !important;
+    grid-gap: 12px;
+    gap: 12px;
+}
+.content .content-r .filter-c .input[data-v-600aca54],
+  .content .content-r .filter-c .btn-add[data-v-600aca54],
+  .content .content-r .filter-c .el-select[data-v-600aca54] {
+    display: none !important;
+}
+.content .content-r .org-tab[data-v-600aca54] {
+    display: none !important;
+}
+[data-v-600aca54] .list-item-container .item-container {
+    width: 100% !important;
+    padding: 12px 0 !important;
+}
+}
+@media only screen and (min-width: 768px) and (max-width: 1250px) {
+[data-v-600aca54] .list-item-container .item-container {
+    width: 100% !important;
+    padding: 12px 0 !important;
+}
+}
+@media only screen and (min-width: 1250px) and (max-width: 1700px) {
+[data-v-600aca54] .list-item-container .item-container {
+    width: 50% !important;
+}
+[data-v-600aca54] .list-item-container .item-container:nth-child(2n+1) {
+    padding-left: 0;
+}
+[data-v-600aca54] .list-item-container .item-container:nth-child(2n) {
+    padding-right: 0;
+}
+}
+@media only screen and (min-width: 1700px) {
+[data-v-600aca54] .list-item-container .item-container {
+    width: 33.3% !important;
+}
+[data-v-600aca54] .list-item-container .item-container:nth-child(3n+1) {
+    padding-left: 0;
+}
+[data-v-600aca54] .list-item-container .item-container:nth-child(3n) {
+    padding-right: 0;
+}
+}
+

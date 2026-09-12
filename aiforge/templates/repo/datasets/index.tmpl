@@ -1,0 +1,474 @@
+{{template "base/head" .}}
+<style>
+  .selectcloudbrain .active.item {
+    color: #0087f5 !important;
+    border: 1px solid #0087f5;
+    margin: -1px;
+    background: #FFF !important;
+  }
+
+
+
+  .dataset_title {
+    font-size: 14px;
+    /* max-width: 80%; */
+    display: inline-block !important;
+    margin-left: 6px !important;
+    padding-right: 0 !important;
+  }
+
+  .wrapper {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .exp {
+    display: none;
+  }
+
+  .exp:checked+.text {
+    max-height: none;
+  }
+
+  .exp:checked+.text::after {
+    visibility: hidden;
+  }
+
+  .exp:checked+.text .btn::before {
+    visibility: hidden;
+  }
+
+  .exp:checked+.text .btn::after {
+    content:'{{$.i18n.Tr "org.fold"}}';
+    color: #3291f8;
+  }
+
+  .wrapper>.text {
+    font-family: SourceHanSansSC-regular;
+    font-size: 14px;
+    color: #101010;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+    position: relative;
+    line-height: 1.5;
+    max-height: 3em;
+    transition: .3s max-height;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .wrapper>.text::before {
+    content: '';
+    height: calc(100% - 20px);
+    float: right;
+  }
+
+  .wrapper>.text::after {
+    content: '';
+    width: 999vw;
+    height: 999vw;
+    position: absolute;
+    box-shadow: inset calc(100px - 999vw) calc(30px - 999vw) 0 0 #fff;
+    margin-left: -100px;
+  }
+
+  .btn {
+    position: relative;
+    float: right;
+    clear: both;
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 0 8px;
+    background-color: transparent;
+    line-height: 20px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    /* margin-top: -30px; */
+  }
+
+  .btn::after {
+    content:'{{$.i18n.Tr "org.unfold"}}';
+    color: #3291f8;
+  }
+
+  .btn::before {
+    content: '...';
+    position: absolute;
+    left: -5px;
+    color: #333;
+    transform: translateX(-100%)
+  }
+
+  .el-button--text {
+    color: #0366d6;
+  }
+
+  .heart-stroke {
+    stroke: #FA8C16;
+    stroke-width: 2;
+    fill: #fff
+  }
+
+  .stars_active {
+    fill: #FA8C16 !important;
+    stroke: #FA8C16 !important
+  }
+
+  .diy-popper {
+    max-width: 400px;
+  }
+
+  .ascending {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-bottom-color: #c0c4cc;
+  }
+
+  .descending {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #c0c4cc;
+  }
+  .dataset-flavor-button{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid rgba(34,36,38,0.15);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none
+  }
+  .el-dialog__header {
+    text-align: left !important;
+    height: 45px;
+    background: rgb(240, 240, 240);
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid rgb(212, 212, 213);
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgb(16, 16, 16);
+  }
+
+  .el-dialog__body {
+    padding: 15px 15px;
+  }
+  .code-content{
+    position: relative;
+  }
+  .code-content .copy-btn {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+  }
+  .dataset-name-col:hover >.clipboard {
+    display:inline !important;
+  }
+  .mobile-tip{
+      height: 100%;
+      align-items: center;
+      padding-top: 25vh;
+      font-size: 14px;
+      display: none;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      height: 100vh;
+      
+  }
+  @media screen and (max-width: 767px) {
+  /* 当视口宽度 ≤ 767px 时生效 */
+    #dataset-base, #app, .common-tips-dlg{ display: none; }
+    .ui.green.button {display: none;}
+    .mobile-tip {display: flex;flex-direction: column;}
+  }
+</style>
+
+<div class="repository">
+  {{template "repo/header" .}}
+  {{if .dataset}}
+  <div id="dataset-range-value" data-num-stars="{{.dataset.NumStars}}" data-star-active="{{$.IsStaringDataset}}"
+    style="display: none;">
+    {{range .Attachments}}
+    <div class="item" data-private="{{.IsPrivate}}" data-decompress-state="{{.DecompressState}}"></div>
+    {{end}}
+  </div>
+  <div class="mobile-tip" >
+    <img style="width: 132px;height: 97px;" src="/img/model/pc-view.png" alt="">
+    <div style="margin-top: 2rem;">{{$.i18n.Tr "useInPcWeb"}}</div>
+  </div>
+  <div id="dataset-base" data-upgrade-tip="{{$.i18n.Tr "dataset.upgrade_success"}}" data-not-exist="{{$.i18n.Tr "dataset.dataset_not_exist"}}">
+    <div class="ui container" v-loading="loading">
+      <div class="ui mobile reversed stackable grid">
+        <div class="row">
+          <div class="ui blue small menu compact selectcloudbrain">
+            <a class="active item" href="{{.RepoLink}}/datasets">{{$.i18n.Tr "dataset.current_dataset"}}</a>
+            <a class="item" href="{{.RepoLink}}/datasets/reference_datasets">{{$.i18n.Tr "dataset.linked_dataset"}}</a>
+          </div>
+        </div>
+        <div class="row" style="align-items: center;">
+          <h2 class="nowrap" style="margin: 0;">{{.dataset.Title}}</h2>
+        </div>
+        {{if .dataset.Description}}
+        <div class="row" style="padding: 0;">
+          <div class="wrapper">
+            <input id="exp1" class="exp" type="checkbox">
+            <div class="text">
+              <label class="btn" for="exp1"></label>
+              {{.dataset.Description}}
+            </div>
+          </div>
+        </div>
+        {{end}}
+        <div class="row" style="align-items: center;">
+          <div class="column ten wide" style="padding:0">
+            {{if .dataset.Category}}
+            {{$category := .dataset.Category}}
+            <span class="ui repo-topic label topic"> {{$.i18n.Tr (printf "dataset.category.%s" $category)}}</span>
+            {{end}}
+            {{if .dataset.Task}}
+            {{$task := .dataset.Task}}
+            <span class="ui repo-topic label topic"> {{$.i18n.Tr (printf "dataset.task.%s" $task)}}</span>
+            {{end}}
+            {{if .dataset.License}}
+            <span class="ui repo-topic label topic"> {{.dataset.License}}</span>
+            {{end}}
+          </div>
+        </div>
+        <div class="row" style="padding-top: 0; color: #f2711c;">
+          * {{ $.i18n.Tr "dataset.clear_dataset_tips"}}
+        </div>
+        <div class="row" style="padding-top: 0;">
+          <div class="ui sixteen wide column dataset">
+            <div class="ui grid stackable" style="background: #f0f0f0;;">
+              <div class="row">
+                <!-- 数据集名称 -->
+                <div class="five wide column name_sort" @click="sortAble('name')"
+                  style="cursor: pointer;">
+                  {{$.i18n.Tr "dataset.dataset_file_name"}}
+                  <span class="caret-wrapper">
+                    <i class='ascending sort-caret-up {{if eq .SortType "nameAsc"}} active-up-sort {{end}}'
+                      @click.stop="sortIcon('name','up')"></i>
+                    <i class='descending sort-caret-down {{if eq .SortType "nameDesc"}} active-down-sort {{end}}'
+                      @click.stop="sortIcon('name','down')"></i>
+                  </span>
+                </div>
+                <div class="two wide column text center size_sort" @click="sortAble('size')"
+                  style="cursor: pointer;">
+                  {{$.i18n.Tr "repo.model.manage.size"}}
+                  <span class="caret-wrapper">
+                    <i class='ascending sort-caret-up {{if eq .SortType "sizeAsc"}} active-up-sort {{end}}'
+                      @click.stop="sortIcon('size','up')"></i>
+                    <i class='descending sort-caret-down {{if eq .SortType "sizeDesc"}} active-down-sort {{end}}'
+                      @click.stop="sortIcon('size','down')"></i>
+                  </span>
+                </div>
+                <div class="one wide column text center">
+                  {{$.i18n.Tr "repo.modelarts.status"}}
+                </div>
+                <div class="one wide column text center">
+                  {{$.i18n.Tr "repo.cloudbrain_creator"}}
+                </div>
+                <div class="two wide column text center" @click="sortAble('time')" style="cursor: pointer;">
+                  {{$.i18n.Tr "dataset.dataset_upload_time"}}
+                  <span class="caret-wrapper">
+                    <i class='ascending sort-caret-up {{if eq .SortType "timeAsc"}} active-up-sort {{end}}'
+                      @click.stop="sortIcon('time','up')"></i>
+                    <i class='descending sort-caret-down {{if eq .SortType "timeDesc"}} active-down-sort {{end}}'
+                      @click.stop="sortIcon('time','down')"></i>
+                  </span>
+                </div>
+                <div class="two wide column text center">
+                  {{$.i18n.Tr "dataset.upgrade_status"}}
+                </div>
+                <div class="three wide column text center">
+                  {{$.i18n.Tr "repo.cloudbrain_operate"}}
+                </div>
+              </div>
+            </div>
+            
+            {{range $k, $v :=.Attachments}}
+            <div class="ui grid stackable item" id="{{.UUID}}">
+              <div class="row">
+                <!-- 数据集名称 -->
+                <div class="five wide column dataset-name-col" style="display: flex;align-items: center;">
+                  <el-tooltip class="item" effect="dark" placement="top" popper-class="diy-popper">
+                    <div slot="content"><span class="wrap" style="display: flex;align-items: center;">
+                        <span style="flex-shrink: 0;">{{if ne .DecompressState -1}}{{$.i18n.Tr "dataset.unzip_status"}}：{{if eq .DecompressState 1}}{{$.i18n.Tr "dataset.unzip_successed"}}{{else if eq .DecompressState 0 2}}{{$.i18n.Tr "dataset.unzip_stared"}}{{else}}{{$.i18n.Tr "dataset.unzip_failed"}}{{end}}
+                        &nbsp;&nbsp;{{end}}</span>
+                        <div style="flex-shrink: 0;display: flex;align-items: center;"><i class="ri-download-line"></i>{{$.i18n.Tr "dataset.download"}}：{{.DownloadCount}}</div>
+                        <div class="nowrap" title="{{.Description}}">{{if .Description}}&nbsp;&nbsp;{{$.i18n.Tr "dataset.description"}}：{{.Description}}{{end}}</div>
+                        {{if eq .DecompressState 3}}&nbsp;&nbsp; <a style="flex-shrink: 0;color:rgba(254, 221, 89, 1);" href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning/issues/new?issuetitle={{$.i18n.Tr "dataset.file"}} {{.Name}} {{$.i18n.Tr "dataset.unzip_failed"}}&body={{$.i18n.Tr "form.RepoAdress"}}:{{$.Username}}/{{$.RepoName}}  {{$.i18n.Tr "dataset.file"}}:{{.Name}}">{{$.i18n.Tr "dataset.feedback_issue"}}</a> {{end}}
+                    </div>
+                    <div style="border: none;display: flex;align-items: center;max-width: 100%;">
+                      {{if eq .DecompressState 1}}
+                      <i class="ri-folder-open-line" style="color: #5bb973;"
+                        title='{{$.i18n.Tr "dataset.unzip_successed"}}'></i>
+                      {{else if eq .DecompressState 0 2}}
+                      <i class="ri-folder-chart-2-line" style="color: #888888;"
+                        title='{{$.i18n.Tr "dataset.unzip_stared"}}'></i>
+                      {{else if eq .DecompressState 3}}
+                      <i class="ri-folder-forbid-line" style="color: #101010;"
+                        title='{{$.i18n.Tr "dataset.unzip_failed"}}'></i>
+                      {{else}}
+                      <i class="ri-folder-forbid-line" style="visibility: hidden;"
+                        title='{{$.i18n.Tr "dataset.unzip_failed"}}'></i>
+                      {{end}}
+                      <a class="dataset_title title" href="{{if eq .DecompressState 1}}datasets/dirs/{{.UUID}}?type={{$.Type}}{{else}}javascript:;{{end}}" title="{{.Name}}">
+                        {{.Name}}
+                      </a>
+                      <i class="ri-lock-2-line" style="color: #fa8c16;" v-if="privates[{{$k}}]"></i>
+                    </div>
+                  </el-tooltip>
+                  <i class="ri-file-copy-2-line clipboard poping up"
+                    data-original="{{$.i18n.Tr "repo.copy"}}"
+                    data-content="{{$.i18n.Tr "repo.copy"}}"  data-success="{{$.i18n.Tr "repo.copied"}}"
+                    data-variation="inverted tiny" data-clipboard-text="{{.Name}}"
+                    data-error="{{$.i18n.Tr "repo.copied_error"}}"
+                    data-position="top center"
+                    style="color:#919191;font-size:14px;margin-left:5px;cursor:pointer;display:none">
+                  </i>
+                </div>
+                <div class="two wide column text center">
+                  {{.Size | FileSize}}
+                </div>
+                <div class="one wide column text center">
+                  {{$x:=.IsPrivate | AttachmentStatus}}
+                  <span style="color: #fa8c16;" v-if="privates[{{$k}}]">{{$.i18n.Tr "home.show_private"}}</span>
+                  <span style="color: #13c28d;"
+                    v-else="privates[{{$k}}]">{{$.i18n.Tr "org.settings.visibility.public"}}</span>
+                </div>
+                <div class="one wide column text center">
+                  {{if .Uploader}}
+                  <a href="{{AppSubUrl}}/{{.Uploader.Name}}" title="{{.Uploader.Name}}"><img class="ui avatar image"
+                      src="{{AppSubUrl}}/user/avatar/{{.Uploader.Name}}/-1"></a>
+                  {{else}}
+                  <a title="Ghost"><img class="ui avatar image" src="{{AppSubUrl}}/user/avatar/Ghost/-1"></a>
+                  {{end}}
+                </div>
+                <div class="two wide column text center">
+                  {{.CreatedUnix | TimeSinceUnix1}}
+                </div>
+                <div class="two wide column text center">
+                  {{if eq 0 .DatasetMigrateStatus}}
+                  <span style="color: rgb(16, 16, 16);">{{$.i18n.Tr "dataset.not_upgradable"}}</span>
+                  {{else if eq 1 .DatasetMigrateStatus}}
+                  <span style="color: rgb(255, 37, 37);">{{$.i18n.Tr "dataset.not_upgraded"}}</span>
+                  {{else if eq 2 .DatasetMigrateStatus}}
+                  <span style="color: rgb(39, 177, 72);">{{$.i18n.Tr "dataset.upgraded"}}</span>
+                  {{else}}
+                  <span style="color: rgb(22, 132, 252);">{{$.i18n.Tr "dataset.upgrading"}}</span>
+                  {{end}}
+                </div>
+                <div class="three wide column text right">
+                  <div class="ui compact buttons">
+                      {{if eq 1 .DatasetMigrateStatus}}
+                        {{ if $.IsSigned }}
+                        <span style="color: rgba(3, 102, 214, 1) !important;" class="ui basic blue button" @click="setUpdate('{{.UUID}}')">{{$.i18n.Tr "dataset.upgrade"}}</span>
+                        {{end}}
+                      {{else if eq 2 .DatasetMigrateStatus}}
+                      <span style="color: rgba(3, 102, 214, 1) !important;" class="ui basic blue button" @click="goToNewVesion('{{.NewOwnerName}}','{{.NewDatasetName}}')">{{$.i18n.Tr "dataset.go_to_new_version"}}</span>
+                      {{end}}
+                    
+                    <a style="color: rgba(3, 102, 214, 1) !important;" class="ui basic blue blue button" @click="downloadSingleData('{{.DownloadURL}}','{{.Size}}','{{.S3DownloadURL}}','{{.Name}}',{{$.max_model_size}},'{{$.max_model_size | FileSize}}')">{{$.i18n.Tr "dataset.download"}}</a>
+                    <!-- {{if eq .DecompressState 1}}
+                    <a class="ui basic blue button" href="datasets/dirs/{{.UUID}}?type={{$.Type}}"
+                      data-tooltip='{{$.i18n.Tr "dataset.directory"}}'>{{$.i18n.Tr "preview"}}</a>
+                    {{end}} -->
+                    <!-- {{if .CanDel}}
+                    <span class="ui basic blue button" style="color: #13c28d !important;"
+                      @click="setPrivate('{{.UUID}}',false,{{$k}},{{$.Repository.IsPrivate}})"
+                      v-if="privates[{{$k}}]">{{$.i18n.Tr "dataset.set_public"}}</span>
+                    <span class="ui basic blue button" style="color: #fa8c16 !important;"
+                      @click="setPrivate('{{.UUID}}',true,{{$k}})"
+                      v-else="privates[{{$k}}]">{{$.i18n.Tr "dataset.set_private"}}</span>
+                    {{end}} -->
+                    <!-- {{ if $.IsSigned }} -->
+                    <a style="color: rgba(3, 102, 214, 1) !important;" class="ui basic blue button">
+                      <el-dropdown size="medium">
+                        <span class="el-dropdown-link">
+                          {{$.i18n.Tr "repo.more"}}<i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                          <el-dropdown-item  @click.native="copyUrl('{{.S3DownloadURL}}')">{{$.i18n.Tr "dataset.copy_url"}}
+                          </el-dropdown-item>
+                          <!-- {{if and ($.CanWrite) (eq .DecompressState 1) }}
+                          <el-dropdown-item @click.native="gotoAnnotate('{{$.RepoLink}}','{{.UUID}}',{{.Type}})">
+                            {{$.i18n.Tr "dataset.annotation"}}</el-dropdown-item>
+                          <el-dropdown-item @click.native="gotoDataset('{{AppSubUrl}}/pch/AIStudio/admagic/nlp/tasks?reponame={{$.Repository.Name}}&repoId={{$.Repository.ID}}')">
+                            {{$.i18n.Tr "dataset.more_annotation"}}</el-dropdown-item>
+                          {{end}} -->
+                          <!-- <el-dropdown-item @click.native="gotoDatasetEidt('{{$.RepoLink}}',{{.ID}})">
+                            {{$.i18n.Tr "dataset.modify_description"}}</el-dropdown-item> -->
+                          {{if .CanDel}}  
+                          <el-dropdown-item style="color: red;" @click.native="delDataset('{{.UUID}}')">
+                            {{$.i18n.Tr "dataset.delete"}}</el-dropdown-item>
+                          {{end}}
+                        </el-dropdown-menu>
+                      </el-dropdown>
+                    </a>
+                    <!-- {{ end }} -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{end}}
+          </div>
+        </div>
+        <el-dialog title="{{.i18n.Tr "dataset.dataDownDlgTitle"}}" :close-on-click-modal="false" :visible.sync="dialogVisible" width="50%" class="base-dlg">
+          <div class="markdown" style="margin-bottom: 2rem;" v-html="contentSDK"></div>
+        </el-dialog>
+      </div>
+    </div>
+  </div>
+  <div id="app" style="margin-top: 2rem;">
+    <div class="center">
+      <el-pagination background @current-change="handleCurrentChange" :current-page="page" :page-sizes="[10]"
+        :page-size="10" layout="total, sizes, prev, pager, next, jumper" :total="{{.Page.Paginater.Total}}">
+      </el-pagination>
+    </div>
+  </div>
+  {{else}}
+  <div class="ui container __">
+    <div class="ui stackable grid">
+      <div class="row" style="justify-content: space-between">
+        <div class="ui blue small menu compact selectcloudbrain">
+          <a class="active item" href="{{.RepoLink}}/datasets">{{$.i18n.Tr "dataset.current_dataset"}}</a>
+          <a class="item" href="{{.RepoLink}}/datasets/reference_datasets">{{$.i18n.Tr "dataset.linked_dataset"}}</a>
+        </div>
+        <!-- {{if $.CanWrite}}
+        <a class="ui green button" href="{{.RepoLink}}/datasets/create">{{$.i18n.Tr "new_dataset"}}</a>
+        {{end}} -->
+      </div>
+    </div>
+
+    <div class="ui placeholder segment bgtask-none">
+        <div class="ui icon header bgtask-header-pic"></div>
+        <div class="bgtask-content-header">{{.i18n.Tr "dataset.dataset_no_create"}}</div>
+        <div class="bgtask-content">
+          {{$maxsize := SizeFmt .max_model_size}}
+          <div class="bgtask-content-txt">{{$.i18n.Tr "dropzone.error_file_tips" "10" $maxsize "https://openi.pcl.ac.cn/docs/index.html#/dataset/sdk" | Str2html}}</div>
+          <div class="bgtask-content-txt">{{.i18n.Tr "dataset.dataset_instructions_for_use"}}<a
+              href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning">&nbsp;{{.i18n.Tr "dataset.dataset_camp_course"}}</a></div>
+        </div>
+    </div>
+  </div>
+  {{end}}
+</div>
+
+<div class="ui small basic delete modal" id="data-dataset-delete-modal">
+  <div class="ui icon header">
+    <i class="trash icon"></i>
+    {{.i18n.Tr "dataset.attachment.delete"}}
+  </div>
+  <div class="content">
+    <p>{{.i18n.Tr "dataset.attachment.delete_desc" | Str2html}}</p>
+  </div>
+  {{template "base/delete_modal_actions" .}}
+</div>
+{{template "base/footer" .}}

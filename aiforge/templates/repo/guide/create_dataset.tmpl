@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-create-dataset.css?v={{MD5 AppVer}}" />
+<script>
+    window.OWNERS = [
+        {name: {{.SignedUser.Name}}, id: {{.SignedUser.ID}}},
+    ]
+</script>
+
+<div class="repository">
+    <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-create-dataset.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

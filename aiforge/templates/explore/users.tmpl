@@ -1,0 +1,63 @@
+{{template "base/head" .}}
+<div class="explore users">
+	{{template "explore/search" .}}
+	<div class="ui container">
+		<div class="ui grid">
+			{{template "explore/navbar" .}}
+			<div class="sixteen mobile ten wide tablet computer column">
+
+				<h2 class="ui left floated medium header">
+					{{.i18n.Tr "explore.users"}}
+				</h2>
+				<div class="ui right floated secondary filter menu">
+				<!-- Sort -->
+					<div class="ui right dropdown type jump item">
+						<span class="text">
+							{{.i18n.Tr "repo.issues.filter_sort"}}
+							<i class="dropdown icon"></i>
+						</span>
+						<div class="menu">
+							<a class="{{if eq .SortType "newest"}}active{{end}} item" href="{{$.Link}}?sort=newest&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.latest"}}</a>
+							<a class="{{if eq .SortType "oldest"}}active{{end}} item" href="{{$.Link}}?sort=oldest&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.oldest"}}</a>
+							<a class="{{if eq .SortType "alphabetically"}}active{{end}} item" href="{{$.Link}}?sort=alphabetically&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}</a>
+							<a class="{{if eq .SortType "reversealphabetically"}}active{{end}} item" href="{{$.Link}}?sort=reversealphabetically&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}</a>
+							<a class="{{if eq .SortType "recentupdate"}}active{{end}} item" href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}</a>
+							<a class="{{if eq .SortType "leastupdate"}}active{{end}} item" href="{{$.Link}}?sort=leastupdate&q={{$.Keyword}}&tab={{$.TabName}}">{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="ui clearing divider"></div>
+
+				<div class="ui user list">
+					{{range .Users}}
+						<div class="item">
+						  <img class="ui avatar image" src="{{.RelAvatarLink}}">
+						  <div class="content">
+							<span class="header"><a href="{{.HomeLink}}">{{.Name}}</a> {{.FullName}}</span>
+							<div class="description">
+								{{if .Location}}
+									{{svg "octicon-location" 16}} {{.Location}}
+								{{end}}
+								{{if and $.ShowUserEmail .Email $.IsSigned (not .KeepEmailPrivate)}}
+									{{svg "octicon-mail" 16}}
+									<a href="mailto:{{.Email}}" rel="nofollow">{{.Email}}</a>
+								{{end}}
+								{{svg "octicon-clock" 16}} {{$.i18n.Tr "user.join_on"}} {{.CreatedUnix.FormatShort}}
+							</div>
+						  </div>
+						</div>
+					{{else}}
+						<div>{{$.i18n.Tr "explore.user_no_results"}}</div>
+					{{end}}
+				</div>
+			{{template "base/paginate" .}}
+			</div>
+			<div class="sixteen wide mobile six wide tablet three wide computer column">
+				{{template "explore/repo_right" .}}
+			</div>
+
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

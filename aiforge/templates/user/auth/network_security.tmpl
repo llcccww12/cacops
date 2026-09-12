@@ -1,0 +1,16 @@
+<div class="ui tiny modal network-security" data-update='{{.i18n.Tr "auth.protocol_update"}}' data-confirm='{{.i18n.Tr "auth.protocol_confirm"}}'>
+    <div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);font-size: 1rem;">{{.i18n.Tr "auth.protocol_header"}}</div>
+        <div class="content">
+            <p>{{.i18n.Tr "auth.protocol_title"}}</p>
+            <p style="text-indent: 2rem;">
+                {{.i18n.Tr "auth.protocol_context" | Safe}}
+            </p>
+            <p></p>
+            <p>{{.i18n.Tr "auth.protocol_context_sub" | Safe}}</p>
+        </div>
+        <div class="actions" style="border: none;text-align: center;padding: 0 1rem 2rem 1rem;background-color: #fff;">
+            <div class="ui green approve button">{{.i18n.Tr "auth.protocol_confirm"}}</div>
+            <div class="ui blank cancel button">{{.i18n.Tr "auth.protocol_cancel"}}</div>
+        </div>
+    </div>
+</div>

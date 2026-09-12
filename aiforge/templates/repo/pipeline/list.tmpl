@@ -1,0 +1,8 @@
+<!-- 仓库 - AI流水线 -->
+{{template "base/head" .}}
+<div class="repository">
+	<style>.full.height{padding-bottom:0;}</style>
+	{{template "repo/header" .}}
+	<iframe frameborder="0" width="100%" height="990" allowfullscreen src="{{AppSubUrl}}/pch/AIStudio/mlops/pipeline/list?repoId={{.Repository.ID}}&reponame={{.Repository.Name}}&lang={{.Language}}&_csrf={{.CsrfToken}}"></iframe>
+</div>
+{{template "base/footer" .}}

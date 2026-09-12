@@ -1,0 +1,209 @@
+<div class="_hm-bg-container">
+  <div class="_hm-pg _hm-pg-static"></div>
+  <div class="_hm-pg-c">
+
+    <div class="_hm-pg _hm-pg-bg-1 _hm-pg-show">
+      <div class="_hm-container _hm-pop-messgae">
+        <div class="_hm-bubble-c _hm-ani-bubble-c">
+          <div class="bubble _hm-bubble-1 _hm-bounce-in-up"></div>
+          <div class="bubble _hm-bubble-2 _hm-bounce-in-up"></div>
+          <div class="bubble _hm-bubble-3 _hm-bounce-in-up"></div>
+        </div>
+        <div id="homenews">
+          <p style="display:none;">* {{.page_only_dynamic}}</p>
+          <div class="ui grid">
+            <div class="sixteen wide mobile twelve wide tablet wide computer column homenews">
+              <div class="newslist">
+                <div class="ui mini aligned list swiper-wrapper" id="newmessage"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_hm-txt-content-c">
+        <div class="_hm-big-txt-1">
+          <div class="_hm-big-title {{if ne $.Lang "zh-CN"}}_hm-big-title-en{{end}}" style="animation:_hm-slide-in-left-once 0.5s">{{.i18n.Tr "home.page_title"}}</div>
+          <div class="_hm-big-descr">{{.i18n.Tr "home.page_description"}}</div>
+        </div>
+        
+        <div class="_hm-big-btn-c">
+          <a href="{{if .IsSigned}}/dashboard{{else}}/user/login{{end}}">
+            <div class="_hm-big-btn-1">
+              {{.i18n.Tr "home.page_use"}}
+            </div>
+          </a>
+          <a href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning">
+            <div class="_hm-big-btn-2">
+              {{.i18n.Tr "custom.Platform_Tutorial"}}
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="_hm-slide-btn _hm-slide-btn-left"></div>
+  <div class="_hm-slide-btn _hm-slide-btn-right"></div>
+  <div class="_hm-slide-pagination-c">
+    <div class="_hm-slide-pagination-item _hm-slide-pagination-item-active"></div>
+  </div>
+</div>
+<div>
+  <div class="_hm-container">
+    <div class="_hm-large-model-wrap">
+      <div class="_hm-quick-start">
+        <div class="_hm-notice-item">
+          <div class="notice-item-icon">{{.i18n.Tr "notice_announcement"}}</div>
+          <div class="notice-list" style="overflow: hidden;">
+            <div class="swiper-wrapper" id="noticemessage"></div>
+          </div>
+          <a class="notice-more" href="/home/notice">{{.i18n.Tr "notice_announcement_more"}}</a>
+        </div>
+        <div class="_hm-quick-item">
+          <div class="quick-item-child">
+            <div class="item-header">
+              <div class="icon-wrap community_guide">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="64 64 896 896" width="30" height="30" fill="white"><defs></defs><g><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372zm198.4-588.1a32 32 0 0 0-24.5.5L414.9 415 296.4 686c-3.6 8.2-3.6 17.5 0 25.7 3.4 7.8 9.7 13.9 17.7 17 3.8 1.5 7.7 2.2 11.7 2.2 4.4 0 8.7-.9 12.8-2.7l271-118.6 118.5-271a32.06 32.06 0 0 0-17.7-42.7zM576.8 534.4l26.2 26.2-42.4 42.4-26.2-26.2L380 644.4 447.5 490 422 464.4l42.4-42.4 25.5 25.5L644.4 380l-67.6 154.4zM464.4 422L422 464.4l25.5 25.6 86.9 86.8 26.2 26.2 42.4-42.4-26.2-26.2-86.8-86.9z"></path></g></svg>
+              </div>
+              <div class="_quick-icon-wrap">
+                <div class="_quick-icon community_guide">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="64 64 896 896" width="30" height="30" fill="white"><defs></defs><g><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372zm198.4-588.1a32 32 0 0 0-24.5.5L414.9 415 296.4 686c-3.6 8.2-3.6 17.5 0 25.7 3.4 7.8 9.7 13.9 17.7 17 3.8 1.5 7.7 2.2 11.7 2.2 4.4 0 8.7-.9 12.8-2.7l271-118.6 118.5-271a32.06 32.06 0 0 0-17.7-42.7zM576.8 534.4l26.2 26.2-42.4 42.4-26.2-26.2L380 644.4 447.5 490 422 464.4l42.4-42.4 25.5 25.5L644.4 380l-67.6 154.4zM464.4 422L422 464.4l25.5 25.6 86.9 86.8 26.2 26.2 42.4-42.4-26.2-26.2-86.8-86.9z"></path></g></svg>
+                </div>
+                <span class="nowrap" title="{{.i18n.Tr "home.community_guide"}}">{{.i18n.Tr "home.community_guide"}}</span>
+              </div>
+              <div class="text-wrap">
+                <div class="text-title nowrap" title="{{.i18n.Tr "home.community_guide"}}">{{.i18n.Tr "home.community_guide"}}</div>
+                <div class="text-desc nowrap" title="{{.i18n.Tr "home.welcome_openi"}}">{{.i18n.Tr "home.welcome_openi"}}</div>
+                <div class="text-href-wrap">
+                  <div class="href-item">
+                    <a class="item" href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "custom.Platform_Tutorial"}}">{{.i18n.Tr "custom.Platform_Tutorial"}}</span></a>
+                    <a class="item" href="https://openi.pcl.ac.cn/docs/index.html"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "help_doc"}}">{{.i18n.Tr "help_doc"}}</span></a>
+                  </div>
+                  <div class="href-item">
+                    <a class="item" href="https://openi.pcl.ac.cn/docs/index.html#/quickstart/resources"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "custom.resource_description"}}">{{.i18n.Tr "custom.resource_description"}}</span></a>
+                    <a class="item" href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning/issues/new"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "custom.foot.advice_feedback"}}">{{.i18n.Tr "custom.foot.advice_feedback"}}</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="quick-item-child">
+            <div class="item-header">
+              <div class="icon-wrap model_development">
+                <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 34L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 34L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 44V34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L33 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L15 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="_quick-icon-wrap">
+                <div class="_quick-icon model_development">
+                  <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 34L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 34L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 44V34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L33 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L15 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="nowrap" title="{{.i18n.Tr "home.model_development"}}">{{.i18n.Tr "home.model_development"}}</span>
+              </div>
+              <div class="text-wrap">
+                <div class="text-title nowrap" title="{{.i18n.Tr "home.model_development"}}">{{.i18n.Tr "home.model_development"}}</div>
+                <div class="text-desc nowrap" title="{{.i18n.Tr "home.universal_use"}}">{{.i18n.Tr "home.universal_use"}}</div>
+                <div class="text-href-wrap">
+                  <div class="href-item w-50">
+                    <a class="item" href="/cloudbrains/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.create_debug_task"}}">{{.i18n.Tr "home.create_debug_task"}}</span></a>
+                    <a class="item" href="/cloudbrains/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.create_training_task"}}">{{.i18n.Tr "home.create_training_task"}}</span></a>
+                  </div>
+                  <div class="href-item w-50">
+                    <a class="item" href="/cloudbrains/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.create_inference_task"}}">{{.i18n.Tr "home.create_inference_task"}}</span></a>
+                    <a class="item" href="/cloudbrains/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.create_universal_task"}}">{{.i18n.Tr "home.create_universal_task"}}</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="quick-item-child">
+            <div class="item-header">
+              <div class="icon-wrap model_finetuning">
+                <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 27L24 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L24 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 34L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 27L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4V17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L7 14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L7 34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.3207 14L24.0002 4L6.67969 14V34L24.0002 44L41.3207 34V14Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="_quick-icon-wrap">
+                <div class="_quick-icon model_finetuning">
+                  <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 27L24 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L24 44" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 34L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L30 27" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 27L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4V17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L24 17" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L7 14" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 27L7 34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41.3207 14L24.0002 4L6.67969 14V34L24.0002 44L41.3207 34V14Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="nowrap" title="{{.i18n.Tr "home.model_finetuning"}}">{{.i18n.Tr "home.model_finetuning"}}</span>
+              </div>
+              <div class="text-wrap">
+                <div class="text-title nowrap" title="{{.i18n.Tr "home.model_finetuning"}}">{{.i18n.Tr "home.model_finetuning"}}</div>
+                <div class="text-desc nowrap" title="{{.i18n.Tr "home.model_finetuning_steps"}}">{{.i18n.Tr "home.model_finetuning_steps"}}</div>
+                <div class="text-href-wrap">
+                  <div class="href-item">
+                    <a class="item" href="/modelbase/nlp/sft/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.model_finetuning_nlp"}}">{{.i18n.Tr "home.model_finetuning_nlp"}}</span></a>
+                    <a class="item" href="/modelbase/cv/sft/create"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.model_finetuning_cv"}}">{{.i18n.Tr "home.model_finetuning_cv"}}</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="quick-item-child">
+            <div class="item-header">
+              <div class="icon-wrap domestic_computing_power">
+                <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 44V24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 19L32 39" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 24L24 34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 34L7 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 39L16 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 9L16 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 19L16 9" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="_quick-icon-wrap">
+                <div class="_quick-icon domestic_computing_power">
+                  <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L24 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 44V24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 19L32 39" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 24L24 34" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 34L7 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 39L16 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 9L16 19" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 19L16 9" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <span class="nowrap" title="{{.i18n.Tr "explore.domestic_computing_power"}}">{{.i18n.Tr "explore.domestic_computing_power"}}</span>
+              </div>
+              <div class="text-wrap">
+                <div class="text-title nowrap" title="{{.i18n.Tr "explore.domestic_computing_power"}}">{{.i18n.Tr "explore.domestic_computing_power"}}</div>
+                <div class="text-desc nowrap" title="{{.i18n.Tr "home.c2net_community"}}">{{.i18n.Tr "home.c2net_community"}}</div>
+                <div class="text-href-wrap">
+                  <div class="href-item">
+                    <a class="item" href="/computingpower/domestic"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.domestic_hero_list"}}">{{.i18n.Tr "home.domestic_hero_list"}}</span></a>
+                    <a class="item" href="/explore/c2net_map"><i class="ri-arrow-right-line"></i><span class="nowrap" title="{{.i18n.Tr "home.c2net_access_list"}}">{{.i18n.Tr "home.c2net_access_list"}}</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="_hm-model-base-area">
+        <div class="model-base-wrap _hm_common-l-r-struct">
+            <div class="_hm-left-sidebar">
+              <img class="spec-icon" src="/img/home/large-model.png" alt="Logo">
+              <div class="title">{{.i18n.Tr "repo.model_base"}}</div>
+              
+              <div class="desc">
+                {{.i18n.Tr "home.debugg_large_models_desc"}}
+              </div>
+              <a href="/modelbase">{{.i18n.Tr "home.enter_large_model_base"}}</a>
+            </div>
+            <div class="_hm-right-content">
+              <div class="use-card-wrap">
+                <div class="card-item">
+                  <a class="card-link" href="/modelbase/nlp/sft/create"></a>
+                  <img src="/img/home/nlp-lora-home.png" alt="">
+                </div>
+                <div class="card-item">
+                  <a class="card-link" href="/modelbase/cv/comfyui/create"></a>
+                  <img src="/img/home/comfy-ui-home.png" alt="">
+                </div>
+                <div class="card-item">
+                  <a class="card-link" href="/modelbase/cv/sft/create"></a>
+                  <img src="/img/home/cv-lora-home.png" alt="">
+                </div>
+              </div>
+              <div class="model-experience-wrap">
+                <div class="header-wrap">
+                  <div class="header-left">
+                    <div class="icon-wrap"><img src="/img/home/fire.png" alt=""></div>
+                    <span class="text">{{.i18n.Tr "model_app.model_case"}}</span>
+                  </div>
+                  <div class="header-right">
+                    <a href="/modelbase/list"><ins>{{.i18n.Tr "home.more_model_experiences"}}</ins></a>
+                  </div>
+                </div>
+                <div class="model-experience-content">
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,291 @@
+{{template "base/head" .}}
+<style>
+.min_title{
+    font-size: 14px !important;
+    margin-bottom: 2rem !important;
+}
+.width80{
+    width: 80.7% !important;
+}
+.width{
+    width:100% !important;
+}
+.width48{
+    width: 48.5% !important;
+}
+.width85{
+    width: 85% !important;
+    margin-left: 10.5rem !important;
+    align-items: center;
+}
+</style>
+{{template "custom/global_mask" .}}
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <div class="cloudbrain-type" style="display: none;" data-cloudbrain-type="{{.datasetType}}" data-repo-link="{{.RepoLink}}" data-flag-model="true" data-dataset-uuid="{{.attachment}}" data-dataset-name="{{.dataset_name}}"></div>
+        {{if eq .NotStopTaskCount 0}}
+            {{template "base/alert" .}}
+        {{end}}
+        {{template "custom/alert_cb" .}}
+        <h4 class="ui top attached header">
+            {{.i18n.Tr "repo.modelarts.train_job.new"}}
+        </h4>
+        <div class="ui attached segment">
+            <!-- equal width  -->
+            <form id="form_id" class="ui form" action="{{$.Link}}" method="post">
+                {{.CsrfTokenHtml}}
+                <input type="hidden" name="action" value="update">
+                {{if .version_name}}
+                <input type="hidden" name="version_name" value="{{.version_name}}">
+                {{else}}
+                <input type="hidden" name="version_name" value="">
+                {{end}}
+                <input type="hidden" id="ai_engine_name" name="engine_names" value="">
+                <input type="hidden" id="ai_flaver_name" name="flaver_names" value="">
+                <input type="hidden" id="display_job_name" name="display_job_name" value="{{.display_job_name}}">
+                <h4 class="title ui header ">{{.i18n.Tr "repo.modelarts.train_job.basic_info"}}:</h4>
+                <div class="required min_title inline field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "cloudbrain.resource_cluster"}}</label>
+                    <div class="ui blue mini menu compact selectcloudbrain">
+                        <a class="active item" href="javascript:void 0;" style="cursor:not-allowed;">
+                            <svg class="svg" sxmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-2.29-2.333A17.9 17.9 0 0 1 8.027 13H4.062a8.008 8.008 0 0 0 5.648 6.667zM10.03 13c.151 2.439.848 4.73 1.97 6.752A15.905 15.905 0 0 0 13.97 13h-3.94zm9.908 0h-3.965a17.9 17.9 0 0 1-1.683 6.667A8.008 8.008 0 0 0 19.938 13zM4.062 11h3.965A17.9 17.9 0 0 1 9.71 4.333 8.008 8.008 0 0 0 4.062 11zm5.969 0h3.938A15.905 15.905 0 0 0 12 4.248 15.905 15.905 0 0 0 10.03 11zm4.259-6.667A17.9 17.9 0 0 1 15.973 11h3.965a8.008 8.008 0 0 0-5.648-6.667z"></path></svg>
+                            {{.i18n.Tr "cloudbrain.resource_cluster_openi"}}
+                        </a>
+                        <a class="item" href="javascript:void 0;" style="cursor:not-allowed;background:rgba(0,0,0,.03);">
+                            <svg class="svg" sxmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-2.29-2.333A17.9 17.9 0 0 1 8.027 13H4.062a8.008 8.008 0 0 0 5.648 6.667zM10.03 13c.151 2.439.848 4.73 1.97 6.752A15.905 15.905 0 0 0 13.97 13h-3.94zm9.908 0h-3.965a17.9 17.9 0 0 1-1.683 6.667A8.008 8.008 0 0 0 19.938 13zM4.062 11h3.965A17.9 17.9 0 0 1 9.71 4.333 8.008 8.008 0 0 0 4.062 11zm5.969 0h3.938A15.905 15.905 0 0 0 12 4.248 15.905 15.905 0 0 0 10.03 11zm4.259-6.667A17.9 17.9 0 0 1 15.973 11h3.965a8.008 8.008 0 0 0-5.648-6.667z"></path></svg>
+                            {{.i18n.Tr "cloudbrain.resource_cluster_c2net"}}(Beta)
+                        </a>
+                    </div>
+                </div>
+                <div class="required inline min_title field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "cloudbrain.compute_resource"}}</label>
+                    <div class="ui blue mini menu compact selectcloudbrain">
+                        <a class="item" href="javascript:void 0;" style="cursor:not-allowed;background:rgba(0,0,0,.03);">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16"
+                                height="16">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M3 2.992C3 2.444 3.445 2 3.993 2h16.014a1 1 0 0 1 .993.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 21.008V2.992zM19 11V4H5v7h14zm0 2H5v7h14v-7zM9 6h6v2H9V6zm0 9h6v2H9v-2z" />
+                            </svg>
+                            CPU/GPU
+                        </a>
+                        <a class="active item" href="javascript:void 0;" style="cursor:not-allowed;">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16"
+                                height="16">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M3 2.992C3 2.444 3.445 2 3.993 2h16.014a1 1 0 0 1 .993.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 21.008V2.992zM19 11V4H5v7h14zm0 2H5v7h14v-7zM9 6h6v2H9V6zm0 9h6v2H9v-2z" />
+                            </svg>
+                            Ascend NPU</a>
+                    </div>
+                </div>
+                <div style="display: flex;align-items: center;margin-left: 156px;margin-top: -0.5rem;">
+                    {{template "custom/task_wait_count" .}}
+                </div>
+                <div style="display: flex;align-items: center;margin-left: 156px;margin-top: 0.5rem;margin-bottom: 1.5rem;">
+                    <i class="ri-error-warning-line" style="color: #f2711c;margin-right: 0.5rem;"></i>
+                    <span style="color: #888;font-size: 12px;">{{.i18n.Tr "cloudbrain.train_dataset_path_rule" | Safe}}</span>
+                </div>
+                <div class="required min_title inline field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.job_name"}}</label>
+                    <input type="hidden" style="width: 60%;" name="job_name" id="job_name" value="{{.job_name}}">
+                    <input style="width: 60%;" name="display_job_name" id="display_job_name" value="{{.display_job_name}}" tabindex="3" disabled >
+                </div>
+                <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.parents_version"}}</label>
+                        {{if .version_name}}
+                        <input style="width: 60%;" value="{{.version_name}}" tabindex="3" disabled >
+                        {{else}}
+                        <input id="parents_version" style="width: 60%;" value="" tabindex="3" disabled >
+                        {{end}}
+                    </div>
+
+                <div class="min_title inline field">
+                    <label class="label-fix-width" style="font-weight: normal;" for="description">{{.i18n.Tr "repo.modelarts.train_job.description"}}</label>
+                    <textarea style="width: 80%;" id="description" value="{{.description}}" name="description" rows="3" maxlength="255" placeholder={{.i18n.Tr "repo.modelarts.train_job.new_place"}} onchange="this.value=this.value.substring(0, 255)" onkeydown="this.value=this.value.substring(0, 255)" onkeyup="this.value=this.value.substring(0, 256)">{{.description}}</textarea>
+                </div>
+                <div class="ui divider"></div>
+
+                <h4 class="title ui header ">{{.i18n.Tr "repo.modelarts.train_job.parameter_setting"}}:</h4>
+
+
+                <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.code_version"}}</label>
+                        <select class="ui dropdown left2 width80" id="code_version" name="branch_name">
+                            {{if .branch_name}}
+                                <option name="branch_name" value="{{.branch_name}}">{{.branch_name}}</option>
+                            {{end}}
+                            {{range $k, $v :=.branches}}
+                                {{if ne $.branch_name $v}}
+                                <option name="branch_name" value="{{$v}}">{{$v}}</option>
+                                {{end}}
+                            {{end}}
+                        </select>
+
+                </div>
+
+                <!--{{template "custom/select_model" .}} -->                
+                <div>
+                    <div class="select-multi-model" data-model-id="{{.model_id}}" data-model-name="{{.model_name}}" data-model-version="{{.model_version}}" data-multiple="true"
+                        data-pre-train-model-url="{{.pre_train_model_url}}" data-ckpt-name="{{.ckpt_name}}"></div>
+                    <div id="select-multi-model"></div>
+                </div>
+
+                <div class="required min_title inline fields" style="width: 92.5%;">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.AI_driver"}}</label>
+                    <div class="field" style="flex: 1.5;">
+                        <select class="ui dropdown width" id="trainjob_engines" >
+                            {{range .engines}}
+                                <option value="{{.Value}}">{{.Value}}</option>
+                            {{end}}
+                        </select>
+                    </div>
+
+                    <div class="field" style="flex: 2;" id="engine_name">
+                        <select class="ui dropdown width" id="trainjob_engine_versions" name="engine_id">
+                                {{if .engine_id}}
+                                    <option name="engine_id" value="{{.engine_id}}">{{.engine_name}}</option>
+                                {{end}}
+                                {{range .engine_versions}}
+                                    {{if ne $.engine_id .ID}}
+                                    <option name="engine_id" value="{{.ID}}">{{.Value}}</option>
+                                    {{end}}
+                                {{end}}
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="inline min_title field required">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.start_file"}}</label>
+                        {{if .boot_file}}
+                            <input style="width: 48.5%;" name="boot_file" id="trainjob_boot_file" value="{{.boot_file}}" tabindex="3" autofocus required maxlength="255" >
+                        {{else}}
+                            <input style="width: 48.5%;" name="boot_file" id="trainjob_boot_file" value="" tabindex="3" autofocus required maxlength="255" >
+                        {{end}}
+                        <span>
+                            <i class="question circle icon  link" data-content={{.i18n.Tr "repo.modelarts.train_job.boot_file_helper"}} data-position="right center" data-variation="mini"></i>
+                        </span>
+                        <a  href="https://openi.pcl.ac.cn/OpenIOSSG/MINIST_Example" target="_blank">{{.i18n.Tr "cloudbrain.view_sample"}}</a>
+                </div>
+                <div id="select-multi-dataset">
+
+                </div>
+                <span class="tooltips" style="margin-left: 11.5rem;margin-bottom: 1rem;"></span>
+                <div class="inline min_title field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.run_parameter"}}</label>
+                    <span id="add_run_para" style="margin-left: 0.5rem;cursor:pointer;color: rgba(3, 102, 214, 100);font-size: 14px;line-height: 26px;font-family: SourceHanSansSC-medium;"><i class="plus square outline icon"></i>{{.i18n.Tr "repo.modelarts.train_job.add_run_parameter"}}</span>
+                    <input  id="store_run_para" type="hidden" name="run_para_list">
+                    <div class="dynamic field" style="margin-top: 1rem;" data-params="{{.run_para_list}}" data-params-value="{{.i18n.Tr "repo.modelarts.train_job.parameter_value"}}" data-params-name="{{.i18n.Tr "repo.modelarts.train_job.parameter_name"}}">
+                
+                    </div>
+                </div>
+
+
+                <div class="required field " style="display: none;">
+                    <label style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.resource_pool"}}</label>
+                    <select class="ui dropdown" id="trainjob_resource_pool" style="width: 48.5%;" name="pool_id">
+                        {{range .resource_pools}}
+                            <option value="{{.ID}}">{{.Value}}</option>
+                        {{end}}
+                    </select>
+                </div>
+
+                <div class="required grouped fields" style="display: none;">
+                    <label style="font-weight: normal;" for="resource_type">{{.i18n.Tr "repo.modelarts.train_job.resource_type"}}</label>
+                    <div class="field">
+                        <div class="ui grid">
+                            <div class="column">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="resource_type" checked="" tabindex="0">
+                                </div>
+                            </div>
+                            <div class="three wide column">train-private-1</div>
+                            <div class="three wide column">{{svg "octicon-verified" 16}} 运行中</div>
+                            <div class="three wide column"> CPU：192 核 2048GiB</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="required min_title inline field" id="flaver_name">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.standard"}}</label>
+                    <select id="__specs__" class="ui dropdown width48"  name="spec_id" ovalue="{{.spec_id}}" {{if .CloudBrainPaySwitch}}blance="{{.PointAccount.Balance}}"{{end}}></select>
+                    <span><i class="question circle icon  link"  data-content="{{.i18n.Tr "repo.modelarts.train_job.resource_helper"}}" data-position="right center" data-variation="mini"></i></span>
+                    <a href="https://openi.pcl.ac.cn/docs/index.html#/quickstart/resources" target="_blank">{{.i18n.Tr "custom.resource_description"}}</a>
+                    {{if .CloudBrainPaySwitch}}
+                    <div class="cloudbrain_resource_spec_blance_tip width48" style="padding:0 5px;margin:6px 0;margin-left:156px;font-size:12px;">
+                        <span>{{$.i18n.Tr "points.balance_of_points"}}<span style="color:red;margin: 0 3px">{{.PointAccount.Balance}}</span>{{$.i18n.Tr "points.points"}}</span><span>{{$.i18n.Tr "points.expected_time"}}<span style="color:red;margin: 0 3px" class="can-use-time"></span>{{$.i18n.Tr "points.hours"}}</span>
+                        <span style="float:right;">
+                            <i class="question circle icon link"></i>
+                            <a href="{{AppSubUrl}}/reward/point/rule" target="_blank">{{$.i18n.Tr "points.points_acquisition_instructions"}}</a>
+                        </span>
+                    </div>
+                    {{end}}
+                </div>
+                <div class="inline required min_title field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.amount_of_compute_node"}}</label>
+
+                    <div class="ui labeled input" style="width: 5%;">
+
+                            <input style="border-radius: 0;text-align: center;" name="work_server_number" id="trainjob_work_server_num" tabindex="3" autofocus required maxlength="255" value="{{.work_server_number}}" readonly>
+
+
+                    </div>
+                </div>
+                {{if not .IsCreate}}
+                <div class="inline min_title field" >
+                    <label class="label-fix-width"></label>
+                    <div class="ui checkbox" style="margin-right:1rem">
+                        <input type="checkbox" name="is_continue" value="true">
+                        <label>{{.i18n.Tr "repo.reuse_last_result"}}</label>
+                    </div>
+                    <span >
+                        <i class="question circle icon" data-content={{.i18n.Tr "repo.modelarts.infer_job.continue_helper"}} data-position="top center" data-variation="inverted mini"></i>
+                    </span>
+                    <a  href="https://openi.pcl.ac.cn/OpenIOSSG/MNIST_PytorchExample_GPU/src/branch/master/inference.py" target="_blank">{{.i18n.Tr "cloudbrain.view_sample"}}</a>
+                </div>
+                {{end}}
+                <div class="inline min_title field">
+                    <label class="label-fix-width"></label>
+                    <button class="ui create_train_job green button {{if eq .NotStopTaskCount 1}}disabled{{end}}">
+                    {{.i18n.Tr "repo.cloudbrain.new"}}
+                    </button>
+                    <a class="ui button cancel" href="https://openi.pcl.ac.cn/docs/index.html#/cloudbrain/train/continue">{{.i18n.Tr "repo.cloudbrain.cancel"}}</a>
+                </div>
+
+                <!-- 模态框 -->
+
+            </form>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+<script src="{{StaticUrlPrefix}}/js/specsuse.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script src="{{StaticUrlPrefix}}/js/cloudbrainNew.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script>    
+    ;(function() {
+        var params = new URLSearchParams(location.search);
+        var version_name = params.get('version_name');
+        if(params.get('path')){
+            $('.ui.cancel.button').attr('href',location.pathname.split('/create_version')[0]);
+        }
+        if(params.get('backurl')){
+            $('.ui.cancel.button').attr('href',params.get('backurl'));
+        }
+        $("#parents_version").val(version_name);
+        $("input[name=version_name]").attr('value',version_name);
+
+        var SPECS = {{ .Specs }};
+        var showPoint = {{ .CloudBrainPaySwitch }};
+        window.renderSpecsSelect($('#__specs__'), SPECS, showPoint, {
+            gpu_memory: {{$.i18n.Tr "cloudbrain.gpu_memory"}},
+            free: {{$.i18n.Tr "cloudbrain.free"}},
+            point_hr: {{$.i18n.Tr "cloudbrain.point_hr"}},
+            memory: {{$.i18n.Tr "cloudbrain.memory"}},
+            shared_memory: {{$.i18n.Tr "cloudbrain.shared_memory"}},
+            no_use_resource:{{$.i18n.Tr "cloudbrain.no_use_resource"}},
+        });
+    })();
+</script>

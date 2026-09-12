@@ -1,0 +1,295 @@
+<style>
+    .text-right{
+        float:right !important;
+    }
+    .header{
+        font-weight:bold;
+        font-size: 18px;
+        font-family: SourceHanSansSC-medium;
+    }
+    .cor{
+		color:#0366D6 !important;
+	}
+    .header_card{
+        /* color:#003A8C !important; */
+        color:#0366D6 !important;
+        margin: 10px 0 0px 0;
+        height: 25px;
+    }
+    .marg{
+        margin: 0 5px !important;
+    }
+
+    .content_list{
+        max-height: 130px;
+        overflow: auto;
+    }
+    .Relist{
+        color:#0366D6 !important;
+	} 
+    .descript_height{
+        color: #101010 !important;
+        margin: 10px 0;
+        height: 40px !important;
+        word-break:break-all;
+        line-height: 20px; 
+        overflow: hidden;
+        /* overflow: hidden!important;
+        word-wrap:break-word!important; */
+
+
+    }
+
+    .tags_height{
+        height: 30px !important;
+    }
+    .full_height{
+        height: 100%;
+    }
+    .omit{
+        overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    }
+    /deep/ ui.checkbox input[type=checkbox]::after{
+        border: 1px solid #0366D6 !important;
+    }
+    .nowrap-2 {
+        /* height: 2.837em; */
+        /* line-height: 1.4285em; */
+        overflow: hidden;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .ui.cards>.card>.extra .tags > a{
+        margin-top: 5px; 
+    }
+
+</style>
+<div class="ui stackable grid">
+    <div style="width: 100%;margin:15px 0;">
+        {{if .tags}} 
+            <span class="header">
+                {{.i18n.Tr "org.selected_project"}}      
+            </span>
+            <!-- {{.IsOrganizationOwner}} -->
+            {{if .IsOrganizationOwner}}        
+                <a class="text-right" id="model" onclick="showcreate()" >{{svg "octicon-gear" 16}}{{.i18n.Tr "org.customize"}}</a>
+            {{end}}
+        {{end}}
+        
+    </div>
+    <div style="width: 100%;">
+        {{ range .tags}}
+                {{if eq .TagName "精选项目"}}
+                    
+                    <div class="ui three stackable cards" style="margin-bottom: 10px;">
+                        {{ range .RepoList}}
+                            <div class="ui raised card">
+                            
+                                <div class="content" style="padding-bottom: 0;">
+                                    <div class="header" >
+                                        <a href="{{.Link}}">{{if .Alias}}{{.Alias}}{{else}}{{.Name}}{{end}}</a>
+                                    </div>
+                                    
+                                    <div class="description">
+                                        <p class="nowrap-2">
+                                        {{.Description}}
+                                        </p>
+                                        {{if .Topics }} 
+                                        <p>
+                                            {{range .Topics}}
+                                                {{if ne . "" }}<a href="{{AppSubUrl}}/explore/repos?q={{.}}&topic={{$.Topic}}" class="ui small label topic omit" >{{.}}</a>{{end}}
+                                            {{end}}
+                                        </p>
+                                        {{end}}
+                                    </div>                                    
+                                </div>
+                                <div class="extra content">
+                                    <span class="right floated date">
+                                        {{svg "octicon-eye" 16}} {{.NumWatches}} &nbsp &nbsp 
+                                        {{svg "octicon-star" 16}} {{.NumStars}} &nbsp &nbsp 
+                                        {{svg "octicon-git-branch" 16}} {{.NumForks}}
+                                    </span>
+                                </div>
+
+                            </div>   
+                        {{end}}
+                    </div>
+                    
+                {{end}}
+        {{end}}
+
+    </div>
+
+</div>
+
+<div class="ui modal">
+    <div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);">
+        <h4 id="model_header">{{.i18n.Tr "org.custom_select_projects"}}</h4>
+    </div>
+    <div class="content content-padding" style="color: black;">
+        <p>{{.i18n.Tr "org.max_selectedPro"}}</p>
+        <div class="ui search" >
+            <div class="ui input" style="width: 100%;">
+                <input  type="text" id = 'search_selectPro' placeholder="Search ..." value = '' oninput="search()">
+            </div>
+        </div>
+        <div style="margin: 10px ;">
+            <div id ='org_list' style="margin-bottom: 20px;"class="content_list" >
+
+            </div>     
+        </div>
+        <p id='recommend'></p>
+       
+        <div class="inline field" style="margin-left: 37%;">
+            <div class="actions">
+                <button id="submitId" type="button" class="ui create_train_job green deny button"  onclick="saveSeletedPro(1)">
+                    {{.i18n.Tr "explore.save"}}
+                </button>
+                <button class="ui button cancel" >{{.i18n.Tr "explore.cancel"}}</button>
+            </div>
+        </div> 
+         
+    </div>
+
+</div>
+
+<script>
+    var data;
+    var filterData=[];
+    var num=0;
+
+    function showcreate(obj){
+        document.getElementById("search_selectPro").value=''
+        $('.ui.modal')
+        .modal({
+            centered: false,
+            onShow:function(){
+                $("#org_list").empty()                
+                getPro(1)
+                
+            },
+            onHide:function(){
+  
+            }
+        })
+        .modal('show')
+    }
+    function getPro(typeTag){
+
+        $.ajax({
+            type:"GET",
+            url:"/org/{{.Org.Name}}/org_tag/repo_list?tagId="+typeTag,
+            dataType:"json",
+            async:false,
+            success:function(json){
+                data = json.data;
+                var n_length = data.length
+                pro_html = getHTML(data)
+                $("#org_list").append(pro_html)
+                checkedNum(0)
+            }
+        });
+    }
+    function getHTML(data){
+        let pro_html=''
+        for (let i=0;i<data.length;i++){
+            if (data[i].Selected==true){
+                pro_html += `<div class="ui checkbox" style="width: 33%;margin-bottom:10px" > <input type="checkbox" id = " ${i}" checked="" onclick="checkedNum(${i})" class="Relist" name ='select_pro_name' data-repoid="${data[i].RepoID}" data-reponame="${data[i].RepoName}"  data-selected=${data[i].Selected} > <label class='omit image poping up' data-content=${data[i].RepoName}  data-position="top left " data-variation="mini"> ${data[i].RepoName}</label></div>`
+                pro_html += '</div>'
+            }
+            else{
+                pro_html += `<div class="ui checkbox" style="width: 33%;margin-bottom:10px" > <input type="checkbox" id = "${i}"  onclick="checkedNum(${i})" class="Relist" name ='select_pro_name' data-repoid="${data[i].RepoID}" data-reponame="${data[i].RepoName}" data-selected= ${data[i].Selected}> <label class='omit image poping up' data-content=${data[i].RepoName}  data-position="top left " data-variation="mini"> ${data[i].RepoName} </label></div>`
+                pro_html += '</div>'
+            }
+        }
+        return pro_html
+    }
+    function saveSeletedPro(typeTag){
+        var saveData=[];
+        $('input[name="select_pro_name"]:checked').each(function(){
+            saveData.push(parseInt(this.dataset.repoid));
+        })
+        if(saveData.length>9){
+            alert("{{.i18n.Tr "org.save_fail_tips"}}")
+            return
+        }
+        $.ajax({
+         type:"POST",
+         url:"/org/{{.Org.Name}}/org_tag/repo_submit?tagId="+typeTag,
+         contentType:'application/json',
+         dataType:"json",
+         async:false,
+         data:JSON.stringify({'repoList':saveData
+               }),        
+           success:function(res){
+             location.reload()  
+
+          }
+         });
+    }
+
+    function getSelecteData(){
+        var selectedData=[];
+        $('input[name="select_pro_name"]:checked').each(function(){
+            selectedData.push({"RepoID":parseInt(this.dataset.repoid),"RepoName":this.dataset.reponame,"Selected":JSON.parse(this.dataset.selected)});
+        })
+        return selectedData
+    }
+    function search(){
+        var selectedData = getSelecteData();
+        var searchValue = document.getElementById("search_selectPro").value;
+        filterData=[];
+        for (let i=0;i<data.length;i++){
+            var isInclude=false; 
+            if(data[i].RepoName.toLowerCase().includes(searchValue.toLowerCase())){
+                filterData.push(data[i])
+            }
+        }
+        var showData=[];
+        for(i=0;i<selectedData.length;i++){
+            filterData =filterData.filter((item)=>{
+                return item.RepoID!=selectedData[i].RepoID
+            });
+        }
+        $("#org_list").empty()
+        if(searchValue!=""){
+            if (filterData.length!=0){     
+                var pro_html = getHTML(selectedData);
+                $("#org_list").append(pro_html)
+                pro_html= getHTML(filterData);
+                $("#org_list").append(pro_html)
+            }else{
+                var pro_html = getHTML(selectedData);
+                $("#org_list").append(pro_html)
+            }
+        }else{
+            var pro_html = getHTML(data);
+            $("#org_list").append(pro_html)
+        }
+    }
+
+    function checkedNum(id){
+
+        num=0;
+        var inputs = document.getElementsByName("select_pro_name")
+        for (var i=0;i<inputs.length;i++){
+            if(inputs[i].checked){
+                num++
+                if(num>9){
+                    document.getElementById(id).checked=false
+                    alert("{{.i18n.Tr "org.select_again"}}")
+                    return
+                }
+            }
+                
+        }
+
+        var show_num = 9-num;
+        let rec = "{{.i18n.Tr "org.recommend_remain_pro"}}"
+        document.getElementById("recommend").innerHTML=rec +" : "+ show_num
+
+    }
+
+</script>

@@ -1,0 +1,61 @@
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: "Geist", "Inter", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.lang-switch--fixed {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100000;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(15, 91, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.lang-switch__btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.58);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font: inherit;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lang-switch__btn:hover {
+  color: rgb(15, 91, 255);
+  background: rgba(15, 91, 255, 0.08);
+}
+
+.lang-switch__btn.is-active {
+  color: #fff;
+  background: rgb(15, 91, 255);
+}
+
+.lang-switch__sep {
+  color: rgba(0, 0, 0, 0.18);
+  user-select: none;
+}
+
+@media (max-width: 809.98px) {
+  .lang-switch--fixed {
+    top: 12px;
+    right: 12px;
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}

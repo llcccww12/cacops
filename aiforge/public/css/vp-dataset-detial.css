@@ -1,0 +1,1410 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/Header.vue?vue&type=style&index=0&id=7b0734e5&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.bg[data-v-7b0734e5] {
+  height: 155px;
+  border-color: rgba(204, 204, 255, 0.6);
+  border-width: 0px 0px 1px;
+  border-style: solid;
+}
+.bg .container[data-v-7b0734e5] {
+  position: relative;
+  height: 100%;
+}
+.title[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  margin-bottom: 2px;
+}
+.title .title-l[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+  max-width: 74%;
+  margin-right: 12px;
+}
+.title .title-l .t-name[data-v-7b0734e5] {
+  font-size: 16px;
+  color: #101010;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.title .title-l .t-name .t-name-data[data-v-7b0734e5] {
+  font-size: 20px;
+  font-family: Arial;
+  font-weight: 700;
+  line-height: 28px;
+}
+.title .title-l .reconmend-icon[data-v-7b0734e5] {
+  margin-top: 5px;
+}
+.title .title-l img[data-v-7b0734e5] {
+  height: 19px;
+  width: 20px;
+  margin-left: 8px;
+}
+.title .title-r[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+  min-width: 340px;
+  grid-gap: 10px;
+  gap: 10px;
+}
+.title .title-r .btn-group[data-v-7b0734e5] {
+  display: flex;
+}
+.title .title-r .btn-group .base-btn[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  font-size: 14px;
+  padding: 4px 8px;
+  line-height: 21px;
+  border: 1px solid #e1e3e6;
+  border-radius: 4px 0px 0px 4px;
+  background-color: #f7f7f7;
+  color: rgba(16, 16, 16, 0.5);
+}
+.title .title-r .btn-group .base-btn[data-v-7b0734e5]:last-child {
+  border-radius: 0px 4px 4px 0px;
+  color: #101010;
+  background-color: #ffffff;
+}
+.title .title-r .btn-group .base-btn i[data-v-7b0734e5] {
+  font-size: 16px;
+  margin-right: 4px;
+}
+.title .title-r .btn-group .like-btn[data-v-7b0734e5] {
+  cursor: pointer;
+}
+.title .title-r .btn-group .like-btn i[data-v-7b0734e5] {
+  height: auto;
+  color: #fa8c16;
+}
+.title .title-r .create-btn[data-v-7b0734e5] {
+  font-size: 14px;
+  margin-right: 1rem;
+  background-color: #1684FC;
+}
+.sub-data-title[data-v-7b0734e5] {
+  color: #101010;
+  margin-left: 40px;
+  line-height: 20px;
+  min-height: 20px;
+  font-size: 12px;
+  display: flex;
+}
+.sub-data-title .copy-btn[data-v-7b0734e5] {
+  margin-left: 7px;
+}
+.sub-data-title .copy-btn i[data-v-7b0734e5] {
+  font-size: 16px;
+  color: #919191;
+}
+.sub-title[data-v-7b0734e5] {
+  margin-top: 8px;
+}
+.sub-title .labels[data-v-7b0734e5] {
+  display: flex;
+  grid-gap: 6px;
+  gap: 6px;
+}
+.sub-title .labels .label[data-v-7b0734e5] {
+  height: 22px;
+  line-height: 22px;
+  border-radius: 3px;
+  background-color: #dbe5ff;
+  color: #0066ff;
+  font-size: 12px;
+  padding: 0 8px;
+}
+.tabs-wrap[data-v-7b0734e5] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.tabs-wrap .tabs[data-v-7b0734e5] {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -1px;
+}
+.tabs-wrap .tabs .tabs-l[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+}
+.tabs-wrap .tabs .tabs-r[data-v-7b0734e5] {
+  display: flex;
+  align-items: center;
+}
+.tabs-wrap .tabs .tab[data-v-7b0734e5] {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: rgba(16, 16, 16, 0.5);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.tabs-wrap .tabs .tab span[data-v-7b0734e5] {
+  font-size: 14px;
+}
+.tabs-wrap .tabs .tab i[data-v-7b0734e5] {
+  margin-right: 4px;
+}
+.tabs-wrap .tabs .tab.focus[data-v-7b0734e5] {
+  color: #101010;
+  border-color: rgba(204, 204, 255, 0.6);
+  border-width: 1px 1px 0px;
+  border-style: solid;
+  border-radius: 4px 4px 0px 0px;
+  background: #ffffff;
+}
+.use-dlg-btn[data-v-7b0734e5] {
+  margin-right: 1rem;
+  text-decoration: underline;
+}
+@media screen and (max-width: 767px) {
+  /* 当视口宽度 ≤ 767px 时生效 */
+  /* #loadContainer { display: none; } */
+.tabs-l .tab[data-v-7b0734e5] {
+    padding: 10px 6px !important;
+}
+.tabs-r span[data-v-7b0734e5] {
+    display: none;
+}
+.title-r[data-v-7b0734e5] {
+    display: none !important;
+}
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/intro/MigrateModelSync.vue?vue&type=style&index=0&id=a96f77d8&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.operate-btn[data-v-a96f77d8] {
+  display: flex;
+  align-items: center;
+}
+.operate-btn i[data-v-a96f77d8] {
+  margin-right: 2px;
+}
+.dlg-content[data-v-a96f77d8] {
+  padding: 10px;
+  min-height: 300px;
+}
+.dlg-content .table-container[data-v-a96f77d8] {
+  min-height: 300px;
+  max-height: 400px;
+}
+.dlg-content .table-container[data-v-a96f77d8] .el-table__header th {
+  background: #f5f5f6;
+  color: #101010;
+  font-weight: 400;
+  font-size: 14px;
+}
+.dlg-content .table-container[data-v-a96f77d8] .el-table__body td {
+  color: #101010;
+  font-weight: 400;
+  font-size: 14px;
+}
+.dlg-content .no-update .content[data-v-a96f77d8] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #389e0d;
+  margin-bottom: 30px;
+}
+.dlg-content .no-update .content .icon-c[data-v-a96f77d8] {
+  margin-bottom: 10px;
+}
+.dlg-content .no-update .content .icon-c i[data-v-a96f77d8] {
+  font-size: 48px;
+}
+.dlg-content .no-update .content .txt[data-v-a96f77d8] {
+  font-size: 14px;
+}
+.dlg-content .op-btns-c[data-v-a96f77d8] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.dlg-content .op-btns-c .hf-token-c[data-v-a96f77d8] {
+  display: flex;
+  align-items: center;
+}
+.dlg-content .op-btns-c .hf-token-c .title-requred[data-v-a96f77d8] {
+  position: relative;
+  margin-right: 20px;
+}
+.dlg-content .op-btns-c .hf-token-c .title-requred[data-v-a96f77d8]::after {
+  position: absolute;
+  margin: -0.2em 0 0 0.2em;
+  content: '*';
+  color: #db2828;
+}
+.dlg-content .op-btns-c .hf-token-c .el-input[data-v-a96f77d8] {
+  width: 340px;
+}
+.dlg-content .op-btns-c .submit-btn[data-v-a96f77d8] {
+  background-color: #5bb973;
+  color: #fff;
+  border-color: #5bb973;
+}
+.dlg-content .op-btns-c .submit-btn[data-v-a96f77d8]:hover {
+  background-color: #16ab39;
+}
+.dlg-content .op-btns-c .submit-btn[data-v-a96f77d8]:active {
+  background-color: #198f35;
+}
+.dlg-content .op-btns-c .submit-btn.is-disabled[data-v-a96f77d8],
+.dlg-content .op-btns-c .submit-btn.is-disabled[data-v-a96f77d8]:active,
+.dlg-content .op-btns-c .submit-btn.is-disabled[data-v-a96f77d8]:focus,
+.dlg-content .op-btns-c .submit-btn.is-disabled[data-v-a96f77d8]:hover {
+  background-color: #5bb973;
+  opacity: 0.45;
+}
+.dlg-content .op-btns-c .submit-btn a[data-v-a96f77d8] {
+  color: #fff;
+  font-weight: 700;
+}
+.dlg-content .op-btns-c .cancel-btn[data-v-a96f77d8] {
+  background: #e0e1e2;
+  color: rgba(0, 0, 0, 0.6);
+  border-color: #e0e1e2;
+}
+.dlg-content .op-btns-c .cancel-btn[data-v-a96f77d8]:hover {
+  background-color: #cacbcd;
+}
+.dlg-content .op-btns-c .cancel-btn[data-v-a96f77d8]:active {
+  background-color: #babbbc;
+}
+.dlg-content .color-update[data-v-a96f77d8] {
+  color: #ffa940;
+}
+.dlg-content .color-add[data-v-a96f77d8] {
+  color: #389e0d;
+}
+.dlg-content .color-del[data-v-a96f77d8] {
+  color: #f5222d;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/intro/Intro.vue?vue&type=style&index=0&id=6704b8e1&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-6704b8e1] {
+  display: flex;
+  margin-top: 32px;
+}
+.content .content-l[data-v-6704b8e1] {
+  flex: 12;
+  width: 75%;
+}
+.content .content-l .read-mode .head[data-v-6704b8e1] {
+  color: #888888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin-bottom: 8px;
+}
+.content .content-l .read-mode .head i[data-v-6704b8e1] {
+  font-size: 12px;
+}
+.content .content-l .read-mode .head i.pencil[data-v-6704b8e1] {
+  cursor: pointer;
+}
+.content .content-l .read-mode .content-box[data-v-6704b8e1] {
+  border-style: solid;
+  border-color: #e1e3e6;
+  border-radius: 5px;
+  border-width: 1px;
+}
+.content .content-l .edit-mode .head[data-v-6704b8e1] {
+  color: #888888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin-bottom: 8px;
+}
+.content .content-l .edit-mode .head i[data-v-6704b8e1] {
+  font-size: 12px;
+}
+.content .content-l .edit-mode .head i.reply[data-v-6704b8e1] {
+  cursor: pointer;
+}
+.content .content-l .edit-mode .item-tab-c[data-v-6704b8e1] {
+  display: flex;
+  align-items: center;
+}
+.content .content-l .edit-mode .item-tab-c .item-tab[data-v-6704b8e1] {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin-bottom: -1px;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.content .content-l .edit-mode .item-tab-c .item-tab[data-v-6704b8e1]:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+.content .content-l .edit-mode .item-tab-c .item-tab.focus[data-v-6704b8e1] {
+  color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.28571429rem 0.28571429rem 0 0 !important;
+  border-color: #d4d4d5;
+  font-weight: 550;
+  background: white;
+  border-bottom: 1px solid white;
+  margin-bottom: -2px;
+}
+.content .content-l .edit-mode .tab-content[data-v-6704b8e1] {
+  border: 1px solid #d4d4d5;
+}
+.content .content-l .edit-mode .preview-container[data-v-6704b8e1] {
+  padding: 2em 2em 2em !important;
+}
+.content .content-l .conmit-btn-c[data-v-6704b8e1] {
+  margin-top: 20px;
+}
+.content .content-l .conmit-btn-c .btn[data-v-6704b8e1] {
+  color: #020004;
+  background-color: #db2828;
+  border-color: #db2828;
+  color: #fff;
+}
+.content .content-l .conmit-btn-c .btn._disabled_[data-v-6704b8e1] {
+  opacity: 0.4;
+}
+.content .content-l .conmit-btn-c .btn.confirm-btn[data-v-6704b8e1] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+.content .content-l .empty[data-v-6704b8e1] {
+  text-align: center;
+  background: rgba(245, 245, 246, 0.5);
+  height: 391px;
+}
+.content .content-l .empty .icon-c[data-v-6704b8e1] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+}
+.content .content-l .empty .icon-c .empty-icon[data-v-6704b8e1] {
+  height: 100px;
+  width: 100px;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.content .content-l .empty .tips[data-v-6704b8e1] {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+.content .content-l .empty .ops[data-v-6704b8e1] {
+  margin-top: 26px;
+}
+.content .content-l .empty .ops .create-btn[data-v-6704b8e1] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+.content .content-r[data-v-6704b8e1] {
+  flex: 4;
+  width: 25%;
+  margin-left: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 16px 28px;
+  padding-right: 12px;
+}
+.content .content-r .title[data-v-6704b8e1] {
+  font-size: 16px;
+  color: #101010;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+.content .content-r .descr[data-v-6704b8e1] {
+  font-weight: 300;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 8px;
+  line-height: 20px;
+}
+.content .content-r .online-container[data-v-6704b8e1] {
+  background: linear-gradient(180deg, rgba(203, 212, 251, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  border-color: #e1e3e6;
+  border-width: 1px 0px 0px;
+  border-style: solid;
+  margin-top: 1.5rem;
+}
+.content .content-r .online-container .online-address[data-v-6704b8e1] {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.content .content-r .online-container .online-address a[data-v-6704b8e1] {
+  width: 50%;
+  background: #ffffff;
+  color: #1684fc;
+  border-color: #1684fc;
+  border-width: 1px;
+  border-style: solid;
+  text-align: center;
+  line-height: 20px;
+  padding: 0.4rem 0;
+}
+.content .content-r .model-type[data-v-6704b8e1] {
+  color: white;
+  padding: 0px 3px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.content .content-r .model-type.local[data-v-6704b8e1] {
+  background-color: #1684fc;
+}
+.content .content-r .model-type.online[data-v-6704b8e1] {
+  background-color: #5bb973;
+}
+.content .content-r .model-type.external[data-v-6704b8e1] {
+  background-color: #5c246a;
+}
+.content .content-r .model-private[data-v-6704b8e1] {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fa8c16;
+  color: #ffffff;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0px 3px;
+  grid-gap: 3px;
+  gap: 3px;
+}
+.content .content-r .model-private svg[data-v-6704b8e1]:not([stroke]) {
+  fill: #ffffff;
+}
+.content .content-r[data-v-6704b8e1] .append-txt {
+  margin-left: 4px;
+  background-color: gainsboro;
+  padding: 2px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+.content .content-r .divider-column-vertical[data-v-6704b8e1] {
+  background-color: #fff;
+  height: 1px;
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+}
+.content .content-r .detail-address[data-v-6704b8e1] {
+  margin: 0.5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #057fff;
+}
+.content .content-r .detail-address > a[data-v-6704b8e1] {
+  color: #057fff;
+}
+.content .content-r .summary .row[data-v-6704b8e1] {
+  display: flex;
+  margin: 10px 0;
+}
+.content .content-r .summary .row .label[data-v-6704b8e1] {
+  width: 100px;
+  color: #888888;
+}
+.content .content-r .summary .row .value[data-v-6704b8e1] {
+  color: #101010;
+  flex: 1;
+}
+.content .content-r .summary .row .value .model-type[data-v-6704b8e1] {
+  color: white;
+  padding: 0px 3px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.content .content-r .summary .row .value .model-type.local[data-v-6704b8e1] {
+  background-color: #1684fc;
+}
+.content .content-r .summary .row .value .model-type.online[data-v-6704b8e1] {
+  background-color: #5bb973;
+}
+.content .content-r .summary .row .value .model-type.external[data-v-6704b8e1] {
+  background-color: #5c246a;
+}
+.content .content-r .summary .title[data-v-6704b8e1] {
+  height: 20px;
+  color: #888888;
+  font-size: 14px;
+  margin-bottom: 1.2rem;
+}
+@media screen and (max-width: 767px) {
+  /* 当视口宽度 ≤ 767px 时生效 */
+  /* #loadContainer { display: none; } */
+.content-r[data-v-6704b8e1] {
+    display: none;
+}
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelmanage/components/FolderUploadSelect.vue?vue&type=style&index=0&id=1a87d32a&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.folder-upload-select-c[data-v-1a87d32a] {
+  position: relative;
+}
+.folder-upload-select-c .folder-upload-select[data-v-1a87d32a] {
+  border: 2px dashed #0087f5;
+  border-radius: 4px;
+  padding: 4px;
+}
+.folder-upload-select-c .folder-upload-select .op-c[data-v-1a87d32a] {
+  margin: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.folder-upload-select-c .folder-upload-select .op-c .op-right[data-v-1a87d32a] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.folder-upload-select-c .folder-upload-select .op-c .op-right .summary[data-v-1a87d32a] {
+  margin-right: 12px;
+  font-size: 12px;
+  color: #606266;
+}
+.folder-upload-select-c .folder-upload-select .err-tips-c[data-v-1a87d32a] {
+  margin: 8px 4px;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c[data-v-1a87d32a] {
+  min-height: 130px;
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid burlywood;
+  margin: 4px;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item[data-v-1a87d32a] {
+  color: #606266;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+  padding: 4px 0;
+  border-bottom: 1px dashed burlywood;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item .file-name[data-v-1a87d32a] {
+  flex: 1;
+  width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item .file-size[data-v-1a87d32a] {
+  width: 100px;
+  margin: 0 10px;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item .file-status[data-v-1a87d32a] {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item .file-op[data-v-1a87d32a] {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .file-item .file-op i[data-v-1a87d32a] {
+  cursor: pointer;
+  color: #606266;
+}
+.folder-upload-select-c .folder-upload-select .file-list-c .empty-place-holder[data-v-1a87d32a] {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 54px 0 54px 0;
+  text-align: center;
+  cursor: pointer;
+}
+.folder-upload-select-c .tips[data-v-1a87d32a] {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/guide/components/FileUpload.vue?vue&type=style&index=0&id=70071dcb&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+[data-v-70071dcb] .el-button--info {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.row-c[data-v-70071dcb] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.row-c .row[data-v-70071dcb] {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  margin-left: -190px;
+}
+.row-c .row .r-title[data-v-70071dcb] {
+  text-align: right;
+  font-size: 0.92857143em;
+  color: #606266;
+  width: 200px;
+  margin-right: 28px;
+  position: relative;
+}
+.row-c .row .r-title .required[data-v-70071dcb]::after {
+  position: absolute;
+  margin: -0.2em 0 0 0.2em;
+  content: '*';
+  color: #db2828;
+}
+.row-c .row .r-content[data-v-70071dcb] {
+  flex: 1;
+  overflow: hidden;
+}
+.row-c .row .r-content .cluster-type-btn[data-v-70071dcb] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #DCDFE6;
+  height: 36px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.row-c .row .r-content .cluster-type-btn .icon[data-v-70071dcb] {
+  margin-right: 5px;
+}
+.row-c .row .r-content .cluster-type-btn.focused[data-v-70071dcb] {
+  border-color: #3291f8;
+  color: #3291f8;
+  cursor: default;
+}
+.row-c .row .r-content .cluster-type-btn.focused .icon[data-v-70071dcb] :not([stroke]) {
+  fill: #3291f8;
+}
+.row-c .row .r-content .storage-t[data-v-70071dcb] {
+  font-family: Arial;
+  color: rgba(2, 0, 4, 0.5);
+}
+.row-c .row .r-content .storage-t .storage-v[data-v-70071dcb] {
+  color: #101010;
+  font-weight: 700;
+}
+.row-c .row .r-content .storage-limit-wrap[data-v-70071dcb] {
+  color: #101010;
+  font-family: Arial;
+  display: flex;
+  margin: 0 6px;
+}
+.row-c .row .r-content .storage-limit-wrap .select-v[data-v-70071dcb] {
+  color: #f66a00;
+  font-weight: 700;
+  margin-right: 4px;
+}
+.row-c .row .r-content .storage-limit-wrap .limit-tip-wrap[data-v-70071dcb] {
+  display: flex;
+}
+.row-c .row .r-content .storage-limit-wrap .limit-tip-wrap .limit-tip[data-v-70071dcb] {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #fa8c16;
+  color: #ffffff;
+  padding: 0 8px;
+  margin: 0 6px;
+}
+.row-c .row .r-content .storage-limit-wrap .limit-tip-wrap .limit-tip i[data-v-70071dcb] {
+  font-size: 14px;
+  margin-right: 6px;
+}
+.row-c .row .r-content .storage-limit-wrap .limit-tip-wrap a[data-v-70071dcb] {
+  color: #101010;
+  text-decoration: underline;
+}
+.not-allowed-placeholder[data-v-70071dcb] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  cursor: no-drop;
+  top: 0;
+}
+.tips[data-v-70071dcb] {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.dropzone[data-v-70071dcb] {
+  min-height: 186px !important;
+}
+.dropzone[data-v-70071dcb] .dz-default.dz-message {
+  margin: 76px 0 !important;
+}
+.dropzone[data-v-70071dcb] .dz-remove {
+  margin-top: 10px !important;
+}
+.input-disabled[data-v-70071dcb] .el-input__inner {
+  background-color: #f5f5f6 !important;
+  color: #888888 !important;
+}
+[data-v-70071dcb] .dz-progress {
+  display: none;
+}
+.success[data-v-70071dcb] {
+  color: #21ba45;
+  font-size: 16px;
+  margin-right: 0.5rem;
+}
+.failed[data-v-70071dcb] {
+  color: red;
+  font-size: 16px;
+  margin-right: 0.5rem;
+}
+.datast-upload-progress[data-v-70071dcb] {
+  display: flex;
+  align-items: center;
+}
+.datast-upload-progress .dataset-name[data-v-70071dcb] {
+  text-align: right;
+  width: 240px;
+  margin-right: 1rem;
+}
+.datast-upload-progress .dataset-progress[data-v-70071dcb] {
+  flex: 1;
+}
+.datast-upload-progress .dataset-status[data-v-70071dcb] {
+  width: 140px;
+  margin-left: 1rem;
+}
+.datast-upload-progress .dataset-status .status-flex[data-v-70071dcb] {
+  display: flex;
+  align-items: center;
+}
+[data-v-70071dcb] .el-progress-bar__inner {
+  background-color: #21ba45;
+}
+.el-select-dropdown__item.selected[data-v-70071dcb] {
+  color: #85b7d9;
+}
+[data-v-70071dcb] .el-button.el-button--medium {
+  background-color: #e0e1e2;
+  color: rgba(0, 0, 0, 0.6);
+  border-color: transparent;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  will-change: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+[data-v-70071dcb] .el-button.el-button--medium:hover {
+  border-color: transparent;
+  background-color: #cacbcd;
+  color: rgba(0, 0, 0, 0.8);
+}
+[data-v-70071dcb] .el-button.el-button--medium:focus {
+  background-color: #cacbcd;
+  color: rgba(0, 0, 0, 0.8);
+  border-color: transparent;
+}
+[data-v-70071dcb] .el-button.el-button--medium:active {
+  background-color: #babbbc;
+  color: rgba(0, 0, 0, 0.9);
+  border-color: transparent;
+}
+[data-v-70071dcb] .el-button.el-button--medium.green {
+  background-color: #0066ff;
+  color: #fff;
+}
+[data-v-70071dcb] .el-button.el-button--medium.green:hover {
+  background-color: #0066ff;
+  border-color: transparent;
+}
+[data-v-70071dcb] .el-button.el-button--medium.green:focus {
+  background-color: #0066ff;
+  border-color: transparent;
+}
+[data-v-70071dcb] .el-button.el-button--medium.green:active {
+  background-color: #0066ff;
+  border-color: transparent;
+}
+[data-v-70071dcb] .el-select .is-focus .el-input__inner {
+  border-color: #85b7d9;
+}
+[data-v-70071dcb] .el-input__inner:focus {
+  border-color: #85b7d9;
+}
+[data-v-70071dcb] .el-textarea__inner:focus {
+  border-color: #85b7d9;
+}
+@media only screen and (max-width: 768px) {
+.row-c[data-v-70071dcb] {
+    padding: 10px;
+}
+.row-c .row[data-v-70071dcb] {
+    margin-left: 0 !important;
+}
+.row-c .row .r-title[data-v-70071dcb] {
+    width: auto !important;
+}
+[data-v-70071dcb] .dz-image {
+    width: 80px !important;
+    height: 100px !important;
+}
+[data-v-70071dcb] .dropzone .dz-preview.dz-file-preview .dz-details {
+    padding: 20px 6px 20px 6px !important;
+}
+.dataset-name[data-v-70071dcb] {
+    width: auto !important;
+}
+.dataset-status[data-v-70071dcb] {
+    width: 80px !important;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/CommonSDK.vue?vue&type=style&index=0&id=10bd582e&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.trigger-container[data-v-10bd582e] {
+  display: inline-block;
+}
+.markdown[data-v-10bd582e] {
+  font-size: 14px;
+  max-height: 65vh;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.markdown[data-v-10bd582e] .code-content {
+  position: relative;
+}
+.markdown[data-v-10bd582e] .code-content .copy-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+.dialog-footer[data-v-10bd582e] {
+  text-align: center;
+}
+.dialog-footer .close-btn[data-v-10bd582e] {
+  color: #fff;
+  background-color: #21ba45;
+  border-color: #21ba45;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/CommonSDK.vue?vue&type=style&index=1&id=10bd582e&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.ui.popup {
+  z-index: 2003;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/guide/components/CreateForm.vue?vue&type=style&index=0&id=e8b9b4e4&lang=less&scoped=true ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form-container[data-v-e8b9b4e4] {
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px 0px rgba(178, 192, 255, 0.5);
+}
+.form-container .form-head[data-v-e8b9b4e4] {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+.form-container .form-head h4[data-v-e8b9b4e4] {
+  margin-left: 20px;
+  border-bottom: 2px solid rgba(16, 16, 16, 0.8);
+  height: 100%;
+  line-height: 48px;
+  color: rgba(16, 16, 16, 0.8);
+}
+.form-container .form-content[data-v-e8b9b4e4] {
+  padding: 3rem 12rem 3rem 2rem;
+}
+.steps[data-v-e8b9b4e4] {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  margin-bottom: 50px;
+}
+.steps[data-v-e8b9b4e4]  .el-step {
+  height: 100%;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__head {
+  line-height: 35px;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__icon {
+  width: 36px;
+  height: 36px;
+  z-index: 99;
+  font-size: 18px;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__line {
+  background-color: rgba(0, 0, 0, 0.15);
+  top: 50%;
+  left: 150px;
+  height: 1px;
+  right: 20px;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__head.is-process {
+  color: #0066ff;
+  border-color: #0066ff;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__head.is-process .el-step__icon {
+  border: 1px solid #6195f7;
+  color: #6195f7;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__title {
+  position: absolute;
+  top: 0px;
+  left: calc(10%);
+  font-size: 14px;
+  z-index: 66;
+  color: #404040;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__title.is-process {
+  color: #3291f8;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__head.is-finish {
+  color: #0066ff;
+  border-color: #0066ff;
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__head.is-finish .el-step__icon {
+  background-color: rgba(50, 145, 248, 0.1);
+}
+.steps[data-v-e8b9b4e4]  .el-step .el-step__title.is-finish {
+  font-weight: 700;
+  color: #3291f8;
+}
+.steps[data-v-e8b9b4e4]  .el-step:first-child {
+  flex-basis: 20% !important;
+}
+.steps[data-v-e8b9b4e4]  .el-step:first-child .el-step__head.is-process {
+  padding-left: 10px !important;
+}
+.steps[data-v-e8b9b4e4]  .el-step:first-child .el-step__head.is-success {
+  padding-left: 10px !important;
+}
+.steps[data-v-e8b9b4e4]  .el-step:first-child .el-step__title {
+  padding-left: 26px !important;
+}
+.steps[data-v-e8b9b4e4]  .el-step:nth-child(2) {
+  flex-basis: 20% !important;
+}
+.steps[data-v-e8b9b4e4]  .el-step:nth-child(2) .el-step__title {
+  padding-left: 16px !important;
+}
+@media only screen and (max-width: 1200px) {
+.form-container .form-content[data-v-e8b9b4e4] {
+    padding: 1rem 1rem 1rem 0;
+}
+}
+@media only screen and (max-width: 768px) {
+.form-container .form-content[data-v-e8b9b4e4] {
+    padding: 0;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/files/FileList.vue?vue&type=style&index=0&id=36f478aa&lang=less&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-36f478aa] {
+  margin-top: 28px;
+}
+.content .top-wrap[data-v-36f478aa] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.content .top-wrap .left-path-wrap[data-v-36f478aa] {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.content .top-wrap .left-path-wrap .file-path[data-v-36f478aa] {
+  margin-right: 6px;
+  font-size: 14px;
+  font-weight: 550;
+  color: #101010;
+}
+.content .top-wrap .left-path-wrap .file-path .canback[data-v-36f478aa] {
+  color: #3291f8;
+}
+.content .top-wrap .left-path-wrap .file-path .divider[data-v-36f478aa] {
+  color: rgba(0, 0, 0, 0.4);
+}
+.content .top-wrap .right-btn-c[data-v-36f478aa] {
+  margin-left: auto;
+}
+.content .top-wrap .right-btn-c .download-btn[data-v-36f478aa] {
+  color: #0066ff;
+  margin-right: 16px;
+}
+.content .table-container .tbl-file-name .fitted[data-v-36f478aa] {
+  display: flex;
+  align-items: center;
+}
+.content .table-container .tbl-file-name .fitted span[data-v-36f478aa] {
+  margin: 0 6px;
+}
+.content .table-container .tbl-file-name .fitted .clipboard-model-name[data-v-36f478aa] {
+  color: #919191;
+  display: none;
+  cursor: pointer;
+}
+.content .table-container .tbl-file-name .fitted:hover .clipboard-model-name[data-v-36f478aa] {
+  display: inline-block;
+}
+.content .table-container .tbl-file-name .folder[data-v-36f478aa] {
+  cursor: pointer;
+}
+.content .table-container .btn-del[data-v-36f478aa] {
+  color: #0066ff;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.upload-wrap[data-v-36f478aa] {
+  margin-top: 32px;
+}
+.body-c[data-v-36f478aa] {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* 防止内容溢出 */
+}
+.body-c .not-support[data-v-36f478aa] {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.body-c .not-support svg[data-v-36f478aa] {
+  margin-bottom: 12px;
+}
+.body-c .img-c[data-v-36f478aa] {
+  position: absolute;
+  /* 绝对定位，覆盖整个父容器 */
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* 不需要overflow: hidden; 因为object-fit:contain已经确保不溢出 */
+}
+.body-c .img-c img[data-v-36f478aa] {
+  max-width: 100%;
+  max-height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  /* 保持比例 */
+  width: auto;
+  height: auto;
+  display: block;
+}
+.body-c .file-content[data-v-36f478aa] {
+  flex: 1;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+/* 通用滚动条样式 */
+[data-v-36f478aa]::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+[data-v-36f478aa]::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+[data-v-36f478aa]::-webkit-scrollbar-thumb {
+  background: rgba(136,136,136,0.50196);
+  border-radius: 3px;
+}
+@media only screen and (max-width: 768px) {
+.upload-wrap[data-v-36f478aa] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseTitle.vue?vue&type=style&index=0&id=94dd892a&lang=less&scoped=true ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form-container[data-v-94dd892a] {
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px 0px rgba(178, 192, 255, 0.5);
+  margin-top: 20px;
+  border: 1px solid #e0e3ea;
+}
+.form-container .form-head[data-v-94dd892a] {
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+.form-container .form-head h4[data-v-94dd892a] {
+  margin-left: 20px;
+  border-bottom: 2px solid rgba(16, 16, 16, 0.8);
+  height: 100%;
+  line-height: 48px;
+  color: rgba(16, 16, 16, 0.8);
+}
+@media screen and (max-width: 767px) {
+.form-container[data-v-94dd892a] {
+    border-radius: 0 !important;
+    border: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+}
+.form-content[data-v-94dd892a] {
+    margin: 0 10px;
+    padding: 10px 0;
+}
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/usage/UsageIntro.vue?vue&type=style&index=0&id=3e16625e&lang=less&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-3e16625e] {
+  margin-top: 3rem;
+  box-shadow: none;
+  border: 1px solid #e0e3ea;
+}
+.content .main-box[data-v-3e16625e] {
+  padding: 3rem 12rem 3rem 2rem;
+}
+.content .main-box .markdown[data-v-3e16625e] {
+  font-size: 14px;
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.content .main-box .markdown[data-v-3e16625e] .code-content {
+  position: relative;
+}
+.content .main-box .markdown[data-v-3e16625e] .code-content .copy-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+@media screen and (max-width: 767px) {
+  /* 当视口宽度 ≤ 767px 时生效 */
+.main-box[data-v-3e16625e] {
+    padding: 24px 0 0 0 !important;
+}
+.main-box .markdown[data-v-3e16625e] {
+    padding: 0 0 0 10px !important;
+}
+.usage-intro[data-v-3e16625e] {
+    margin: 0 !important;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/setting/Access.vue?vue&type=style&index=0&id=9b01554a&lang=less&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content-collar .main-box .top-op-area[data-v-9b01554a] {
+  display: flex;
+  margin: 20px 0 0 40px;
+}
+.content-collar .main-box .top-op-area .add-user[data-v-9b01554a] {
+  background-color: #0066ff;
+  color: #ffffff;
+  margin-left: 12px;
+  border-radius: 100px;
+}
+.content-collar .main-box .middle-list-area[data-v-9b01554a] {
+  margin: 20px;
+}
+.content-collar .main-box .middle-list-area .list-wrap[data-v-9b01554a] {
+  border-top: 1px solid #d4d4d5;
+  height: 50px;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+.content-collar .main-box .middle-list-area .list-wrap .name-img[data-v-9b01554a] {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+  gap: 8px;
+}
+.content-collar .main-box .middle-list-area .list-wrap .name-img img[data-v-9b01554a] {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+.content-collar .main-box .middle-list-area .list-wrap .access-i[data-v-9b01554a] {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-weight: bold;
+  grid-gap: 8px;
+  gap: 8px;
+}
+.content-collar .main-box .middle-list-area .list-wrap .access-i .el-dropdown-link[data-v-9b01554a] {
+  color: #101010;
+  font-weight: bold;
+}
+.content-collar .main-box .middle-list-area .list-wrap .btn-group[data-v-9b01554a] {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+.top-op-area[data-v-9b01554a] {
+    margin: 6px 0 0 0 !important;
+}
+.middle-list-area[data-v-9b01554a] {
+    margin: 20px 0 0 0 !important;
+}
+.middle-list-area .name-img[data-v-9b01554a] {
+    margin-left: 0 !important;
+}
+.middle-list-area .btn-group[data-v-9b01554a] {
+    margin-right: 0 !important;
+}
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/detail/setting/Setting.vue?vue&type=style&index=0&id=5368752e&lang=less&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.form-box[data-v-5368752e] {
+  padding: 3rem 12rem 3rem 2rem;
+}
+.form-box[data-v-5368752e] .el-form-item__label {
+  width: 200px;
+}
+.form-box[data-v-5368752e] .el-form-item__content {
+  margin-left: 200px;
+}
+.form-box .el-select[data-v-5368752e] {
+  width: 60%;
+}
+.content-del[data-v-5368752e] {
+  box-shadow: 0px 2px 6px 0px rgba(255, 178, 186, 0.5);
+  border: 1px solid #eaa3aa;
+}
+.content-del[data-v-5368752e] h4 {
+  border-bottom-color: #eaa3aa;
+}
+.content-del .main-box[data-v-5368752e] {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 32px 32px 32px;
+}
+.content-del .main-box .del-btn[data-v-5368752e] {
+  color: #ff2525;
+  border: 1px solid #ff2525;
+  height: 34px;
+}
+.required-name[data-v-5368752e] {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+.required-name[data-v-5368752e]::after {
+  margin: -0.2em 0 0 0.2em;
+  content: '*';
+  color: #db2828;
+  display: inline-block;
+  vertical-align: top;
+}
+@media screen and (max-width: 767px) {
+  /* 当视口宽度 ≤ 767px 时生效 */
+.setting-wrap[data-v-5368752e] {
+    margin: 0 !important;
+}
+.form-box[data-v-5368752e] {
+    padding: 0 0 1px 0 !important;
+}
+.form-box[data-v-5368752e] .el-form-item__label {
+    width: auto !important;
+}
+.form-box[data-v-5368752e] .el-form-item__content {
+    margin-left: 0 !important;
+}
+.form-box .el-select[data-v-5368752e] {
+    width: 100% !important;
+}
+.content-del .main-box[data-v-5368752e] {
+    padding: 0 0 12px 10px  !important;
+    display: block !important;
+}
+.content-del .main-box .text-wrap[data-v-5368752e] {
+    margin-bottom: 20px;
+}
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/dataset/detail/index.vue?vue&type=style&index=0&id=2cb6c8b3&lang=less&scoped=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.datset-header[data-v-2cb6c8b3] {
+  background: url('/img/dataset-square.png') center center no-repeat;
+  background-size: cover;
+}
+

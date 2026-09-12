@@ -1,0 +1,72 @@
+{{template "base/head" .}}
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <input type="hidden" id="postPath" value="{{.Link}}">
+        <div>
+            <h4 class="ui top attached header">
+                {{$.i18n.Tr "dataset.upload_dataset_file"}}
+            </h4>
+            <div class="ui attached segment" style="padding: 2em 3em;">
+                <div class="ui form" id="dataset-base">
+                    <el-form label-width="140px">
+                        {{.CsrfTokenHtml}}
+                        <el-form-item style="display:none" label='{{$.i18n.Tr "dataset.dataset_available_clusters"}}:' prop="title">
+                            <el-button :class="{active:type==0}" :disabled="clusterFlag" size="small"
+                                style="margin: 0;border-radius: 0.28571429rem 0 0 0.28571429rem;" @click="uploadGpu">
+                                CPU/GPU</el-button>
+                            <el-button :class="{active:type==1}" :disabled="clusterFlag" size="small"
+                                style="margin: 0 0 0 -4px;border-radius: 0 0.28571429rem 0.28571429rem 0;"
+                                @click="uploadNpu">NPU</el-button>
+                        </el-form-item>
+                        <el-form-item label='{{$.i18n.Tr "dataset.file_description"}}:' prop="description" style="margin-bottom: 42px;">
+                            <el-input type="textarea" :rows="3" maxlength="255"
+                                placeholder="{{$.i18n.Tr "repo.modelarts.train_job.new_place"}}" v-model="desc">
+                            </el-input>
+                        </el-form-item>
+                        <el-form-item label='{{$.i18n.Tr "dataset.data_upload"}}:' prop="category">
+                            <minio-uploader :uploadtype="type" :desc="desc" @setcluster="setcluster"></minio-uploader>
+                        </el-form-item>
+                        <div style='display:none;' id="minioUploader-params" data-uuid="{{.uuid}}"
+                            data-add-url="{{.Repository.OwnerName}}/attachments/add"
+                            data-accepts="{{.AttachmentAllowedTypes}}"
+                            data-remove-url="{{AppSubUrl}}/attachments/delete" data-csrf="{{.CsrfToken}}"
+                            dataset-id={{.dataset.ID}} data-max-file="100" data-dataset-id="{{.dataset.ID}}"
+                            data-max-size="{{.max_model_size}}"
+                            data-default-message="{{.i18n.Tr "dropzone.default_dataset_message"}}"
+                            data-invalid-input-type="{{.i18n.Tr "dropzone.invalid_input_type"}}"
+                            data-file-too-big="{{.i18n.Tr "dropzone.file_too_big"}}"
+                            data-remove-file="{{.i18n.Tr "dropzone.remove_file"}}"
+                            data-file-status='{{.i18n.Tr "dropzone.file_status"}}'
+                            data-file-init-status='{{.i18n.Tr "dropzone.file_init_status"}}'
+                            data-waitting-uploading='{{.i18n.Tr "dropzone.waitting_uploading"}}'
+                            data-md5-computing='{{.i18n.Tr "dropzone.md5_computing"}}'
+                            data-obs-connecting='{{.i18n.Tr "dropzone.obs-connecting"}}'
+                            data-loading-file='{{.i18n.Tr "dropzone.loading_file"}}'
+                            data-upload-complete='{{.i18n.Tr "dropzone.upload_complete"}}'
+                            data-uploading='{{.i18n.Tr "dropzone.uploading"}}'
+                            data-failed='{{.i18n.Tr "dropzone.failed"}}'
+                            data-upload-success='{{.i18n.Tr "dropzone.upload_success"}}'
+                            data-file-exists-in-dataset='{{.i18n.Tr "dropzone.file_exists_in_dataset"}}'
+                            data-repopath='{{AppSubUrl}}{{$.RepoLink}}/datasets' data-cancel='{{.i18n.Tr "cancel"}}'
+                            data-upload='{{.i18n.Tr "dataset.dataset_upload"}}'
+                            data-upload-status='{{.i18n.Tr "dataset.dataset_upload_status"}}'
+                            data-error-space-tips="{{.i18n.Tr "dropzone.error_file__space_tips"}}"
+                            data-error-tips='{{.i18n.Tr "dropzone.error_file_tips" "10" "?" "https://openi.pcl.ac.cn/docs/index.html#/dataset/sdk"}}'>
+                        </div>
+                        <div id="datasetId" datasetId="{{.datasetId}}"></div>
+                    </el-form>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 2em;">
+            <p style="color: 505559;">{{$.i18n.Tr "dataset.illustrate"}}：</p>
+            <p style="line-height: 1.5;color: #101010;">{{$.i18n.Tr "dataset.illustrate.only"}}<span
+                    class="text red">&nbsp;{{$.i18n.Tr "dataset.illustrate.zip"}}&nbsp;</span>{{$.i18n.Tr "dataset.illustrate.fisrt_end"}};</br>
+            </p>
+            {{$article := SizeFmt .max_model_size}}
+            <p>{{$.i18n.Tr "dropzone.error_file_tips" "10" $article "https://openi.pcl.ac.cn/docs/index.html#/dataset/sdk" | Str2html}}</p>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}

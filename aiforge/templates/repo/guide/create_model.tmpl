@@ -1,0 +1,8 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-create-model.css?v={{MD5 AppVer}}" />
+<div class="repository">
+    <script>var MAX_MODEL_SIZE = {{ .max_model_size }};</script>
+    <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-create-model.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

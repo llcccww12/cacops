@@ -1,0 +1,17 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-cloudbrain-detail.css?v={{MD5 AppVer}}" />
+
+<div class="container-menu-main">
+    <style>
+        #nav-left{
+            min-height: calc(100vh - 60px) !important;
+        }
+    </style>
+    {{template "base/nav_left" .}}
+    <div id="nav_left_right_content" style="padding-bottom: 0;background-color: #f9f9f9;">
+        <div id="__vue-root"></div>
+    </div>
+</div>
+
+<script src="{{StaticUrlPrefix}}/js/vp-cloudbrain-detail.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

@@ -1,0 +1,8 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-org-square.css?v={{MD5 AppVer}}" />
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9"><div id="__vue-root"></div></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-org-square.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

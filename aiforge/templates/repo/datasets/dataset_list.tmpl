@@ -1,0 +1,50 @@
+{{if .Attachments}}
+  {{range .Attachments}}
+  <div class="ui grid item" id="{{.UUID}}">
+    <div class="row">
+      <div class="eight wide column" data-tooltip="{{.Name}}">
+        <span class="ui right">{{.Size | FileSize}}</span>
+        <a class="title" href="{{.DownloadURL}}">
+          {{svg "octicon-cloud-download" 16}}  {{.Name}}
+        </a>
+      </div>
+      <div class="eight wide column right aligned">
+        <div class="ui left mini icon buttons">
+          <span class="ui basic button text left" data-tooltip='{{$.i18n.Tr "dataset.download_count"}}' data-position="bottom right" style="width: 60px; padding-left: 0;">{{svg "octicon-flame" 16}} {{(.DownloadCount | PrettyNumber)}}</span>
+          <span class="ui basic basic button clipboard" data-clipboard-text="{{.DownloadURL}}" data-tooltip='{{$.i18n.Tr "dataset.copy_url"}}' data-clipboard-action="copy">{{svg "octicon-file" 16}}</span>
+          <span class="ui basic basic button clipboard" data-clipboard-text="{{.FileChunk.Md5}}" data-tooltip='{{$.i18n.Tr "dataset.copy_md5"}}' data-clipboard-action="copy">{{svg "octicon-file-binary" 16}}</span>
+        </div>
+        {{if eq .DecompressState 1}}
+        <div class="ui left mini icon buttons">
+          <a class="ui basic blue button" href="datasets/dirs/{{.UUID}}?type={{$.Type}}" data-tooltip='{{$.i18n.Tr "dataset.directory"}}'>{{svg "octicon-file-directory" 16}}</a>
+          {{if $.IsSigned}}
+          <a class="ui basic blue button" href="datasets/label/{{.UUID}}?type={{$.Type}}" data-tooltip='{{$.i18n.Tr "dataset.create_label_task"}}'>{{svg "octicon-pencil" 16}}</a>
+          {{end}}
+        </div>
+        {{end}}
+        {{if not .CanDel}}
+          <a class="ui right small disabled button">{{$.i18n.Tr "dataset.delete"}}</a>
+          <span style="margin-right: 10px;line-height: 34px;" class="ui text{{if .IsPrivate}} red{{else}} green{{end}}">{{if .IsPrivate}} {{$.i18n.Tr "dataset.private"}} {{else}} {{$.i18n.Tr "dataset.public"}} {{end}}</span>
+        {{else}}
+          {{if $.Permission.CanWrite $.UnitTypeDatasets}}
+          <a class="ui right small red button" href="javascript:void(0)" data-uuid={{.UUID}} data-dataset-delete data-remove-url="{{AppSubUrl}}/attachments/delete" data-csrf="{{$.CsrfToken}}">{{$.i18n.Tr "dataset.delete"}}</a>          
+          {{if $.Repository.IsPrivate}}
+              <span data-tooltip='{{$.i18n.Tr "dataset.how_to_public"}}' style="margin-right: 10px; line-height: 34px;" class="ui text red">{{$.i18n.Tr "dataset.private"}}</span>
+            {{else}}
+              <div class="compact small ui buttons" style="margin-right: 10px;">
+                <a class="ui button{{if .IsPrivate}} positive active{{end}}" href="javascript:void(0)" data-dataset-status="true-{{.UUID}}" data-csrf="{{$.CsrfToken}}"  data-url="{{AppSubUrl}}/attachments/private" data-uuid={{.UUID}} data-private="true" data-is-private={{.IsPrivate}}>{{$.i18n.Tr "dataset.private"}}</a>
+                <div class="or"></div>
+                <a class="ui button{{if not .IsPrivate}} positive active{{end}}" href="javascript:void(0)" data-dataset-status="false-{{.UUID}}" data-csrf="{{$.CsrfToken}}" data-url="{{AppSubUrl}}/attachments/private" data-uuid={{.UUID}} data-private="false" data-is-private={{.IsPrivate}}>{{$.i18n.Tr "dataset.public"}}</a>
+              </div>
+            {{end}}
+          {{else}}
+            <a class="ui right small disabled button">{{$.i18n.Tr "dataset.delete"}}</a>
+            <span style="margin-right: 10px;line-height: 34px;" class="ui text{{if .IsPrivate}} red{{else}} green{{end}}">{{if .IsPrivate}} {{$.i18n.Tr "dataset.private"}} {{else}} {{$.i18n.Tr "dataset.public"}} {{end}}</span>          
+          {{end}}
+        {{end}}
+      </div>
+
+    </div>
+  </div>
+  {{end}}
+{{end}}

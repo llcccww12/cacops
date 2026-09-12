@@ -1,0 +1,12 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100.000000" height="100.000000" fill="none">
+	<rect id="model 1" width="100.000000" height="100.000000" x="0.000000" y="0.000000" />
+	<g id="组合 2">
+		<path id="矢量 9" d="M16.3534 26.6267C13.4176 28.1899 11.5833 31.2448 11.5833 34.5707L11.5833 50L11.5833 65.4292C11.5833 68.7552 13.4176 71.81 16.3534 73.3732L31.1461 81.25L46.4789 89.4143C49.1231 90.8223 52.2946 90.8223 54.9388 89.4143L70.2719 81.25L85.0644 73.3732C88.0001 71.81 89.8344 68.7552 89.8344 65.4292L89.8344 50L89.8344 34.5707C89.8344 31.2448 88.0001 28.1899 85.0644 26.6267L70.2719 18.75L54.9388 10.5856C52.2946 9.17767 49.1231 9.17767 46.4789 10.5857L31.1461 18.75L16.3534 26.6267Z" fill-rule="nonzero" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 10" d="M50 11.3333L50 50" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 11" d="M84.4167 67.8333L50 50" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 12" d="M15.5833 68.8333L50 50" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 13" d="M50 89.6666L50 68.8333" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 14" d="M85.4166 32.1667L68.75 41.5833" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 15" d="M14.5833 31.1667L32.25 40.5833" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+	</g>
+</svg>

@@ -1,0 +1,157 @@
+<div class="ui container user-cards">
+    {{if .CardsTitle}}
+    <h2 class="ui dividing header">
+        {{.CardsTitle}}
+    </h2>
+    {{end}}
+
+  <div class="two_button {{if eq .TabName "following"}}following_selected{{else if eq .TabName "followers"}}followers_selected{{end}}">
+    <a 
+      class="following_button"
+      href="{{.Owner.HomeLink}}?tab=following"
+    >
+      {{.i18n.Tr "user.following"}}
+      <div class="following_num">{{.Owner.NumFollowing}}</div>
+    </a>
+    <a class="followers_button" 
+      href="{{.Owner.HomeLink}}?tab=followers"
+    >
+      {{.i18n.Tr "user.followers"}}
+      <div class="followers_num">{{.Owner.NumFollowers}}</div>
+    </a>
+  </div>
+    <ul class="list">
+        {{range .Cards}}
+            <li class="item ui segment user_item">
+                <a href="{{.HomeLink}}">
+                    <img class="avatar" src="{{.RelAvatarLink}}"/>
+                </a>
+                <h3 class="name"><a href="{{.HomeLink}}">{{.DisplayName}}</a></h3>
+
+                <div class="meta">
+                    {{if .Website}}
+                        {{svg "octicon-link" 16}} <a href="{{.Website}}" target="_blank" rel="noopener noreferrer">{{.Website}}</a>
+                    {{else if .Location}}
+                        {{svg "octicon-location" 16}} {{.Location}}
+                    {{else}}
+                        {{svg "octicon-clock" 16}} {{$.i18n.Tr "user.join_on"}} {{.CreatedUnix.FormatShort}}
+                    {{end}}
+                </div>
+            </li>
+        {{end}}
+    </ul>
+
+    {{ template "base/paginate" . }}
+</div>
+
+<style>
+.two_button {
+  margin-top: 1.2rem;
+  height: 66px;
+  display: flex;
+  align-items: center;
+}
+
+.following_button,
+.followers_button {
+  height: 38px;
+  width: 120px;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+  cursor: pointer;
+  position: relative;
+}
+
+/* 默认状态（可选，但建议明确） */
+.following_button {
+  border-radius: 5px 0 0 5px;
+}
+.followers_button {
+  border-radius: 0 5px 5px 0;
+}
+
+/* 当前选中 following */
+.two_button.following_selected .following_button {
+  background-color: #fff;
+  color: #0066ff !important;
+  border: 1px solid #3291f8;
+}
+.two_button.following_selected .followers_button {
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1) !important;
+  border: 1px solid #d6d7d9;
+}
+.two_button.following_selected .following_num {
+  background-color: rgba(62,159,255,1);
+}
+.two_button.following_selected .followers_num {
+  background-color: rgba(164,173,179,1);
+}
+
+/* 当前选中 followers */
+.two_button.followers_selected .followers_button {
+  background-color: #fff;
+  color: #0066ff !important;
+  border: 1px solid #3291f8;
+}
+.two_button.followers_selected .following_button {
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1) !important;
+  border: 1px solid #d6d7d9;
+}
+.two_button.followers_selected .following_num {
+  background-color: rgba(164,173,179,1);
+}
+.two_button.followers_selected .followers_num {
+  background-color: rgba(62,159,255,1);
+}
+
+.following_num, .followers_num {
+  margin-left: 3px;
+  width: 30px;
+  height: 20px;
+  border-radius: 12px;
+  color: rgba(255,255,255,1);
+  font-size: 14px;
+  text-align: center;
+  font-family: 微软雅黑-regular;
+}
+
+
+.user_item {
+  box-shadow: 0px 0px 20px 0px rgba(221,221,221,0.5) !important;
+  border: 1px solid rgba(255,255,255,1) !important;
+  border-radius: 10px !important;
+}
+.user_item a {
+  color: rgba(16,16,16,1) !important;
+  font-size: 16px !important;
+}
+.user_item .meta {
+  color: rgba(16,16,16,0.6) !important;
+  font-size: 14px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .user-cards {
+    margin: auto 0 !important;
+  }
+  .two_button {
+    justify-content: center;
+  }
+
+  .list {
+    justify-content: center;
+    margin-top: 0;
+  }
+  .user_item {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+}
+</style>

@@ -1,0 +1,32 @@
+<div class="organization-header">
+	<div class="ui container">
+		<div class="ui vertically grid head">
+			<div class="column">
+				<div class="ui header">
+					{{with .Org}}
+					<img class="ui image" src="{{.SizedRelAvatarLink 100}}">
+					<span class="text thin grey"><a href="{{.HomeLink}}">{{.DisplayName}}</a></span>
+					{{end}}
+				{{if .IsCourse}}
+					{{if .IsOrganizationOwner}}
+						<div class="ui right">
+							<a class="ui green button" href="{{.OrgLink}}/teams/new">{{svg "octicon-plus" 16}} {{.i18n.Tr "org.create_new_team"}}</a>
+						</div>
+					{{end}}
+				{{else}}
+					{{if .IsOrganizationOwner}}
+						<div class="ui right">
+							<a class="ui green button" href="{{.OrgLink}}/teams/new">{{svg "octicon-plus" 16}} {{.i18n.Tr "org.create_new_team"}}</a>
+						</div>
+					{{end}}
+					{{if .CanCreateOrgRepo}}
+						<div class="ui right">
+							<a class="ui green button" href="{{AppSubUrl}}/repo/create?org={{.Org.ID}}">{{svg "octicon-plus" 16}} {{.i18n.Tr "new_repo"}}</a>
+						</div>
+					{{end}}
+				{{end}}	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

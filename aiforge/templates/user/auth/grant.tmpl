@@ -1,0 +1,192 @@
+{{template "base/head" .}}
+<style>
+	.oauth2-authorize-application-box {		
+		padding-left: 13% !important;
+		padding-right: 13% !important;
+	}
+	.oauth2-authorize-application-box .segments {		
+		padding:40px 60px;
+	}
+	.oauth2-authorize-application-box .title {		
+    color: rgba(16, 16, 16, 1);
+    font-size: 18px;    
+    font-weight: 400;
+    line-height: 30px;
+		text-align: left;
+		margin-bottom: 36px;
+	}
+	.oauth2-authorize-application-box .title .name {
+    color: rgba(0, 102, 255, 1);		
+    font-weight: 700;
+	}
+	.oauth2-authorize-application-box .list {
+		padding-left: 60px;
+	}
+	.oauth2-authorize-application-box .item {
+		margin-bottom: 20px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+	.oauth2-authorize-application-box .item label {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		cursor: pointer;
+	}
+	.oauth2-authorize-application-box .item input {
+		height: 17px;
+		width: 17px;
+		margin-right: 10px;
+		cursor: pointer;
+		margin-top: 2px;
+	}
+	.oauth2-authorize-application-box .item label {		
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+		text-align: left;
+	}
+	.oauth2-authorize-application-box .item.checkbox.disabled label {
+		opacity: 0.95 !important;
+	}
+	.oauth2-authorize-application-box .item input:focus~label:before {
+		background: #fff;
+	}
+	.oauth2-authorize-application-box .item input:checked~label:before {	
+    background: rgb(0, 102, 255) !important;
+    border-color: rgb(0, 102, 255) !important;
+	}	
+	.oauth2-authorize-application-box .item input:focus~label:after {
+		color: #fff;
+	}
+	.oauth2-authorize-application-box .item input:checked~label:after {		
+    color: #fff !important;
+	}
+	.oauth2-authorize-application-box .list-c .tips {
+		padding-left: 60px;
+		margin-top: 20px;	
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+		margin-bottom: 25px;		
+		text-align: left;
+	}
+	.oauth2-authorize-application-box .tips-c {			
+		text-align: left;
+	}
+	.oauth2-authorize-application-box .btn-c {
+		margin: 0 auto;
+		margin-bottom: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80%;
+		gap: 0 10px;
+	}
+	.oauth2-authorize-application-box .btn-c .button {
+		flex: 1;
+	}
+	.oauth2-authorize-application-box .btn-c .button.blue {
+		background-color:rgb(0, 102, 255)
+	}
+	.oauth2-authorize-application-box .btn-c .button.blue:hover {
+		background-color:rgba(0, 102, 255, 0.8);
+	}	
+	.oauth2-authorize-application-box .btn-c .button.blue:focus {
+		background-color:rgba(0, 102, 255, 0.9);
+	}
+	.oauth2-authorize-application-box .btn-c .button.blue:active {
+		background-color:rgba(0, 102, 255, 0.8);
+	}
+	.oauth2-authorize-application-box .tips-c div {	
+    color: rgba(16, 16, 16, 1);
+    font-size: 14px;
+    margin-bottom: 6px;
+	}
+	@media only screen and (max-width: 767.98px) {
+		.oauth2-authorize-application-box {		
+			padding-left: 5px !important;
+			padding-right: 5px !important;
+		}
+		.oauth2-authorize-application-box .segments {
+			padding: 20px 18px;
+		}
+		.oauth2-authorize-application-box .list {
+			padding-left: 8px;
+		}
+		.oauth2-authorize-application-box .list-c .tips {
+			padding-left: 8px;
+		}
+		.oauth2-authorize-application-box .btn-c {
+			flex-wrap: wrap;			
+			width: 100%;
+			padding: 0 5px;
+			margin-bottom: 8px;
+		}
+		 .oauth2-authorize-application-box .btn-c .button {
+			width: 100%;
+			flex: none;
+			margin-bottom: 10px;
+		 }    
+	}
+</style>
+<div class="ui one column stackable center aligned page grid oauth2-authorize-application-box">
+	<div class="column twelve wide" style="max-width:680px;">
+		<form id="grant-form" method="post" action="{{AppSubUrl}}/login/oauth/grant" onsubmit="return checkGrantForm()">
+			{{.CsrfTokenHtml}}
+			<input type="hidden" name="client_id" value="{{.Application.ClientID}}">
+			<input type="hidden" name="state" value="{{.State}}">
+			<input type="hidden" name="redirect_uri" value="{{.RedirectURI}}">
+			<input type="hidden" name="scope_list" value="">
+			<div class="ui middle raised segments">
+				<div class="title">{{.i18n.Tr "auth.grant_authorization_title" .Application.Name | Safe}}</div>
+				<div class="list-c">
+					<div class="list"></div>
+					<div class="tips">{{.i18n.Tr "auth.grant_agree_agreement" | Safe}}</div>
+				</div>
+				<div class="btn-c">
+					<input type="submit" id="authorize-app" value="{{.i18n.Tr "auth.grant_confirm_authorization"}}" class="ui blue inline button"/>
+					<a href="{{.RedirectURI}}" class="ui basic primary inline button">{{.i18n.Tr "cancel"}}</a>
+				</div>
+				<div class="tips-c">
+					<div>{{.i18n.Tr "auth.grant_authorization_tips1" .Application.Name}}</div>
+					<div>{{.i18n.Tr "auth.grant_authorization_tips2"}}</div>
+				</div>
+			</div>
+		</form>
+		<script>
+			;(function() {
+				var LangMap = {
+					'user.base': {{$.i18n.Tr "auth.grant_access_your"}} + {{.i18n.Tr "auth.user.base" ""}},
+					'user.email': {{$.i18n.Tr "auth.grant_access_your"}} + {{.i18n.Tr "auth.user.email" ""}},
+					'user.phone': {{$.i18n.Tr "auth.grant_access_your"}} + {{.i18n.Tr "auth.user.phone" ""}},
+				};
+				var allowedScopes = {{.Application.GetAllowedScopes}};
+				var defaultScopes = {{.DefaultScopes}};
+				var formEl = document.getElementById('grant-form');
+				var listEl = formEl.querySelector('.list');
+				var grantListInpEl = formEl.querySelector('input[name="scope_list"]');
+				var checkBoxElStr = '';
+				allowedScopes.sort().forEach(function(item, index) {
+					var scope = item;
+					var isDefault = defaultScopes.includes(scope);
+					checkBoxElStr += `<div key="${scope}" class="ui checkbox item ${isDefault ? 'disabled':''}">
+						<input type="checkbox" ${isDefault ? 'checked' : 'checked'}>
+						<label>${LangMap[scope] || scope}</label>
+					</div>`;
+				});
+				listEl.innerHTML = checkBoxElStr;
+				window.checkGrantForm = function() {
+					var checkedGrantEls = listEl.querySelectorAll('.checkbox.checked');
+					var grantList = [];
+					checkedGrantEls.forEach(function(grantEl) {
+						var grant = grantEl.getAttribute('key');
+						grantList.push(grant);
+					})
+					grantListInpEl.value = grantList.join(',');
+					return true;
+				}
+			})();
+		</script>
+	</div>
+</div>
+{{template "base/footer" .}}

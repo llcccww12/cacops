@@ -1,0 +1,181 @@
+<div class="dataset-repolink" id="dataset-repolink-init" style="display: none;" data-repolink="{{.RepoLink}}"
+    data-dataset-type="{{.datasetType}}"></div>
+<div class="inline required min_title field" id="dataset-base" style="margin-bottom: 0 !important;">
+    <!-- {{if .benchmarkMode}}
+    <label
+        style="font-weight: normal;">{{if .benchmarkMode}}{{.i18n.Tr "repo.model_manager"}}</label><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>{{else}}{{.i18n.Tr "dataset.dataset"}}</label>&nbsp;&nbsp;&nbsp;&nbsp;{{end}}
+    {{else}}
+    
+    {{end}} -->
+    <label class="label-fix-width" style="font-weight: normal;">{{if .benchmarkMode}}{{.i18n.Tr "repo.model_manager"}}{{else}}{{.i18n.Tr "dataset.dataset"}}{{end}}</label>
+    <input type="hidden" name="attachment" :value="dataset_uuid">
+    <input type="hidden" name="dataset_name" :value="dataset_name">
+    <input class="disabled" type="text" :value="dataset_name" required onfocus="this.blur();" style="width: 48.5%;">
+    <el-button type="text" @click="dialogVisible = true" icon="el-icon-plus" style="color: #0366d6;">
+        {{if .benchmarkMode}}{{.i18n.Tr "repo.modelarts.infer_job.select_model"}}{{else}}{{.i18n.Tr "dataset.select_dataset"}}{{end}}
+    </el-button>
+    {{if .benchmarkMode}}
+    <span class="tooltips" style="display: block;margin-left:11.5rem;">{{.i18n.Tr "dataset.benchmark_dataset_tip"}}</span>
+    {{end}}
+    <el-dialog title="{{.i18n.Tr "dataset.select_dataset"}}" :visible.sync="dialogVisible" width="50%">
+        <div v-loading="loadingDataIndex" style="position: relative;">
+            <div class="ui icon input" style="z-index: 9999;position: absolute;right: 50px;height:30px;">
+                <i class="search icon"></i>
+                <input type="text" placeholder="{{.i18n.Tr "dataset.search_dataset"}}" v-model="searchDataItem">
+            </div>
+
+            <el-tabs v-model="activeName" @tab-click="handleClick('{{.RepoLink}}',activeName,{{.datasetType}})">
+                <el-tab-pane label="{{.i18n.Tr "dataset.current_project"}}" name="first" v-loading="loadingDataIndex">
+                    <div style="display: flex;align-items: center;justify-content: space-between;padding: 1rem 0;border-bottom:1px solid #F5F5F5"
+                        v-for="(dataset,index) in currentRepoDataset" :key="index">
+                        <div style="width: 90%;">
+                            <div style="display: flex;align-items: center;"><span
+                                    class="panel_creator_reponam">${dataset.Repo.OwnerName}/${dataset.Repo.Alias}
+                                </span><img v-if="dataset.Recommend" src="/img/jian.svg"
+                                    style="margin-left: 0.5rem;"><span class="panel_dataset_name">${dataset.Name}
+                                </span></div>
+                            <div style="margin-top: 8px;display: flex;">
+                                <a :title="dataset.UserName" style="cursor: default;">
+                                    <img class="ui avatar mini image" style="width: 20px;height: 20px;"
+                                        :src="dataset.RelAvatarLink">
+                                </a>
+                                <span class="panel_datset_desc">${dataset.Description}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button v-if="dataset.DecompressState===1" class="ui primary basic button mini"
+                                @click.stop.prevent="selectDataset(dataset.UUID,dataset.Name)">{{.i18n.Tr "dataset.use"}}</button>
+                            <span v-if="dataset.DecompressState===2" style="display: flex;align-items: center;">
+                                <i class="CREATING"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color: #5A5A5A;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.unzip_tooltips"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_stared"}}</span>
+                            </span>
+                            <span v-if="dataset.DecompressState===3" style="display: flex;align-items: center;">
+                                <i class="FAILED"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color:red;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.unzip_failed"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_failed"}}</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    {{if not .benchmarkMode}}
+                </el-tab-pane>
+                <el-tab-pane label="{{.i18n.Tr "dataset.owner_dataset"}}" name="second" v-loading="loadingDataIndex">
+                    <div style="display: flex;align-items: center;justify-content: space-between;padding: 1rem 0;border-bottom:1px solid #F5F5F5"
+                        v-for="(dataset,index) in myDataset" :key="index">
+                        <div style="width: 90%;">
+                            <div style="display: flex;align-items: center;"><span
+                                    class="panel_creator_reponam">${dataset.Repo.OwnerName}/${dataset.Repo.Alias}</span><img
+                                    v-if="dataset.Recommend" src="/img/jian.svg" style="margin-left: 0.5rem;"><span
+                                    class="panel_dataset_name">${dataset.Name}</span></div>
+                            <div style="margin-top: 8px;display: flex;">
+                                <a :title="dataset.UserName" style="cursor: default;">
+                                    <img class="ui avatar mini image" style="width: 20px;height: 20px;"
+                                        :src="dataset.RelAvatarLink">
+                                </a>
+                                <span class="panel_datset_desc">${dataset.Description}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button v-if="dataset.DecompressState===1" class="ui primary basic button mini"
+                                @click.stop.prevent="selectDataset(dataset.UUID,dataset.Name)">{{.i18n.Tr "dataset.use"}}</button>
+                            <span v-if="dataset.DecompressState===2" style="display: flex;align-items: center;">
+                                <i class="CREATING"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color: #5A5A5A;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.unzip_tooltips"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_stared"}}</span>
+                            </span>
+                            <span v-if="dataset.DecompressState===3" style="display: flex;align-items: center;">
+                                <i class="FAILED"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color:red;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.zip_failed"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_failed"}}</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </el-tab-pane>
+                <el-tab-pane label="{{.i18n.Tr "dataset.public_dataset"}}" name="third" v-loading="loadingDataIndex">
+                    <div style="display: flex;align-items: center;justify-content: space-between;padding: 1rem 0;border-bottom:1px solid #F5F5F5"
+                        v-for="(dataset,index) in publicDataset" :key="index">
+                        <div style="width: 90%;">
+                            <div style="display: flex;align-items: center;"><span
+                                    class="panel_creator_reponam">${dataset.Repo.OwnerName}/${dataset.Repo.Alias}</span><img
+                                    v-if="dataset.Recommend" src="/img/jian.svg" style="margin-left: 0.5rem;"><span
+                                    class="panel_dataset_name">${dataset.Name}</span></div>
+                            <div style="margin-top: 8px;display: flex;">
+                                <a :title="dataset.UserName" style="cursor: default;">
+                                    <img class="ui avatar mini image" style="width: 20px;height: 20px;"
+                                        :src="dataset.RelAvatarLink">
+                                </a>
+                                <span class="panel_datset_desc">${dataset.Description}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button v-if="dataset.DecompressState===1" class="ui primary basic button mini"
+                                @click.stop.prevent="selectDataset(dataset.UUID,dataset.Name)">{{.i18n.Tr "dataset.use"}}</button>
+                            <span v-if="dataset.DecompressState===2" style="display: flex;align-items: center;">
+                                <i class="CREATING"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color: #5A5A5A;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.unzip_tooltips"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_stared"}}</span>
+                            </span>
+                            <span v-if="dataset.DecompressState===3" style="display: flex;align-items: center;">
+                                <i class="FAILED"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color:red;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.zip_failed"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_failed"}}</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </el-tab-pane>
+                <el-tab-pane label="{{.i18n.Tr "dataset.I_liked"}}" name="fourth" v-loading="loadingDataIndex">
+                    <div style="display: flex;align-items: center;justify-content: space-between;padding: 1rem 0;border-bottom:1px solid #F5F5F5"
+                        v-for="(dataset,index) in myFavoriteDataset" :key="index">
+                        <div style="width: 90%;">
+                            <div style="display: flex;align-items: center;"><span
+                                    class="panel_creator_reponam">${dataset.Repo.OwnerName}/${dataset.Repo.Alias}</span><img
+                                    v-if="dataset.Recommend" src="/img/jian.svg" style="margin-left: 0.5rem;"><span
+                                    class="panel_dataset_name">${dataset.Name}</span></div>
+                            <div style="margin-top: 8px;display: flex;">
+                                <a :title="dataset.UserName" style="cursor: default;">
+                                    <img class="ui avatar mini image" style="width: 20px;height: 20px;"
+                                        :src="dataset.RelAvatarLink">
+                                </a>
+                                <span class="panel_datset_desc">${dataset.Description}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button v-if="dataset.DecompressState===1" class="ui primary basic button mini"
+                                @click.stop.prevent="selectDataset(dataset.UUID,dataset.Name)">{{.i18n.Tr "dataset.use"}}</button>
+                            <span v-if="dataset.DecompressState===2" style="display: flex;align-items: center;">
+                                <i class="CREATING"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color: #5A5A5A;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.unzip_tooltips"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_stared"}}</span>
+                            </span>
+                            <span v-if="dataset.DecompressState===3" style="display: flex;align-items: center;">
+                                <i class="FAILED"></i>
+                                <span style="margin-left: 0.4em;font-size: 12px;color:red;"
+                                    data-tooltip="{{$.i18n.Tr "dataset.zip_failed"}}" data-inverted=""
+                                    data-variation="mini" data-position="left center">{{$.i18n.Tr "dataset.unzip_failed"}}</span>
+                            </span>
+                        </div>
+                    </div>
+
+                </el-tab-pane>
+                {{end}}
+            </el-tabs>
+            <div class="center">
+                <el-pagination background @current-change="handleCurrentChange" :current-page="page" :page-size="5"
+                    layout="total,prev, pager, next" :total="totalnums">
+                </el-pagination>
+            </div>
+        </div>
+    </el-dialog>
+
+
+</div>

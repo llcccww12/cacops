@@ -1,0 +1,11 @@
+{{if .NotStopTaskCount}}
+<div class="ui message" style="background-color: rgba(242, 113, 28, 0.05);border: 1px solid rgba(242, 113, 28, 1);border-radius: 5px;"> 
+    <div style="display: flex;align-items: center;">
+        <i class="ri-information-line" style="font-size: 35px;color:  rgba(242, 113, 28, 1);;"></i>
+        <div style="text-align: left;margin-left: 1rem;">
+            <div style="font-weight: 600;line-height: 2;">{{.i18n.Tr "repo.cloudbrain.morethanonejob1" | Safe }}</div>
+            <div style="color:#939393">{{.i18n.Tr "repo.cloudbrain.morethanonejob2" | Safe}}</div>
+        </div>
+    </div>
+</div>
+{{end}}

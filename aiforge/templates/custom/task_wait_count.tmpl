@@ -1,0 +1,25 @@
+<div style="display:inline-block;">
+  <div style="display:flex;align-items:center;color:#f2711c;">
+    <i class="ri-error-warning-line" style="margin-right: 0.5rem; font-size: 14px"></i>
+    <span style="font-size: 12px">{{.i18n.Tr "repo.wait_count_start"}} <span class="__task_wait_count__">{{if not .WaitCount}}1{{else}}{{addOne .WaitCount}}{{end}}</span> {{.i18n.Tr "repo.wait_count_end"}}</span>
+  </div>
+</div>
+<script>
+  ;(function() {
+    var queuesDetail = {{.QueuesDetail}};
+    if (queuesDetail) {
+      function changeSpecs() {
+        var specsSelEl = $('select#__specs__');
+        var seldOption = specsSelEl.find('option:selected');
+        var queueCode = seldOption.attr('queueCode');
+        $('span.__task_wait_count__').text((queuesDetail[queueCode] || 0) +1);
+      };
+      $('body').on('change', 'select#__specs__', function(e) {
+        changeSpecs();
+      });
+      setTimeout(function() {
+        changeSpecs();
+      }, 50);
+    }
+  })();
+</script>

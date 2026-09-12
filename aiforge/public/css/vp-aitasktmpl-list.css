@@ -1,0 +1,823 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/LeftLabels.vue?vue&type=style&index=0&id=a219d788&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content-l[data-v-a219d788] {
+  width: 25%;
+  max-width: 350px;
+  min-width: 250px;
+  padding: 30px 20px;
+}
+.content-l .container > .title[data-v-a219d788] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.content-l .container .block-c[data-v-a219d788] {
+  margin-top: 8px;
+}
+.content-l .container .block-c .title-c[data-v-a219d788] {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+.content-l .container .block-c .title-c .title[data-v-a219d788] {
+  color: #101010;
+  font-size: 14px;
+}
+.content-l .container .block-c .title-c .clear-btn[data-v-a219d788] {
+  text-decoration: underline;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  color: #9ca3af;
+}
+.content-l .container .block-c .title-c .clear-btn .fill[data-v-a219d788]:not([stroke]) {
+  fill: #0066ff;
+}
+.content-l .container .block-c .list[data-v-a219d788] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content-l .container .block-c .list .item[data-v-a219d788] {
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0e2545;
+  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.2);
+  margin: 0 10px 10px 0;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* 默认样式 */
+  border: 1px solid rgba(145, 213, 255, 0.5);
+  background-color: #ffffff;
+}
+.content-l .container .block-c .list .item.active[data-v-a219d788] {
+  background-color: #0066ff;
+  color: #fff;
+}
+.content-l .container .block-c .list .item.second-style[data-v-a219d788] {
+  border: 1px solid rgba(255, 198, 145, 0.5);
+  background-color: #ffffff;
+}
+.content-l .container .block-c .list .item.second-style.active[data-v-a219d788] {
+  background-color: #0066ff;
+  color: #fff;
+}
+.content-l .container .block-c .list .item.third-style[data-v-a219d788] {
+  border: 1px solid rgba(169, 223, 184, 0.5);
+  background-color: #ffffff;
+}
+.content-l .container .block-c .list .item.third-style.active[data-v-a219d788] {
+  background-color: #0066ff;
+  color: #fff;
+}
+/* 保持原有样式结构 */
+@media only screen and (max-width: 849.99px) {
+.content .content-l[data-v-a219d788] {
+    display: none;
+}
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/components/CondSelect.vue?vue&type=style&index=0&id=64f3a1f2&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.cond-select[data-v-64f3a1f2] {
+  position: relative;
+  width: 140px;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgba(16, 16, 16, 0.05);
+  border: 1px solid #DCDFE6;
+  box-sizing: border-box;
+  color: #606266;
+  padding: 0 15px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+}
+.cond-select span[data-v-64f3a1f2] {
+  display: inline-block;
+  overflow: hidden;
+  height: 100%;
+  white-space: nowrap;
+}
+.cond-select .el-icon-circle-close[data-v-64f3a1f2],
+.cond-select .el-icon-arrow-up[data-v-64f3a1f2] {
+  right: 8px;
+  transition: all 0.3s;
+  position: absolute;
+  top: 8px;
+  color: #C0C4CC;
+  text-align: center;
+  transform: rotate(180deg);
+}
+.cond-select .el-icon-circle-close[data-v-64f3a1f2] {
+  display: none;
+}
+.cond-select.show[data-v-64f3a1f2] {
+  background-color: #FFF;
+  border: 1px solid #409EFF;
+}
+.cond-select.show .el-icon-arrow-up[data-v-64f3a1f2] {
+  transform: rotate(0deg);
+}
+.cond-select.selected[data-v-64f3a1f2] {
+  background-color: #FFF;
+}
+.cond-select.selected:hover .el-icon-circle-close[data-v-64f3a1f2] {
+  display: block;
+}
+.cond-select.selected:hover .el-icon-arrow-up[data-v-64f3a1f2] {
+  display: none;
+}
+.pop-panel .search-bar[data-v-64f3a1f2] {
+  padding: 0 12px;
+}
+.pop-panel .search-bar .el-icon-search[data-v-64f3a1f2] {
+  cursor: pointer;
+  color: #101010;
+}
+.pop-panel .list[data-v-64f3a1f2] {
+  margin-top: 5px;
+  max-height: 256px;
+  overflow-y: auto;
+}
+.pop-panel .list .list-item[data-v-64f3a1f2] {
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  padding: 0 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pop-panel .list .list-item[data-v-64f3a1f2]:hover {
+  background-color: #F5F7FA;
+}
+.pop-panel .list .list-item.active[data-v-64f3a1f2] {
+  color: #409EFF;
+}
+.pop-panel .list[data-v-64f3a1f2]::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+.pop-panel .list[data-v-64f3a1f2]::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 7px !important;
+}
+.pop-panel .list[data-v-64f3a1f2]::-webkit-scrollbar-thumb {
+  background: #d2d2d8 !important;
+  border-radius: 7px !important;
+}
+.pop-panel .list[data-v-64f3a1f2]::-webkit-scrollbar-thumb:hover {
+  background: rgba(210, 210, 216, 0.8) !important;
+  border-radius: 7px !important;
+}
+.pop-panel .list[data-v-64f3a1f2]::-webkit-scrollbar-thumb:active {
+  background: rgba(210, 210, 216, 0.8) !important;
+  border-radius: 7px !important;
+}
+.pop-panel .summary[data-v-64f3a1f2] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: rgba(16, 16, 16, 0.5);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/components/CondSelect.vue?vue&type=style&index=1&id=64f3a1f2&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.cond-select-pop {
+  margin-top: 8px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 6px !important;
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/list/components/Condition.vue?vue&type=style&index=0&id=d5bcc5e4&scoped=true&lang=less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.condition-wrap[data-v-d5bcc5e4] {
+  margin: 10px 0 2px;
+}
+.condition-wrap .condition-a[data-v-d5bcc5e4] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.condition-wrap .condition-a .tab-c[data-v-d5bcc5e4] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.condition-wrap .condition-a .tab-c .tab-item[data-v-d5bcc5e4] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-bottom: 2px solid rgba(51, 38, 98, 0.3);
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgba(16, 16, 16, 0.5);
+}
+.condition-wrap .condition-a .tab-c .tab-item[data-v-d5bcc5e4]:hover {
+  color: #101010;
+  border-color: #332662;
+}
+.condition-wrap .condition-a .tab-c .tab-item.focus[data-v-d5bcc5e4] {
+  color: #0066ff;
+  border-bottom: 2px solid #0066ff;
+}
+.condition-wrap .condition-a .create-btn[data-v-d5bcc5e4] {
+  margin-left: 14px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  font-size: 14px;
+  background: rgba(22, 132, 252, 0.9);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.condition-wrap .condition-a .create-btn[data-v-d5bcc5e4]:active {
+  background: #1684fc;
+}
+.condition-wrap .condition-a .create-btn[data-v-d5bcc5e4]:focus,
+.condition-wrap .condition-a .create-btn[data-v-d5bcc5e4]:hover {
+  background: rgba(22, 132, 252, 0.8);
+}
+.condition-wrap .condition-a .create-btn .btn-content[data-v-d5bcc5e4] {
+  display: flex;
+  align-items: center;
+}
+.condition-wrap .condition-a .create-btn .btn-content i[data-v-d5bcc5e4] {
+  font-size: 14px;
+  margin-right: 10px;
+}
+.condition-wrap .condition-b[data-v-d5bcc5e4] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.condition-wrap .condition-b .multi-conds[data-v-d5bcc5e4] {
+  display: flex;
+  align-items: center;
+}
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4] {
+  margin-bottom: 8px;
+}
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4] .cond-select,
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4] .el-input__inner {
+  border-radius: 0;
+}
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4]:first-child .cond-select,
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4]:first-child .el-input__inner {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4]:last-child .cond-select,
+.condition-wrap .condition-b .multi-conds > div[data-v-d5bcc5e4]:last-child .el-input__inner {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.condition-wrap .condition-b .multi-conds .search-keyword[data-v-d5bcc5e4] {
+  width: 220px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+}
+.condition-wrap .condition-b .multi-conds .search-keyword .el-icon-search[data-v-d5bcc5e4] {
+  cursor: pointer;
+  color: #101010;
+}
+.condition-wrap .condition-b .sort-c[data-v-d5bcc5e4] {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.condition-wrap .filter-c-m[data-v-d5bcc5e4] {
+  display: none;
+  margin-bottom: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+.condition-wrap .filter-c-m .title[data-v-d5bcc5e4] {
+  color: #101010;
+  font-size: 18px;
+  height: 32px;
+  line-height: 35px;
+  font-family: Arial-bold;
+  font-weight: bold;
+}
+.condition-wrap .filter-c-m .right-m[data-v-d5bcc5e4] {
+  display: flex;
+}
+.condition-wrap .filter-c-m .right-m .icon-box[data-v-d5bcc5e4] {
+  border: 1px solid rgba(16, 16, 16, 0.2);
+  border-radius: 5px;
+  width: 32px;
+  height: 32px;
+  margin-left: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.condition-wrap .filter-c-m .right-m .icon-box i[data-v-d5bcc5e4] {
+  color: #101010;
+  font-size: 16px;
+}
+.condition-wrap .filter-c-m .right-m .filter-btn.active[data-v-d5bcc5e4] {
+  background-color: #ffffff;
+  z-index: 999;
+}
+.condition-wrap .filter-c-m .right-m .filter-btn.active i[data-v-d5bcc5e4] {
+  color: #0066ff;
+}
+[data-v-d5bcc5e4] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 849.99px) {
+.condition-wrap .condition-a[data-v-d5bcc5e4] {
+    justify-content: center !important;
+}
+.condition-wrap .filter-c-m[data-v-d5bcc5e4] {
+    display: flex;
+}
+.condition-wrap .condition-b[data-v-d5bcc5e4] {
+    display: none;
+}
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/list/components/Item.vue?vue&type=style&index=0&id=e4756720&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.item[data-v-e4756720] {
+  width: 100%;
+  min-height: 146px;
+  background: #ffffff;
+  box-shadow: rgba(16, 16, 16, 0.1) 0px 4px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 10px;
+}
+.item .top[data-v-e4756720] {
+  height: 80px;
+  background: rgba(216, 225, 255, 0.85);
+  padding: 14px;
+  border-radius: 10px 10px 0px 0px;
+}
+.item .top .top-t[data-v-e4756720] {
+  display: flex;
+}
+.item .top .top-t div[data-v-e4756720] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  background: rgba(16, 16, 16, 0.3);
+  color: #ffffff;
+  border-radius: 3px;
+  padding: 0 5px;
+  margin-right: 5px;
+  font-size: 12px;
+}
+.item .top .top-b[data-v-e4756720] {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+.item .top .top-b span[data-v-e4756720] {
+  display: inline-block;
+  color: #101010;
+  font-size: 16px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: calc(100% - 20px);
+}
+.item .top .top-b svg[data-v-e4756720] {
+  margin-left: 2px;
+}
+.item .mid[data-v-e4756720] {
+  padding: 12px 14px;
+  padding-bottom: 0;
+}
+.item .mid div[data-v-e4756720] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.item .mid div span[data-v-e4756720] {
+  font-size: 12px;
+}
+.item .mid div span.tit[data-v-e4756720] {
+  color: rgba(16, 16, 16, 0.5);
+  margin-right: 2px;
+}
+.item .mid div span.val[data-v-e4756720] {
+  width: 0;
+  flex: 1;
+  color: rgba(16, 16, 16, 0.8);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .bottom[data-v-e4756720] {
+  padding: 14px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+.item .bottom .bottom-l[data-v-e4756720] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.item .bottom .bottom-l .avatar-c[data-v-e4756720] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.item .bottom .bottom-l .avatar-c .avatar[data-v-e4756720] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.item .bottom .bottom-l .update-time[data-v-e4756720] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .bottom .bottom-r[data-v-e4756720] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+.item .bottom .bottom-r .line[data-v-e4756720] {
+  height: 16px;
+  margin-left: 8px;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+}
+.item .bottom .bottom-r .r-item[data-v-e4756720] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+.item .bottom .bottom-r .r-item i[data-v-e4756720],
+.item .bottom .bottom-r .r-item svg[data-v-e4756720] {
+  margin-right: 5px;
+}
+.item .bottom .bottom-r .fav-c[data-v-e4756720] {
+  display: flex;
+  align-items: flex-start;
+}
+.item .bottom .bottom-r .fav-c i[data-v-e4756720] {
+  color: #fa8c16;
+}
+.item .bottom .bottom-r .fav-c.fav-disabled i[data-v-e4756720] {
+  cursor: default;
+}
+.item .bottom .bottom-r .run-btn[data-v-e4756720] {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  background: #0066ff;
+  height: 24px;
+  font-size: 12px;
+  padding: 0 6px;
+  border-color: rgba(157, 197, 226, 0.4);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.item .bottom .bottom-r .run-btn svg[data-v-e4756720] {
+  margin-right: 4px;
+}
+.item:hover .top .top-b span[data-v-e4756720] {
+  color: #0066ff;
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/list/components/List.vue?vue&type=style&index=0&id=d06a770a&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container .list-item-container[data-v-d06a770a] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container .list-item-container .item-container[data-v-d06a770a] {
+  width: 33.3%;
+  padding: 12px;
+}
+.center[data-v-d06a770a] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-d06a770a] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-d06a770a] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-d06a770a] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-d06a770a] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+@media only screen and (min-width: 1000px) and (max-width: 1700px) {
+[data-v-d06a770a] .list-item-container .item-container {
+    width: 50% !important;
+}
+[data-v-d06a770a] .list-item-container .item-container:nth-child(2n+1) {
+    padding-left: 0;
+}
+[data-v-d06a770a] .list-item-container .item-container:nth-child(2n) {
+    padding-right: 0;
+}
+}
+@media only screen and (max-width: 1000px) {
+[data-v-d06a770a] .list-item-container .item-container {
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+}
+@media only screen and (max-width: 800px) {
+.center .el-pagination[data-v-d06a770a] .el-pagination__total,
+  .center .el-pagination[data-v-d06a770a] .el-pagination__sizes,
+  .center .el-pagination[data-v-d06a770a] .el-pagination__jump {
+    display: none;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/Recommend.vue?vue&type=style&index=0&id=2cd41bd6&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.recommend-container[data-v-2cd41bd6] {
+  margin-bottom: 40px;
+  position: relative;
+}
+.recommend-container .swiper-container[data-v-2cd41bd6] {
+  padding: 10px 0;
+  overflow: hidden;
+}
+.recommend-container .swiper-container .swiper-wrapper[data-v-2cd41bd6] {
+  display: flex;
+}
+.recommend-container .item-c[data-v-2cd41bd6] {
+  background-color: #0066ff;
+  height: 139px;
+  box-shadow: 0px 4px 4px 0px rgba(16, 16, 16, 0.1);
+  border-radius: 15px;
+  position: relative;
+}
+.recommend-container .item-c .bg-icon[data-v-2cd41bd6] {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.recommend-container .item-c .bg-icon.model-svg[data-v-2cd41bd6]:not([stroke]) {
+  fill: rgba(255, 255, 255, 0.04);
+}
+.recommend-container .item-c .item[data-v-2cd41bd6] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.recommend-container .item-c .item .name[data-v-2cd41bd6] {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  height: 40px;
+}
+.recommend-container .item-c .item .name span[data-v-2cd41bd6] {
+  max-width: 80%;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 6px;
+}
+.recommend-container .item-c .item .name svg[data-v-2cd41bd6] {
+  margin-left: 5px;
+  transform: translateY(-50%);
+  color: #ff9900;
+}
+.recommend-container .item-c .item .label-c[data-v-2cd41bd6] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  height: 20px;
+  overflow: hidden;
+}
+.recommend-container .item-c .item .label-c .label[data-v-2cd41bd6] {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  font-weight: 700;
+  max-width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 5px;
+}
+.recommend-container .item-c .reconmend-icon[data-v-2cd41bd6] {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 19.28px;
+  width: 29.61px;
+}
+.recommend-container .item-c .reconmend-icon img[data-v-2cd41bd6] {
+  height: 100%;
+  width: 100%;
+}
+@media (max-width: 768px) {
+.recommend-container .swiper-container[data-v-2cd41bd6] {
+    padding: 0;
+}
+.recommend-container .swiper-button-prev[data-v-2cd41bd6],
+  .recommend-container .swiper-button-next[data-v-2cd41bd6] {
+    display: none;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/aitasktmpl/list/index.vue?vue&type=style&index=0&id=0d0696b6&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-0d0696b6] {
+  display: flex;
+}
+.content .content-r[data-v-0d0696b6] {
+  flex: 1;
+  width: 0;
+  padding: 30px 20px;
+  padding-right: 36px;
+}
+.content .modal-overlay[data-v-0d0696b6] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  /* 低于按钮的z-index */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* 弹窗样式 */
+}
+.content .modal-overlay .filter-panel[data-v-0d0696b6] {
+  width: 100%;
+  margin: 0 14px;
+  margin-top: 120px;
+  box-shadow: 0px 4px 4px 0px rgba(16, 16, 16, 0.1);
+  border-radius: 5px;
+  background-color: #fafaff;
+  border: 1px solid rgba(16, 16, 16, 0.2);
+  height: 480px;
+  z-index: 101;
+  /* 高于遮罩层 */
+}
+.content .modal-overlay .filter-panel .filter-section[data-v-0d0696b6] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content[data-v-0d0696b6] {
+  flex: 1;
+  overflow: auto;
+  margin: 24px 8px 0 16px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c[data-v-0d0696b6] {
+  margin-top: 8px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .title-c[data-v-0d0696b6] {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .title-c .title[data-v-0d0696b6] {
+  color: #101010;
+  font-size: 14px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list[data-v-0d0696b6] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item[data-v-0d0696b6] {
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0e2545;
+  box-shadow: 0px 1px 1px 0px rgba(16, 16, 16, 0.2);
+  margin: 0 10px 10px 0;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* 默认样式 */
+  border: 1px solid rgba(145, 213, 255, 0.5);
+  /* 不同样式类型 */
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item.active[data-v-0d0696b6] {
+  background-color: #0066ff;
+  color: #fff;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item.second-style[data-v-0d0696b6] {
+  border: 1px solid rgba(255, 198, 145, 0.5);
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item.second-style.active[data-v-0d0696b6] {
+  background-color: #0066ff;
+  color: #fff;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item.third-style[data-v-0d0696b6] {
+  border: 1px solid rgba(169, 223, 184, 0.5);
+}
+.content .modal-overlay .filter-panel .filter-section .filter-content .block-c .list .item.third-style.active[data-v-0d0696b6] {
+  background-color: #0066ff;
+  color: #fff;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-buttons[data-v-0d0696b6] {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-buttons .btn[data-v-0d0696b6] {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-buttons .reset-button[data-v-0d0696b6] {
+  width: 90px;
+  background-color: #ffffff;
+  color: rgba(16, 16, 16, 0.75);
+  border: 1px solid rgba(16, 16, 16, 0.5);
+  margin-right: 20px;
+}
+.content .modal-overlay .filter-panel .filter-section .filter-buttons .search-button[data-v-0d0696b6] {
+  width: 171px;
+  background-color: #1684fc;
+  color: #ffffff;
+}
+/* 保持原有样式结构 */
+@media only screen and (max-width: 849.99px) {
+.content-r[data-v-0d0696b6] {
+    padding: 20px 16px !important;
+}
+}
+

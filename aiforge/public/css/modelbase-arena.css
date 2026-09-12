@@ -1,0 +1,505 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/components/Header.vue?vue&type=style&index=0&id=2610e984&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-header[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0 20px;
+}
+.main-header .area-l .area-l-title[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 28px;
+}
+.main-header .area-l .area-l-title .separator[data-v-2610e984] {
+  color: #6f76a5;
+  font-family: SourceHanSansSC;
+  margin-right: 10px;
+}
+.main-header .area-l .area-l-title .label[data-v-2610e984] {
+  line-height: 39px;
+  margin-right: 10px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+}
+.main-header .area-l .area-l-title .label.link[data-v-2610e984] {
+  color: #0366d6;
+  font-weight: 400;
+  cursor: pointer;
+}
+.main-header .area-l .area-l-title .label.link[data-v-2610e984]:hover {
+  color: rgba(3, 102, 214, 0.8);
+}
+.main-header .area-l .area-l-title i[data-v-2610e984] {
+  color: #919191;
+  font-size: 16px;
+  margin-left: 8px;
+}
+.main-header .area-l .area-l-title .task-status[data-v-2610e984] {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  margin-left: 10px;
+}
+.main-header .area-l .area-l-title .task-status i[data-v-2610e984],
+.main-header .area-l .area-l-title .task-status span[data-v-2610e984] {
+  margin-right: 4px;
+  font-size: 14px;
+}
+.main-header .area-l .special-label[data-v-2610e984] {
+  line-height: 39px;
+  margin-right: 10px;
+  font-family: SourceHanSansSC;
+  font-size: 28px;
+  font-weight: 500;
+}
+.main-header .real-r[data-v-2610e984] {
+  margin-left: 20px;
+}
+.descr[data-v-2610e984] {
+  color: #505559;
+  font-size: 14px;
+  font-family: SourceHanSansSC;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 8px;
+  padding-left: 20px;
+}
+/* 手机端样式 */
+@media (max-width: 768px) {
+.area-l .area-l-title .lable[data-v-2610e984] {
+    font-size: 22px !important;
+}
+.area-l .special-label[data-v-2610e984] {
+    display: none;
+}
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/arena/comps/ModelSelect.vue?vue&type=style&index=0&id=daa5a12e&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.model-select[data-v-daa5a12e] {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.model-select .model-top-icon[data-v-daa5a12e] {
+  margin-bottom: 28px;
+  margin-top: -80px;
+}
+.model-select .model-top-icon img[data-v-daa5a12e] {
+  height: 90px;
+  width: 90px;
+}
+.model-select .model-top-icon .default-img[data-v-daa5a12e] {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgba(16, 16, 16, 0.2);
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 100%;
+  background: rgba(16, 16, 16, 0.05);
+}
+.model-select .category-select[data-v-daa5a12e] {
+  margin-right: 10px;
+  width: 160px;
+}
+.model-select .category-select[data-v-daa5a12e] .el-input--prefix .el-input__inner {
+  padding-left: 40px;
+  color: #0066ff;
+}
+.model-select .category-select[data-v-daa5a12e] .el-input--prefix .el-input__inner::-moz-placeholder {
+  color: #0066ff;
+}
+.model-select .category-select[data-v-daa5a12e] .el-input--prefix .el-input__inner::placeholder {
+  color: #0066ff;
+}
+.model-select .category-select[data-v-daa5a12e] .el-input__prefix {
+  display: flex;
+  align-items: center;
+}
+.model-select .category-select .icon[data-v-daa5a12e] {
+  display: flex;
+  align-items: center;
+}
+.model-select .category-select .icon img[data-v-daa5a12e] {
+  height: 30px;
+  width: 30px;
+}
+.model-select .model-item-select[data-v-daa5a12e] {
+  width: 260px;
+}
+.model-select .model-item-select[data-v-daa5a12e] .el-input__inner {
+  color: #0066ff;
+}
+.model-select .model-item-select[data-v-daa5a12e] .el-input__inner::-moz-placeholder {
+  color: #0066ff;
+}
+.model-select .model-item-select[data-v-daa5a12e] .el-input__inner::placeholder {
+  color: #0066ff;
+}
+.img-c[data-v-daa5a12e] {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.category-item[data-v-daa5a12e] {
+  display: flex;
+  align-items: center;
+}
+.category-item img[data-v-daa5a12e] {
+  height: 30px;
+  width: 30px;
+}
+@media (max-width: 768px) {
+.model-select .select-c[data-v-daa5a12e] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.model-select .select-c .category-select[data-v-daa5a12e] {
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/arena/comps/SessionUser.vue?vue&type=style&index=0&id=02f81f65&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.chat-input-wrapper[data-v-02f81f65] {
+  margin-bottom: 10px;
+  display: flex;
+  white-space: pre-line;
+}
+.chat-input-wrapper img[data-v-02f81f65] {
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+  border-radius: 100%;
+}
+.chat-input-wrapper .name[data-v-02f81f65] {
+  color: rgba(16, 16, 16, 0.8);
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+}
+.chat-input-wrapper .chat-me[data-v-02f81f65] {
+  display: inline-block;
+  border-radius: 0px 10px 10px;
+  color: #ffffff;
+  background: #5270bc;
+  padding: 8px;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/arena/comps/SessionAssistant.vue?vue&type=style&index=0&id=9e562d98&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.chat-main-content[data-v-9e562d98] {
+  padding-top: 10px;
+  display: flex;
+}
+.chat-main-content img[data-v-9e562d98] {
+  width: 30px;
+  height: 30px;
+  margin-right: 12px;
+}
+.chat-main-content .name[data-v-9e562d98] {
+  color: rgba(16, 16, 16, 0.8);
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+}
+.chat-main-content .chat-output-wrapper[data-v-9e562d98] {
+  display: inline-block;
+  color: #43436b;
+  line-height: 20px;
+  border-radius: 0px 10px 10px;
+  background: rgba(75, 148, 205, 0.1);
+}
+.chat-main-content .chat-output-wrapper .chat-container[data-v-9e562d98] {
+  display: inline-block;
+  line-height: 20px;
+  padding: 10px 12px;
+  word-break: break-all;
+}
+.chat-c2net-stop[data-v-9e562d98] {
+  margin-left: 44px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.chat-c2net-tips[data-v-9e562d98] {
+  margin-left: 44px;
+  font-size: 12px;
+  color: #bbbbbb;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.chat-c2net-tips[data-v-9e562d98]  span {
+  color: rgba(0, 71, 169, 0.5);
+  font-weight: 400;
+}
+.file-view[data-v-9e562d98] {
+  border-bottom: 1px solid rgba(1, 145, 255, 0.1);
+  word-break: break-word;
+}
+.file-view[data-v-9e562d98]:first-child {
+  padding-bottom: 1rem;
+}
+.file-view[data-v-9e562d98]:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+@media (max-width: 768px) {
+.chat-main-content[data-v-9e562d98] {
+    margin-right: 0px;
+    padding-top: 0;
+}
+.chat-main-content .chat-output-wrapper[data-v-9e562d98] {
+    padding: 8px 0;
+}
+.chat-main-content .chat-output-wrapper .chat-container .chat[data-v-9e562d98] {
+    padding: 0 !important;
+}
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/arena/comps/SessionWin.vue?vue&type=style&index=0&id=1724f9b2&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.session-win[data-v-1724f9b2] {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+.session-win .header[data-v-1724f9b2] {
+  height: 40px;
+  background: rgba(214, 219, 246, 0.3);
+  color: #0066ff;
+  font-size: 14px;
+  padding: 0px 0px 0px 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(16, 16, 16, 0.1);
+  font-weight: 700;
+  font-family: PingFangSC;
+}
+.session-win .body[data-v-1724f9b2] {
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  padding: 25px;
+}
+.session-win .body .chat-op-wrap[data-v-1724f9b2] {
+  margin-left: 44px;
+  display: flex;
+  grid-gap: 12px;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.session-win .body .chat-op-wrap i[data-v-1724f9b2] {
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 16px;
+}
+@media (max-width: 768px) {
+.session-win .body[data-v-1724f9b2] {
+    padding: 12px;
+    padding-bottom: 0px;
+}
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/views/arena/Arena.vue?vue&type=style&index=0&id=ac07b994&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.op-btn[data-v-ac07b994] {
+  background-color: white;
+  color: #0066ff;
+  height: 40px;
+  border-color: #0191ff;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.op-btn .btn-content[data-v-ac07b994] {
+  color: #0066ff;
+  font-size: 16px;
+  font-family: PingFangSC;
+}
+.op-btn.is-disabled[data-v-ac07b994] {
+  border-color: rgba(16, 16, 16, 0.2);
+}
+.op-btn.is-disabled .btn-content[data-v-ac07b994] {
+  color: rgba(16, 16, 16, 0.5);
+}
+.op-btn.is-disabled[data-v-ac07b994]:hover {
+  background-color: white;
+}
+.content-box[data-v-ac07b994] {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content-box .main-body[data-v-ac07b994] {
+  flex: 1;
+  height: 0;
+  position: relative;
+  margin-right: 16px;
+}
+.content-box .main-body .content[data-v-ac07b994] {
+  height: calc(100% - 32px);
+  margin-top: 16px;
+  margin-bottom: 16px;
+  overflow-y: auto;
+  padding: 0 0px 10px 10px;
+  scroll-behavior: smooth;
+}
+.content-box .main-body .content .arena-container[data-v-ac07b994] {
+  height: 100%;
+  position: relative;
+  padding-left: 16px;
+}
+.content-box .main-body .content .arena-container .top[data-v-ac07b994] {
+  background-color: gold;
+  height: calc(100% - 98px);
+  display: flex;
+  border: 1px solid rgba(16, 16, 16, 0.1);
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+.content-box .main-body .content .arena-container .top .left[data-v-ac07b994] {
+  width: 50%;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+  overflow-y: auto;
+  position: relative;
+}
+.content-box .main-body .content .arena-container .top .right[data-v-ac07b994] {
+  width: 50%;
+  overflow-y: auto;
+  position: relative;
+}
+.content-box .main-body .content .arena-container .bottom[data-v-ac07b994] {
+  margin-top: 18px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-box .main-body .content .arena-container .bottom .send-box[data-v-ac07b994] {
+  display: flex;
+  align-items: center;
+  width: 900px;
+  position: relative;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .send-txt[data-v-ac07b994] {
+  height: 60px;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  font-style: normal;
+  color: #101010;
+  letter-spacing: 0px;
+  padding: 7px 10px;
+  background: #ffffff;
+  border: 2px solid #0191ff;
+  border-radius: 10px;
+  padding-right: 100px;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .send-txt[data-v-ac07b994]::-webkit-scrollbar {
+  width: 0;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn[data-v-ac07b994] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn.btn-1[data-v-ac07b994] {
+  color: #0066ff;
+  cursor: pointer;
+  right: 12px;
+  top: 20px;
+  padding: 2px 4px;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn.btn-1.disabled-send[data-v-ac07b994] {
+  cursor: not-allowed;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn.btn-1 i[data-v-ac07b994] {
+  font-size: 20px;
+  margin-right: 5px;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn.btn-1 span[data-v-ac07b994] {
+  font-size: 16px;
+}
+.content-box .main-body .content .arena-container .bottom .send-box.disabled-send .send-txt[data-v-ac07b994] {
+  color: #a4adb3;
+  background: rgba(16, 16, 16, 0.1);
+  border-color: transparent;
+}
+.content-box .main-body .content .arena-container .bottom .send-box.disabled-send .btn-2[data-v-ac07b994] {
+  top: 10px;
+  right: 10px;
+  height: 40px;
+  background: #3a3a3a;
+  border-radius: 4px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+@media (max-width: 768px) {
+.content-box .main-body .content[data-v-ac07b994] {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.content-box .main-body .content .arena-container[data-v-ac07b994] {
+    padding-left: 6px;
+}
+.content-box .main-body .content .arena-container .top[data-v-ac07b994] {
+    flex-direction: column;
+    height: calc(100% - 130px);
+}
+.content-box .main-body .content .arena-container .top .left[data-v-ac07b994] {
+    width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid rgba(16, 16, 16, 0.1);
+}
+.content-box .main-body .content .arena-container .top .right[data-v-ac07b994] {
+    width: 100%;
+    height: 50%;
+}
+.content-box .main-body .content .arena-container .bottom[data-v-ac07b994] {
+    margin-top: 10px;
+    height: 120px;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .send-txt[data-v-ac07b994] {
+    height: 110px;
+    padding-right: 10px;
+}
+.content-box .main-body .content .arena-container .bottom .send-box .btn.btn-1[data-v-ac07b994] {
+    height: 24px;
+    bottom: 12px;
+    top: auto;
+}
+.content-box .main-body .content .arena-container .bottom .send-box.disabled-send .btn-2[data-v-ac07b994] {
+    top: auto;
+    bottom: 10px;
+}
+}
+

@@ -1,0 +1,67 @@
+/* Site header / nav brand mark */
+nav [data-framer-name="Logo and menu"] a[data-framer-name="Light"],
+[data-framer-name="Logo and menu"] a[href="/pages/index.html"],
+[data-framer-name="Logo and menu"] a[href="./"] {
+  width: 168px !important;
+  height: 50px !important;
+  min-width: 168px !important;
+  min-height: 50px !important;
+  gap: 0 !important;
+  background-color: transparent !important;
+  background-image: url("/assets/images/brand-logo.png") !important;
+  background-position: left center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  image-rendering: auto !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+nav [data-framer-name="Logo and menu"] a[data-framer-name="Light"] > *,
+[data-framer-name="Logo and menu"] a[href="/pages/index.html"] > *,
+[data-framer-name="Logo and menu"] a[href="./"] > * {
+  display: none !important;
+}
+
+/* Opening splash / preloader logo */
+.framer-1i86ww-container [data-framer-name="Elements/Logo"],
+[data-framer-name="Elements/Logo"] {
+  width: 220px !important;
+  height: 64px !important;
+  min-width: 220px !important;
+  min-height: 64px !important;
+  background-color: transparent !important;
+  background-image: url("/assets/images/brand-logo.png") !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+}
+
+.framer-1i86ww-container [data-framer-name="Elements/Logo"] > *,
+.framer-1i86ww-container [data-framer-name="Elements/Logo"] *,
+[data-framer-name="Elements/Logo"] > *,
+[data-framer-name="Elements/Logo"] * {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+/* Bottom-left: Use for Free template CTA */
+a[href="https://framer.link/pAEaDpW"],
+a[href*="framer.link/pAEaDpW"],
+#template-overlay {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Footer / floating Framer badge */
+#__framer-badge-container,
+.__framer-badge,
+a.__framer-badge {
+  display: none !important;
+  pointer-events: none !important;
+}

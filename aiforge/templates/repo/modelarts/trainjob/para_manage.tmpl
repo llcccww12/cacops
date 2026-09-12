@@ -1,0 +1,155 @@
+{{template "base/head" .}}
+<div class="modelarts">
+    <div class="repository release  modelarts train_job view container">
+        {{template "repo/header" .}}
+        <div class="ui container">
+            <div class="ui grid">
+                {{template "repo/modelarts/navbar" .}}
+                <!-- 右侧 -->
+                <div class="ui thirteen wide column">
+                    <div class="ui column stackable grid">
+                        <div class="column">
+                            <h2>{{.i18n.Tr "repo.modelarts.train_job_para_admin"}}</h2>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="ui grid">
+                        <div class="row">
+                            <div class="ui sixteen wide column">
+                                <div class="ui sixteen wide column">
+                                    <div class="ui two column stackable grid">
+                                        <div class="column">
+                                        </div>
+                                        <div class="column right aligned">
+                                            <div class="ui right dropdown type jump item">
+                                                <span class="text">
+                                                    {{.i18n.Tr "repo.issues.filter_sort"}}<i class="dropdown icon"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 任务展示 -->
+                                <div class="dataset list">
+                                    {{range .Tasks}}
+                                    <div class="ui grid stackable item">
+                                        <div class="row">
+                                            <!-- 任务名 -->
+                                            <div class="five wide column">
+                                                <a class="title" href="{{$.Link}}/{{.JobID}}">
+
+                                                    <span class="fitted">{{.JobName}}</span>
+                                                </a>
+                                            </div>
+
+                                            <!-- 引擎类型-->
+                                            <div class="four wide column job-status" id="{{.JobID}}" data-repopath="{{$.RepoRelPath}}" data-jobid="{{.JobID}}">
+                                                {{.Status}}
+                                            </div>
+
+                                            <!-- 创建时间 -->
+                                            <div class="three wide column">
+                                                <span class="ui text center">{{svg "octicon-clock" 16}} {{TimeSinceUnix .CreatedUnix $.Lang}}</span>
+                                            </div>
+
+                                            <!-- 编辑 -->
+                                            <div class="two wide column">
+                                                <a class="title" href="{{$.Link}}/{{.JobID}}/edit">
+                                                    <span class="fitted">编辑</span>
+                                                </a>
+                                            </div>
+
+                                            <!-- 删除 -->
+                                            <div class="two wide column">
+                                                <div class="ui text center clipboard">
+                                                    <form id="delForm-{{.JobID}}" action="{{$.Link}}/{{.JobID}}/del" method="post">
+                                                        {{$.CsrfTokenHtml}}
+                                                        <a class="fitted" onclick="assertDelete(this)" style="font-size:16px; font-weight:bold">删除</a>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {{end}} {{template "base/paginate" .}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认模态框 -->
+    <div id="deletemodel">
+        <div class="ui basic modal">
+            <div class="ui icon header">
+                <i class="trash icon"></i> {{.i18n.Tr "cloudbrain.delete_task"}}
+            </div>
+
+            <div class="content">
+                <p>{{.i18n.Tr "cloudbrain.task_delete_confirm"}}</p>
+            </div>
+            <div class="actions">
+                <div class="ui red basic inverted cancel button">
+                    <i class="remove icon"></i> {{.i18n.Tr "cloudbrain.operate_cancel"}}
+                </div>
+                <div class="ui green basic inverted ok button">
+                    <i class="checkmark icon"></i> {{.i18n.Tr "cloudbrain.operate_confirm"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+
+<script>
+    // 删除时用户确认
+    var lang_canceled_operation = {{.i18n.Tr "repo.canceled_operation"}};
+    function assertDelete(obj) {
+        if (obj.style.color == "rgb(204, 204, 204)") {
+            return
+        } else {
+            var delId = obj.parentNode.getAttribute('id')
+            flag = 1;
+            $('.ui.basic.modal')
+                .modal({
+                    onDeny: function() {
+                        flag = false
+                    },
+                    onApprove: function() {
+                        document.getElementById(delId).submit()
+                        flag = true
+                    },
+                    onHidden: function() {
+                        if (flag == false) {
+                            $('.alert').html(lang_canceled_operation).removeClass('alert-success').addClass('alert-danger').show().delay(1500).fadeOut();
+                        }
+                    }
+                })
+                .modal('show')
+        }
+    }
+
+    // 加载任务状态
+    $(document).ready(function() {
+        $(".job-status").each((index, job) => {
+            const jobID = job.dataset.jobid;
+            const repoPath = job.dataset.repopath;
+            if (job.textContent.trim() == 'STOPPED') {
+                return
+            }
+
+            $.get(`/api/v1/repos/${repoPath}/modelarts/train-job/${jobID}`, (data) => {
+                const jobID = data.JobID
+                const status = data.JobStatus
+                $('#' + jobID).text(status)
+                    // console.log(data)
+            }).fail(function(err) {
+                console.log(err);
+            });
+        });
+    });
+</script>

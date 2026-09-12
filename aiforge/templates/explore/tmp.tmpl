@@ -1,0 +1,285 @@
+{{template "base/head" .}}
+<style>
+	.mg-b-1 {
+		margin-bottom: 1rem;
+	}
+
+	.mg-b-2 {
+		margin-bottom: 2rem;
+	}
+
+	.mg-l-1 {
+		margin-left: 1rem;
+	}
+
+	.text-gray-400 {
+		--tw-text-opacity: 1;
+		color: rgba(156, 163, 175, var(--tw-text-opacity));
+	}
+
+	.text-sm {
+		font-size: .875rem;
+		line-height: 1.25rem;
+	}
+
+	.underline {
+		text-decoration: underline;
+	}
+
+	.flex {
+		display: flex;
+	}
+
+	.font-medium {
+		font-weight: 500;
+	}
+
+	.flex-wrap {
+		flex-wrap: wrap;
+	}
+
+	.tag {
+		background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+		border-color: transparent;
+		border-radius: 0.5rem;
+		border-width: 1px;
+		font-size: .875rem;
+		line-height: 1.25rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.tag-red {
+		--tw-gradient-from: #fef2f2;
+		--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, hsla(0, 86%, 97%, 0));
+		--tw-gradient-to: #fef2f2;
+		--tw-text-opacity: 1;
+		color: rgba(153, 27, 27, var(--tw-text-opacity));
+	}
+
+	.tag-purple {
+		--tw-gradient-from: #f5f3ff;
+		--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(245, 243, 255, 0));
+		--tw-gradient-to: #f5f3ff;
+		--tw-text-opacity: 1;
+		color: rgba(91, 33, 182, var(--tw-text-opacity));
+	}
+
+	.tag-blue {
+		--tw-gradient-from: #eff6ff;
+		--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 246, 255, 0));
+		--tw-gradient-to: #eff6ff;
+		--tw-text-opacity: 1;
+		color: rgba(30, 64, 175, var(--tw-text-opacity));
+	}
+
+	.tag.inactive {
+		filter: grayscale(100%);
+		opacity: .5;
+	}
+
+	.tag.tag-active {
+		background-color: #0366d6;
+		color: #ffffff;
+	}
+
+	.tag-gray {
+		background-color: #f8f9fa;
+		color: #415058;
+	}
+
+	.tag {
+		align-items: center;
+		display: inline-flex;
+		flex: none;
+		height: 2rem;
+		margin-bottom: 0.35rem;
+		margin-right: 0.35rem;
+		max-width: 100%;
+	}
+
+	.tag>span {
+		padding: 0.75rem;
+		font-size: 14px;
+	}
+
+	.repo_dataset_header {
+		font-size: 12px;
+		color: #3291F8;
+	}
+
+	.heart-stroke {
+		stroke: #FA8C16;
+		stroke-width: 2;
+		fill: #fff
+	}
+
+	.stars_active {
+		fill: #FA8C16 !important;
+		stroke: #FA8C16 !important
+	}
+</style>
+<div class="explore repositories">
+	{{template "explore/dataset_search" .}}
+	<div>
+		<div class="ui container">
+			<div class="ui grid">
+
+				{{template "explore/dataset_left" .}}
+
+				<div class="ui sixteen wide mobile sixteen wide tablet twelve wide computer column">
+					<div class="ui row">
+						<h2 class="ui left floated medium header">
+							{{.i18n.Tr "datasets"}}
+						</h2>
+						<div class="ui right floated secondary filter menu">
+							<!-- Sort -->
+							<div class="ui right dropdown type jump item">
+								<span class="text">
+									{{.i18n.Tr "repo.issues.filter_sort"}}
+									<i class="dropdown icon"></i>
+								</span>
+								<div class="menu">
+									<a class="{{if eq .SortType "default"}}active{{end}} item"
+										href="{{$.Link}}?sort=default&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.default"}}</a>
+									<a class="{{if eq .SortType "newest"}}active{{end}} item"
+										href="{{$.Link}}?sort=newest&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.latest"}}</a>
+									<a class="{{if eq .SortType "oldest"}}active{{end}} item"
+										href="{{$.Link}}?sort=oldest&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.oldest"}}</a>
+									<a class="{{if eq .SortType "recentupdate"}}active{{end}} item"
+										href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}</a>
+									<a class="{{if eq .SortType "leastupdate"}}active{{end}} item"
+										href="{{$.Link}}?sort=leastupdate&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}</a>
+									<a class="{{if eq .SortType "downloadtimes"}}active{{end}} item"
+										href="{{$.Link}}?sort=downloadtimes&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.downloadtimes"}}</a>
+									<a class="{{if eq .SortType "moststars"}}active{{end}} item"
+										href="{{$.Link}}?sort=moststars&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "dataset.collection_num"}}</a>
+									<a class="{{if eq .SortType "mostusecount"}}active{{end}} item"
+										href="{{$.Link}}?sort=mostusecount&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$.License}}&recommend={{$.Recommend}}">{{.i18n.Tr "repo.issues.filter_sort.mostusecount"}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="datasets-square" style="display:none" data-repolink="{{.RepoLink}}"></div>
+					<div class="ui row" style="clear: both;" id="dataset-base">
+						<el-checkbox v-model="checked" style="padding: 0.5rem 1rem;" @change="handleCheckedChange">
+							仅显示平台推荐</el-checkbox>
+						<div class="ui two cards">
+							{{range $k, $v :=.Datasets}}
+							<div class="ui card" @click="gotoDataset('{{.Repo.Link}}/datasets')"
+								style="cursor: pointer;box-shadow: 0px 4px 4px 0px rgba(232,232,232,0.6);border: 1px solid rgba(232, 232, 232, 1);">
+								<div class="content" style="border-bottom: none;">
+									<div
+										style="font-size: 16px;color:#0366D6;font-family: SourceHanSansSC-medium;height: 34px;font-weight: bold;display: flex;align-items: center">
+										<span title="{{.Title}}" class="nowrap"
+											style="display: inline-block;">{{.Title}}</span>{{if .Recommend}}<img
+											src="/img/jian.svg" style="margin-left: 0.5rem;">{{end}}
+										{{if $.IsSigned}}
+										<span
+											style="display: flex;align-items: center;justify-content: flex-end;cursor: pointer;font-size: 12px;font-weight: normal;flex: 1;margin-left: 1.5rem;"
+											@click.stop="postSquareStar({{.ID}},'{{.Repo.Link}}/datasets',{{$k}})">
+
+											<div style="line-height: 1;margin-right: 4px;margin-bottom: -2px;">
+												<svg width="1.4em" height="1.4em" viewBox="0 0 32 32"
+													class="heart-stroke" :class='{stars_active:starActives[{{$k}}]}'>
+													<path
+														d="M4.4 6.54c-1.761 1.643-2.6 3.793-2.36 6.056.24 2.263 1.507 4.521 3.663 6.534a29110.9 29110.9 0 0010.296 9.633l10.297-9.633c2.157-2.013 3.424-4.273 3.664-6.536.24-2.264-.599-4.412-2.36-6.056-1.73-1.613-3.84-2.29-6.097-1.955-1.689.25-3.454 1.078-5.105 2.394l-.4.319-.398-.319c-1.649-1.316-3.414-2.143-5.105-2.394a7.612 7.612 0 00-1.113-.081c-1.838 0-3.541.694-4.983 2.038z">
+													</path>
+												</svg>
+											</div>
+											<span style="line-height: 1;color: #101010;">${starItems[{{$k}}]}</span>
+										</span>
+										{{else}}
+										<span
+											style="display: flex;align-items: center;justify-content: flex-end;cursor: pointer;font-size: 12px;font-weight: normal;flex: 1;margin-left: 1.5rem;">
+
+											<div style="line-height: 1;margin-right: 4px;margin-bottom: -2px;">
+												<svg width="1.4em" height="1.4em" viewBox="0 0 32 32"
+													class="heart-stroke" :class='{stars_active:starActives[{{$k}}]}'>
+													<path
+														d="M4.4 6.54c-1.761 1.643-2.6 3.793-2.36 6.056.24 2.263 1.507 4.521 3.663 6.534a29110.9 29110.9 0 0010.296 9.633l10.297-9.633c2.157-2.013 3.424-4.273 3.664-6.536.24-2.264-.599-4.412-2.36-6.056-1.73-1.613-3.84-2.29-6.097-1.955-1.689.25-3.454 1.078-5.105 2.394l-.4.319-.398-.319c-1.649-1.316-3.414-2.143-5.105-2.394a7.612 7.612 0 00-1.113-.081c-1.838 0-3.541.694-4.983 2.038z">
+													</path>
+												</svg>
+											</div>
+											<span style="line-height: 1;color: #101010;">${starItems[{{$k}}]}</span>
+										</span>
+										{{end}}
+
+									</div>
+									{{if or (.Category) (.Task) (.License)}}
+									<div style="font-size: 12px;margin-top: 5px;">
+										{{if .Category}}
+										{{$category := .Category}}
+										<a class="ui repo-topic label topic"
+											href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{.Category}}&task={{$.Task}}&license={{$.License}}">{{$.i18n.Tr (printf "dataset.category.%s" $category)}}</a>
+										{{end}}
+										{{if .Task}}
+										{{$task := .Task}}
+										<a class="ui repo-topic label topic"
+											href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{.Task}}&license={{$.License}}">{{$.i18n.Tr (printf "dataset.task.%s" $task)}}</a>
+										{{end}}
+										{{if .License}}
+										<a class="ui repo-topic label topic"
+											href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{.License}}">{{.License}}</a>
+										{{end}}
+									</div>
+									{{end}}
+									<div class="description"
+										style="-webkit-box-orient: vertical;-webkit-line-clamp: 2;display: -webkit-box;overflow: hidden;color:#999999;font-size: 14px;margin-top: 10px;">
+										<p>{{.Description}}</p>
+									</div>
+
+								</div>
+								<div class="extra content" style="border-top: none !important;">
+									<div style="display: flex;align-items: center;">
+										{{if eq .UserID 0}}
+										<a href="{{AppSubUrl}}/{{.Repo.OwnerName}}" title="{{.Repo.OwnerName}}">
+											<img class="ui avatar image" style="width: 22px;height:22px;"
+												src="/user/avatar/{{.Repo.OwnerName}}/-1">
+										</a>
+										{{else}}
+										<a href="{{AppSubUrl}}/{{.User.Name}}" title="{{.User.Name}}">
+											<img class="ui avatar image" style="width: 22px;height:22px;"
+												src="/user/avatar/{{.User.Name}}/-1">
+										</a>
+										{{end}}
+										<span
+											style="color: #999999;font-size: 12px;margin-left: 0.5rem;">{{TimeSinceUnixShort .CreatedUnix}}</span>
+										<span
+											style="display: flex;align-items: center;justify-content: center;margin: 0 1rem;"
+											title="{{$.i18n.Tr "repo.issues.filter_sort.citations"}}">
+											<i class="ri-link"></i>
+											<span
+												style="color: #101010; font-size: 12px;margin-left: 0.2rem;">{{.UseCount}}</span>
+										</span>
+										<span style=" display: flex;align-items: center;justify-content: center;"
+											title='{{$.i18n.Tr "repo.issues.filter_sort.downloadtimes"}}'>
+											<i class="ri-download-line"></i>
+											<span
+												style="color: #101010;font-size: 12px;margin-left: 0.2rem;">{{.DownloadTimes}}</span>
+										</span>
+									</div>
+								</div>
+							</div>
+							{{end}}
+
+
+						</div>
+					</div>
+
+					<div id="app" style="margin-top: 2rem;">
+						<div class="center">
+							<el-pagination background @current-change="handleCurrentChange" :current-page="page"
+								:page-sizes="[30,15]" :page-size="30" layout="total, sizes, prev, pager, next, jumper"
+								:total="{{.Page.Paginater.Total}}">
+							</el-pagination>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

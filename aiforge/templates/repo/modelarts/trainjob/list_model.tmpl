@@ -1,0 +1,47 @@
+{{template "base/head" .}}
+<div class="repository">
+{{template "repo/header" .}}
+    <div class="repository new repo ui middle very relaxed page grid">
+            <div class="column">
+                    {{template "base/alert" .}}
+                    <h4 class="ui top attached header">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                {{$.i18n.Tr "repo.modelarts.version_manage"}}
+                            </div>
+                            <div class="column right aligned">
+                                <a href="javascript:window.history.back();">{{svg "octicon-reply" 16}}{{$.i18n.Tr "repo.modelarts.back"}}</a>
+                            </div>
+                        </div>     
+                    </h4>
+                    <div class="ui attached segment">
+                            <div class="ui style accordion">
+                                    <div class="title active">
+                                        <i class="dropdown icon"></i>
+                                        {{$.i18n.Tr "repo.modelarts.train_job.version"}}
+                                    </div>
+                                    <div class="content active">
+                                        <div class="ui list">
+                                                {{.ListModel}}
+                                                <div class="item">
+                                                    <i class="file icon"></i>
+                                                    <div class="content">
+                                                        <div class="header">semantic.json</div>
+                                                        <div class="description">Contains build settings for gulp</div>
+                                                    </div>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                            </div>
+
+                    </div>
+            </div>
+            
+    </div>
+</div>
+{{template "base/footer" .}}
+
+<script>
+   
+</script>

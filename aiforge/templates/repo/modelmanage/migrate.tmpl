@@ -1,0 +1,6 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-model-migrate.css?v={{MD5 AppVer}}" />
+<script>window._HfModelOwner = {{.HfModelOwner}};</script>
+<div id="__vue-root"></div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-migrate.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

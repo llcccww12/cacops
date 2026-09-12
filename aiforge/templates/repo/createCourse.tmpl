@@ -1,0 +1,109 @@
+<style>
+#course_label::after{
+    display: inline-block;
+    vertical-align: top;
+    margin: -.2em 0 0 .2em;
+    content: '*';
+    color: #db2828;
+}
+</style>
+{{template "base/head" .}}
+<div class="repository new repo" style="margin-top: 40px;">
+	<div class="ui middle very relaxed page grid">
+		<div class="column">
+			<form class="ui form" action="{{.Link}}" method="post" id="create_repo_form">
+				{{.CsrfTokenHtml}}
+				<h3 class="ui top attached header">
+					{{.i18n.Tr "new_course"}}
+				</h3>
+				<div class="ui attached segment">
+					{{template "base/alert" .}}
+					<div class="inline required field {{if .Err_RepoName}}error{{end}}" >
+                        <label for="Alias">{{.i18n.Tr "form.courseAlias"}}</label>
+                        <input id="alias" name="alias" value="{{.alias}}" autofocus required>
+                        <span class="help">{{.i18n.Tr "form.reponame_dash_dot_error"}}</span>
+                    </div>
+                
+                    <div class="inline required fields" style="margin-bottom: 0;">
+                        <label id="course_label" style="text-align: right;width: 250px!important;word-wrap: break-word;">{{.i18n.Tr "form.courseAdress"}}</label>
+                        <div class="required field {{if .Err_Owner}}error{{end}}" style="padding: 0;">
+                            <div class="ui selection owner dropdown" id="ownerDropdown">
+                                <input type="hidden" id="uid" name="uid" value="{{.Owner.Name}}" required>
+                                <div class="text"  title="{{.Owner.Name}}">
+                                    <img class="ui mini image" src="{{.Owner.RelAvatarLink}}">
+                                    {{$.Owner.Name}}
+                                </div>
+                            </div>
+                        </div>
+                         <div class="ui interval" style="width: 0.6em;font-size: 2rem;line-height: 0px;text-align: center;">/</div>
+                        <div class="required field {{if .Err_RepoName}}error{{end}}">
+                            <input style="width: 100% !important;" id="repo_name" name="repo_name" value="{{.repo_name}}" autofocus required>
+                        </div>
+                    </div>
+                    <span style="display: block;margin-bottom: 1em;" class="help">{{.i18n.Tr "form.repoadd_dash_dot_error"}}</span>
+                    <div class="inline field" id="repoAdress" style="display: none;word-break: break-all;">
+                        <label for="">{{.i18n.Tr "form.course_Adress"}}:</label>
+                        <span style="flex: 1;"></span>
+                    </div>
+
+                    <div class="inline field" style="display: flex;align-items:center;">
+                        <label style="margin: .035714em 1em 0 0;">{{.i18n.Tr "repo.model.manage.label"}}</label>
+                        <div class="ui multiple search selection dropdown" id="dropdown_container">
+                            <input type="hidden" name="topics" value="">
+                            <div class="default text" id="default_text">{{.i18n.Tr "repo.repo_label_helpe"}}</div>
+                            <div class="menu" id="course_label_item">
+                            </div>
+                        </div>
+                    </div>
+
+					<div class="inline field {{if .Err_Description}}error{{end}}">
+						<label for="description">{{.i18n.Tr "course_desc"}}</label>
+						<textarea id="description" name="description" maxlength="254">{{.description}}</textarea>
+					</div>
+					<div class="inline field">
+						<label></label>
+						<button class="ui green button" id="submit_reponame">
+							{{.i18n.Tr "new_course"}}
+						</button>
+						<a class="ui button" href="javascript:history.go(-1)">{{.i18n.Tr "cancel"}}</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}
+
+<script>
+
+$(document).ready(function(){
+    $('.ui.multiple.search.selection.dropdown')
+    .dropdown({
+        allowAdditions: true,
+        onChange: function(value, text, $selectedItem) {
+            $('#course_label_item').empty()
+        }
+    })
+    let defaultText = document.getElementById("default_text").offsetHeight
+    defaultText = defaultText>40 ? defaultText+12 :defaultText
+    $("#dropdown_container").css("height",defaultText)
+    $('input.search').bind('input propertychange', function (event) {
+        $("#dropdown_container").removeAttr("style"); 
+        const query  = $('input.search').val()
+        if(!query){
+            $('#course_label_item').empty()
+        }else{
+            $.get(`/api/v1/topics/search?q=${query}`,(data)=>{
+                if(data.topics.length!==0){
+                    let html=''
+                    $('#course_label_item').empty()
+                    data.topics.forEach(element => {
+                        html += `<div class="item" data-value="${element.topic_name}">${element.topic_name}</div>`
+                    });
+                    $('#course_label_item').append(html)
+                }
+            })
+        }
+    });
+})
+</script>

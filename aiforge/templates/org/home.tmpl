@@ -1,0 +1,51 @@
+{{template "base/head" .}}
+<div class="organization profile">
+	{{template "org/header" .}}
+	<script>
+		window.PageData = {
+			Org: {
+				ID: {{.Org.ID}},
+				SizedRelAvatarLink: {{.Org.SizedRelAvatarLink 140}},
+				Name: {{.Org.Name}},
+				DisplayName: {{.Org.DisplayName}},
+				Description: {{.Org.Description}},
+				Location: {{.Org.Location}},
+				Website: {{.Org.Website}},
+				NumTeams: {{.Org.NumTeams}},
+			},
+			OrgLink: {{.OrgLink}},
+			PageIsOrgHome: {{.PageIsOrgHome}},
+			PageIsOrgHomeModel: {{.PageIsOrgHomeModel}},
+			PageIsOrgHomeDataset: {{.PageIsOrgHomeDataset}},
+			PageIsOrgHomeStorage: {{.PageIsOrgHomeStorage}},
+			IsOrganizationOwner: {{.IsOrganizationOwner}},
+			IsOrganizationMember: {{.IsOrganizationMember}},
+			IsPublicMember: {{.IsPublicMember}},
+			tags: {{.tags}},
+			OrgTopics: {{.OrgTopics}},
+			CanCreateOrgRepo: {{.CanCreateOrgRepo}},
+			CanCreateOrgDataset: {{.CanCreateOrgDataset}},
+			CanCreateOrgAimodel: {{.CanCreateOrgAimodel}},
+			Members: [
+				{{range .Members}}
+					{{if or $.IsOrganizationMember (.IsPublicMember $.Org.ID)}}
+						{HomeLink:{{.HomeLink}},Name:{{.Name}},FullName:{{.FullName}},RelAvatarLink:{{.RelAvatarLink}}},
+					{{end}}
+				{{end}}
+			],
+			MembersTotal: {{.MembersTotal}},
+			Teams: [
+				{{range .Teams}}
+					{Name:{{.Name}},LowerName:{{.LowerName}},NumMembers:{{.NumMembers}},NumRepos:{{.NumRepos}}},
+				{{end}}
+			],
+			NumTeams: {{.Org.NumTeams}},
+		};
+	</script>
+	<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-organization-home.css?v={{MD5 AppVer}}" />
+	<div class="ui container">
+		<div id="__vue-root"></div>
+	</div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-organization-home.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

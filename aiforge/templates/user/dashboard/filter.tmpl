@@ -1,0 +1,71 @@
+<div class="filter-c">
+  <div class="tab-c">
+    {{if .ContextUser.IsOrganization}}
+    <a class="tab-item nowrap" href="/org/{{.ContextUser.Name}}/repositories?tab=all">{{.i18n.Tr "all"}}</a>
+    {{else}}
+    <a class="tab-item nowrap" href="/repositories?tab=all">{{.i18n.Tr "all"}}</a>
+    <a class="tab-item nowrap" href="/repositories?tab=source">{{.i18n.Tr "sources"}}</a>
+    <a class="tab-item nowrap" href="/repositories?tab=fork">{{.i18n.Tr "forks"}}</a>
+    <a class="tab-item nowrap" href="/repositories?tab=mirror">{{.i18n.Tr "mirrors"}}</a>
+    <a class="tab-item nowrap" href="/repositories?tab=collaborative">{{.i18n.Tr "collaborative"}}</a>
+    {{end}}
+  </div>
+  <div class="right">
+    {{if .ContextUser.IsOrganization}}
+    <a class="btn-loc {{if .PageIsIssues}} active {{end}}" href="/org/{{.ContextUser.Name}}/repositories/issues"> 
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C29.5228 44 34.5228 41.7614 38.1421 38.1421C41.7614 34.5228 44 29.5228 44 24C44 18.4772 41.7614 13.4772 38.1421 9.85786C34.5228 6.23858 29.5228 4 24 4C18.4772 4 13.4772 6.23858 9.85786 9.85786C6.23858 13.4772 4 18.4772 4 24C4 29.5228 6.23858 34.5228 9.85786 38.1421C13.4772 41.7614 18.4772 44 24 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 37C25.3807 37 26.5 35.8807 26.5 34.5C26.5 33.1193 25.3807 32 24 32C22.6193 32 21.5 33.1193 21.5 34.5C21.5 35.8807 22.6193 37 24 37Z" fill="#101010"/><path d="M24 12V28" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="margin-left:4px;">{{.i18n.Tr "issues"}}</span>
+    </a>
+    <a class="btn-loc {{if .PageIsPulls}} active {{end}}" href="/org/{{.ContextUser.Name}}/repositories/pulls"> 
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37 44C39.2091 44 41 42.2091 41 40C41 37.7909 39.2091 36 37 36C34.7909 36 33 37.7909 33 40C33 42.2091 34.7909 44 37 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 12C13.2091 12 15 10.2091 15 8C15 5.79086 13.2091 4 11 4C8.79086 4 7 5.79086 7 8C7 10.2091 8.79086 12 11 12Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 44C13.2091 44 15 42.2091 15 40C15 37.7909 13.2091 36 11 36C8.79086 36 7 37.7909 7 40C7 42.2091 8.79086 44 11 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 12V36" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 10H33C35.2091 10 37 11.7909 37 14V36" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 16L24 10L30 4" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="margin-left:4px;">{{.i18n.Tr "pull_requests"}}</span>
+    </a>
+    {{else}}
+    <a class="btn-loc {{if .PageIsIssues}} active {{end}}" href="/repositories/issues"> 
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 44C29.5228 44 34.5228 41.7614 38.1421 38.1421C41.7614 34.5228 44 29.5228 44 24C44 18.4772 41.7614 13.4772 38.1421 9.85786C34.5228 6.23858 29.5228 4 24 4C18.4772 4 13.4772 6.23858 9.85786 9.85786C6.23858 13.4772 4 18.4772 4 24C4 29.5228 6.23858 34.5228 9.85786 38.1421C13.4772 41.7614 18.4772 44 24 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 37C25.3807 37 26.5 35.8807 26.5 34.5C26.5 33.1193 25.3807 32 24 32C22.6193 32 21.5 33.1193 21.5 34.5C21.5 35.8807 22.6193 37 24 37Z" fill="#101010"/><path d="M24 12V28" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="margin-left:4px;">{{.i18n.Tr "issues"}}</span>
+    </a>
+    <a class="btn-loc {{if .PageIsPulls}} active {{end}}" href="/repositories/pulls"> 
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37 44C39.2091 44 41 42.2091 41 40C41 37.7909 39.2091 36 37 36C34.7909 36 33 37.7909 33 40C33 42.2091 34.7909 44 37 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 12C13.2091 12 15 10.2091 15 8C15 5.79086 13.2091 4 11 4C8.79086 4 7 5.79086 7 8C7 10.2091 8.79086 12 11 12Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 44C13.2091 44 15 42.2091 15 40C15 37.7909 13.2091 36 11 36C8.79086 36 7 37.7909 7 40C7 42.2091 8.79086 44 11 44Z" fill="none" stroke="#101010" stroke-width="4" stroke-linejoin="round"/><path d="M11 12V36" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 10H33C35.2091 10 37 11.7909 37 14V36" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 16L24 10L30 4" stroke="#101010" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="margin-left:4px;">{{.i18n.Tr "pull_requests"}}</span>
+    </a>
+    {{end}}
+    <!-- <div class="ui small icon input" style="height: 32px;">
+      <input type="text">
+      <i class="search icon" style="cursor: pointer;pointer-events: auto;"></i>
+    </div> -->
+    <form class="ui form ignore-dirty">
+      <div class="ui fluid action input">
+        <input type="hidden" name="type" value="{{$.ViewType}}"/>
+        <input type="hidden" name="repos" value="[{{range $.RepoIDs}}{{.}}%2C{{end}}]"/>
+        <input type="hidden" name="sort" value="{{$.SortType}}"/>
+        <input type="hidden" name="state" value="{{$.State}}"/>
+        <div class="ui small icon input" style="height: 32px;">
+          <input type="text" name="q" value="{{$.Keyword}}" placeholder="{{.i18n.Tr "explore.search"}}...">
+          <i class="search icon" style="cursor: pointer;pointer-events: auto;"
+         onclick="this.closest('form').submit()"></i>
+        </div>
+      </div>
+    </form>
+    <select class="select-style" onchange="window.location.href=this.value">
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=latest&state={{$.State}}&q={{$.Keyword}}" {{if or (eq .SortType "latest") (not .SortType)}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.latest"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=oldest&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "oldest"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.oldest"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=recentupdate&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "recentupdate"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=leastupdate&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "leastupdate"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=mostcomment&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "mostcomment"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.mostcomment"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=leastcomment&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "leastcomment"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.leastcomment"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=nearduedate&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "nearduedate"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.nearduedate"}}</option>
+      <option value="{{$.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort=farduedate&state={{$.State}}&q={{$.Keyword}}" {{if eq .SortType "farduedate"}}selected{{end}}>{{.i18n.Tr "repo.issues.filter_sort.farduedate"}}</option>
+    </select>
+    <a class="btn-add" href="/repo/create"> 
+      <svg xmlns="http://www.w3.org/2000/svg" class="fill" viewBox="0 0 32 32" width="20" height="20"><defs></defs><g><path d="M5.333 4h21.333c0.736 0 1.333 0.597 1.333 1.333v0 21.333c0 0.736-0.597 1.333-1.333 1.333v0h-21.333c-0.736 0-1.333-0.597-1.333-1.333v0-21.333c0-0.736 0.597-1.333 1.333-1.333v0zM6.667 6.667v18.667h18.667v-18.667h-18.667zM14.667 14.667v-5.333h2.667v5.333h5.333v2.667h-5.333v5.333h-2.667v-5.333h-5.333v-2.667h5.333z"></path></g></svg>
+      <span style="margin-left:6px;">{{.i18n.Tr "new_repo_1"}}</span>
+    </a>
+    <a class="btn-add" href="/repo/migrate"> 
+      <svg xmlns="http://www.w3.org/2000/svg" class="fill" viewBox="0 0 16 16" width="16" height="16"><defs></defs><g>
+        <path fill-rule="evenodd" d="M15 0H9v7c0 .55.45 1 1 1h1v1h1V8h3c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zm-4 7h-1V6h1v1zm4 0h-3V6h3v1zm0-2h-4V1h4v4zM4 5H3V4h1v1zm0-2H3V2h1v1zM2 1h6V0H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h2v2l1.5-1.5L6 16v-2h5c.55 0 1-.45 1-1v-3H2V1zm9 10v2H6v-1H3v1H1v-2h10zM3 8h1v1H3V8zm1-1H3V6h1v1z"></path>
+      </g></svg>
+      <span style="margin-left:6px;">{{ .i18n.Tr "new_migrate" }}</span>
+    </a>
+  </div>
+</div>

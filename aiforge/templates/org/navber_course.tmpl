@@ -1,0 +1,28 @@
+<style>
+    .navber_course{
+		background: #F5F5F6 !important;
+		padding-top: 30px;
+		margin-bottom: 20px;
+	}
+</style>
+<div class="navber_course">
+    <div class="ui tabs container">
+        <div class="ui tabular stackable menu navbar">
+            {{with .Org}}
+                <a class="{{if $.PageIsOrgHome}}active{{end}} item " href="{{.HomeLink}}">
+                    {{svg "octicon-home" 16}}&nbsp;{{$.i18n.Tr "org.home"}}
+                </a>
+            {{end}}
+            <a class="{{if $.PageIsOrgMembers}}active{{end}} item" href="{{$.OrgLink}}/members">
+                {{svg "octicon-organization" 16}}&nbsp;{{$.i18n.Tr "org.people"}}
+            </a>
+            {{if or ($.IsOrganizationMember) ($.IsOrganizationOwner)}}
+                <a class="{{if $.PageIsOrgTeams}}active{{end}} item" href="{{$.OrgLink}}/teams">
+                    {{svg "octicon-jersey" 16}}&nbsp;{{$.i18n.Tr "org.teams"}}
+                </a>
+            {{end}}
+            {{if .IsOrganizationOwner}}<a class="right text grey item" href="{{.OrgLink}}/settings">{{svg "octicon-gear" 16}} &nbsp;{{$.i18n.Tr "org.settings"}}</a>{{end}}
+        </div>
+
+    </div>
+</div>

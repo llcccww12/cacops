@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-tasktmpl-list.css?v={{MD5 AppVer}}" />
+<script>
+window.RepoID = {{.Repository.ID}};
+window.TemplateListStr = {{.TemplateList}};
+window.TemplateCanEdit =	{{and .Repository.CanEnableEditor .CanEditFile}};
+window.BranchName = {{.BranchName}};
+</script>
+<div class="task-tmpl-list-container">
+  <div id="__vue-root-tasktmpl-list"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-tasktmpl-list.js?v={{MD5 AppVer}}"></script>

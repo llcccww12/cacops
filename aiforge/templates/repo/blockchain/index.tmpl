@@ -1,0 +1,18 @@
+{{template "base/head" .}}
+<div class="repository balance view">
+	{{template "repo/header" .}}
+	<div class="ui container">
+    <h3 class="ui top attached header">
+      {{.i18n.Tr "repo.balance.total_view"}}
+    </h3>
+
+    <div class="ui attached segment">
+      <div class="inline field">
+        <span class="fitted">{{.i18n.Tr "repo.balance.available"}}</span>
+        <span class="fitted">{{.balance}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{template "base/footer" .}}

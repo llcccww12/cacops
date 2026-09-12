@@ -1,0 +1,250 @@
+{{template "base/head" .}}
+{{template "custom/global_mask" .}}
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <div class="cloudbrain-type" style="display: none;"  data-repo-link="{{.RepoLink}}" data-flag-model="true"></div>
+        {{if eq .NotStopTaskCount 0}}
+            {{template "base/alert" .}}
+        {{end}}
+        {{template "custom/alert_cb" .}}
+        <h4 class="ui top attached header">
+            {{.i18n.Tr "repo.modelarts.evaluate_job.new_job"}}
+        </h4>
+        <div class="ui attached segment">
+            <input type="hidden" name="benchmarkMode" value="{{.benchmarkMode}}">
+
+            {{if eq .benchmarkMode "model"}}
+            <form id="form_id" class="ui form model_form" action="{{.Link}}?benchmarkMode=model" method="post">
+                {{.CsrfTokenHtml}}
+                <input type="hidden" name="action" value="update">
+                <div class="required min_title inline field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_scenes"}}</label>
+                    <div class="ui blue small menu compact selectcloudbrain">
+                        <a class="item aisafety_benchmark"
+                            href="{{.RepoLink}}/modelsafety/create_npu">{{.i18n.Tr "modelsafety.model_security_evaluation"}}</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="min_title inline field" style="margin-top:-10px;">
+                        <label class="label-fix-width" style="font-weight: normal;"></label>
+                        {{template "custom/task_wait_count" .}}
+                    </div>
+                    <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.job_name"}}</label>
+                        <input style="width: 80%;" name="display_job_name" id="trainjob_job_name"
+                            placeholder={{.i18n.Tr "repo.modelarts.train_job.job_name"}} value="{{.display_job_name}}"
+                            tabindex="3" autofocus required maxlength="36">
+                        <span class="tooltips" style="display: block;margin-left:11.5rem;">{{.i18n.Tr "repo.cloudbrain_jobname_err"}}</span>
+                    </div>
+                    <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;"
+                            for="description">{{.i18n.Tr "repo.modelarts.train_job.description"}}</label>
+                        <textarea style="width: 80%;" id="description" name="description" rows="3" required
+                            maxlength="254" placeholder={{.i18n.Tr "repo.modelarts.train_job.new_place"}}
+                            onchange="this.value=this.value.substring(0, 255)"
+                            onkeydown="this.value=this.value.substring(0, 255)"
+                            onkeyup="this.value=this.value.substring(0, 255)">{{.description}}</textarea>
+                    </div>
+                    <div class="required min_title two inline fields" style="margin-left: 80px;">
+                        <div class="required ten wide field" style="width: 26.5% !important;">
+                            <label style="font-weight: normal;">{{.i18n.Tr "cloudbrain.task_type"}}</label>&nbsp;
+                            <select id="cloudbrain_job_type" class="ui search dropdown job_type"
+                                placeholder="select {{.i18n.Tr "cloudbrain.task_type"}}" name="job_type">
+                                <option value="SNN4ECOSET">SNN4ECOSET</option>
+                                <option value="SNN4IMAGENET">SNN4IMAGENET</option>
+                                <option value="BRAINSCORE">BRAINSCORE</option>
+                                <option value="SIM2BRAIN_SNN">SIM2BRAIN_SNN</option>
+                            </select>
+                        </div>
+                        <div class="required six widde field" id="brainscore_child_type"
+                            style="width: 15% !important;display: none;">
+                            <label style="font-weight: normal;">{{.i18n.Tr "cloudbrain.brain_area"}}</label>
+                            <select class="ui search dropdown" placeholder="select {{.i18n.Tr "cloudbrain.brain_area"}}"
+                                name="benchmark_child_types_id">
+                                <option value="0">V1</option>
+                                <option value="1">V2</option>
+                                <option value="2">V4</option>
+                                <option value="3">IT</option>
+                            </select>
+                        </div>
+                        <div class="required six widde field" id="sim2brain_child_type"
+                            style="width: 20% !important;display: none;">
+                            <label style="font-weight: normal;">{{.i18n.Tr "datasets"}}</label>
+                            <select class="ui search dropdown" placeholder="select {{.i18n.Tr "datasets"}}"
+                                name="benchmark_child_types_id">
+                                <option value="0">AllenMouse</option>
+                            </select>
+                        </div>
+                        <span>
+                            <i class="question circle icon  link"
+                                data-content=""
+                                data-position="right center" data-variation="mini"></i>
+                        </span>
+                        <a id="benchmark_model_example" href="https://openi.pcl.ac.cn/BDIP/snn4imagenet"
+                            target="_blank">{{.i18n.Tr "cloudbrain.view_sample"}}</a>
+                    </div>
+                    <!--{{template "custom/select_model_required" .}}-->            
+                    <div>
+                        <div class="select-multi-model" data-required="true" data-model-id="{{.model_id}}" data-model-name="{{.model_name}}" data-model-version="{{.model_version}}" 
+                            data-pre-train-model-url="{{.pre_train_model_url}}" data-ckpt-name="{{.ckpt_name}}"></div>
+                        <div id="select-multi-model"></div>
+                    </div>
+                    <div id="images-new-cb">
+                    </div>
+                    
+                    <div class="required min_title inline field" style="margin-top:2rem;">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "cloudbrain.resource_specification"}}</label>
+                        <select id="__specs__" class="ui search dropdown width48"
+                            placeholder="{{.i18n.Tr "cloudbrain.select_specification"}}" style='width:385px' ovalue="{{.spec_id}}"
+                            {{if .CloudBrainPaySwitch}}blance="{{.PointAccount.Balance}}"{{end}}
+                            name="spec_id">
+                        </select>
+                        <span><i class="question circle icon  link" data-content="{{.i18n.Tr "repo.modelarts.train_job.resource_helper"}}" data-position="right center" data-variation="mini"></i></span>
+                        <a href="https://openi.pcl.ac.cn/docs/index.html#/quickstart/resources" target="_blank">{{.i18n.Tr "custom.resource_description"}}</a>
+                        {{if .CloudBrainPaySwitch}}
+                        <div class="cloudbrain_resource_spec_blance_tip width48" style="padding:0 5px;margin:6px 0;margin-left:155px;font-size:12px;">
+                            <span>{{$.i18n.Tr "points.balance_of_points"}}<span style="color:red;margin: 0 3px">{{.PointAccount.Balance}}</span>{{$.i18n.Tr "points.points"}}</span><span>{{$.i18n.Tr "points.expected_time"}}<span style="color:red;margin: 0 3px" class="can-use-time"></span>{{$.i18n.Tr "points.hours"}}</span>
+                            <span style="float:right;">
+                                <i class="question circle icon link" ></i>
+                                <a href="{{AppSubUrl}}/reward/point/rule" target="_blank">{{$.i18n.Tr "points.points_acquisition_instructions"}}</a>
+                            </span>
+                        </div>
+                        {{end}}
+                    </div>
+                    <div class="inline min_title field">
+                        <label class="label-fix-width" style="font-weight: normal;"></label>
+                        <button class="ui create_train_job green button {{if eq .NotStopTaskCount 1}}disabled{{end}}" data-required-model="true">
+                            {{.i18n.Tr "repo.cloudbrain.new"}}
+                        </button>
+                        <a class="ui button" href="{{.RepoLink}}/cloudbrain/benchmark">{{.i18n.Tr "repo.cloudbrain.cancel"}}</a>
+                    </div>
+                </div>
+            </form>
+            {{else if eq .benchmarkMode "alogrithm"}}
+            <form id="form_id" class="ui form alogrithm_form" action="{{.Link}}?benchmarkMode=alogrithm" method="post">
+                {{.CsrfTokenHtml}}
+                <input type="hidden" name="action" value="update">
+                <input type="hidden" name="job_type" value="BENCHMARK">
+                <div class="required min_title inline field">
+                    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_scenes"}}</label>
+                    <div class="ui blue small menu compact selectcloudbrain">
+                        <a class="item aisafety_benchmark"
+                            href="{{.RepoLink}}/modelsafety/create_npu">{{.i18n.Tr "modelsafety.model_security_evaluation"}}</a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="min_title inline field" style="margin-top:-10px;">
+                        <label class="label-fix-width" style="font-weight: normal;"></label>
+                        {{template "custom/task_wait_count" .}}
+                    </div>
+                    <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.train_job.job_name"}}</label>
+                        <input style="width: 80%;" name="display_job_name" id="trainjob_job_name"
+                            placeholder={{.i18n.Tr "repo.modelarts.train_job.job_name"}} value="{{.display_job_name}}"
+                            tabindex="3" autofocus required maxlength="36">
+                        <span class="tooltips" style="display: block;margin-left: 11.5rem;">{{.i18n.Tr "repo.cloudbrain_jobname_err"}}</span>
+                    </div>
+                    <div class="min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;"
+                            for="description">{{.i18n.Tr "repo.modelarts.train_job.description"}}</label>
+                        <textarea style="width: 80%;" id="description" name="description" rows="3" maxlength="254"
+                            placeholder={{.i18n.Tr "repo.modelarts.train_job.new_place"}}
+                            onchange="this.value=this.value.substring(0, 255)"
+                            onkeydown="this.value=this.value.substring(0, 255)"
+                            onkeyup="this.value=this.value.substring(0, 255)">{{.description}}</textarea>
+                    </div>
+
+                    <div class="required inline min_title  fields" style="width: 90%;margin-left: 5.7rem;">&nbsp;
+                        <div class="required eight wide field">
+                            <label style="font-weight: normal;white-space: nowrap;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_type"}}</label>
+
+                            <select class="ui fluid selection search dropdown benchmark_types_id"
+                                name="benchmark_types_id">
+                                {{range .benchmark_types}}
+                                {{if eq .Id $.benchmarkTypeID}}
+                                <option value="{{.Id}}" selected="true">{{.First}}</option>
+                                {{else}}
+                                <option value="{{.Id}}">{{.First}}</option>
+                                {{end}}
+                                {{end}}
+                            </select>
+                        </div>
+                        <div class="eight wide field" id="engine_name">
+                            <input type="hidden" id="benchmark_child_types_id_hidden" name="benchmark_child_types_id_hidden" value="{{.benchmark_child_types_id_hidden}}">
+                            <label style="font-weight: normal;white-space: nowrap;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_child_type"}}</label>
+                            <select class="ui fluid selection dropdown " id="benchmark_child_types_id" style='width: 100%;' name="benchmark_child_types_id">
+                            </select>
+                        </div>
+                    </div>
+                    <div id="images-new-cb">
+                    </div>
+
+                    <div class="required min_title inline field">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "cloudbrain.resource_specification"}}</label>
+                        <select id="__specs__" class="ui search dropdown width48"
+                            placeholder="{{.i18n.Tr "cloudbrain.select_specification"}}" style='width:385px' ovalue="{{.spec_id}}"
+                            {{if .CloudBrainPaySwitch}}blance="{{.PointAccount.Balance}}"{{end}}
+                            name="spec_id">
+                        </select>
+                        <span><i class="question circle icon  link" data-content="{{.i18n.Tr "repo.modelarts.train_job.resource_helper"}}" data-position="right center" data-variation="mini"></i></span>
+                        <a href="https://openi.pcl.ac.cn/docs/index.html#/quickstart/resources" target="_blank">{{.i18n.Tr "custom.resource_description"}}</a>
+                        {{if .CloudBrainPaySwitch}}
+                        <div class="cloudbrain_resource_spec_blance_tip width48" style="padding:0 5px;margin:6px 0;margin-left:155px;font-size:12px;">
+                            <span>{{$.i18n.Tr "points.balance_of_points"}}<span style="color:red;margin: 0 3px">{{.PointAccount.Balance}}</span>{{$.i18n.Tr "points.points"}}</span><span>{{$.i18n.Tr "points.expected_time"}}<span style="color:red;margin: 0 3px" class="can-use-time"></span>{{$.i18n.Tr "points.hours"}}</span>
+                            <span style="float:right;">
+                                <i class="question circle icon link" ></i>
+                                <a href="{{AppSubUrl}}/reward/point/rule" target="_blank">{{$.i18n.Tr "points.points_acquisition_instructions"}}</a>
+                            </span>
+                        </div>
+                        {{end}}
+                    </div>
+
+                    <div class="inline min_title field required">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_train"}}</label>
+                        <input disabled="disabled" style="width: 33.5%;" name="train_file" id="train_file"
+                            value="train.py" tabindex="3" autofocus required maxlength="254">
+                        <a id="train_href_id" href="https://openi.pcl.ac.cn/CV_benchmark/CV_reID_benchmark"
+                            target="_blank">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_train"}}</a>
+                    </div>
+
+                    <div class="inline min_title field required">
+                        <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_test"}}</label>
+                        <input disabled="disabled" style="width: 33.5%;" name="test_file" id="test_file" value="test.py"
+                            tabindex="3" autofocus required maxlength="254">
+                        <a id="test_href_id" href="https://openi.pcl.ac.cn/CV_benchmark/CV_reID_benchmark"
+                            target="_blank">{{.i18n.Tr "cloudbrain.view_sample"}}</a>
+                    </div>
+
+                    <div class="inline min_title field">
+                        <label class="label-fix-width" style="font-weight: normal;"></label>
+                        <button class="ui create_train_job green button {{if eq .NotStopTaskCount 1}}disabled{{end}}">
+                            {{.i18n.Tr "repo.cloudbrain.new"}}
+                        </button>
+                        <a class="ui button" href="{{.RepoLink}}/cloudbrain/benchmark">{{.i18n.Tr "repo.cloudbrain.cancel"}}</a>
+                    </div>
+                </div>
+            </form>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+<script src="{{StaticUrlPrefix}}/js/specsuse.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script src="{{StaticUrlPrefix}}/js/cloudbrainNew.js?v={{MD5 AppVer}}" type="text/javascript"></script>
+<script>
+
+    ;(function() {
+        var SPECS = {{ .benchmark_specs }};
+        var showPoint = {{ .CloudBrainPaySwitch }};
+        window.renderSpecsSelect($('#__specs__'), SPECS, showPoint, {
+            gpu_memory: {{$.i18n.Tr "cloudbrain.gpu_memory"}},
+            free: {{$.i18n.Tr "cloudbrain.free"}},
+            point_hr: {{$.i18n.Tr "cloudbrain.point_hr"}},
+            memory: {{$.i18n.Tr "cloudbrain.memory"}},
+            shared_memory: {{$.i18n.Tr "cloudbrain.shared_memory"}},
+            no_use_resource:{{$.i18n.Tr "cloudbrain.no_use_resource"}},
+        });
+    })();
+</script>

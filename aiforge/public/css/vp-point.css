@@ -1,0 +1,76 @@
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/reward/point/vp-point.vue?vue&type=style&index=0&id=5683bbf8&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.__flex-1[data-v-5683bbf8] {
+  flex: 1;
+}
+.__reward-pointer-c .__r_p_header[data-v-5683bbf8] {
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.__reward-pointer-c .__r_p_header .__title[data-v-5683bbf8] {
+  font-weight: 400;
+  font-size: 18px;
+  color: #101010;
+  line-height: 26px;
+}
+.__reward-pointer-c .__r_p_summary[data-v-5683bbf8] {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #f5f5f6;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary_item-c .__val[data-v-5683bbf8] {
+  text-align: center;
+  margin: 12px 0;
+  font-weight: 400;
+  font-size: 28px;
+  color: #101010;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary_item-c .__exp[data-v-5683bbf8] {
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  color: #363840;
+}
+.__r_p_summary_line[data-v-5683bbf8] {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  width: 1px;
+  height: 100%;
+  border-right: 1px solid #d4d4d5;
+}
+.__r_p_tab[data-v-5683bbf8] {
+  display: flex;
+  margin: 18px 0;
+}
+.__r_p_tab .__r_p_tab-item[data-v-5683bbf8] {
+  width: 115px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e1e3e6;
+  color: #101010;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.__r_p_tab .__r_p_tab-item.__focus[data-v-5683bbf8] {
+  border-color: #3291f8;
+  color: #3291f8;
+  cursor: default;
+}
+.__r_p_table[data-v-5683bbf8] .el-table__header th {
+  background: #f5f5f6;
+  color: #606266;
+  font-weight: 400;
+  font-size: 14px;
+}
+.__r_p_table .__r_p_consume_descr[data-v-5683bbf8] {
+  margin: -5px 0 10px 0;
+}
+

@@ -1,0 +1,21 @@
+<div class="ui attached segment">
+  <div class="field required dataset-files">
+    <label>{{.i18n.Tr "dataset.file"}}</label>
+    <div class="files"></div>
+    <div class="ui dropzone" 
+    id="dataset" 
+    data-upload-url="{{AppSubUrl}}/attachments" 
+    data-accepts="{{.AttachmentAllowedTypes}}" 
+    data-remove-url="{{AppSubUrl}}/attachments/delete" 
+    data-csrf="{{.CsrfToken}}" 
+    dataset-id={{.dataset.ID}} 
+    data-max-file="100"  
+    data-dataset-id="{{.dataset.ID}}" 
+    data-max-size="{{.AttachmentMaxSize}}" 
+    data-default-message="{{.i18n.Tr "dropzone.default_message"}}" 
+    data-invalid-input-type="{{.i18n.Tr "dropzone.invalid_input_type"}}" 
+    data-file-too-big="{{.i18n.Tr "dropzone.file_too_big"}}" 
+    data-remove-file="{{.i18n.Tr "dropzone.remove_file"}}">
+    </div>
+  </div>
+</div>

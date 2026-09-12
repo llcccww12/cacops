@@ -1,0 +1,341 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/App.vue?vue&type=style&index=0&id=5ca297f9&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+body ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+}
+body ::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 7px !important;
+}
+body ::-webkit-scrollbar-thumb {
+  background: #d2d2d8 !important;
+  border-radius: 7px !important;
+}
+body ::-webkit-scrollbar-thumb:hover {
+  background: rgba(210, 210, 216, 0.8) !important;
+  border-radius: 7px !important;
+}
+body ::-webkit-scrollbar-thumb:active {
+  background: rgba(210, 210, 216, 0.8) !important;
+  border-radius: 7px !important;
+}
+@media only screen and (max-width: 800px) {
+.el-message-box__wrapper .el-message-box {
+    width: calc(100% - 20px);
+}
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/components/MenuIcon.vue?vue&type=style&index=0&id=2788112e&scoped=true&lang=less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu-icon-c[data-v-2788112e] {
+  display: flex;
+  align-items: center;
+}
+.menu-icon-c .svg-c[data-v-2788112e] {
+  display: flex;
+  align-items: center;
+}
+.menu-icon-c svg[data-v-2788112e] {
+  stroke: #6f76a5;
+  fill: none;
+}
+.menu-icon-c i[data-v-2788112e] {
+  color: #6f76a5;
+}
+.menu-icon-c.active svg path[data-v-2788112e] {
+  stroke: #001ac7;
+}
+.menu-icon-c.active svg rect[data-v-2788112e] {
+  stroke: #001ac7;
+}
+.menu-icon-c.active i[data-v-2788112e] {
+  color: #001ac7;
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/components/MenuItem.vue?vue&type=style&index=0&id=5e675903&scoped=true&lang=less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu-item[data-v-5e675903] {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(32, 37, 101, 0.9);
+}
+.menu-item .icon-c[data-v-5e675903] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.menu-item .m-left[data-v-5e675903] {
+  margin-left: 10px;
+}
+.menu-item .label-c[data-v-5e675903] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.menu-item.active[data-v-5e675903] {
+  color: #001ac7;
+  background-color: #e6f0ff;
+  border-radius: 4px;
+}
+.menu-item.active .icon-c[data-v-5e675903] {
+  color: #001ac7;
+}
+.menu-item[data-v-5e675903]:hover:not(.active) {
+  color: rgba(0, 26, 199, 0.8);
+}
+.menu-item:hover:not(.active) .icon-c[data-v-5e675903] {
+  color: rgba(0, 26, 199, 0.8);
+}
+.menu-line[data-v-5e675903] {
+  border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+  height: 0;
+  margin: 10px 2px;
+}
+.menu-group .menu-group-title-c[data-v-5e675903] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-right: 8px;
+}
+.menu-group .menu-group-title-c .menu-group-title-toggle-icon[data-v-5e675903] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+.menu-group .menu-group-title-c.expanded .menu-group-title-toggle-icon[data-v-5e675903] {
+  transform: rotate(180deg);
+}
+.menu-group .menu-group-title-c.expanded + .menu-group-list[data-v-5e675903] {
+  height: 0;
+}
+.menu-group .menu-group-title[data-v-5e675903] {
+  color: #6f76a5;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.menu-group .menu-group-title .icon-c[data-v-5e675903] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.menu-group .menu-group-list[data-v-5e675903] {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.menu-group.deep-level .menu-group-list[data-v-5e675903] {
+  padding-left: 15px;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/components/Menu.vue?vue&type=style&index=0&id=7ad65750&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-menu[data-v-7ad65750] {
+  width: 180px;
+  min-height: 400px;
+  max-height: calc(100vh - 62px);
+  box-sizing: content-box;
+  padding: 20px 10px;
+}
+.main-menu .menu-item[data-v-7ad65750] {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(32, 37, 101, 0.9);
+}
+.main-menu .menu-item .icon-c[data-v-7ad65750] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.main-menu .menu-item .label-c[data-v-7ad65750] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.main-menu .menu-item.active[data-v-7ad65750] {
+  color: #001ac7;
+  background-color: #e6f0ff;
+  border-radius: 4px;
+}
+.main-menu .menu-item.active .icon-c[data-v-7ad65750] {
+  color: #001ac7;
+}
+.main-menu .menu-item[data-v-7ad65750]:hover:not(.active) {
+  color: rgba(0, 26, 199, 0.8);
+}
+.main-menu .menu-item:hover:not(.active) .icon-c[data-v-7ad65750] {
+  color: rgba(0, 26, 199, 0.8);
+}
+.main-menu .menu-line[data-v-7ad65750] {
+  border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+  height: 0;
+  margin: 10px 2px;
+}
+.main-menu .menu-group .menu-group-title-c[data-v-7ad65750] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-right: 8px;
+}
+.main-menu .menu-group .menu-group-title-c .menu-group-title-toggle-icon[data-v-7ad65750] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+.main-menu .menu-group .menu-group-title-c.expanded .menu-group-title-toggle-icon[data-v-7ad65750] {
+  transform: rotate(180deg);
+}
+.main-menu .menu-group .menu-group-title-c.expanded + .menu-group-list[data-v-7ad65750] {
+  height: 0;
+}
+.main-menu .menu-group .menu-group-title[data-v-7ad65750] {
+  color: #6f76a5;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.main-menu .menu-group .menu-group-title .icon-c[data-v-7ad65750] {
+  width: 30px;
+}
+.main-menu .menu-group .menu-group-list[data-v-7ad65750] {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.mobile-menu-icon[data-v-7ad65750] {
+  display: none;
+}
+/* 手机端样式 */
+@media (max-width: 768px) {
+.main-menu[data-v-7ad65750] {
+    position: fixed;
+    top: 62px;
+    left: -200px;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+.main-menu.mobile-menu-active[data-v-7ad65750] {
+    transform: translateX(200px);
+}
+.mobile-menu-icon[data-v-7ad65750] {
+    position: absolute;
+    top: 50%;
+    /* 垂直居中 */
+    left: -1px;
+    /* 紧贴左边 */
+    transform: translateY(-50%);
+    /* 确保完全垂直居中 */
+    z-index: 1001;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* 图标垂直居中 */
+    justify-content: center;
+    /* 图标水平居中 */
+    width: 20px;
+    height: 40px;
+    background-color: #ffffff;
+    box-shadow: 0pt 2pt 6pt 0pt rgba(73, 178, 255, 0.5);
+    border: 1pt solid #1c7ee8;
+    color: #005cdd;
+}
+.menu-mask[data-v-7ad65750] {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/modelbase-portal/layout/Layout.vue?vue&type=style&index=0&id=35b270c7&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-layout[data-v-35b270c7] {
+  display: flex;
+}
+.main-layout .left-menu[data-v-35b270c7] {
+  position: relative;
+  interpolate-size: allow-keywords;
+  transition: all 0.2s ease-in-out;
+  width: 200px;
+}
+.main-layout .left-menu.collapsed[data-v-35b270c7] {
+  width: 0;
+  overflow-x: hidden;
+}
+.main-layout .right-content[data-v-35b270c7] {
+  flex: 1;
+  width: 0;
+  height: calc(100vh - 62px);
+  position: relative;
+}
+.main-layout .right-content .bg-1[data-v-35b270c7] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%221%22%20cx%3D%220%22%20cy%3D%220%22%20r%3D%221%22%20gradientTransform%3D%22matrix(0.42999999999999994%2C%200.01200000000000001%2C%20-0.009048275494276803%2C%200.6127499999999999%2C%200.154%2C%200.447)%22%3E%3Cstop%20stop-color%3D%22%23defaff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23f6feff%22%20stop-opacity%3D%220.3%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.main-layout .right-content .bg-2[data-v-35b270c7] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%221%22%20cx%3D%220%22%20cy%3D%220%22%20r%3D%221%22%20gradientTransform%3D%22matrix(0.533%2C%200.009000000000000001%2C%20-0.004843208514568158%2C%200.542061%2C%20-0.002%2C%200.003)%22%3E%3Cstop%20stop-color%3D%22%23e8e4ff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23eae8f9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23eae8f9%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.main-layout .right-content .bg-3[data-v-35b270c7] {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -2;
+  width: 1200px;
+  height: 227px;
+  background: url("/img/model/modelbase-bg.png");
+}
+.main-layout .right-content .bg-4[data-v-35b270c7] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -2;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%221%22%20cx%3D%220%22%20cy%3D%220%22%20r%3D%221%22%20gradientTransform%3D%22matrix(-0.003000000000000119%2C%200.8010000000000002%2C%20-0.650838234521332%2C%20-0.004050000000000161%2C%201.014%2C%20-0.025)%22%3E%3Cstop%20stop-color%3D%22%237bb2ff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23bdabff%22%20stop-opacity%3D%220.41%22%20offset%3D%220.35%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%2392ffaf%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+@media only screen and (max-width: 768px) {
+.main-layout .left-menu[data-v-35b270c7] {
+    width: auto;
+}
+}
+

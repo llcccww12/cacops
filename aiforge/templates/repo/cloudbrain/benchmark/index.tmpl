@@ -1,0 +1,276 @@
+<!-- 头部导航栏 -->
+{{template "base/head" .}}
+
+<style>
+    .padding0{
+        padding: 0 !important;
+    }
+</style>
+
+<!-- 弹窗 -->
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<!-- 提示框 -->
+<div class="alert"></div>
+
+<div class="repository release dataset-list view">
+    {{template "repo/header" .}}
+    <!-- 列表容器 -->
+    <div class="ui container">
+        {{template "base/alert" .}}
+        <div class="ui two column stackable grid ">
+                <div class="column">
+                    <div class="ui blue small menu compact selectcloudbrain">
+                        <a class="item" href="{{.RepoLink}}/debugjob?debugListType=all">{{$.i18n.Tr "repo.modelarts.notebook"}}</a>
+                        <a class="item" href="{{.RepoLink}}/modelarts/train-job?listType=all">{{$.i18n.Tr "repo.modelarts.train_job"}}</a>
+                        <a class="item" href="{{.RepoLink}}/modelarts/inference-job">{{$.i18n.Tr "repo.modelarts.infer_job"}}</a>
+                        <a class="active item" href="{{.RepoLink}}/cloudbrain/benchmark">{{$.i18n.Tr "repo.modelarts.evaluate_job"}}</a>
+                        <a class="item" href="{{.RepoLink}}/grampus/onlineinfer">{{$.i18n.Tr "repo.modelarts.online_infer"}}</a>
+                        <a class="item" href="{{.RepoLink}}/grampus/general">{{$.i18n.Tr "repo.modelarts.general_job"}}</a>
+                        {{if and MLOPS .IsMonitorAdmin}}
+                            <a class="item" href="{{AppSubUrl}}/pch/AIStudio/mlops/deploy-online/edge-inference?reponame={{.Repository.Name}}&repoId={{.Repository.ID}}" target="_blank">
+                                在线推理1
+                            </a>
+                            <a class="item" href="{{AppSubUrl}}/pch/AIStudio/mlops/pipeline/list?reponame={{.Repository.Name}}&repoId={{.Repository.ID}}" target="_blank">
+                                流水线
+                            </a>
+                        {{end}}
+                    </div>
+                </div>
+                <div class="column right aligned">
+
+                    {{if .Permission.CanWrite $.UnitTypeCloudBrain}}
+                    <a class="ui green button" href="{{.RepoLink}}/modelsafety/create_npu">{{$.i18n.Tr "repo.modelarts.evaluate_job.new_job"}}</a>
+                    {{else}}
+                    <a class="ui disabled button" >{{$.i18n.Tr "repo.modelarts.evaluate_job.new_job"}}</a>
+                    {{end}}
+                </div>
+        </div>
+        {{if eq 0 (len .Tasks)}}
+        <div class="ui placeholder segment bgtask-none">
+                <div class="ui icon header bgtask-header-pic"></div>
+                <div class="bgtask-content-header">{{$.i18n.Tr "repo.model_Evaluation_not_created"}}</div>
+                <div class="bgtask-content">
+                    {{if $.RepoIsEmpty}}
+                    <div class="bgtask-content-txt">{{$.i18n.Tr "repo.repo_not_initialized" .RepoLink | Safe}}</div>
+                    {{end}}
+                    <div class="bgtask-content-txt">{{$.i18n.Tr "repo.platform_instructions" "https://openi.pcl.ac.cn/docs/index.html#/cloudbrain/eval" | Safe}}</div>
+                </div>
+        </div>
+        {{else}}
+        <!-- 中下列表展示区 -->
+        <div class="ui grid">
+            <div class="row">
+                <div class="ui sixteen wide column">
+                    <!-- 任务展示 -->
+                    <div class="dataset list">
+
+                     <!-- 表头 -->
+                        <div class="ui grid stackable" style="background: #f0f0f0;">
+                            <div class="row">
+                                <div class="three wide column padding0" style="width: 18% !important;">
+                                    <span style="margin:0 6px">{{$.i18n.Tr "repo.cloudbrain_task"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                    <span>{{$.i18n.Tr "repo.modelarts.status"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                        <span>{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_scenes"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                        <span>{{.i18n.Tr "repo.cloudbrain.benchmark.evaluate_type"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 8.5% !important;">
+                                        <span>{{$.i18n.Tr "repo.modelarts.createtime"}}</span>
+                                </div>
+                                <div class="one wide column text center padding0" style="width: 8% !important;">
+                                    <span>{{$.i18n.Tr "repo.cloudbrain_status_runtime"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 8% !important;">
+                                        <span>{{$.i18n.Tr "repo.modelarts.computing_resources"}}</span>
+                                </div>
+                                <div class="one wide column text center padding0" style="width: 6% !important;">
+                                    <span>{{$.i18n.Tr "repo.cloudbrain_creator"}}</span>
+                                </div>
+                                <div class="three wide column text center padding0" style="width: 20% !important;">
+                                    <span>{{$.i18n.Tr "repo.cloudbrain_operate"}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{range .Tasks}}
+                        <div class="ui grid stackable item">
+                            <div class="row">
+                                <!-- 任务名 -->
+                                <div class="three wide column padding0" style="width: 18% !important;">
+                                    <a class="title" href="{{$.Link}}/{{.Cloudbrain.ID}}" title="{{.DisplayJobName}}" style="font-size: 14px;">
+                                        <span class="fitted" style="width: 90%;vertical-align: middle;">{{.DisplayJobName}}</span>
+                                    </a>
+                                </div>
+                                <!-- 任务状态 -->
+                                <div class="two wide column text center padding0"  style="width: 10.5% !important;">
+                                    <span class="job-status" id="{{.Cloudbrain.ID}}" data-repopath="{{$.RepoRelPath}}{{if or (eq .JobType "MODELSAFETY") (eq .ComputeResource "CPU/GPU")}}/cloudbrain{{else}}/modelarts/notebook{{end}}" data-jobid="{{.Cloudbrain.ID}}" data-version="{{.VersionName}}">
+                                            <span><i id="{{.Cloudbrain.ID}}-icon" style="vertical-align: middle;" class="{{if eq .Status "TESTING"}}RUNNING{{else}}{{.Status}}{{end}}"></i><span  id="{{.Cloudbrain.ID}}-text" style="margin-left: 0.4em;font-size: 12px;">{{.Status}}</span></span>
+                                    </span>
+                                </div>
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                    {{.BenchmarkType}}
+                                </div>
+                                {{if eq .JobType "MODELSAFETY"}}
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                    {{.BenchmarkTypeName}}
+                                </div>
+                                {{else}}
+                                <div class="two wide column text center padding0" style="width: 10.5% !important;">
+                                    <a style="font-size: 12px;" href="{{.BenchmarkTypeRankLink}}" target="_blank">
+                                        {{.BenchmarkTypeName}}
+                                    </a>
+                                </div>
+                                {{end}}
+                                <!-- 任务创建时间 -->
+                                <div class="two wide column text center padding0" style="width: 8.5% !important;">
+                                    <span style="font-size: 12px;" class="">{{TimeSinceUnix .Cloudbrain.CreatedUnix $.Lang}}</span>
+                                </div>
+                                <!-- 任务运行时间 -->
+                                <div class="one wide column text center padding0" style="width: 8% !important;">
+                                    <span style="font-size: 12px;" id="duration-{{.Cloudbrain.ID}}">{{.TrainJobDuration}}</span>
+                                </div>
+                                <!-- 计算资源 -->
+                                <div class="two wide column text center padding0" style="width: 8% !important;">
+                                    <span style="font-size: 12px;">{{.ComputeResource}}</span>
+                                </div>
+                                <!-- 创建者 -->
+                                <div class="one wide column text center padding0" style="width: 6% !important;">
+                                    {{if .User.Name}}
+                                        <a href="{{AppSubUrl}}/{{.User.Name}}" title="{{.User.Name}}"><img class="ui avatar image" src="{{.User.RelAvatarLink}}"></a>
+                                    {{else}}
+                                        <a title="Ghost"><img class="ui avatar image" src="{{AppSubUrl}}/user/avatar/Ghost/-1"></a>
+                                    {{end}}
+                                </div>
+
+                                <div class="three wide column text center padding0" style="width: 20% !important;">
+                                    <div class="ui compact buttons" >
+                                        {{if eq .JobType "MODELSAFETY"}}
+                                        <!-- 停止任务 -->
+                                        <form id="stopForm-{{.Cloudbrain.ID}}"  style="margin-left:-1px;">
+                                            {{$.CsrfTokenHtml}}
+                                            {{if .CanDel}}
+                                            <a id="ai-stop-{{.Cloudbrain.ID}}" class='ui basic ai_stop {{if eq .Status "STOPPED" "FAILED" "START_FAILED" "STOPPING"  "CREATING"  "STARTING" "SUCCEEDED"}}disabled {{else}}blue {{end}}button' data-repopath="{{$.RepoLink}}/modelsafety/{{.Cloudbrain.ID}}/stop" data-jobid="{{.Cloudbrain.ID}}">
+                                                {{$.i18n.Tr "repo.stop"}}
+                                            </a>
+                                            {{else}}
+                                            <a  class="ui basic disabled button">{{$.i18n.Tr "repo.stop"}}</a>
+                                            {{end}}
+                                        </form>
+                                        <!-- 删除任务 -->
+                                        <form  id="delForm-{{.Cloudbrain.ID}}" action="{{$.RepoLink}}/modelsafety/{{.Cloudbrain.ID}}/del" method="post">
+                                            <input type="hidden" name="debugListType" value="all">
+                                            {{$.CsrfTokenHtml}}
+                                            {{if .CanDel}}
+                                            <a id="ai-delete-{{.Cloudbrain.ID}}" class='ui basic ai_delete {{if eq .Status "STOPPED" "FAILED" "START_FAILED" "SUCCEEDED"}}blue {{else}}disabled {{end}}button'  style="border-radius: .28571429rem;">
+                                                {{$.i18n.Tr "repo.delete"}}
+                                            </a>
+                                            {{else}}
+                                            <a  class="ui basic button disabled" style="border-radius: .28571429rem;">
+                                                {{$.i18n.Tr "repo.delete"}}
+                                            </a>
+                                            {{end}}
+                                        </form>
+                                        {{else}}
+                                        <!-- 停止任务 -->
+                                        <form id="stopForm-{{.Cloudbrain.ID}}"  style="margin-left:-1px;">
+                                            {{$.CsrfTokenHtml}}
+                                            {{if .CanDel}}
+                                            <a id="ai-stop-{{.Cloudbrain.ID}}" class='ui basic ai_stop {{if eq .Status "STOPPED" "FAILED" "START_FAILED" "STOPPING"  "CREATING"  "STARTING" "SUCCEEDED"}}disabled {{else}}blue {{end}}button' data-repopath="{{$.RepoLink}}{{if eq .ComputeResource "CPU/GPU"}}/cloudbrain{{else}}/modelarts/notebook{{end}}/{{.Cloudbrain.ID}}/stop" data-jobid="{{.Cloudbrain.ID}}">
+                                                {{$.i18n.Tr "repo.stop"}}
+                                            </a>
+
+                                            {{else}}
+                                            <a  class="ui basic disabled button">
+                                                    {{$.i18n.Tr "repo.stop"}}
+                                            </a>
+                                            {{end}}
+                                        </form>
+                                        {{if eq .JobType "BENCHMARK"}}
+                                        <a class="ui basic button {{if $.IsSigned}} blue{{else}} disabled{{end}}" href="{{$.RepoLink}}/cloudbrain/{{.Cloudbrain.ID}}/rate" target="_blank">
+                                                        {{$.i18n.Tr "repo.score"}}
+                                        </a>
+                                        {{end}}
+                                        <!-- 删除任务 -->
+                                        <form  id="delForm-{{.Cloudbrain.ID}}" action="{{if eq .ComputeResource "CPU/GPU"}}{{$.RepoLink}}/cloudbrain/benchmark{{else}}{{$.RepoLink}}/modelarts/notebook{{end}}/{{.Cloudbrain.ID}}/del" method="post">
+                                            <input type="hidden" name="debugListType" value="all">
+                                            {{$.CsrfTokenHtml}}
+                                            {{if .CanDel}}
+                                            <a id="ai-delete-{{.Cloudbrain.ID}}" class='ui basic ai_delete {{if eq .Status "STOPPED" "FAILED" "START_FAILED" "SUCCEEDED"}}blue {{else}}disabled {{end}}button'  style="border-radius: .28571429rem;">
+                                                {{$.i18n.Tr "repo.delete"}}
+                                            </a>
+                                            {{else}}
+                                            <a  class="ui basic button disabled" style="border-radius: .28571429rem;">
+                                                    {{$.i18n.Tr "repo.delete"}}
+                                            </a>
+                                            {{end}}
+                                        </form>
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{end}}
+                        <div id="app" style="margin-top: 2rem;">
+                            <div class="center">
+                                <el-pagination
+                                background
+                                @current-change="handleCurrentChange"
+                                :current-page="page"
+                                :page-sizes="[10]"
+                                :page-size="10"
+                                layout="total, sizes, prev, pager, next, jumper"
+                                :total="{{.Page.Paginater.Total}}">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                    {{template "custom/save_most_time" .}}
+                </div>
+            </div>
+        </div>
+        {{end}}
+
+    </div>
+
+</div>
+</div>
+
+</div>
+
+<!-- 确认模态框 -->
+<div id="deletemodel">
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="trash icon"></i> {{.i18n.Tr "cloudbrain.delete_task"}}
+        </div>
+
+        <div class="content">
+            <p>{{.i18n.Tr "cloudbrain.task_delete_confirm"}}</p>
+        </div>
+        <div class="actions">
+            <div class="ui red basic inverted cancel button">
+                <i class="remove icon"></i> {{.i18n.Tr "cloudbrain.operate_cancel"}}
+            </div>
+            <div class="ui green basic inverted ok button">
+                <i class="checkmark icon"></i> {{.i18n.Tr "cloudbrain.operate_confirm"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{{template "base/footer" .}}

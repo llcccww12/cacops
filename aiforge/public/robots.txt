@@ -1,0 +1,66 @@
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: BLEXBot 
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: SemrushBot 
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: *
+Crawl-delay: 100
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*/*/commit/*
+Disallow: /*/*/tree/*
+Disallow: /*/*/blame/*
+Disallow: /*/*/raw/*
+Disallow: /*/branches
+Disallow: /*/cloudbrain/
+Disallow: /*/grampus/
+Disallow: /*/supercompute/
+Disallow: /*/modelmanage/
+Disallow: /*/modelsafety/
+Disallow: /*/debugjob
+Disallow: /*/modelarts/
+Disallow: /*/tree/
+Disallow: /*/forks
+Disallow: /*/stars
+Disallow: *download*
+Disallow: /*/revisions
+Disallow: /*/issues/new
+Disallow: /*/issues/search
+Disallow: /*/commits/
+Disallow: /*/tags
+Disallow: /*/contributors/
+Disallow: /*/comments
+Disallow: /*/archive/
+Disallow: /*/blame/
+Disallow: /*/watchers
+Disallow: /*/graphs
+Disallow: /*/raw/
+Disallow: /*/compare/
+Disallow: /.git/
+Disallow: */.git/
+Disallow: /*.git$
+Disallow: /search
+Disallow: */search
+Disallow: /*q=

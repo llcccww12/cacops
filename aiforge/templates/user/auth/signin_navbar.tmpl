@@ -1,0 +1,42 @@
+{{if or .WechatSignUpRequired .EnablePhone .EnableOpenIDSignIn .EnableSSPI .EnableCloudBrain}}
+<div class="ui secondary pointing tabular top attached borderless menu new-menu navbar" style="margin-bottom:45px !important;background-color:transparent !important;">
+	{{if .WechatSignUpRequired }}
+	<a class="{{if .PageIsWeChatLogin}}active{{end}} item" rel="nofollow" href="{{AppSubUrl}}/user/login/wechat">
+		{{.i18n.Tr "phone.wechat_login"}}
+	</a>
+	{{end}}
+	{{if .EnablePhone }}
+	<a class="{{if .PageIsPhoneLogin}}active{{end}} item" rel="nofollow" href="{{AppSubUrl}}/user/login/phone">
+		{{.i18n.Tr "phone.mobile_login"}}
+	</a>
+	{{end}}
+	<a class="{{if .PageIsLogin}}active{{end}} item" rel="nofollow" href="{{AppSubUrl}}/user/login">
+		{{.i18n.Tr "phone.account_password_login"}}
+	</a>
+	<!--<a class="{{if .PageIsCloudBrainLogin}}active{{end}} item" rel="nofollow" href="{{AppSubUrl}}/user/login/cloud_brain">
+		{{.i18n.Tr "phone.cloud_brain_user_login"}}
+	</a>-->
+	{{if .EnableOpenIDSignIn}}
+	<a class="{{if .PageIsLoginOpenID}}active{{end}} item" rel="nofollow" href="{{AppSubUrl}}/user/login/openid">
+		<i class="fa fa-openid"></i>
+		&nbsp;OpenID
+	</a>
+	{{end}}
+	{{if .EnableSSPI}}
+	<a class="item" rel="nofollow" href="{{AppSubUrl}}/user/login?auth_with_sspi=1">
+		<i class="fa fa-windows"></i>
+		&nbsp;SSPI
+	</a>
+	{{end}}
+</div>
+<script>
+	;(function(){
+		var navList = document.querySelectorAll('.ui.secondary.menu.new-menu.navbar a');
+		var search = window.location.search;
+		navList.forEach(function(nav) {
+			var href = nav.getAttribute('href');
+			nav.setAttribute('href', href + search);
+		});
+	})()
+</script>
+{{end}}

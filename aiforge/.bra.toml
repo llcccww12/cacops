@@ -1,0 +1,36 @@
+[run]
+init_cmds = [                      # Commands run in start
+  ["go", "mod", "vendor"],
+  ["make", "backend"],
+  ["./opendata"]
+]
+watch_all = true                   # Watch all sub-directories
+watch_dirs = [
+  "$WORKDIR/routers",
+  "$WORKDIR/services",
+  "$WORKDIR/modules",
+  "$WORKDIR/models",
+  "$WORKDIR/cmd",
+  "$WORKDIR/options",
+  "$WORKDIR/public",
+  "$WORKDIR/custom",
+  "$WORKDIR/web_src",
+  "$WORKDIR/vendor",
+]                    # Directories to watch
+watch_exts = [".go", ".ini", ".less"]               # Extensions to watch
+env_files = []                     # Load env vars from files
+ignore = [".git", "node_modules"]  # Directories to exclude from watching
+ignore_files = []                  # Regexps for ignoring specific notifies
+follow_symlinks = false            # Enable/disable following symbolic links of sub directories
+build_delay = 3000                 # Minimal interval to Trigger build event
+interrupt_timout = 15              # Time to wait until force kill
+graceful_kill = false              # Wait for exit and before directly kill
+cmds = [                           # Commands to run
+  ["go", "mod", "vendor"],
+  ["make", "backend"],
+  ["./opendata"]
+]
+
+[sync]
+listen_addr = ":5050"
+remote_addr = ":5050"

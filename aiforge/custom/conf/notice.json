@@ -1,0 +1,25 @@
+{
+  "notices": [
+    {
+      "title": "欢迎使用 CacOps 智算服务平台",
+      "title_en": "Welcome to CacOps",
+      "link": "/dashboard",
+      "visible": 1,
+      "date": "2026-09-12"
+    },
+    {
+      "title": "在「计算任务」中可创建并管理 AI 训练与推理任务",
+      "title_en": "Create and manage AI training and inference tasks",
+      "link": "/cloudbrains",
+      "visible": 1,
+      "date": "2026-09-12"
+    },
+    {
+      "title": "在「项目」中可托管代码并进行团队协作",
+      "title_en": "Host code and collaborate in Projects",
+      "link": "/explore/repos",
+      "visible": 1,
+      "date": "2026-09-12"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<style>
+.full.height{background-color: #F9F9F9;}
+.ui.left:not(.action){ float:none;}
+.ui.left{ float:none;}
+.ui.secondary.pointing.menu{ border-bottom:none;}
+</style>
+		{{if or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn)}}
+		{{template "base/alert" .}}
+		{{end}}
+		<div class="ui centered grid">
+			<div class="sixteen wide mobile ten wide tablet ten wide computer column">
+				<div class="ui bottom aligned two column grid">
+          <div class="column">
+						<h2 class="ui header">
+							{{if .LinkAccountMode}}
+								{{.i18n.Tr "auth.oauth_signin_title"}}
+							{{else}}
+								{{.i18n.Tr "auth.login_userpass"}}
+							{{end}}
+						</h2>
+					</div>
+				{{if .ShowRegistrationButton}}
+                    <div class="ui right floated column">
+						<a href="{{AppSubUrl}}/user/sign_up">{{.i18n.Tr "auth.sign_up_now" | Str2html}}</a>
+					</div>
+				{{end}}
+				</div>
+
+				<div class="ui grid">
+          <div class="column">
+						{{if .IsCourse}}
+							<form class="ui form" action="{{.SignInLink}}?course=true" method="post" onclick="return checkform();">
+						{{else}}
+							<form class="ui form" action="{{.SignInLink}}" method="post" onclick="return checkform();">
+						{{end}}
+						{{.CsrfTokenHtml}}
+						<div class="field">
+							<div class="ui left icon input {{if and (.Err_UserName) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn))}}error{{end}}">
+								<i class="user icon"></i>
+								<input id="user_name" name="user_name" value="{{.user_name}}" placeholder="{{.i18n.Tr "home.login_uname_holder"}}" autofocus required>
+							</div>
+						</div>
+						{{if or (not .DisablePassword) .LinkAccountMode}}
+						<div class="field">
+							<div class="ui left icon input {{if and (.Err_Password) (or (not .LinkAccountMode) (and .LinkAccountMode .LinkAccountModeSignIn))}}error{{end}}">
+								<i class="lock icon"></i>
+								<input id="input_password" type="password" value="{{.password}}" placeholder="{{.i18n.Tr "password"}}" autocomplete="off" required>
+								<input id="password" name="password" type="hidden" value="">
+							</div>
+						</div>
+						{{end}}
+						{{if not .LinkAccountMode}}
+						<div class="two fields inline">
+							<div class="field">
+								<div class="ui checkbox">
+									<label>{{.i18n.Tr "auth.remember_me"}}</label>
+									<input id="remember" name="remember" type="checkbox">
+								</div>
+							</div>
+							<div class="field" style="padding-right: 0; text-align: right;">
+								<a href="{{AppSubUrl}}/user/forgot_password">{{.i18n.Tr "auth.forgot_password"}}</a>
+							</div>
+						</div>
+						{{end}}
+
+						<div class="ui hidden divider"></div>
+
+						<div class="center aligned field">
+							<button id="submitId" class="fluid large ui blue button">
+								{{if .LinkAccountMode}}
+									{{.i18n.Tr "auth.oauth_signin_submit"}}
+								{{else}}
+									{{.i18n.Tr "sign_in"}}
+								{{end}}
+							</button>
+						</div>
+						
+						{{template "user/auth/signin_thirdparty" .}}
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<script>
+function checkform() {
+    var isNeedEncrypt={{.LoginEncrypt}};
+	if(isNeedEncrypt){
+ 		document.getElementById('password').value = encrypt(document.getElementById('input_password').value);
+	}else{
+	    document.getElementById('password').value = document.getElementById('input_password').value;
+	}
+	return true;
+}
+
+function encrypt(pass) {
+  var publicKey={{.RSAPublicKey}};
+  const encrypted = new JSEncrypt() // 创建加密对象实例
+  encrypted.setPublicKey(publicKey) // 设置公钥
+  return encrypted.encrypt(pass) // 对内容进行加密
+}
+
+</script>

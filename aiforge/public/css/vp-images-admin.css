@@ -1,0 +1,108 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/images/admin/index.vue?vue&type=style&index=0&id=77b6f83a&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.admin-page[data-v-77b6f83a] {
+  border: 1px solid #d4d4d5;
+  margin-top: 0px;
+  padding-top: 0;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+}
+.admin-page .content[data-v-77b6f83a] {
+  margin: 10px 10px;
+}
+.admin-page .content .list-head[data-v-77b6f83a] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+.admin-page .content .list-head .filters-c[data-v-77b6f83a] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+  gap: 8px;
+}
+.admin-page .content .list-head .right[data-v-77b6f83a] {
+  display: flex;
+}
+.admin-page .content .list-foot[data-v-77b6f83a] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.admin-page .content .list-foot .left-btn[data-v-77b6f83a] {
+  border-color: #ff4d4f;
+  color: #ff4d4f;
+}
+.admin-page .content .list-foot .pagination-c[data-v-77b6f83a] {
+  margin-right: auto;
+  margin-left: auto;
+}
+.admin-page .content .table-container[data-v-77b6f83a] .el-table__header th {
+  background: #f0f0f0;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 400;
+  font-size: 14px;
+  height: 48px;
+  border: 1px solid #d0d0d0;
+  border-right: 0;
+}
+.admin-page .content .table-container[data-v-77b6f83a] .el-table__header th:last-child {
+  border-right: 1px solid #d0d0d0;
+}
+.admin-page .content .table-container[data-v-77b6f83a] .el-table__body td {
+  font-size: 12px;
+}
+.admin-page .content .table-container .image_title[data-v-77b6f83a] {
+  display: inline-block;
+  cursor: default;
+  color: #426290;
+}
+.admin-page .content .table-container .heart-stroke[data-v-77b6f83a] {
+  stroke: #FA8C16;
+  stroke-width: 2;
+  fill: #fff;
+}
+.reason-dlg[data-v-77b6f83a] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.reason-dlg[data-v-77b6f83a] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.reason-dlg[data-v-77b6f83a] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.reason-dlg[data-v-77b6f83a] .el-dialog__body {
+  padding: 15px 15px;
+}
+.reason-dlg .el-input[data-v-77b6f83a] .el-input__inner:focus {
+  border-color: #85b7d9;
+  outline: 0;
+}
+.reason-dlg .btn[data-v-77b6f83a] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.reason-dlg .btn.confirm-btn[data-v-77b6f83a] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+}
+

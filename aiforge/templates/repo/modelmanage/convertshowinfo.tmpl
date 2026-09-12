@@ -1,0 +1,844 @@
+{{template "base/head" .}}
+<style>
+.according-panel-heading{
+    box-sizing: border-box;
+    padding: 8px 16px;
+    color: #252b3a;
+    background-color: #f2f5fc;
+    line-height: 1.5;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+.accordion-panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #252b3a;
+}
+.accordion-panel-title-content{
+    vertical-align: middle;
+    display: inline-block;
+    width: calc(100% - 32px);
+    cursor: default;
+}
+.acc-margin-bottom {
+    margin-bottom: 5px;
+}
+.title_text {
+    font-size: 12px;
+}
+.ac-display-inblock {
+    display: inline-block;
+}
+.cti-mgRight-sm {
+    margin-right: 8px;
+}
+.ac-text-normal {
+    font-size: 14px;
+    color: #575d6c;
+}
+.uc-accordionTitle-black {
+    color: #333;
+}
+.accordion-border{
+    border:1px solid #cce2ff;
+}
+.padding0{
+    padding: 0 !important;
+}
+.content-pad{
+    padding: 15px 35px;
+}
+.content-margin{
+    margin:10px 5px ;
+}
+.tab_2_content {
+    min-height: 360px;
+    margin-left: 10px;
+}
+.ac-grid {
+    display: block;
+    *zoom: 1;
+}
+.ac-grid-col {
+    float: left;
+    width: 100%;
+}
+.ac-grid-col2 .ac-grid-col {
+    width: 50%;
+}
+.ti-form {
+    text-align: left;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.ti-form>tbody {
+    font-size: 12px;
+}
+.ti-form>tbody, .ti-form>tbody>tr {
+    vertical-align: inherit;
+}
+.ti-text-form-label {
+    
+    padding-bottom: 20px;
+    padding-right: 20px;
+    color: #8a8e99;
+    font-size: 12px;
+    white-space: nowrap !important;
+    width: 80px;
+    line-height: 30px;
+}
+.ti-text-form-content{
+    line-height: 30px;
+    padding-bottom: 20px;
+}
+.ti-form>tbody>tr>td {
+    vertical-align: top;
+    white-space: normal;
+}
+td, th {
+    padding: 0;
+}
+.info_text {
+    padding-bottom: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+}
+.ac-grid-col .text-span {
+    width: 450px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.redo-color{
+    color: #3291F8;
+}
+.ti-action-menu-item:not(:last-child){
+    margin-right: 10px;
+    padding-right: 11px;
+    text-decoration: none!important;
+    color: #526ecc;
+    cursor: pointer;
+    display: inline-block;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    position: relative;
+}
+.ti-action-menu-item:not(:last-child):after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 12px;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-6px);
+    -ms-transform: translateY(-6px);
+    -o-transform: translateY(-6px);
+    transform: translateY(-6px);
+    border-right: 1px solid #dfe1e6;
+}
+.text-width80{
+    width: 100px;
+    line-height: 30px;
+}
+.border-according-model{
+    border: 1px solid #dfe1e6;
+}
+.disabled {
+        cursor: default;
+        pointer-events: none;
+        color: rgba(0,0,0,.6) !important;
+        opacity: .45 !important;
+}
+.pad20{
+    
+    border:0px !important;
+}
+.model_file_bread{
+    margin-bottom: -0.5rem !important;
+    padding-left: 1rem;
+    padding-top: 0.5rem ;
+}
+</style>
+{{template "custom/global_mask" .}}
+<div class="repository">
+{{template "repo/header" .}}
+    <div class="ui container">
+        <h4 class="ui header" id="vertical-segment">
+            <div class="ui breadcrumb">
+                <a class="section" href="{{$.RepoLink}}/modelmanage/convert_model">
+                    {{.i18n.Tr "repo.modelconvert.taskurlname"}}
+                </a>
+                <div class="divider"> / </div>
+				<div class="active section">{{.Name}}</div>
+			</div>
+        </h4>
+    {{with .task}}
+        <div class="ui accordion border-according-model"  id="accordion" data-repopath="{{$.RepoRelPath}}" data-jobid="{{.CloudBrainTaskId}}" data-version="1">
+            <input type="hidden" id="jobId_input" name="jobId_input" value="{{.CloudBrainTaskId}}">
+            <div class="active title padding0">
+                <div class="according-panel-heading">
+                    <div class="accordion-panel-title">
+                        <i class="dropdown icon"></i>
+                        <span class="accordion-panel-title-content">
+                            <span>
+                                <div class="ac-display-inblock title_text acc-margin-bottom">
+                                    <span class="cti-mgRight-sm">{{TimeSinceUnix1 .CreatedUnix}}</span>   
+         
+                                    <span class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.status"}}：
+                                        <span id="status-span"><i id="icon" style="vertical-align: middle;" class="{{.Status}}"></i><span id="text" style="margin-left: 0.4em;font-size: 12px;">{{.Status}}</span></span>
+                                    </span>
+                                    <span class="cti-mgRight-sm">{{$.i18n.Tr "repo.modelarts.train_job.dura_time"}}：</span>
+                                    <span class="cti-mgRight-sm uc-accordionTitle-black" id="duration-span">{{.TrainJobDuration}}</span>
+                                    
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="active content">
+                <div class="content-pad">
+                    <div class="ui pointing secondary menu" style="border-bottom: 1px solid rgba(34,36,38,.15);">
+                        <a class="active item" data-tab="first">{{$.i18n.Tr "repo.modelarts.train_job.config"}}</a>
+                        <a id="gpuruntimeinfo" style="display: {{$.gpu_display}};" class="item" data-tab="second" onclick="javascript:parseInfo()">{{$.i18n.Tr "repo.cloudbrain.runinfo"}}</a>
+                        <a id="gpulog" style="display: {{$.gpu_display}};" class="item" data-tab="third" onclick="loadLog()">{{$.i18n.Tr "repo.modelarts.log"}}</a>
+                        <a id="npulog" style="display: {{$.npu_display}};" class="item log_bottom" data-tab="five" data-version="">{{$.i18n.Tr "repo.modelarts.log"}}</a>
+                        <a class="item" data-tab="four" onclick="loadModelFile()">{{$.i18n.Tr "repo.model_download"}}</a>
+                    </div>
+                    <div class="ui tab active" data-tab="first">
+                        <div style="padding-top: 10px;">
+                            <div class="tab_2_content">
+                                <div class="ac-grid ac-grid-col2">
+                                    <div class="ac-grid-col">
+                                        <table class="ti-form">
+                                            <tbody class="ti-text-form">
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.cloudbrain_task"}}
+                                                    </td>
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            {{.Name}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.status"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="status">
+                                                            {{.Status}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelconvert.inputshape"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="InputShape">
+                                                            {{.InputShape}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelconvert.inputdataformat"}}
+                                                    </td>
+
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="InputDataFormat">
+                                                            {{.InputDataFormat}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.start_time"}} 
+                                                    </td>
+        
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w">
+                                                            <span style="font-size: 12px;" class="">
+                                                            {{if eq .StartTime 0}}--{{else}}{{TimeSinceUnix1 .StartTime}} {{end}}
+                                                            </span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelarts.train_job.dura_time"}} 
+                                                    </td>
+        
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="duration">
+                                                            {{.TrainJobDuration}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="ti-no-ng-animate">
+                                                    <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                        {{$.i18n.Tr "repo.modelconvert.netoutputdata"}}
+                                                    </td>
+        
+                                                    <td class="ti-text-form-content">
+                                                        <div class="text-span text-span-w" id="duration">
+                                                            {{if eq .NetOutputFormat 0}}FP32 {{else if eq .NetOutputFormat 1}}FP16 {{end}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                                          
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="ac-grid-col">
+                                            <table class="ti-form">
+                                                <tbody class="ti-text-form">
+                                                                   
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.modelconvert.modelname"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w">
+                                                                {{.ModelName}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.modelconvert.modelversion"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w">
+                                                                {{.ModelVersion}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.model.manage.modelfile"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w">
+                                                                {{.ModelPath}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                   
+
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.modelconvert.srcengine"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w">
+                                                                {{if eq .SrcEngine 0}}PyTorch {{else if eq .SrcEngine 1}}Tensorflow{{else if eq .SrcEngine 2}}MindSpore {{else if eq .SrcEngine 4}}PaddlePaddle{{else if eq .SrcEngine 6}} MXNet{{end}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.modelconvert.outputformat"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w">
+                                                                {{if eq .DestFormat 0}}ONNX {{else if eq .DestFormat 1}}TensorRT {{end}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.modelarts.train_job.description"}}  
+                                                        </td>
+                
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w" title="{{.Description}}">
+                                                                {{.Description}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr class="ti-no-ng-animate">
+                                                        <td class="ti-no-ng-animate ti-text-form-label text-width80">
+                                                            {{$.i18n.Tr "repo.cloudbrain_creator"}}
+                                                        </td>
+
+                                                        <td class="ti-text-form-content">
+                                                            <div class="text-span text-span-w" id="username">
+                                                                {{.UserName}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+
+                    <div class="ui tab" data-tab="second">
+                        <div>
+                            <div class="ui message message" style="display: none;">
+                                <div id="header"></div>
+                            </div>
+                            <div class="ui attached  log"  id="log" style="height: 390px !important; overflow: auto;">
+                                <input type="hidden" id="json_value" value="{{$.AppExitDiagnostics}}">
+                                <input type="hidden" id="ExitDiagnostics" value="{{$.ExitDiagnostics}}">
+                                <span id="info_display" class="info_text">
+                                        
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="ui tab" data-tab="third">
+                        <div>
+                            <div class="ui message message" style="display: none;">
+                                <div id="header"></div>
+                            </div>
+                            <div class="ui attached log"  id="log" style="height: 300px !important; overflow: auto;position: relative;">
+                                <div class="ui inverted active dimmer">
+                                    <div class="ui loader"></div>
+                                </div>
+                                <input type="hidden"  name="end_line">
+                                <input type="hidden"  name="start_line">
+                                <pre id="log_file"></pre>
+                            </div>
+                                        
+                        </div>
+                        
+                    </div>
+
+                    <div class="ui tab" data-tab="five">
+                        <div style="position: relative;">
+                            <span>
+                                <a title="{{$.i18n.Tr "repo.log_scroll_start"}}" style="position: absolute; right: -32px;cursor: pointer;" class="log_top" data-version="V0001"><i class="icon-to-top"></i></a>
+                            </span>
+                            <span>
+                                <a title="{{$.i18n.Tr "repo.log_scroll_end"}}" style="position: absolute; bottom: 10px;right: -32px;cursor: pointer;" class="log_bottom" data-version="V0001"><i class="icon-to-bottom"></i></a>
+                            </span>
+                            <div id="log_npu_message" class="ui message message" style="display: none;">
+                                <div id="log_npu_header"></div>
+                            </div>
+                            <div class="ui attached  log" onscroll="fn()" id="log_npu" style="height: 300px !important; overflow: auto;">
+                                <input type="hidden"  name="end_line" value>
+                                <input type="hidden"  name="start_line" value>
+                                <pre id="log_file_npu"></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui tab" data-tab="four">
+                        <input type="hidden" name="model" value="-1">
+                        <input type="hidden" name="modelback" value="-1">
+                        <div class='ui breadcrumb model_file_bread' id='file_breadcrumb'>
+                            <div class="active section"></div>
+                            <div class="divider"> / </div>
+
+                        </div>
+                        <div id="dir_list">
+                            
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+        {{end}} {{template "base/paginate" .}}
+    </div>
+    <!-- 确认模态框 -->
+   
+    
+    
+</div>
+{{template "base/footer" .}}
+
+<script>
+    $('.menu .item').tab()
+
+    $(document).ready(function(){
+    $('.ui.accordion').accordion({selector:{trigger:'.icon'}});
+    });
+    $(document).ready(function(){
+        $('.secondary.menu .item').tab();
+    });
+    
+    let userName
+    let repoPath
+    let jobID = {{$.task.CloudBrainTaskId}}
+    let downlaodFlag = {{$.canDownload}}
+    let taskID = {{$.task.ID}}
+    let realJobName = {{$.task.ID}}
+    let lang_scrolled_logs_top = {{$.i18n.Tr "repo.scrolled_logs_top"}};
+    let lang_scrolled_logs_top_pls_retry = {{$.i18n.Tr "repo.scrolled_logs_top_pls_retry"}};
+    let lang_scrolled_logs_bottom = {{$.i18n.Tr "repo.scrolled_logs_bottom"}};
+    let lang_scrolled_logs_bottom_pls_retry = {{$.i18n.Tr "repo.scrolled_logs_bottom_pls_retry"}};
+
+    $(document).ready(function(){
+        let url = window.location.href;
+        let urlArr = url.split('/')
+        userName = urlArr.slice(-4)[0]
+        repoPath = urlArr.slice(-3)[0]
+    })
+    function stopBubbling(e) {
+        e = window.event || e;
+        if (e.stopPropagation) {
+            e.stopPropagation();      //阻止事件 冒泡传播
+        } else {
+            e.cancelBubble = true;   //ie兼容
+        }
+    }
+    let timeid = window.setInterval(loadJobStatus, 30000);
+    $(document).ready(loadJobStatus);
+
+    function loadLog(version_name){
+        $('.log .ui.inverted.active.dimmer').css({
+            "background-color": "#fff",
+            "display": "block",
+        });
+        $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/log?version_name=${version_name}&lines=50&order=asc`, (data) => {
+            $('input[name=end_line]').val(data.EndLine)
+            $('input[name=start_line]').val(data.StartLine)
+            $(`#log_file`).text(data.Content)
+            $('.log .ui.inverted.active.dimmer').css({
+                "display": "none",
+            });
+        }).fail(function(err) {
+            console.log(err);
+            $('.log .ui.inverted.active.dimmer').css({
+                "display": "none",
+            });
+        });
+    }
+    function loadModelFile(version_name,parents,filename,init){
+        parents = parents || ''
+        filename = filename || ''
+        init = init || ''
+        $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/model_list?version_name=${version_name}&parentDir=${parents}`, (data) => {
+            $(`#dir_list`).empty() 
+            renderDir(data,version_name)
+            if(init==="init"){
+                $(`input[name=model]`).val("")
+                $(`input[name=modelback]`).val(version_name)
+                $(`#file_breadcrumb`).empty()
+                let htmlBread = "/"
+                $(`#file_breadcrumb`).append(htmlBread)
+            }else{
+                renderBrend(version_name,parents,filename,init)
+            }
+        }).fail(function(err) {
+            console.log(err,version_name);
+        });
+        
+    }
+    function renderBrend(version_name,parents,filename,init){
+        if(init=="folder"){
+            let htmlBrend = ""
+            let sectionName=$(`#file_breadcrumb .active.section`).text()
+            let parents1 = $(`input[name=model]`).val()
+            let filename1 = $(`input[name=modelback]`).val()
+            if(parents1===""){
+                $(`#file_breadcrumb .active.section`).replaceWith(`<a class='section' onclick="loadModelFile('${version_name}','${parents1}','','init')">${sectionName}</a>`)
+            }else{
+                $(`#file_breadcrumb .active.section`).replaceWith(`<a class='section' onclick="loadModelFile('${version_name}','${parents1}','${filename1}')">${sectionName}</a>`)
+            }
+            
+            htmlBrend += `<div class='active section'>${filename}</div>`
+            htmlBrend += "<div class='divider'> / </div>" 
+            $(`#file_breadcrumb`).append(htmlBrend)
+            $(`input[name=model]`).val(parents)
+            $(`input[name=modelback]`).val(filename)
+        }else{
+            $(`input[name=model]`).val(parents)
+            $(`input[name=modelback]`).val(filename)
+            $(`#file_breadcrumb a.section:contains(${filename})`).nextAll().remove()
+            $(`#file_breadcrumb a.section:contains(${filename})`).replaceWith(`<div class='active section'>${filename}</div>`)
+            //$(`#file_breadcrumb div.section:contains(${filename})`).append("<div class='divider'> / </div>")
+        }
+        
+    }
+    function renderDir(data,version_name){
+        let html=""
+            html += "<div class='ui grid' style='margin:0;'>"
+            html += "<div class='row' style='padding: 0;'>"
+            html += "<div class='ui sixteen wide column' style='padding:1rem;'>"
+            html += "<div class='dir list'>"
+            html += "<table id='repo-files-table' class='ui single line table pad20'>"
+            html += '<tbody>'
+            for(let i=0;i<data.Dirs.length;i++){
+                let dirs_size = renderSize(data.Dirs[i].Size)
+                html += "<tr>"
+                html += "<td class='name six wid'>"
+                html += "<span class='truncate'>"
+                html += "<span class='octicon octicon-file-directory'>"
+                html += "</span>"
+                if(data.Dirs[i].IsDir){
+                    html += `<a  onclick="loadModelFile('${version_name}','${data.Dirs[i].ParenDir}','${data.Dirs[i].FileName}','folder')">`
+                    html += "<span class='fitted'><i class='folder icon' width='16' height='16' aria-hidden='true'></i>" + data.Dirs[i].FileName + "</span>"
+                }else{
+                    if(downlaodFlag){
+                        html += `<a href="/${userName}/${repoPath}/modelmanage/download_model_convert/${taskID}?fileName=${data.Dirs[i].FileName}&parentDir=${data.Dirs[i].ParenDir}&jobName=${realJobName}">`
+                    }
+                    else{
+                        html += `<a class="disabled">`
+                    }
+                    html += "<span class='fitted'><i class='file icon' width='16' height='16' aria-hidden='true'></i>" + data.Dirs[i].FileName + "</span>"
+                }
+                html += '</a>'
+                html += "</span>"
+                html += "</td>"
+                html += "<td class='message seven wide'>"
+                if(data.Dirs[i].IsDir){
+                    html += "<span class='truncate has-emoji'></span>"
+                }else{
+                    html += "<span class='truncate has-emoji'>"+ `${dirs_size}` + "</span>"
+                }
+                
+                html += "</td>"
+
+                html += "<td class='text right age three wide'>"
+                html += "<span class='truncate has-emoji'>" + data.Dirs[i].ModTime + "</span>"
+                html += "</td>"
+                html += "</tr>"
+                
+            }
+            html += "</tbody>"
+            html += "</table>"
+            html += "</div>"
+            html += "</div>"
+            html += "</div>"
+            html += "</div>"
+            $(`#dir_list`).append(html)
+    }
+    function renderSize(value){
+        if(null==value||value==''){
+            return "0 Bytes";
+        }
+        var unitArr = new Array("Bytes","KB","MB","GB","TB","PB","EB","ZB","YB");
+        var index=0;
+        var srcsize = parseFloat(value);
+        index=Math.floor(Math.log(srcsize)/Math.log(1024));
+        var size =srcsize/Math.pow(1024,index);
+        size=size.toFixed(0);//保留的小数位数
+        return size+unitArr[index];
+    }
+
+    function loadJobStatus() {
+        $(".ui.accordion.border-according-model").each((index, job) => {
+            const jobID = job.dataset.jobid;
+            const repoPath = job.dataset.repopath;
+            const versionname = job.dataset.version
+
+            let status = $(`#status-span`).text()
+            
+            if(['IMAGE_FAILED','SUBMIT_FAILED','DELETE_FAILED','KILLED','COMPLETED','FAILED','CANCELED','LOST','START_FAILED','SUCCEEDED','STOPPED'].includes(status)){
+                return 
+            }
+            let stopArray=["KILLED","FAILED","START_FAILED","KILLING","COMPLETED","SUCCEEDED","STOPPED"]
+            $.get(`/api/v1/repos/${repoPath}/modelmanage/${taskID}?version_name=${versionname}`, (data) => {
+                
+                $(`#status-span span`).text(data.JobStatus)
+                $(`#status-span i`).attr("class",data.JobStatus)
+              
+                $('#status').text(data.JobStatus)
+               
+            }).fail(function(err) {
+                console.log(err);
+            });
+        });
+    };
+
+ 
+    function parseInfo(){
+        let jsonValue = document.getElementById("json_value").value;
+        let jsonObj = JSON.parse(jsonValue);
+        let jobEvents = jsonObj["jobEvents"];
+        let html = "";
+        if (jobEvents != null){
+            for(var i=0; i < jobEvents.length;i++){
+                    if (jobEvents[i]["reason"]!="") {
+                        let time = jobEvents[i]["timestamp"] && new Date(jobEvents[i]["timestamp"])
+                        html +="<p><b>[" +jobEvents[i]["reason"] +  "]</b> <span>"+time.toLocaleString()+"</span></p>";
+                        html +="<p>" +jobEvents[i]["message"] +  "</p>";
+                    }
+            }
+        }
+        let string = document.getElementById("ExitDiagnostics").value;
+        string = string.replace(/\r\n/g,"<br>")
+        string = string.replace(/\n/g,"<br>");
+        string = string.replace(/(\r\n)|(\n)/g,'<br>');
+
+        if (string!=""){
+            html +="<p><b>[ExitDiagnostics]</b></p>";
+            html +="<p>" +string +  "</p>";
+        }
+        document.getElementById("info_display").innerHTML=html;
+    }
+    
+    function debounce(fn,delay){
+        let timer;
+        return (...args) => {
+            // 判断定时器是否存在，清除定时器
+            if (timer) {
+            clearTimeout(timer);
+            }
+
+            // 重新调用setTimeout
+            timer = setTimeout(() => {
+            fn.apply(this, args);
+            }, delay);
+        };
+    }
+    const fn = debounce(logScroll, 500)
+    function logScroll(version_name) {
+        let container = document.querySelector(`#log_npu`)
+        let scrollTop = container.scrollTop
+        let scrollHeight = container.scrollHeight
+        let clientHeight = container.clientHeight
+        let scrollLeft = container.scrollLeft
+        if(((parseInt(scrollTop)  + clientHeight == scrollHeight || parseInt(scrollTop)  + clientHeight +1 == scrollHeight || parseInt(scrollTop)  + clientHeight - 1 == scrollHeight)) && parseInt(scrollTop)!==0 && scrollLeft==0){
+            let end_line = $(`#log_npu input[name=end_line]`).val()
+            $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/modelartlog?version_name=V0001&base_line=${end_line}&lines=50&order=desc`, (data) => {
+                if (data.Lines == 0){
+                    $(`#log_npu_header`).text(lang_scrolled_logs_bottom)
+                    $(`#log_npu_message`).css('display', 'block')
+                    setTimeout(function(){
+                        $(`#log_npu_message`).css('display', 'none')
+                    }, 1000)
+                }else{
+                    if(end_line===data.EndLine){
+                        return
+                    }
+                    else{
+                        $(`#log_npu input[name=end_line]`).val(data.EndLine)
+                        $(`#log_npu`).append('<pre>' + data.Content)
+                    }
+
+                }
+            }).fail(function(err) {
+                console.log(err);
+            });
+        }
+        if([0,1,2,3,4,5,6,7,8,9,10].includes(scrollTop) && scrollLeft==0){
+            let start_line = $(`#log_npu input[name=start_line]`).val()
+            $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/modelartlog?version_name=V0001&base_line=${start_line}&lines=50&order=asc`, (data) => {
+                if (data.Lines == 0){
+                    $(`#log_npu_header`).text(lang_scrolled_logs_top)
+                    $(`#log_npu_message`).css('display', 'block')
+                    setTimeout(function(){
+                        $(`#log_npu_message`).css('display', 'none')
+                    }, 1000)
+                }else{
+                    $(`#log_npu input[name=start_line]`).val(data.StartLine)   //如果变动就改变所对应的值
+                    $(`#log_npu`).prepend('<pre>' + data.Content)
+                }
+            }).fail(function(err) {
+                console.log(err);
+            });
+        }
+    }
+    function scrollAnimation(dom, currentY, targetY, currentX) {
+        let needScrollTop = targetY - currentY;
+        let _currentY = currentY;
+        setTimeout(() => {
+            // 一次调用滑动帧数，每次调用会不一样
+            //取总距离的十分之一
+            const dist = Math.ceil(needScrollTop / 10);
+            _currentY += dist;
+            //移动一个十分之一
+            dom.scrollTo(currentX || 0, _currentY,'smooth');
+            // 如果移动幅度小于十个像素，直接移动，否则递归调用，实现动画效果
+            if (needScrollTop > 10 || needScrollTop < -10) {
+                scrollAnimation(dom, _currentY, targetY)
+            } else {
+                dom.scrollTo(0, targetY,'smooth')
+            }
+        }, 1)
+    }
+
+    $('.log_top').click(function(){
+
+        let logContentDom = document.querySelector(`#log_npu`)
+        
+        $(`#log_file_npu`).siblings('pre').remove()
+        $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/modelartlog?version_name=V0001&base_line=&lines=50&order=asc`, (data) => {
+            
+            $(`#log_npu input[name=end_line]`).val(data.EndLine)   //如果变动就改变所对应的值
+            $(`#log_npu input[name=start_line]`).val(data.StartLine)
+            $(`#log_npu`).prepend('<pre>' + data.Content)
+            $(`#log_npu_header`).text(lang_scrolled_logs_top)
+            $(`#log_npu_message`).css('display', 'block')
+            setTimeout(function(){
+                $(`#log_npu_message`).css('display', 'none')
+            }, 1000)
+            scrollAnimation(logContentDom, logContentDom.scrollTop, 0);
+        })
+
+    })
+    $('.log_bottom').click(function(e){
+
+        let logContentDom = document.querySelector(`#log_npu`)
+        $(`#log_file_npu`).siblings('pre').remove()
+        $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/modelartlog?version_name=V0001&base_line=&lines=50&order=desc`, (data) => {
+            
+            $(`#log_npu input[name=end_line]`).val(data.EndLine)   //如果变动就改变所对应的值
+            $(`#log_npu input[name=start_line]`).val(data.StartLine)
+            $(`#log_npu`).append('<pre>' + data.Content)
+            $.get(`/api/v1/repos/${userName}/${repoPath}/modelmanage/${taskID}/modelartlog?version_name=V0001&base_line=${data.EndLine}&lines=50&order=desc`, (data) => {
+                if (data.Lines == 0){
+                    $(`#log_npu_header`).text(lang_scrolled_logs_bottom)
+                    $(`#log_npu_message`).css('display', 'block')
+                    setTimeout(function(){
+                        $(`#log_npu_message`).css('display', 'none')
+                    }, 1000)
+                }else{
+                    if(end_line===data.EndLine){
+                        return
+                    }
+                    else{
+                        $(`#log_npu input[name=end_line]`).val(data.EndLine)
+                        $(`#log_npu`).append('<pre>' + data.Content)
+                    }
+
+                }
+            }).fail(function(err) {
+                console.log(err);
+            });
+            scrollAnimation(logContentDom, logContentDom.scrollTop+1, logContentDom.scrollHeight - logContentDom.clientHeight);
+        })
+    })
+</script>

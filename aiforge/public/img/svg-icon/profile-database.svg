@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100.000000" height="100.000000" fill="none">
+	<rect id="database 1" width="100.000000" height="100.000000" x="0.000000" y="0.000000" />
+	<g id="组合 1">
+		<path id="矢量 5" d="M91.6669 22.9167C91.6669 22.9167 91.6667 75.1298 91.6667 79.1667C91.6667 86.0702 73.0119 91.6667 50 91.6667C26.9881 91.6667 8.33341 86.0702 8.33341 79.1667C8.33341 75.2964 8.33334 22.9167 8.33334 22.9167" fill-rule="nonzero" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 6" d="M91.6667 60.4167C91.6667 67.3202 73.0119 72.9167 50 72.9167C26.9881 72.9167 8.33334 67.3202 8.33334 60.4167" fill-rule="nonzero" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<path id="矢量 7" d="M91.6667 41.6667C91.6667 48.5702 73.0119 54.1667 50 54.1667C26.9881 54.1667 8.33334 48.5702 8.33334 41.6667" fill-rule="nonzero" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+		<ellipse id="椭圆 1" rx="41.666668" ry="12.500001" cx="50.0000114" cy="20.8333435" stroke="rgb(72,72,72)" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.000000" />
+	</g>
+</svg>

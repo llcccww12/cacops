@@ -1,0 +1,14 @@
+<div class="repos--seach">
+	<div class="ui container">
+		<div class="ui two column centered grid">
+			<form class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty">
+				<div class="ui fluid action input">
+					<input name="q" value="{{.Keyword}}" placeholder="{{.i18n.Tr "explore.search"}}..." autofocus>
+					<input type="hidden" name="tab" value="{{$.TabName}}">
+					<input type="hidden" name="sort" value="{{$.SortType}}">
+					<button class="ui green button">{{.i18n.Tr "explore.search"}}</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

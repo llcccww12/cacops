@@ -1,0 +1,24 @@
+{{template "base/head" .}}
+<div class="repository new issue">
+	{{template "repo/header" .}}
+	<div class="ui container">
+			<div class="ui two column stackable grid">
+					<div class="column" style="display: flex;align-items: center;">
+							<div class="ui breadcrumb">
+									<a class="section" href="{{.RepoLink}}/issues">{{.i18n.Tr "repo.issues"}}</a>
+									<div class="divider"> / </div>
+									<div class="action section">{{.i18n.Tr "repo.issues.new"}}</div>
+							</div>
+					</div>
+					<div class="column right aligned">
+							{{template "repo/issue/navbar" .}}
+							
+					</div>
+					
+			</div>
+		
+		<div class="ui divider"></div>
+		{{template "repo/issue/new_form" .}}
+	</div>
+</div>
+{{template "base/footer" .}}

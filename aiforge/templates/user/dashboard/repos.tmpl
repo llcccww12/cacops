@@ -1,0 +1,11 @@
+{{template "base/head_home" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-repos-square.css?v={{MD5 AppVer}}" />
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9">
+    <div id="org-info" data-orgid="{{.Org.ID}}" data-orgname="{{.Org.Name}}" data-cancreate="{{.CanCreateOrgRepo}}"></div>
+    <div id="__vue-root"></div>
+  </div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-repos-square.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

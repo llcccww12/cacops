@@ -1,0 +1,428 @@
+<style>
+
+		.organization-info_1000{
+			background: #F5F5F6 !important;
+			padding-top: 30px;
+			margin-bottom: 0px !important;
+		}
+		.organization-info >.container {
+			overflow: auto;
+			background: #f5f5f6 !important;
+			padding-top: 30px;
+			padding-bottom: 20px;
+			background-size: cover;
+			border-radius: 5px;
+			border: none !important
+		}
+	
+		.organization.profile #org-avatar {
+			border:none !important
+		}
+		.desc {
+			font-size: 14px;
+			margin-bottom: 10px !important;
+		}
+		.item {
+			display: inline-block;
+			margin-right: 10px;
+		}
+		.item .icon {
+			  margin-right: 5px;
+		}
+		.organization-info >.container {
+			padding-bottom:0px !important;
+		}
+		.course{
+			padding:10px 0 15px !important;
+		}
+		.course_color{
+			color: #FA8C16;
+		}
+		
+		.tag_lable_first{
+			border: 1px solid rgba(232, 232, 232, 100) ;
+			border-radius: 4px;
+			color: rgba(65, 80, 88, 100);
+			font-family: Microsoft Yahei;
+			font-size: 14px;
+			padding: 0.3em 0.5em;
+			height: 30px;
+			text-align: center;
+			margin: 0.2em;
+			margin-left: none;
+		}
+
+	   .bpadding{
+			padding:10px 40px
+	   }
+
+		.noborder{
+			border: none !important;
+		}
+		.div_bt{
+			text-align: center;
+			margin-top: 5px;
+			margin-top: 10px;
+		} 
+	
+	</style>
+	
+	{{template "base/head" .}}
+	<!-- 提示框 -->
+	<div class="alert"></div>
+	<div class="organization profile">
+		{{/* overflow: auto is the clearfix - this avoids the image going beyond
+		the container where it is supposed to stay inside. */}}
+	
+		<div class="organization-info organization-info_1000">
+			<div class="ui center aligned container " style="overflow: auto">
+				<img class="ui left  image" id="org-avatar" src="{{.Org.SizedRelAvatarLink 140}}"/>
+				<div class="content"  style="text-align: left;margin-left:100px" >
+					<div class="ui header" >
+						{{.Org.DisplayName}}
+					</div>
+					<div class="description" >
+						{{if .Org.Description}}<p class="text grey desc">{{.Org.Description}}</p>{{end}}
+					</div>
+					
+					<div class="meta" style="display: inline-flex;">
+						{{if .Org.Location}}<div class="item">{{svg "octicon-location" 16}} <span>{{.Org.Location}}</span></div>{{end}}
+						{{if .Org.Website}}<div class="item">{{svg "octicon-link" 16}} <a target="_blank" rel="noopener noreferrer" href="{{.Org.Website}}">{{.Org.Website}}</a></div>{{end}}
+					</div>
+				</div>
+			</div>		
+		</div>
+		{{template "org/navber_course" .}}
+	
+		<div class="ui container">
+	
+			<!-- 新增 -->
+			<div class="ui stackable grid">	
+			
+				<div class="ui sixteen wide computer column">
+					<div class="ui mobile reversed stackable grid">
+						<div class="ui ten wide tablet twelve wide computer column" id='tag'>
+		
+							<a class="{{if eq $.Keyword "" }} tag_bg {{end}} tag_key ui small tag_lable topic omit"  href="{{$.Link}}?" >{{$.i18n.Tr "org.all_keywords"}}</span></a>
+	
+							{{range .CoursesKeywords}}
+								{{if ne . ""}}
+									<a  class="{{if eq $.Keyword . }} tag_bg {{end}} tag_key ui small tag_lable topic omit" href="{{$.Link}}?q={{.}}" >
+										{{.}}
+									</a>
+								{{end}}
+							{{end}}
+						</div>
+					
+						<div class="ui sixteen wide mobile six wide tablet four wide computer column">
+							<div class=" ui bottom attached segment text center noborder  text center" > 
+								<a style="width: 80%;" class="ui green button bpadding" href="https://openi.pcl.ac.cn/course/create" target="_blank"><i class="ri-folder-add-line" style="vertical-align: middle;"></i> &nbsp;{{.i18n.Tr "org.release_course"}} </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 全部 -->
+			<div class="ui stackable grid">	
+				<div class="ui sixteen wide computer column">
+					<div class="ui mobile reversed stackable grid">
+						<div class="ui ten wide tablet twelve wide computer column">
+							{{template "org/course_list" .}}
+							{{template "base/paginate" .}}
+						</div>
+						<div class="ui sixteen wide mobile six wide tablet four wide computer column">
+							{{if .tags}} 
+								<h4 class="ui top attached header noborder">
+									<strong>{{.i18n.Tr "org.selected_couse"}}</strong>
+									{{if .IsOrganizationOwner}}  
+										<div class="ui right">
+											<a class="text grey"  id="model" onclick="showcreate()">{{svg "octicon-gear" 16}}</a>
+										</div>
+									{{end}}
+								</h4>
+						
+								<div class="ui attached table segment course items noborder">
+									{{ range .tags}}
+										{{if eq .TagName "精选项目"}} 
+											{{range $i, $v := .RepoList}}
+												{{if gt $i 0}}
+													<div class="ui divider" style="margin-bottom:10px;"></div>
+												{{end}}
+												<div class="item">
+													<i class="large icon ri-bookmark-3-line course_color"></i>
+													<div class="content"  style="margin-left: 10px;">
+														<a href="{{.Link}}"><strong class="team-name">{{.Alias}}</strong></a>
+														<p class="text grey">
+															{{if ne .CreatorID 0}}
+																{{$.i18n.Tr "home.contributor"}} : {{.Creator.Name}}
+															{{else}}
+															{{$.i18n.Tr "home.contributor"}}:{{.Owner.Name}}
+															{{end}}
+														</p>
+													</div>
+												</div>
+		
+											{{end}}
+										{{end}}
+									{{end}}
+								</div>
+							{{end}}
+							<h4 class="ui top attached header noborder">
+								<strong>{{.i18n.Tr "org.people"}}</strong>
+								<div class="ui right">
+									<a class="text grey" href="{{.OrgLink}}/members">{{.MembersTotal}} {{svg "octicon-chevron-right" 16}}</a>
+								</div>
+							</h4>
+							<div class="ui attached segment members course noborder">
+								{{$isMember := .IsOrganizationMember}}
+								{{range .Members}}
+									{{if or $isMember (.IsPublicMember $.Org.ID)}}
+										<a href="{{.HomeLink}}" title="{{.Name}}{{if .FullName}} ({{.FullName}}){{end}}"><img class="ui avatar" src="{{.RelAvatarLink}}"></a>
+									{{end}}
+								{{end}}
+	
+								<div class="ui bottom attached segment text center noborder"> 
+									{{if .IsSigned}}
+										<a class="ui blue basic button" onclick="jion_course_team()" style="width: 80%;"> <i class="ri-user-add-line"></i> {{.i18n.Tr "org.teams.join_teams"}}</a>							
+									{{else}}
+										<a class="ui blue basic button" href="https://openi.pcl.ac.cn/user/login?course=true" style="width: 80%;" target="_blank"> <i class="ri-user-add-line"></i> {{.i18n.Tr "org.teams.join_teams"}}</a>							
+									{{end}}
+								</div>
+							</div>
+							{{if .IsOrganizationMember}}
+								<div class="ui top attached header noborder">
+									<strong>{{.i18n.Tr "org.teams"}}</strong>
+									<div class="ui right">
+										<a class="text grey" href="{{.OrgLink}}/teams"><span>{{.Org.NumTeams}}</span> {{svg "octicon-chevron-right" 16}}</a>
+									</div>
+								</div>
+								<div class="ui attached table segment teams  noborder">
+									{{range .Teams}}
+										<div style="margin-top: 10px;">
+											<a href="{{$.OrgLink}}/teams/{{.LowerName}}"><strong class="team-name">{{.Name}}</strong></a>
+											<p class="text grey">
+												<a href="{{$.OrgLink}}/teams/{{.LowerName}}"><strong>{{.NumMembers}}</strong>
+													{{if le .NumMembers 1}}
+														{{$.i18n.Tr "org.lower_member"}}
+													{{else}}
+														{{$.i18n.Tr "org.lower_members"}}
+													{{end}}
+												</a> ·
+												<a href="{{$.OrgLink}}/teams/{{.LowerName}}/repositories"><strong>{{.NumRepos}}</strong> 
+													{{if le .NumRepos 1}}
+														{{$.i18n.Tr "org.lower_repository"}}
+													{{else}}
+														{{$.i18n.Tr "org.lower_repositories"}}
+													{{end}}
+												</a>
+											</p>
+										</div>
+									{{end}}
+								</div>
+								{{if .IsOrganizationOwner}}
+									<div class="ui bottom attached segment text center noborder">
+										<a class="ui blue basic  button" style="width: 80%;" href="{{.OrgLink}}/teams/new">{{.i18n.Tr "org.create_new_team"}}</a>
+									</div>
+								{{end}}
+							{{end}}
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="ui modal">
+		<div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);">
+			<h4 id="model_header">{{.i18n.Tr "org.custom_select_courses"}}</h4>
+		</div>
+		<div class="content content-padding" style="color: black;">
+			<p>{{.i18n.Tr "org.max_selectedPro"}}</p>
+			<div class="ui search" >
+				<div class="ui input" style="width: 100%;">
+					<input  type="text" id = 'search_selectPro' placeholder="Search ..." value = '' oninput="search()">
+				</div>
+			</div>
+			<div style="margin: 10px ;">
+				<div id ='org_list' style="margin-bottom: 20px;"class="content_list" >
+	
+				</div>     
+			</div>
+			<p id='recommend'></p>
+		   
+			<div class="inline field" style="margin-left: 37%;">
+				<div class="actions">
+					<button id="submitId" type="button" class="ui create_train_job green deny button"  onclick="saveSeletedPro(1)">
+						{{.i18n.Tr "explore.save"}}
+					</button>
+					<button class="ui button cancel" >{{.i18n.Tr "explore.cancel"}}</button>
+				</div>
+			</div> 
+			 
+		</div>
+	
+	</div>
+	
+	{{template "base/footer" .}}
+	<script>
+	
+		var data;
+		var filterData=[];
+		var num=0;
+	
+		function showcreate(obj){
+			document.getElementById("search_selectPro").value=''
+			$('.ui.modal')
+			.modal({
+				centered: false,
+				onShow:function(){
+					$("#org_list").empty()                
+					getPro(1)
+					
+				},
+				onHide:function(){
+	  
+				}
+			})
+			.modal('show')
+		}
+		function getPro(typeTag){
+	
+			$.ajax({
+				type:"GET",
+				url:"/org/{{.Org.Name}}/org_tag/repo_list?tagId="+typeTag,
+				dataType:"json",
+				async:false,
+				success:function(json){
+					data = json.data;
+					var n_length = data.length
+					pro_html = getHTML(data)
+					$("#org_list").append(pro_html)
+					checkedNum(0)
+				}
+			});
+		}
+		function getHTML(data){
+			let pro_html=''
+			for (let i=0;i<data.length;i++){
+				if (data[i].Selected==true){
+					pro_html += `<div class="ui checkbox" style="width: 33%;margin-bottom:10px" > <input type="checkbox" id = " ${i}" checked="" onclick="checkedNum(${i})" class="Relist" name ='select_pro_name' data-repoid="${data[i].RepoID}" data-reponame="${data[i].RepoName}"  data-selected=${data[i].Selected} > <label class='omit image poping up' data-content=${data[i].RepoName}  data-position="top left " data-variation="mini"> ${data[i].RepoName}</label></div>`
+					pro_html += '</div>'
+				}
+				else{
+					pro_html += `<div class="ui checkbox" style="width: 33%;margin-bottom:10px" > <input type="checkbox" id = "${i}"  onclick="checkedNum(${i})" class="Relist" name ='select_pro_name' data-repoid="${data[i].RepoID}" data-reponame="${data[i].RepoName}" data-selected= ${data[i].Selected}> <label class='omit image poping up' data-content=${data[i].RepoName}  data-position="top left " data-variation="mini"> ${data[i].RepoName} </label></div>`
+					pro_html += '</div>'
+				}
+			}
+			return pro_html
+		}
+		function saveSeletedPro(typeTag){
+			var saveData=[];
+			$('input[name="select_pro_name"]:checked').each(function(){	
+				saveData.push(parseInt(this.dataset.repoid));
+			})
+			if(saveData.length>9){
+				alert("{{.i18n.Tr "org.save_fail_tips"}}")
+				return
+			}
+	
+			$.ajax({
+			 type:"POST",
+			 url:"/org/{{.Org.Name}}/org_tag/repo_submit?tagId="+typeTag,
+			 contentType:'application/json',
+			 dataType:"json",
+			 async:false,
+			 data:JSON.stringify({'repoList':saveData
+				   }),        
+			   success:function(res){
+				 location.reload()  
+	
+			  }
+			 });
+		}
+	
+		function getSelecteData(){
+			var selectedData=[];
+			$('input[name="select_pro_name"]:checked').each(function(){
+				selectedData.push({"RepoID":parseInt(this.dataset.repoid),"RepoName":this.dataset.reponame,"Selected":JSON.parse(this.dataset.selected)});
+			})
+			return selectedData
+		}
+		function search(){
+			var selectedData = getSelecteData();
+			var searchValue = document.getElementById("search_selectPro").value;
+			filterData=[];
+			for (let i=0;i<data.length;i++){
+				var isInclude=false; 
+				if(data[i].RepoName.toLowerCase().includes(searchValue.toLowerCase())){
+					filterData.push(data[i])
+				}
+			}
+			var showData=[];
+			for(i=0;i<selectedData.length;i++){
+				filterData =filterData.filter((item)=>{
+					return item.RepoID!=selectedData[i].RepoID
+				});
+			}
+			$("#org_list").empty()
+			if(searchValue!=""){
+				if (filterData.length!=0){					
+					var pro_html = getHTML(selectedData);
+					$("#org_list").append(pro_html)
+					pro_html= getHTML(filterData);
+					$("#org_list").append(pro_html)
+				}else{
+					var pro_html = getHTML(selectedData);
+					$("#org_list").append(pro_html)
+				}
+			}else{
+				var pro_html = getHTML(data);
+				$("#org_list").append(pro_html)
+			}
+		}
+	
+		function checkedNum(id){
+	
+			num=0;
+			var inputs = document.getElementsByName("select_pro_name")
+			for (var i=0;i<inputs.length;i++){
+				if(inputs[i].checked){
+					num++
+					if(num>9){
+						document.getElementById(id).checked=false
+						alert( "{{.i18n.Tr "org.select_again"}}")
+						
+						return
+					}
+				}
+					
+			}
+	
+			var show_num = 9-num;
+            let rec = "{{.i18n.Tr "org.recommend_remain_pro"}}"
+			document.getElementById("recommend").innerHTML=rec +" : "+ show_num
+	
+		}
+
+		function jion_course_team(){
+			$.ajax({
+				type:"GET",
+				url:"/course/addOrg",
+				dataType:"json",
+				async:false,
+				success:function(json){
+					data = json;
+					if (data.code==0) {
+						$('.alert').html('{{.i18n.Tr "repo.computing.success"}}').removeClass('alert-danger').addClass('alert-success').show().delay(2000).fadeOut();
+					} else {
+						$('.alert').html(data.error_msg).removeClass('alert-success').addClass('alert-danger').show().delay(5000).fadeOut();
+					}
+					setTimeout("location.reload()",2000);
+				},
+
+			});	
+			
+		}
+		
+	</script>

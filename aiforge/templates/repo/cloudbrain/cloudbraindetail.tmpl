@@ -1,0 +1,9 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-cloudbrain-detail.css?v={{MD5 AppVer}}" />
+<div class="repository">
+    {{template "repo/header" .}}
+    <script>window.REPO_IS_PRIVATE = {{$.Repository.IsPrivate}};</script>
+    <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-cloudbrain-detail.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

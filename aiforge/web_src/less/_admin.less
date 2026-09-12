@@ -1,0 +1,133 @@
+.admin {
+    padding-top: 15px !important;
+
+    .table.segment {
+        padding: 0;
+        font-size: 13px;
+
+        &:not(.striped) {
+            padding-top: 5px;
+
+            thead {
+                th:last-child {
+                    padding-right: 5px !important;
+                }
+            }
+        }
+
+        th {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        &:not(.select) {
+            th,
+            td {
+                &:first-of-type {
+                    padding-left: 15px !important;
+                }
+            }
+        }
+
+        form tbody button[type='submit'] {
+            padding: 5px 8px;
+        }
+    }
+
+    .ui.header,
+    .ui.segment {
+        box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
+    }
+
+    &.user {
+        .email {
+            max-width: 200px;
+        }
+    }
+
+    dl.admin-dl-horizontal {
+        padding: 20px;
+        margin: 0;
+
+        dd {
+            margin-left: 275px;
+        }
+
+        dt {
+            font-weight: bolder;
+            float: left;
+            width: 285px;
+            clear: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    &.config {
+        #test-mail-btn {
+            margin-left: 5px;
+        }
+    }
+
+    code,
+    pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    
+    display: flex;
+    .new-menu.navbar {
+        width: 230px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        border-bottom: none !important;        
+        background-color: transparent !important;
+        .item-container {
+            display: flex;
+            flex-direction: column;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-left: 10px !important;
+            margin-right: 10px !important;
+            border: 1px solid #d4d4d5;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 15%);
+            background-color: #fafafa !important;
+            .item {
+                align-self: flex-start !important;
+                width: 100%;
+                padding-left: 20px;
+                &.active {                    
+                    color: #40a9ff !important;
+                    border-right: 4px solid #40a9ff;
+                    border-radius: 0 !important;
+                    border-bottom: none !important;                    
+                    background-color: rgb(255, 255, 255);
+                }
+                &:hover {                    
+                    background-color: #ffffff !important;
+                }
+                &:active {
+                    border-color: transparent !important;
+                }
+                &.item-next {                    
+                    padding-left: 45px;
+                }
+                &.item-first {                    
+                    color: rgba(0,0,0,.87);
+                    &:hover {                    
+                        background-color: transparent !important;
+                    }
+                }
+            }
+        }
+
+    }
+    >.ui.container {
+        flex: 1 !important;
+        padding-right: 10px;
+        width: 0 !important;
+    }
+}

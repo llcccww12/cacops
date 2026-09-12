@@ -1,0 +1,340 @@
+{{template "base/head" .}}
+<style>
+  .full.height {
+    background: rgb(247, 247, 247);
+  }
+
+  .__guest-verify-c {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .__guest-verify-panel {
+    max-width: 519px;
+    width: 95%;
+    background: rgb(255, 255, 255);
+    border-color: rgb(227, 233, 237);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .__guest-verify {
+    max-width: 519px;
+    width: 100%;
+  }
+
+  .__guest-verify .slide-bar-wrap {
+    display: flex;
+    height: 38px;
+    margin: 0 0 1em;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .__guest-verify .slide-bar-c {
+    flex: 1;
+    display: flex;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg {
+    height: 34px;
+    flex: 1;
+    background-color: rgb(245, 245, 246);
+    border: 1px solid rgb(225, 227, 230);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-txt {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    color: #cdcacb;
+    font-size: 14px;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-bar {
+    position: absolute;
+    width: 38px;
+    height: 34px;
+    background-color: #d1e9fe;
+    border: 1px solid #1991fa;
+    border-radius: 2px;
+    box-sizing: border-box;
+    top: -1px;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-bar.sucess {
+    background-color: #d2f4ef;
+    border: 1px solid #52ccba;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-bar.error {
+    border-color: #f57a7a;
+    background-color: #fce1e1;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-trigger {
+    position: absolute;
+    width: 38px;
+    height: 34px;
+    background-color: #1991fa;
+    border-radius: 2px;
+    cursor: pointer;
+    top: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-trigger .icon {
+    font-size: 16px;
+    color: white;
+    margin: 0;
+    height: 16px;
+    width: 16px;
+    margin-top: -5px;
+    user-select: none;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-trigger.sucess {
+    background-color: #52ccba;
+  }
+
+  .__guest-verify .slide-bar-c .slide-bar-bg .slide-trigger.error {
+    background-color: #f57a7a;
+  }
+
+  .__guest-verify .slide-image-big {
+    width: 391px;
+    height: 196px;
+    border-radius: 2px;
+    z-index: 100;
+    transform-origin: 0 0;
+  }
+
+  .__guest-verify .slide-image-small {
+    position: absolute;
+    left: 0;
+    width: 51px;
+    height: 51px;
+    box-shadow: 0 0 4px rgb(35 173 255);
+    display: none;
+  }
+
+  .__guest-verify .refresh-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+</style>
+<div class="__guest-verify-c">
+  <div class="title" style="color: rgb(64,64,64);font-size:22px;font-weight:700;line-height:33px;">{{.i18n.Tr "phone.human_verification"}}</div>
+  <div class="descr" style="color: rgba(16,16,16,0.5);font-size:14px;line-height:33px;">{{.i18n.Tr "phone.human_verification_tips"}}</div>
+  <div class="__guest-verify-panel">
+    <div class="__guest-verify">
+      <div class="slide-image-big">
+        <div class="slide-image-small" style="top:{{.SlideImageInfo.ImageY}}px"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="refresh-btn" fill="rgb(187, 187, 187)" viewBox="0 0 32 32"
+          width="28" height="28">
+          <defs></defs>
+          <g>
+            <path
+              d="M25.6 15l-1.8 1.8c0.4 3-0.4 6.2-2.8 8.4-3.8 3.8-10.2 3.8-14.2 0-3.8-3.8-3.8-10.2 0-14.2 3-3 7.2-3.6 10.8-2.2l-5 5 1.4 1.4 7.2-7.2-7.2-7-1.4 1.4 3.8 3.8c-3.8-0.8-8 0.2-11 3.2-4.6 4.6-4.6 12.2 0 17 4.6 4.6 12.2 4.6 17 0 3.2-3 4.2-7.4 3.2-11.4z">
+            </path>
+          </g>
+        </svg>
+      </div>
+      <div class="slide-bar-wrap">
+        <div class="slide-bar-label  _label-c required"></div>
+        <div class="slide-bar-c" style="flex:1;">
+          <div class="slide-bar-bg">
+            <div class="slide-txt">{{.i18n.Tr "phone.drag_the_slider_to_fill_the_puzzle"}}</div>
+            <div class="slide-bar"></div>
+            <div class="slide-trigger">
+              <i class="arrow right icon"></i>
+              <i class="check icon" style="display:none;"></i>
+              <i class="close icon" style="display:none;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{{template "base/footer" .}}
+<script>
+  ; (function () {
+    function GuestVerify(dom, options) {
+      if (!dom) return;
+      this.options = options;
+      this.init(dom);
+    }
+
+    GuestVerify.prototype.init = function (dom) {
+      if (!dom) return;
+      this.dom = $(dom);
+      this.isMoving = false;
+      this.verifySucess = false;
+      this.imgID = '';
+      this.eventInit();
+      this.refreshImages();
+      var wrap = this.dom.closest('div.use-type');
+      var showlabel = wrap.attr('showlabel');
+      if (showlabel) {
+        this.dom.find('._label-c ').show();
+      } else {
+        this.dom.find('._label-c ').hide();
+      }
+    };
+
+    GuestVerify.prototype.eventInit = function () {
+      if (!this.dom) return;
+      var self = this;
+      var clientX = 0, oLeft = 0;
+
+      function mouseMove(e) {
+        var _clientX = e.clientX !== undefined ? e.clientX : e.targetTouches[0].clientX;
+        var offset = _clientX - clientX;
+        var triggerEl = self.dom.find('.slide-trigger');
+        var triggerWidth = triggerEl.width();
+        var parentWidth = triggerEl.parent().width();
+        var maxLeft = parentWidth - triggerWidth;
+        var left = oLeft + offset;
+        if (oLeft + offset < 0) left = 0;
+        if (oLeft + offset > maxLeft) left = maxLeft;
+        triggerEl.css('left', left + 'px');
+        self.dom.find('.slide-bar').css('width', left + triggerWidth);
+        var imageBigWidth = self.dom.find('.slide-image-big').width();
+        var imageSmallWidth = self.dom.find('.slide-image-small').width();
+        self.dom.find('.slide-image-small').css('left', left / maxLeft * (imageBigWidth - imageSmallWidth) + 'px');
+        self.isMoving = true;
+        self.dom.find('.slide-txt').hide();
+      }
+
+      function mouseUp(e) {
+        $(document).off('mousemove', mouseMove);
+        $(document).off('mouseup', mouseUp);
+        $(document).off('touchmove', mouseMove);
+        $(document).off('touchend', mouseUp);
+        self.isMoving = false;
+        $.ajax({
+          url: '/verifyGuestSlideImage',
+          type: 'post',
+          dataType: 'json',
+          data: {
+            slide_id: self.imgID,
+            x: parseInt(self.dom.find('.slide-image-small').position().left / self.dom.find('.slide-image-big').attr('scale'))
+          },
+          success: function (res) {
+            if (res && [0, 2].includes(res.code)) {
+              if (res.code == 0) { // 重定向回原有页面
+                self.verifySucess = true;
+                self.canSendCode = true;
+                self.dom.find('.slide-bar').addClass('sucess');
+                self.dom.find('.slide-trigger').addClass('sucess');
+                self.dom.find('.slide-trigger .icon').hide();
+                self.dom.find('.slide-trigger .icon.check').show();
+                var redirectUrl = getCookie('redirect_to')
+                if (redirectUrl) {
+                  window.location.href = redirectUrl
+                }
+              } else if (res.code == 2) { // 验证超时
+                window.location.href = '/user/login'
+              }
+            } else {
+              self.dom.find('.slide-bar').addClass('error');
+              self.dom.find('.slide-trigger').addClass('error');
+              self.dom.find('.slide-trigger .icon').hide();
+              self.dom.find('.slide-trigger .icon.close').show();
+              setTimeout(function () {
+                self.refreshImages();
+              }, 300);
+            }
+          },
+          error: function (err) {
+            self.dom.find('.slide-bar').addClass('error');
+            self.dom.find('.slide-trigger').addClass('error');
+            setTimeout(function () {
+              self.refreshImages();
+            }, 300);
+          }
+        });
+      }
+
+      function mouseDown(e) {
+        if (self.verifySucess) return;
+        clientX = e.clientX !== undefined ? e.clientX : e.targetTouches[0].clientX;
+        oLeft = $(this).position().left;
+        $(document).on('mousemove', mouseMove);
+        $(document).on('mouseup', mouseUp);
+        $(document).on('touchmove', mouseMove);
+        $(document).on('touchend', mouseUp);
+      }
+
+      this.dom.find('.refresh-btn').on('click', function () {
+        self.refreshImages();
+      });
+
+      this.dom.find('.slide-trigger').on('mousedown', mouseDown);
+      this.dom.find('.slide-trigger').on('touchstart', mouseDown);
+    };
+
+    GuestVerify.prototype.refreshImages = function () {
+      this.isMoving = false;
+      this.verifySucess = false;
+      this.imgID = '';
+      this.dom.find('.slide-bar').removeClass('sucess error').css('width', '30px');
+      this.dom.find('.slide-trigger').removeClass('sucess error').css('left', '0px');
+      var scale = this.dom.find('.slide-bar-bg').width() / 391;
+      var slideBarOffset = this.dom.find('.slide-image-big').height() * (scale - 1);
+      this.dom.find('.slide-bar-c').css('transform', `translate(0, ${slideBarOffset + 16}px)`);
+      $('.__guest-verify-panel').css('padding-bottom', `${Math.max(slideBarOffset + 20, 0)}px`);
+      this.dom.find('.slide-image-big').css('transform', `scale(${scale})`).attr('scale', scale);
+      this.dom.find('.slide-trigger .icon').hide();
+      this.dom.find('.slide-trigger .icon.arrow').show();
+      this.dom.find('.slide-txt').show();
+      this.dom.find('.slide-image-small').css('left', '0');
+      var self = this;
+      $.ajax({
+        url: '/slideImage',
+        type: 'get',
+        success: function (res) {
+          if (res && res.Code === 0) {
+            self.imgID = res.Message;
+            self.dom.find('.slide-image-big').css('background', `url("/slideimage/${res.Message}.png")`);
+            self.dom.find('.slide-image-small').css('background', `url("/slideimage/${res.Message}screenshot.png")`).show();
+          }
+        },
+        error: function (err) {
+          console.log(err);
+        }
+      });
+    };
+
+    window.GuestVerify = GuestVerify;
+  })();
+
+  (function () {
+    window.addEventListener('load', function () {
+      var phoneVerifyCode = new GuestVerify($('.__guest-verify'), {});
+    });
+  })();
+</script>

@@ -1,0 +1,241 @@
+{{template "base/head" .}}
+<div class="ui page dimmer">
+    <div class="ui text loader">{{.i18n.Tr "loading"}}</div>
+</div>
+
+<div class="repository">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        {{template "base/alert" .}}
+        <h4 class="ui top attached header">
+            {{.i18n.Tr "repo.modelarts.train_job.new"}}
+        </h4>
+        <div class="ui attached segment">
+            <!-- equal width  -->
+            <form class="ui form" action="{{.Link}}" method="post">
+                {{.CsrfTokenHtml}}
+                <input type="hidden" name="action" value="update">
+                <h4 class="ui dividing header">{{.i18n.Tr "repo.modelarts.train_job.basic_info"}}</h4>
+                <div class="required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.job_name"}}</label>
+                    <input name="job_name" id="trainjob_job_name" placeholder={{.i18n.Tr "repo.modelarts.train_job.job_name"}} value="{{.job_name}}" tabindex="3" autofocus required maxlength="255"  readonly="">
+                </div> 
+                <div class="field">
+                    <label for="description">{{.i18n.Tr "repo.modelarts.train_job.description"}}</label>
+                    <textarea id="description" maxlength="255" name="description" rows="2"></textarea>
+                </div>
+                <h4 class="ui dividing header">{{.i18n.Tr "repo.modelarts.train_job.parameter_setting"}}</h4>
+                <div class="required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.algorithm_origin"}}</label>
+                    <div class="ui top attached tabular menu">
+                        <a class="item active" data-tab="frame">{{svg "octicon-repo" 16}}{{.i18n.Tr "repo.modelarts.train_job.frames"}}</a>
+                    </div>
+                    <div class="ui bottom attached tab active segment" data-tab="frame">
+                        <div class="required field">
+                            <label>{{.i18n.Tr "repo.modelarts.train_job.AI_driver"}}</label>
+                            <div class="two fields">
+                                <div class="field">
+                                    <select class="ui search dropdown" id="trainjob_engines" style='width:385px'>
+                                        {{range .engines}}
+                                            <option value="{{.Value}}">{{.Value}}</option>
+                                        {{end}}
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select class="ui search dropdown" id="trainjob_engine_versions" style='width:385px' name="engine_id">
+                                        {{range .engine_versions}}
+                                            <option name="engine_id" value="{{.ID}}">{{.Value}}</option>
+                                        {{end}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inline required field">
+                            <label>{{.i18n.Tr "repo.modelarts.train_job.start_file"}}</label>
+                            <input name="boot_file" id="trainjob_boot_file" value="" tabindex="3" autofocus required maxlength="255">
+                            <span>
+                                <i class="question circle icon  link" data-content={{.i18n.Tr "repo.modelarts.train_job.boot_file_helper"}} data-position="right center" data-variation="mini"></i>
+                            </span>
+                        </div>
+                    </div> 
+                </div>
+                <div class="required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.dataset"}}</label>
+                    <select class="ui search dropdown" id="trainjob_datasets" style='width:385px' name="attachment">
+                        {{range .attachments}}
+                            <option name="attachment" value="{{.UUID}}">{{.Attachment.Name}}</option>
+                        {{end}}
+                    </select>
+                </div>
+    
+                <div class="inline field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.run_parameter"}}</label>
+                    <span id="add_run_para"><i class="plus circle icon"></i>{{.i18n.Tr "repo.modelarts.train_job.add_run_parameter"}}</span>
+                    <input  id="store_run_para" type="hidden" name="run_para_list">
+                    <div class="dynamic field">
+                      {{range .para}}
+                      <div class="two fields">
+                        <div class="field"> 
+                            <input type="text" name="shipping_first-name" placeholder="{{.i18n.Tr "repo.modelarts.train_job.parameter_name"}}">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="shipping_last-name" placeholder="{{.i18n.Tr "repo.modelarts.train_job.parameter_value"}}">
+                        </div>
+                        <span>
+                            <i class="trash icon">
+                            </i>
+                        </span>
+                      </div>
+                      {{end}}
+                    </div>
+                </div>
+
+                <h4 class="ui dividing header">{{.i18n.Tr "repo.modelarts.train_job.resource_setting"}}</h4>
+                <div class="required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.resource_pool"}}</label>
+                    <select class="ui search dropdown" id="trainjob_resource_pool" style='width:385px' name="pool_id">
+                        {{range .resource_pools}}
+                            <option value="{{.ID}}">{{.Value}}</option>
+                        {{end}}
+                    </select>
+                </div>
+
+                <div class="required grouped fields">
+                    <label for="resource_type">{{.i18n.Tr "repo.modelarts.train_job.resource_type"}}</label>
+                    {{range .benchmark_categories}}
+                    <div class="field">
+                        <div class="ui grid">
+                            <div class="four wide column">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="resource_type" checked="" tabindex="0" class="hidden">
+                                </div>
+                            </div>
+                            <div class="four wide column">train-private-1</div>
+                            <div class="four wide column">{{svg "octicon-verified" 16}} 运行中</div>
+                            <div class="four wide column"> CPU：192 核 2048GiB</div>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+
+                <div class="required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.standard"}}</label>
+                    <select class="ui search dropdown" id="trainjob-flavor" style='width:385px' name="flavor">
+                        {{range .flavor_infos}}
+                            <option name="flavor" value="{{.Code}}">{{.Value}}</option>
+                        {{end}}
+                    </select>
+                </div>
+                <div class="inline required field">
+                    <label>{{.i18n.Tr "repo.modelarts.train_job.amount_of_compute_node"}}</label>
+                    <input name="work_server_number" id="trainjob_work_server_num" tabindex="3" autofocus required maxlength="255">
+                </div>               
+                <div class="inline field">
+                    <button class="ui green button">
+                    {{.i18n.Tr "repo.modelarts.train_job_para.connfirm"}}
+                    </button>
+                    <a class="ui button" href="/">{{.i18n.Tr "repo.cloudbrain.cancel"}}</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+
+<script>
+    $('select.dropdown')
+        .dropdown();
+
+    $('.menu .item')
+        .tab();
+
+    // 参数增加、删除、修改、保存
+    function Add_parameter(){
+        let placeholder_value='{{.i18n.Tr "repo.modelarts.train_job.parameter_value"}}'
+        let placeholder_name='{{.i18n.Tr "repo.modelarts.train_job.parameter_name"}}'
+        value = '<div class="two fields">' +
+                    '<div class="field">' + 
+                        '<input type="text" name="shipping_first-name" placeholder="' + placeholder_name+ '">' + 
+                    '</div> ' + 
+                    '<div class="field"> ' +
+                        '<input type="text" name="shipping_last-name" placeholder="' + placeholder_value+ '">' +
+                    '</div>'+
+                    '<span>' +
+                        '<i class="trash icon">' +
+                        '</i>' +
+                    '</span>' +
+                '</div>'
+        $(".dynamic.field").append(value)
+    }   
+
+    $('#add_run_para').click(function(){
+        Add_parameter()
+    });
+
+    $(".dynamic.field").on("click",".trash.icon", function() {
+        var index = $(this).parent().parent().index()
+        $(this).parent().parent().remove()
+    });
+
+    $('.question.circle.icon').hover(function(){
+        $(this).popup('show')
+    });
+
+    $('.ui.deny.button').click(function(){
+        $('.ui.parameter.modal')
+            .modal('hide');
+    })
+
+    function validate(){
+        $('.ui.form')
+        .form({
+            on: 'blur',
+            inline:true,
+            fields: {
+                boot_file: {
+                    identifier  : 'boot_file',
+                    rules: [
+                    {
+                        type: 'regExp[/.+\.py$/g]',
+                        prompt : '启动文件必须为.py结尾'
+                    }
+                    ]
+                },
+                work_server_number: {
+                    identifier  : 'work_server_number',
+                    rules: [
+                    {
+                        type   : 'integer[1..25]',
+                        prompt : '计算节点需要在1-25之间，请您键入正确的值'
+                    }
+                    ]
+                }
+            },
+            onSuccess: function(){
+                $('.ui.page.dimmer').dimmer('show')
+            },
+            onFailure: function(e){	
+                return false;
+            }
+        })
+    }
+
+    function send_run_para(){
+        var run_parameters = []
+        var msg = {}
+        $(".dynamic.field .two.fields").each(function(){
+            var para_name = $(this).find('input[name=shipping_first-name]').val()
+            var para_value = $(this).find('input[name=shipping_last-name]').val()
+            run_parameters.push({"label": para_name, "value": para_value})
+        })
+        msg["parameter"] = run_parameters
+        msg = JSON.stringify(msg)
+        $('#store_run_para').val(msg)
+    }
+
+    $('.ui.green.button').click(function(e) {
+        send_run_para()
+        validate() 
+    })
+
+</script>

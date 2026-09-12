@@ -1,0 +1,206 @@
+<style>
+.ui.green.button, .ui.green.buttons .button{
+	background-color: #5BB973;
+}
+.grid {
+  justify-content: space-between !important;
+}
+.search-grid {
+  flex-wrap: nowrap !important;
+}
+.empty-placeholder {
+  width: 185px
+}
+.two_button {
+  margin-top: 1.2rem;
+  height: 66px;
+  display: flex;
+  align-items: center;
+}
+.update_button, .stars_button {
+  height: 38px;
+  white-space: nowrap;
+  min-width: 120px;
+  padding: 0 5px;
+  width: auto;
+  text-decoration: none !important;
+  color: rgba(16, 16, 16, 1) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+  cursor: pointer;
+}
+.update_button {
+  border-radius: 5px 0px 0px 5px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 102, 255, 1);
+  border: 1px solid rgba(50, 145, 248, 1);
+  
+}
+.stars_button {
+  border-radius: 0px 5px 5px 0px;
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1);
+  border: 1px solid rgba(214, 215, 217, 1);
+}
+.two_button.swapped .update_button {
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1);
+  border: 1px solid #d6d7d9; /* 灰边框 */
+}
+.two_button.swapped .stars_button {
+  background-color: #fff;
+  color: #0066ff !important;
+  border: 1px solid #3291f8; /* 蓝边框 */
+}
+
+.filter {
+  margin-top: 1.2rem !important;
+}
+.profile-filter .button {
+  background-color: rgba(16,16,16,0.05) !important;
+  color: rgba(16,16,16,1) !important;
+  border: 1px solid rgba(214,215,217,1) !important;
+}
+</style>
+<div class="repos--seach">
+	<div class="ui container">
+		<div class="ui two column centered grid search-grid">
+      {{if or (eq .TabName "repository") (eq .TabName "stars")}}
+        <div class="two_button {{if eq .TabName "stars"}}swapped{{end}}">
+          <a 
+            class="update_button"
+            href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab=repository"
+          >
+          {{.i18n.Tr "repo.issues.filter_sort.personalproject"}}
+          </a>
+          <a class="stars_button" 
+            href="{{$.Link}}?tab=stars&sort=moststars&q={{$.Keyword}}&topic={{$.Topic}}">
+            {{.i18n.Tr "user.starred_project"}}
+          </a>
+        </div>
+      {{else}}
+        <div class="empty-placeholder"></div>
+      {{end}}
+
+			<form class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty profile-filter" style="margin-top:1.2rem">
+				<div class="ui fluid action input">
+					<input name="q" value="{{.Keyword}}" placeholder="{{.i18n.Tr "explore.search"}}..." autofocus>
+					<input type="hidden" name="topic" value="{{$.Topic}}">
+					<input type="hidden" name="tab" value="{{$.TabName}}">
+					<input type="hidden" name="sort" value="{{$.SortType}}">
+					<button class="ui green button">{{.i18n.Tr "explore.search"}}</button>
+				</div>
+			</form>
+
+      <div class="ui right floated secondary filter menu">
+        <!-- Sort -->
+        <div class="ui right dropdown type jump item">
+          <span class="text" id="sort-dropdown-text">
+            {{if eq .SortType "newest"}}
+              {{.i18n.Tr "repo.issues.filter_sort.latest"}}
+            {{else if eq .SortType "oldest"}}
+              {{.i18n.Tr "repo.issues.filter_sort.oldest"}}
+            {{else if eq .SortType "alphabetically"}}
+              {{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}
+            {{else if eq .SortType "reversealphabetically"}}
+              {{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}
+            {{else if eq .SortType "recentupdate"}}
+              {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+            {{else if eq .SortType "leastupdate"}}
+              {{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}
+            {{else if eq .SortType "moststars"}}
+              {{.i18n.Tr "repo.issues.filter_sort.moststars"}}
+            {{else if eq .SortType "feweststars"}}
+              {{.i18n.Tr "repo.issues.filter_sort.feweststars"}}
+            {{else if eq .SortType "mostforks"}}
+              {{.i18n.Tr "repo.issues.filter_sort.mostforks"}}
+            {{else if eq .SortType "fewestforks"}}
+              {{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}
+            {{else}}
+              {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+            {{end}}
+            <i class="dropdown icon"></i>
+          </span>
+          <div class="menu" id="sort-dropdown-menu">
+          <a class="{{if eq .SortType "recentupdate"}}active{{end}} item"
+              href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}"
+              data-sort="recentupdate"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+            </a>
+            <a class="{{if eq .SortType "newest"}}active{{end}} item"
+              href="{{$.Link}}?sort=newest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.latest"}}"
+              data-sort="newest"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.latest"}}
+            </a>
+            <a class="{{if eq .SortType "moststars"}}active{{end}} item"
+              href="{{$.Link}}?sort=moststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.moststars"}}"
+              data-sort="moststars"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.moststars"}}
+            </a>
+            <a class="{{if eq .SortType "mostforks"}}active{{end}} item"
+              href="{{$.Link}}?sort=mostforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.mostforks"}}"
+              data-sort="mostforks"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.mostforks"}}
+            </a>
+            <a class="{{if eq .SortType "alphabetically"}}active{{end}} item"
+              href="{{$.Link}}?sort=alphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}"
+              data-sort="alphabetically"
+            >
+              {{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}
+            </a>
+            <a class="{{if eq .SortType "reversealphabetically"}}active{{end}} item"
+              href="{{$.Link}}?sort=reversealphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}"
+              data-sort="reversealphabetically"
+            >
+              {{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}
+            </a>
+            <!-- <a class="{{if eq .SortType "oldest"}}active{{end}} item"
+              href="{{$.Link}}?sort=oldest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.oldest"}}"
+              data-sort="oldest"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.oldest"}}
+            </a>             
+            <a class="{{if eq .SortType "leastupdate"}}active{{end}} item"
+              href="{{$.Link}}?sort=leastupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}"
+              data-sort="leastupdate"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}
+            </a>
+            
+            <a class="{{if eq .SortType "feweststars"}}active{{end}} item"
+              href="{{$.Link}}?sort=feweststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.feweststars"}}"
+              data-sort="feweststars"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.feweststars"}}
+            </a>
+            
+            <a class="{{if eq .SortType "fewestforks"}}active{{end}} item"
+              href="{{$.Link}}?sort=fewestforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+              data-text="{{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}"
+              data-sort="fewestforks"
+            >
+              {{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}
+            </a> --> 
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>

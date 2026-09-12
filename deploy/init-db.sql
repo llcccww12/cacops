@@ -1,0 +1,2 @@
+CREATE DATABASE statistic;
+GRANT ALL PRIVILEGES ON DATABASE statistic TO gitea;

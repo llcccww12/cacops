@@ -1,0 +1,37 @@
+<input type="hidden" id="ai_model_version" name="model_version" value="{{$.model_version}}">
+<div class="inline min_title show-required fields" style="width: 94%;">
+    <label class="label-fix-width" style="font-weight: normal;">{{.i18n.Tr "repo.modelarts.infer_job.select_model"}}</label>
+    <div class="six wide field">
+        <div class="ui fluid search selection dropdown" id="select_model">
+            <input type="hidden" name="model_name" required value="{{$.model_name}}">
+            <div class="text"></div>
+            <i class="dropdown icon"></i>
+            <div class="menu" id="model_name">
+            </div>
+        </div>
+      </div>
+      <div class="three wide field">
+        <div class="ui fluid search selection dropdown" id="select_model_version">
+            <input type="hidden" name="pre_train_model_url" value="{{$.pre_train_model_url}}" required>
+            <div class="text"></div>
+            <i class="dropdown icon"></i>
+            <div class="menu" id="model_name_version">
+            </div>
+
+        </div>
+      </div>
+      <div class="five wide field">
+        <div class="ui fluid search selection dropdown" id="select_model_checkpoint">
+            <input type="hidden" name="ckpt_name" value="{{$.ckpt_name}}" required>
+            <div class="text"></div>
+            <i class="dropdown icon"></i>
+            <div class="menu" id="model_checkpoint">
+            </div>
+        </div>
+
+      </div>
+      <span >
+        <i class="question circle icon" data-content="{{.i18n.Tr "cloudbrain.model_file_postfix_rule"}}" data-position="top center" data-variation="inverted mini"></i>
+    </span>
+
+</div>

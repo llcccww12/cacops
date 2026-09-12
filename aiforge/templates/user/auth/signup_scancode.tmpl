@@ -1,0 +1,228 @@
+<script>
+  ; (function () {
+    var wechatSignUpRequired = {{.WechatSignUpRequired}};
+    if (!wechatSignUpRequired) {
+      var searchParams = new URLSearchParams(window.location.search);
+      searchParams.delete('signUpId');
+      window.location.href = '/user/sign_up?' + searchParams.toString();
+      return;
+    }
+  })();
+</script>
+{{template "base/head" .}}
+<style>
+  .full.height {
+    background-color: #F9F9F9;
+  }
+  .qrcode-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    margin: 25px 0 32px 0;
+  }
+  .qrcode {
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
+  .qrcode-img,
+  .qrcode-refresh {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  .qrcode-refresh {
+    cursor: pointer;
+  }
+  .qrcode-tips {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .qrcode-tips i {
+    font-size: 20px;
+    margin-right: 6px;
+    color: rgb(0, 194, 80);
+  }
+  .invitation_tips {
+    display: flex;
+    border: 1px solid rgb(250, 140, 22);
+    background: rgb(255, 250, 229);
+    padding: 6px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  .invitation_tips i {
+    color: rgb(250, 140, 22);
+    font-size: 16px;
+    margin-right: 6px;
+  }
+  .invitation_tips-icon-c {
+    margin-top: -2px;
+  }
+  .invitation_tips-content {
+    color: rgba(136, 136, 136, 1);
+  }
+  .__invitation_code__ {
+    color: rgba(255, 37, 37, 1);
+  }
+</style>
+<style>
+  @media only screen and (max-width: 1200px) {
+    ._container {
+      display: block !important;
+    }
+    ._left-img-area {
+      display: none;
+    }
+    ._right_content_area {}
+    ._right_content_area .segment {
+      margin-left: auto !important;
+      border-top-left-radius: .28571429rem !important;
+      border-bottom-left-radius: .28571429rem !important;
+      border-left: border: 1px solid rgba(34, 36, 38, .15) !important;
+    }
+  }
+</style>
+<div class="ui container very padded" style=" padding-top: 5.0rem; padding-bottom: 3.0rem;">
+  <div class="_container" style="display:flex;justify-content:center;">
+    <div class="_left-img-area" style="padding-right:0;flex:2">
+      <div style="width:450px;height:100%;float:right;border-radius:0.28571429rem;border-top-right-radius: 0;
+				border-bottom-right-radius: 0;border-right:none !important;overflow: hidden;
+				-webkit-box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15);
+				box-shadow: 0 2px 4px 0rgba(34,36,38,.12),0 2px 10px 0rgba(34,36,38,.15);">
+        {{ if .ActivityTpl }}
+        {{ .ActivityTpl | Safe}}
+        {{ else }}
+        {{ template "user/auth/signin_up_img_default" .}}
+        {{ end }}
+      </div>
+    </div>
+    <div class="_right_content_area" style="padding-left:0;flex:3;">
+      <div class="ui raised very padded text container segment" style="margin-left:0;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-left: none !important;
+        min-height: 410px;
+			">
+        <div class="ui centered grid">
+          <div class="sixteen wide mobile ten wide tablet ten wide computer column">
+            <div class="ui bottom aligned two column grid">
+              <div class="column">
+                <h2 class="ui header">{{.i18n.Tr "sign_up"}}</h2>
+              </div>
+              <div class="ui right floated column">
+                <a href="{{AppSubUrl}}/user/login">{{.i18n.Tr "auth.register_helper_msg"}}</a>
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="column">
+                <div class="ui negative message wechat-err" style="display:none;">
+									<p>{{.i18n.Tr "form.wechat_account_used"}}</p>
+								</div>
+                <div class="qrcode-c">
+                  <div class="qrcode">
+                    <img class="qrcode-img" src="" style="display:none" />
+                    <img class="qrcode-refresh" style="display:none" src="https://files.wondercv.com/auth/qrcode_reload.png">
+                  </div>
+                </div>
+                <div class="qrcode-tips">
+                  <i class="ri-wechat-fill"></i></i><span>{{.i18n.Tr "auth.register_scaning_code_msg"}}</span>
+                </div>
+                <div class="invitation_tips" style="display:none">
+                  <div class="invitation_tips-icon-c"><i class="ri-share-forward-box-fill"></i></div>
+                  <div class="invitation_tips-content">
+                    <span>{{.i18n.Tr "your_friend"}} <span class="__invitation_code__">{{.invitationCode}}</span>
+                      {{.i18n.Tr "invite_you_to_join_the_OpenI_AI_Collaboration_Platform_and_enjoy_abundant_free_computing_resources"}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  ; (function () {
+    var states = {
+      codeInfo: {},
+      refreshTimer: null,
+      codeState: 0,
+      codeExtend: {},
+    };
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var sharedUser = urlSearchParams.get('sharedUser');
+    if (sharedUser) {
+      document.querySelector('.invitation_tips').style.display = "flex";
+      document.querySelector('.__invitation_code__').innerText = sharedUser;
+    }
+    var refreshCodeState = function () {
+      states.refreshTimer && clearInterval(states.refreshTimer);
+      states.refreshTimer = setInterval(function () {
+        $.ajax({
+          url: '/authentication/wechat/bindStatus?sceneStr=' + states.codeInfo.QRCode.SceneStr,
+          type: 'get',
+          dataType: 'json',
+          success: function (res) {
+            states.codeState = res.data.status;
+            states.codeExtend = res.data.extend || {};
+            if (states.codeState == 9) { // expired
+              clearInterval(states.refreshTimer);
+              $('.qrcode-refresh').show();
+            } else if (states.codeState == 2) { // success
+              if (states.codeExtend.wechatUsed) { // wechat used err
+                clearInterval(states.refreshTimer);
+                $('.qrcode-refresh').show();
+                $('.wechat-err').show();
+              } else {
+                clearInterval(states.refreshTimer);
+                var searchParams = new URLSearchParams(window.location.search);
+                searchParams.delete('signUpId');
+                searchParams.append('signUpId', states.codeInfo.SignUpId);
+                window.location.href = '/user/sign_up?' + searchParams.toString();
+              }              
+            } else if (states.codeState == 0) { // scaning
+            }
+          },
+          error: function (err) {
+            console.log(err);
+          },
+        });
+      }, 2000);
+    }
+    var getQRCode = function () {
+      states.refreshTimer && clearInterval(states.refreshTimer);
+      $('.wechat-err').hide();
+      $.ajax({
+        url: '/user/sign_up/wechat?sharedUser=' + (sharedUser || ''),
+        type: 'get',
+        dataType: 'json',
+        success: function (res) {
+          if (res.Code == 0) {
+            states.codeInfo = res.Data;
+            states.codeInfo.imgSrc = 'https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=' + res.Data.QRCode.Ticket;
+            $('.qrcode-img').attr('src', states.codeInfo.imgSrc).show();
+            $('.qrcode-refresh').hide();
+            refreshCodeState();
+          } else {
+            $('.qrcode-refresh').show();
+          }
+        },
+        error: function (err) {
+          console.log(err);
+          $('.qrcode-refresh').show();
+        },
+      });
+    };
+    window.addEventListener('load', function () {
+      getQRCode();
+      $('.qrcode-refresh').on('click', getQRCode);
+    });
+  })();
+</script>
+{{template "base/footer" .}}

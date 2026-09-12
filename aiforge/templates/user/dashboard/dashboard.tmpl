@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="/swiper/swiper-bundle.min.css?v={{MD5 AppVer}}">
+<script src="/swiper/swiper-bundle.min.js?v={{MD5 AppVer}}"></script>
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-dashboard.css?v={{MD5 AppVer}}" />
+<div class="container-menu-main">
+  {{template "base/nav_left" .}}
+  <div id="nav_left_right_content" style="padding-bottom: 0;">
+    <div id="_user_avatar" data-name="{{.ContextUser.Name}}" data-avatar="{{.ContextUser.RelAvatarLink}}" style="display: none;"></div>
+    <div id="__vue-root"></div>
+  </div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-dashboard.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

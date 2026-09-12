@@ -1,0 +1,165 @@
+{{template "base/head_home" .}}
+<style>
+    .m-table {
+        width: 100%;
+    }
+    .m-table th {
+        border: 1px solid #EBEEF5;
+        padding: 8px 10px;
+        background-color: #f5f5f6;
+    }
+    .m-table td {
+        border: 1px solid #EBEEF5;
+        padding: 8px 10px;
+    }
+    .t-center {        
+        text-align: center;
+    }
+</style>
+<div class="ui container rule-container" style="display:none;">
+    <h1 class="ui center am-pt-30 am-pb-20">个人算力积分奖励规则</h1>
+    <div class="ui divider am-pb-10"></div>
+    <p>说明：单日用户积分的获取上限为<span class="daily-limit"> - </span>分。该积分仅用于算力资源使用，打榜活动积分将另行计算。</p>
+    <table class="m-table">
+        <tr>
+            <th style="width:200px;">奖励名称</th>
+            <th style="width:180px;">获取积分值</th>
+            <th style="width:200px;">上限值</th>
+            <th>奖励细节澄清</th>
+        </tr>
+        <tr key="BindWechat">
+            <td class="t-center">完成微信扫码验证</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">累计</span>积分获取上限<span class="limit"> - </span></td>
+            <td>1、首次完成微信扫码验证，即获取积分。<br>2、同个账号，更换微信号码再验证不重复给积分。<br>3、同一个微信，绑定第一个账号时奖励积分，下次绑定其他账号时不再奖励。</td>
+        </tr>
+        <tr key="CreatePublicRepo">
+            <td class="t-center">创建或Fork公开项目</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>请注意项目质量，请勿复制粘贴或者重复公开项目，任何非常规的以公开项目去获取积分的行为将被认定为积分舞弊，将扣除所有积分。</td>
+        </tr>
+        <tr key="CreatePullRequest">
+            <td class="t-center">每日提出PR</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td></td>
+        </tr>
+        <tr key="PushCommits">
+            <td class="t-center">每日commit</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>通过前台界面和后台命令行方式commit，都可获得奖励积分。</td>
+        </tr>
+        <tr key="CreateIssue">
+            <td class="t-center">每日提出任务</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td></td>
+        </tr>
+        <tr key="CommentIssue">
+            <td class="t-center">发表评论</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>禁止空评论或评论后马上删除等非正常获取积分的方式，一经发现将扣除所有积分。</td>
+        </tr>
+        <tr key="TaskCreateDataset">
+            <td class="t-center">创建数据集</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>请注意数据集质量，请勿复制粘贴或者重复公开数据集，任何非常规的以创建数据集去获取积分的行为将被认定为积分舞弊，将扣除所有积分。</td>
+        </tr>
+        <tr key="DatasetRecommended">
+            <td class="t-center">数据集被平台推荐</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>数据集被推荐时，其拥有者可获得奖励积分。</td>
+        </tr>
+        <tr key="TaskCreateAimodel">
+            <td class="t-center">创建模型</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>创建模型、从云脑任务导出模型、迁移外部模型都可以获得奖励积分。请注意模型质量，请勿重复创建重复的模型，任何非常规的以创建新模型去获取积分的行为将被认定为积分舞弊，将扣除所有积分。</td>
+        </tr>
+        <tr key="TaskAimodelRecommended">
+            <td class="t-center">模型被平台推荐</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td>模型被推荐时，其拥有者可获得奖励积分</td>
+        </tr>
+        
+        <tr key="CreateCloudbrainTask">
+            <td class="t-center">每日运行计算任务</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td> 每日运行调试、训练、推理、评测中任何一种任务，即可获得。</td>
+        </tr>
+        <tr key="CreateImage">
+            <td class="t-center">提交新公开镜像</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td></td>
+        </tr>
+        <tr key="ImageRecommend">
+            <td class="t-center">镜像被平台推荐</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">每日</span>积分获取上限<span class="limit"> - </span></td>
+            <td></td>
+        </tr>
+        <tr key="ChangeUserAvatar">
+            <td class="t-center">首次更换头像</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">累计</span>积分获取上限<span class="limit"> - </span></td>
+            <td>首次更换头像，获得积分。</td>
+        </tr>
+        <tr key="TaskInviteFriendRegister">
+            <td class="t-center">邀请好友</td>
+            <td class="t-center point">-</td>
+            <td class="t-center"><span class="typ">累计</span>积分获取上限<span class="limit"> - </span></td>
+            <td>邀请好友获得积分。</td>
+        </tr>
+    </table>
+</div>
+
+{{template "base/footer" .}}
+<script>
+    ;(function() {
+        var ruleContainer = $('.rule-container');
+        var dailyLimitEl = ruleContainer.find('.daily-limit');
+        var ruleTrs = ruleContainer.find('tr[key]');
+        $.ajax({
+            url: '/reward/point/rule/config',
+            type: "get",
+            data: {},
+            contentType: "application/json; charset=utf-8",
+            success(res) {
+                if (res && res.Code === 0) {
+                    var data = res.Data;
+                    dailyLimitEl.text(data.UserDailyLimit.toFixed(2));
+                    var taskRules = data.TaskRules;
+                    for (var i = 0, iLen = ruleTrs.length; i < iLen; i++) {                        
+                        var ruleTr = ruleTrs.eq(i);
+                        var key = ruleTr.attr('key');
+                        var findOr = false;
+                        for (var j = 0, jLen = taskRules.length; j < jLen; j++) {
+                            var taskRule = taskRules[j];
+                            if (taskRule.TaskCode == key) {
+                                ruleTr.find('.point').text(taskRule.AwardAmount.toFixed(2));
+                                ruleTr.find('.typ').text(taskRule.RefreshRate == 'DAILY' ? '每日' : taskRule.RefreshRate == 'NOT_CYCLE' ? '累计' : taskRule.RefreshRate);
+                                ruleTr.find('.limit').text((taskRule.AwardAmount * taskRule.LimitNum).toFixed(2));
+                                findOr = true;
+                                break;
+                            }
+                        }
+                        if (!findOr) ruleTr.hide();
+                    }
+                }
+                ruleContainer.show();
+            },
+            error(err) {
+                console.log(err);
+                ruleContainer.show();
+            },
+        });
+    })();
+</script>

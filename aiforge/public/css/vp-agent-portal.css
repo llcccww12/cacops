@@ -1,0 +1,278 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/agent-portal/components/MenuIcon.vue?vue&type=style&index=0&id=1305707e&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu-icon-c[data-v-1305707e] {
+  display: flex;
+  align-items: center;
+}
+.menu-icon-c .svg-c[data-v-1305707e] {
+  display: flex;
+  align-items: center;
+}
+.menu-icon-c svg[data-v-1305707e] {
+  stroke: #6f76a5;
+  fill: none;
+}
+.menu-icon-c i[data-v-1305707e] {
+  color: #6f76a5;
+}
+.menu-icon-c.active svg path[data-v-1305707e] {
+  stroke: #001ac7;
+}
+.menu-icon-c.active svg rect[data-v-1305707e] {
+  stroke: #001ac7;
+}
+.menu-icon-c.active i[data-v-1305707e] {
+  color: #001ac7;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/agent-portal/components/MenuItem.vue?vue&type=style&index=0&id=f59e5bd0&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu-item[data-v-f59e5bd0] {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(32, 37, 101, 0.9);
+}
+.menu-item .icon-c[data-v-f59e5bd0] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.menu-item .m-left[data-v-f59e5bd0] {
+  margin-left: 10px;
+}
+.menu-item .label-c[data-v-f59e5bd0] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.menu-item.active[data-v-f59e5bd0] {
+  color: #001ac7;
+  background-color: #e6f0ff;
+  border-radius: 4px;
+}
+.menu-item.active .icon-c[data-v-f59e5bd0] {
+  color: #001ac7;
+}
+.menu-item[data-v-f59e5bd0]:hover:not(.active) {
+  color: rgba(0, 26, 199, 0.8);
+}
+.menu-item:hover:not(.active) .icon-c[data-v-f59e5bd0] {
+  color: rgba(0, 26, 199, 0.8);
+}
+.menu-line[data-v-f59e5bd0] {
+  border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+  height: 0;
+  margin: 10px 2px;
+}
+.menu-group .menu-group-title-c[data-v-f59e5bd0] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-right: 8px;
+}
+.menu-group .menu-group-title-c .menu-group-title-toggle-icon[data-v-f59e5bd0] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+.menu-group .menu-group-title-c.expanded .menu-group-title-toggle-icon[data-v-f59e5bd0] {
+  transform: rotate(180deg);
+}
+.menu-group .menu-group-title-c.expanded + .menu-group-list[data-v-f59e5bd0] {
+  height: 0;
+}
+.menu-group .menu-group-title[data-v-f59e5bd0] {
+  color: #6f76a5;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.menu-group .menu-group-title .icon-c[data-v-f59e5bd0] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.menu-group .menu-group-list[data-v-f59e5bd0] {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.menu-group.deep-level .menu-group-list[data-v-f59e5bd0] {
+  padding-left: 15px;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/agent-portal/components/Menu.vue?vue&type=style&index=0&id=4a09a2e5&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-menu[data-v-4a09a2e5] {
+  width: 180px;
+  min-height: 400px;
+  max-height: calc(100vh - 62px);
+  box-sizing: content-box;
+  padding: 20px 10px;
+}
+.main-menu .menu-item[data-v-4a09a2e5] {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(32, 37, 101, 0.9);
+}
+.main-menu .menu-item .icon-c[data-v-4a09a2e5] {
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f76a5;
+  font-size: 16px;
+}
+.main-menu .menu-item .label-c[data-v-4a09a2e5] {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.main-menu .menu-item.active[data-v-4a09a2e5] {
+  color: #001ac7;
+  background-color: #e6f0ff;
+  border-radius: 4px;
+}
+.main-menu .menu-item.active .icon-c[data-v-4a09a2e5] {
+  color: #001ac7;
+}
+.main-menu .menu-item[data-v-4a09a2e5]:hover:not(.active) {
+  color: rgba(0, 26, 199, 0.8);
+}
+.main-menu .menu-item:hover:not(.active) .icon-c[data-v-4a09a2e5] {
+  color: rgba(0, 26, 199, 0.8);
+}
+.main-menu .menu-line[data-v-4a09a2e5] {
+  border-bottom: 1px solid rgba(157, 197, 226, 0.4);
+  height: 0;
+  margin: 10px 2px;
+}
+.main-menu .menu-group .menu-group-title-c[data-v-4a09a2e5] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-right: 8px;
+}
+.main-menu .menu-group .menu-group-title-c .menu-group-title-toggle-icon[data-v-4a09a2e5] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s linear;
+}
+.main-menu .menu-group .menu-group-title-c.expanded .menu-group-title-toggle-icon[data-v-4a09a2e5] {
+  transform: rotate(180deg);
+}
+.main-menu .menu-group .menu-group-title-c.expanded + .menu-group-list[data-v-4a09a2e5] {
+  height: 0;
+}
+.main-menu .menu-group .menu-group-title[data-v-4a09a2e5] {
+  color: #6f76a5;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.main-menu .menu-group .menu-group-title .icon-c[data-v-4a09a2e5] {
+  width: 30px;
+}
+.main-menu .menu-group .menu-group-list[data-v-4a09a2e5] {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.mobile-menu-icon[data-v-4a09a2e5] {
+  display: none;
+}
+/* 手机端样式 */
+@media (max-width: 768px) {
+.main-menu[data-v-4a09a2e5] {
+    position: fixed;
+    top: 62px;
+    left: -200px;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+.main-menu.mobile-menu-active[data-v-4a09a2e5] {
+    transform: translateX(200px);
+}
+.mobile-menu-icon[data-v-4a09a2e5] {
+    position: absolute;
+    top: 50%;
+    /* 垂直居中 */
+    left: -1px;
+    /* 紧贴左边 */
+    transform: translateY(-50%);
+    /* 确保完全垂直居中 */
+    z-index: 1001;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* 图标垂直居中 */
+    justify-content: center;
+    /* 图标水平居中 */
+    width: 20px;
+    height: 40px;
+    background-color: #ffffff;
+    box-shadow: 0pt 2pt 6pt 0pt rgba(73, 178, 255, 0.5);
+    border: 1pt solid #1c7ee8;
+    color: #005cdd;
+}
+.menu-mask[data-v-4a09a2e5] {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/agent-portal/layout/Layout.vue?vue&type=style&index=0&id=2afd9d9c&scoped=true&lang=less ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.main-layout[data-v-2afd9d9c] {
+  display: flex;
+}
+.main-layout .left-menu[data-v-2afd9d9c] {
+  position: relative;
+  interpolate-size: allow-keyword;
+  transition: all 0.2s ease-in-out;
+  width: 200px;
+}
+.main-layout .left-menu.collapsed[data-v-2afd9d9c] {
+  width: 0;
+  overflow-x: hidden;
+}
+.main-layout .right-content[data-v-2afd9d9c] {
+  flex: 1;
+  width: 0;
+  height: calc(100vh - 62px);
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+.main-layout .left-menu[data-v-2afd9d9c] {
+    width: auto;
+}
+}
+

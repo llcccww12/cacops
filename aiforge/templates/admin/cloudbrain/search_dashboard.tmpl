@@ -1,0 +1,134 @@
+<style>
+.ui.green.button, .ui.green.buttons .button{
+    background-color: #5BB973;
+}
+</style>
+<div class="repos--seach">
+    <div class="ui container">
+        <div class="ui two column centered grid">
+            <form class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty" style="margin-top:1.2rem">
+                <div class="ui fluid action input">
+                    <input name="q" value="{{.Keyword}}" placeholder="{{.i18n.Tr "repo.cloudbrain.search"}}..." autofocus>
+                    <button class="ui green button">{{.i18n.Tr "explore.search"}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="width: 90%;">
+    <div class="ui grid">
+        {{template "custom/save_most_time" .}}
+        <div class="row">
+            <div class="ui {{if $.PageIsUserCloudBrain}}sixteen{{else}}six{{end}} wide column" style="margin: 1rem 0;" id="userCloud">
+                    <div class="ui selection dropdown" style="min-width: 10em;min-height:2.6em;border-radius: .28571429rem;margin-right: 1em;padding: .67em 3.2em .7em 1em;">  
+                        <div class="default text" style="color: rgba(0,0,0,.87);">{{.i18n.Tr "cloudbrain.all_resource_cluster"}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster=&aiCenter={{$.aiCenter}}" data-value='{{.i18n.Tr "cloudbrain.all_resource_cluster"}}'>{{.i18n.Tr "cloudbrain.all_resource_cluster"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster=resource_cluster_openi&aiCenter={{$.aiCenter}}" data-value="{{.i18n.Tr "cloudbrain.resource_cluster_openi"}}">{{.i18n.Tr "cloudbrain.resource_cluster_openi"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster=resource_cluster_c2net&aiCenter={{$.aiCenter}}" data-value="{{.i18n.Tr "cloudbrain.resource_cluster_c2net"}}">{{.i18n.Tr "cloudbrain.resource_cluster_c2net"}}</a>
+                        </div>
+                    </div>
+                    <div class="ui selection dropdown" id="aiCenter-sel" style="min-width: 10em;min-height:2.6em;border-radius: .28571429rem;margin-right: 1em;padding: .67em 3.2em .7em 1em;">  
+                        <div class="default text" style="color: rgba(0,0,0,.87);" aicenter="{{$.aiCenter}}">{{if eq $.aiCenter ""}}{{.i18n.Tr "cloudbrain.all_ai_center"}}{{end}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter=" data-value='{{.i18n.Tr "cloudbrain.all_ai_center"}}'>{{.i18n.Tr "cloudbrain.all_ai_center"}}</a>                            
+                        </div>
+                    </div>
+                    <div class="ui selection dropdown" style="min-width: 10em;min-height:2.6em;border-radius: .28571429rem;margin-right: 1em;padding: .67em 3.2em .7em 1em;">  
+                        <div class="default text" style="color: rgba(0,0,0,.87);">{{.i18n.Tr "admin.cloudbrain.all_task_types"}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value='{{.i18n.Tr "admin.cloudbrain.all_task_types"}}'>{{.i18n.Tr "admin.cloudbrain.all_task_types"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=DEBUG&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="DEBUG">{{.i18n.Tr "cloudbrain.DEBUG"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=TRAIN&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="TRAIN">{{.i18n.Tr "cloudbrain.TRAIN"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=INFERENCE&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="INFERENCE">{{.i18n.Tr "cloudbrain.INFERENCE"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=BENCHMARK&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="BENCHMARK">{{.i18n.Tr "cloudbrain.BENCHMARK"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=ONLINEINFERENCE&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="ONLINEINFERENCE">{{.i18n.Tr "cloudbrain.ONLINEINFERENCE"}}</a>
+                            <!-- <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=SNN4IMAGENET&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="BENCHMARK">{{.i18n.Tr "cloudbrain.SNN4IMAGENET"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=BRAINSCORE&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="BENCHMARK">{{.i18n.Tr "cloudbrain.BRAINSCORE"}}</a> -->                            
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType=HPC&listType={{$.ListType}}&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="HPC">{{.i18n.Tr "repo.superComputeTask"}}</a>
+                        </div>
+                    </div>
+                    <div class="ui selection dropdown" style="min-width: 10em;min-height:2.6em;border-radius: .28571429rem;margin-right: 1em;padding: .67em 3.2em .7em 1em;">  
+                        <div class="default text" style="color: rgba(0,0,0,.87);">{{.i18n.Tr "admin.cloudbrain.all_computing_resources"}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value='{{.i18n.Tr "admin.cloudbrain.all_computing_resources"}}'>{{.i18n.Tr "admin.cloudbrain.all_computing_resources"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=CPU/GPU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="CPU/GPU">CPU/GPU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=NPU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="NPU">NPU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=GCU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="GCU">GCU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=MLU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="MLU">MLU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=DCU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="DCU">DCU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=CPU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="CPU">CPU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=ILUVATAR-GPGPU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="ILUVATAR-GPGPU">ILUVATAR-GPGPU</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType=METAX-GPGPU&jobStatus={{$.JobStatus}}&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="METAX-GPGPU">METAX-GPGPU</a>
+                        </div>
+                    </div>
+                    <div class="ui selection dropdown" style="min-width: 10em;min-height:2.6em;border-radius: .28571429rem;margin-right: 1em;padding: .67em 3.2em .7em 1em;">  
+                        <div class="default text" style="color: rgba(0,0,0,.87);">{{.i18n.Tr "admin.cloudbrain.all_status"}}</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value='{{.i18n.Tr "admin.cloudbrain.all_status"}}'>{{.i18n.Tr "admin.cloudbrain.all_status"}}</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=STARTING&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="STARTING">STARTING</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=RUNNING&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="RUNNING">RUNNING</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=RESTARTING&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="RESTARTING">RESTARTING </a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=START_FAILED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="START_FAILED">START_FAILED</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=STOPPING&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="STOPPING">STOPPING</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=STOPPED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="STOPPED">STOPPED</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=WAITING&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="WAITING">WAITING</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=COMPLETED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="COMPLETED">COMPLETED</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=SUCCEEDED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}" data-value="SUCCEEDED">SUCCEEDED</a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=FAILED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="FAILED">FAILED </a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=CREATED_FAILED&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="CREATED_FAILED">CREATED_FAILED </a>
+                            <a class="item" href="{{$.Link}}?q={{$.Keyword}}&jobType={{$.JobType}}&listType={{$.ListType}}&jobStatus=other&cluster={{$.cluster}}&aiCenter={{$.aiCenter}}"  data-value="OTHER">OTHER</a>
+                            
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>  
+</div>
+<script>
+    ;(function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            $.ajax({
+                type: "GET",
+                url: "/api/v1/cloudbrainboard/cloudbrain/resource_queues",
+                dataType: "json",
+                data: {},
+                success: function (res) {
+                    var data = res.resourceQueues || [];
+                    var aiCenterSelEl = $('#aiCenter-sel');
+                    var itemEl = aiCenterSelEl.find('.menu .item').eq(0);
+                    var selectAiCenterCode = aiCenterSelEl.find('.default').attr('aicenter');
+                    var selectAiCenterName = '';
+                    var lang = document.querySelector('html').getAttribute('lang') || 'en-US';
+                    for (var i = 0, iLen = data.length; i < iLen; i++) {
+                        var dataI = data[i];
+                        var aiCenterCode = dataI.AiCenterCode;
+                        var aiCenterName = dataI.AiCenterName || dataI.AiCenterCode;
+                        var itemClone = itemEl.clone();
+                        var oHref = itemClone.attr('href');
+                        var oId = itemClone.attr('id');
+                        itemClone.attr('data-value', aiCenterCode);
+                        itemClone.removeAttr('id');
+                        itemClone.attr('href', oHref + aiCenterCode);                        
+                        itemClone.text(aiCenterName);
+                        aiCenterSelEl.find('.menu').append(itemClone);
+                        if (selectAiCenterCode === aiCenterCode) {
+                            selectAiCenterName = aiCenterName;
+                        }
+                    }
+                    selectAiCenterCode && aiCenterSelEl.dropdown('set selected', selectAiCenterCode);
+                    selectAiCenterName && aiCenterSelEl.dropdown('set text', selectAiCenterName);
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+    })();
+</script>

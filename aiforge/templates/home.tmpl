@@ -1,0 +1,85 @@
+{{template "base/head_home" .}}
+    {{template "custom/home/home_top" .}}
+
+    <!--公共资源-->
+    {{template "custom/home/home_resource" .}}
+    <!--组织-->
+    <!-- {{template "custom/home/home_org" .}} -->
+
+    <!-- 项目 -->
+    <!-- {{template "custom/home/home_repo" .}} -->
+
+    <!-- 数据集 -->
+    <!-- {{template "custom/home/home_dataset" .}} -->
+    <!-- 中国算力网(C²NET) -->
+    <!-- {{template "custom/home/home_screen_map" .}} -->
+    <!-- 体验官 -->
+    <!-- {{template "custom/home/home_user_experience" .}} -->
+
+    
+    
+   
+    <!-- 中国算力网(C²NET) -->
+    <div class="ui vertical masthead secondary _hm-c2net-m-3 c2net segment" >
+        <div class="ui container">
+            <div class="ui center am-pt-30 am-pb-30" style="position:relative;z-index:5;padding-bottom:2.5rem !important">
+                <h2>{{.i18n.Tr "home.c2net_title"}}</h2>
+                <p><span class="ui text grey">{{.i18n.Tr "home.c2net_desc"}}</p>
+                <div style="display:flex;align-items:center;justify-content:center;">
+                    <a style="border:1px solid rgb(0, 123, 255);color:rgb(0, 123, 255);margin-right:10px;padding: 4px 10px;" href="https://openi.pcl.ac.cn/C2NET/C2NET/src/branch/master/%E6%A0%87%E5%87%86%E8%A7%84%E5%88%92.md">{{.i18n.Tr "home.c2net_standards"}}</a>
+                    <a style="border:1px solid rgb(0, 123, 255);color:rgb(0, 123, 255);margin-left:10px;padding: 4px 10px;" href="https://openi.pcl.ac.cn/C2NET/C2NET/src/branch/master/%e6%99%ba%e7%ae%97%e7%bd%91%e7%bb%9c%e6%8a%80%e6%9c%af.md">{{.i18n.Tr "home.c2net_technology"}}</a>
+                </div>
+            </div>           
+            <div id="app" class="_hm-computing-net-container" v-cloak>
+                <!--底座-->
+                <div class="rotation3D-baseMap"></div>
+                <!--旋转3D-->
+                <div id="rotation3D" class="rotation3D">
+                    <button class="center">{{.i18n.Tr "home.c2net_center"}}</button>
+					
+                    <div class="itemList">
+                        <div class="rotation3D__item" :class="item.type" v-for="item in itemList">
+                            <div class="scale">
+                                <div class="baseImg"></div>
+                                <div class="cont">
+                                    <i class="iconfont" :class="item.icon"></i>
+                                    <p>${item.content}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lineList">
+                        <div class="rotation3D__line" v-for="(item,i) in itemList" :class="item.type">
+                            <div v-if="item.type=='blue'" class="pos">
+                                <svg width="50" height="400">
+                                    <path id="path1" d="M0 400, 0 0" stroke-dasharray="5,10"/>
+                                </svg>
+								<div class="dot dot1 ri-arrow-left-s-line"><span>${!!jobTasks[i+1] ? jobTasks[i+1] : ''}</span></div>
+                            </div>
+                            <div v-if="item.type=='yellow'" class="pos">
+                                <svg width="10" height="400">
+                                    <path id="path2" d="M0 400, 0 0" stroke-dasharray="5,10"/>
+                                </svg>
+                                <div class="dot dot2"><i class="el-icon-close"></i><span></span></div>
+                            </div>
+                            <div v-if="item.type=='green'" class="pos">
+                                <svg width="50" height="400">
+                                    <path id="path1" d="M0 400, 0 0" stroke-dasharray="5,10"/>
+                                </svg>
+                                <div class="dot dot1 ri-arrow-left-s-line"><span>${!!jobTasks[i+1] ? jobTasks[i+1] : ''}</span></div>
+                            </div>
+                        </div>
+                    </div>					
+                </div>
+            </div><!--rotation3D end--> 
+            <div class="_hm-computing-net-mobile-container" style="display:none;"></div>
+        </div>
+    </div>
+    <!-- 社区活动 -->
+    {{template "custom/home/home_activity" .}}
+
+       
+    
+
+
+{{template "base/footer" .}}

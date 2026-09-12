@@ -1,0 +1,74 @@
+name: gitea
+summary:  Gitea - A painless self-hosted Git service
+description: |
+  The goal of this project is to make the easiest, fastest, and most painless
+  way of setting up a self-hosted Git service. With Go, this can be done with
+  an independent binary distribution across ALL platforms that Go supports,
+  including Linux, Mac OS X, Windows and ARM.
+
+icon: public/img/gitea-lg.png
+confinement: strict
+base: core18
+adopt-info: gitea
+
+architectures:
+  - build-on: armhf
+  - build-on: amd64
+  - build-on: arm64
+
+environment:
+  GITEA_CUSTOM: "$SNAP_COMMON"
+  GITEA_WORK_DIR: "$SNAP_DATA"
+
+apps:
+  gitea:
+    command: gitea
+    plugs: [network, network-bind]
+  web:
+    command: gitea web
+    daemon: simple
+    plugs: [network, network-bind]
+  dump:
+    command: gitea dump
+    plugs: [home]
+  version:
+    command: gitea --version
+  sqlite:
+    command: usr/bin/sqlite3
+
+parts:
+
+  gitea:
+    plugin: make
+    source: .
+    stage-packages: [ git, sqlite3, openssh-client ]
+    build-packages: [ git, libpam0g-dev, libsqlite3-dev]
+    build-snaps: [ go, node/14/stable ]
+    build-environment:
+      - LDFLAGS: ""
+    override-pull: |
+      snapcraftctl pull
+
+      version="$(git describe --always | sed -e 's/-/+git/;y/-/./')"
+      [ -n "$(echo $version | grep "+git")" ] && grade=devel || grade=stable
+      snapcraftctl set-version "$version"
+      snapcraftctl set-grade "$grade"
+
+    override-build: |
+      set -x
+      TAGS="bindata sqlite sqlite_unlock_notify pam cert" make build
+      install -D gitea "${SNAPCRAFT_PART_INSTALL}/gitea"
+      cp -r options "${SNAPCRAFT_PART_INSTALL}/"
+
+    prime:
+      - -etc
+      - -usr/lib/systemd
+      - -usr/lib/gcc
+      - -usr/lib/sasl2
+      - -usr/lib/x86_64-linux-gnu/krb5
+      - -usr/share/apport
+      - -usr/share/bash-completion
+      - -usr/share/git-core/contrib
+      - -usr/share/man
+      - -usr/share/upstart
+      - -var

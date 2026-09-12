@@ -1,0 +1,42 @@
+{{template "base/head" .}}
+<div class="repository new fork" style="padding-top:32px">
+	<div class="ui middle very relaxed page grid">
+		<div class="column">
+			<form class="ui form" action="{{.Link}}" method="post" id="create_repo_form">
+				{{.CsrfTokenHtml}}
+				<h3 class="ui top attached header">
+					{{.i18n.Tr "new_fork"}}
+				</h3>
+				<div class="ui attached segment">
+					{{template "base/alert" .}}
+					<div class="inline field">
+						<label>{{.i18n.Tr "repo.fork_from"}}</label>
+						<a href="{{AppSubUrl}}/{{.ForkFrom}}">{{.ForkDisplayName}}</a>
+					</div>
+					{{template "repo/repo_name" .}}
+					<div class="inline field">
+						<label>{{.i18n.Tr "repo.visibility"}}</label>
+						<div class="ui read-only checkbox">
+							<input type="checkbox" {{if .IsPrivate}}checked{{end}}>
+							<label>{{.i18n.Tr "repo.visibility_helper" | Safe}}</label>
+						</div>
+						<span class="help">{{.i18n.Tr "repo.fork_visibility_helper"}}</span>
+					</div>
+					<div class="inline field {{if .Err_Description}}error{{end}}">
+						<label for="description">{{.i18n.Tr "repo.repo_desc"}}</label>
+						<textarea id="description" name="description" maxlength="255">{{.description}}</textarea>
+					</div>
+
+					<div class="inline field">
+						<label></label>
+						<button class="ui green button">
+							{{.i18n.Tr "repo.fork_repo"}}
+						</button>
+						<a class="ui button" href="{{AppSubUrl}}/{{.ForkFrom}}">{{.i18n.Tr "cancel"}}</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}

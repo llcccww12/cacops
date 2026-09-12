@@ -1,0 +1,192 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/listmy/index.vue?vue&type=style&index=0&id=d48d121e&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content[data-v-d48d121e] {
+  display: flex;
+  min-height: 100%;
+  padding-left: 20px;
+}
+.content .content-r[data-v-d48d121e] {
+  flex: 1;
+  width: 0;
+  padding: 30px 20px;
+  padding-right: 36px;
+}
+.content .content-r .title[data-v-d48d121e] {
+  color: #101010;
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+  padding: 6px 0 16px 0;
+}
+.content .content-r .condition-a[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.content .content-r .condition-a .tab-c[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.content .content-r .condition-a .tab-c .tab-item[data-v-d48d121e] {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+  padding: 0 6px;
+  border-bottom: 2px solid rgba(51, 38, 98, 0.3);
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: rgba(16, 16, 16, 0.5);
+}
+.content .content-r .condition-a .tab-c .tab-item[data-v-d48d121e]:hover {
+  color: #101010;
+  border-color: #332662;
+}
+.content .content-r .condition-a .tab-c .tab-item.focus[data-v-d48d121e] {
+  color: #0066ff;
+  border-bottom: 2px solid #0066ff;
+}
+.content .content-r .condition-a .create-btn[data-v-d48d121e] {
+  margin-left: 14px;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font-size: 14px;
+  background: rgba(22, 132, 252, 0.9);
+  border-radius: 4px;
+}
+.content .content-r .condition-a .create-btn[data-v-d48d121e]:active {
+  background: #1684fc;
+}
+.content .content-r .condition-a .create-btn[data-v-d48d121e]:focus,
+.content .content-r .condition-a .create-btn[data-v-d48d121e]:hover {
+  background: rgba(22, 132, 252, 0.8);
+}
+.content .content-r .condition-a .create-btn .btn-content[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+}
+.content .content-r .condition-a .create-btn .btn-content i[data-v-d48d121e] {
+  font-size: 14px;
+  margin-right: 10px;
+}
+.content .content-r .condition-b[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.content .content-r .condition-b .search-c[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+}
+.content .content-r .condition-b .search-c .el-select[data-v-d48d121e] {
+  margin-right: 15px;
+}
+.content .content-r .condition-b .search-c .el-select[data-v-d48d121e] .el-input__inner {
+  height: 36px;
+}
+.content .content-r .condition-b .search-c .el-input[data-v-d48d121e] {
+  width: 320px;
+  margin-right: 15px;
+}
+.content .content-r .condition-b .search-c .el-input[data-v-d48d121e] .el-input__inner {
+  height: 36px;
+}
+.content .content-r .condition-b .search-c[data-v-d48d121e] .el-icon-search {
+  cursor: pointer;
+  color: #101010;
+}
+.content .content-r .table-c[data-v-d48d121e] {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  grid-gap: 27px;
+  gap: 27px;
+}
+.content .content-r .table-c .org-box[data-v-d48d121e] {
+  padding: 24px 31px 18px 21px;
+  border-radius: 10px;
+  background: linear-gradient(166.14deg, #fffbed 0.84%, #ffffff 54.19%);
+  height: 100px;
+  color: #101010;
+  box-shadow: 0px 0px 20px 0px rgba(221, 221, 221, 0.5);
+  border: 1px solid #ffffff;
+  min-width: 0;
+  /* 允许收缩 */
+}
+.content .content-r .table-c .org-box[data-v-d48d121e]:hover {
+  border-color: rgba(187, 193, 246, 0.7);
+  background: #fff;
+}
+.content .content-r .table-c .org-box:hover .name[data-v-d48d121e] {
+  color: rgba(0, 26, 199, 0.9) !important;
+}
+.content .content-r .table-c .org-box .item-b[data-v-d48d121e] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.content .content-r .table-c .org-box .item-b .header-w[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .content-r .table-c .org-box .item-b .header-w .left-c[data-v-d48d121e] {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+.content .content-r .table-c .org-box .item-b .header-w .left-c img[data-v-d48d121e] {
+  width: 32px;
+  height: 32px;
+}
+.content .content-r .table-c .org-box .item-b .header-w .left-c .name[data-v-d48d121e] {
+  color: #101010;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 14px;
+}
+.content .content-r .table-c .org-box .item-b .desc[data-v-d48d121e] {
+  margin-left: 46px;
+}
+@media only screen and (max-width: 800px) {
+.content[data-v-d48d121e] {
+    padding-left: 0 !important;
+}
+.content .content-r[data-v-d48d121e] {
+    padding: 20px 16px;
+}
+.content .content-r .condition-a[data-v-d48d121e] {
+    justify-content: center;
+}
+.content .content-r .condition-b[data-v-d48d121e] {
+    display: none;
+}
+}
+/* 中等屏幕显示3列 */
+@media (max-width: 1550px) {
+.table-c[data-v-d48d121e] {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+}
+/* 小屏幕显示2列 */
+@media (max-width: 1200px) {
+.table-c[data-v-d48d121e] {
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+}
+/* 超小屏幕显示1列 */
+@media (max-width: 768px) {
+.table-c[data-v-d48d121e] {
+    grid-template-columns: 1fr !important;
+}
+}
+

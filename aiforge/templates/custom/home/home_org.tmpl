@@ -1,0 +1,18 @@
+
+<div class="ui container homeorg _hm-container" style="max-width:1200px;">
+  <div class="ui stackable grid"> 
+    <div class="sixteen wide tablet sixteen wide computer column mobile-text-align-center" style="text-align:center;">
+      <h2>{{.page_recommend_org}}</h2>
+      <p><span class="ui text grey">{{.page_recommend_org_desc}}&nbsp;</span><a href="{{.RecommendURL}}">{{.page_recommend_org_commit}}</a>
+      {{.i18n.Tr "home.org_see"}}
+      <a href="{{AppSubUrl}}/explore/organizations" class="">{{.page_recommend_org_more}}</a>
+      </p>
+    </div>
+    <div class="sixteen wide tablet sixteen wide computer column">
+      <div class="homeorg-list">
+        <div class="swiper-wrapper" id="recommendorg"></div>
+        <div class="swiper-pagination"></div>                    
+      </div>
+    </div>
+  </div>
+</div>

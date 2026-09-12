@@ -1,0 +1,61 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/user/access/index.vue?vue&type=style&index=0&id=61cb5973&scoped=true&lang=less ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.title[data-v-61cb5973] {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.title span[data-v-61cb5973] {
+  font-weight: 700;
+  font-size: 16px;
+  color: #101010;
+}
+.input-with-select[data-v-61cb5973] {
+  width: 50%;
+  margin-bottom: 18px;
+}
+.input-with-select .el-input-group__prepend[data-v-61cb5973] {
+  background-color: #fff;
+}
+.tools-bar[data-v-61cb5973] {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.table-container[data-v-61cb5973] {
+  margin-bottom: 16px;
+}
+.table-container[data-v-61cb5973] .el-table__header th {
+  background: #e8e8e8;
+  font-size: 12px;
+  color: #101010;
+}
+.table-container[data-v-61cb5973] .el-table__body td {
+  font-size: 12px;
+}
+.table-container[data-v-61cb5973] .el-table__body tr:hover td {
+  background-color: #eff9ff !important;
+}
+.table-container[data-v-61cb5973] .el-table--border td,
+.table-container[data-v-61cb5973] .el-table--border th {
+  border-right: none;
+}
+.table-container .edit-btn[data-v-61cb5973] {
+  font-size: 16px;
+  color: #0066ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+[data-v-61cb5973] .el-input-group__append {
+  background-color: #0191ff;
+  color: #fff;
+  padding: 0 32px;
+  border: 1px solid #0191ff;
+}
+[data-v-61cb5973] .el-input-group__prepend {
+  background-color: #fff;
+  width: 120px;
+}
+

@@ -1,0 +1,209 @@
+{{template "base/head" .}}
+<div class="container-menu-main dashboard issues">
+	{{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9">
+		<div class="repo-issues">
+			<div class="title">
+				<span>{{.i18n.Tr "repository"}}</span>
+				<span style="color: rgba(16, 16, 16, 0.5);"> / </span>
+				<span>{{.i18n.Tr "issues"}}</span>
+			</div>
+			{{template "user/dashboard/filter" .}}
+			<div class="content-main">
+				<div class="content-l">
+					<div class="l-wrap">
+						<span class="l-item">{{.i18n.Tr "repo.modelarts.train_job.job_status" }}</span>
+						<a class="{{if not .IsShowClosed}}green-t{{end}} l-item" href="{{.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state=open&q={{$.Keyword}}">
+							{{.i18n.Tr "repo.issues.open_title" }}
+							<span class="ui right">{{ .ShownIssueStats.OpenCount }}</span>
+						</a>
+						<a class="{{if .IsShowClosed}}red-t{{end}} l-item" href="{{.Link}}?type={{$.ViewType}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state=closed&q={{$.Keyword}}">
+							{{.i18n.Tr "repo.issues.closed_title" }}
+							<span class="ui right">{{ .ShownIssueStats.ClosedCount }}</span>
+						</a>
+					</div>
+					<div class="l-wrap">
+						<a class="{{if eq .ViewType "your_repositories"}}active{{end}} l-item" href="{{.Link}}?type=your_repositories&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state={{.State}}">
+							{{.i18n.Tr "home.issues.in_your_repos"}}
+							<strong class="ui right">{{.IssueStats.YourRepositoriesCount}}</strong>
+						</a>
+						{{if not .ContextUser.IsOrganization}}
+							<a class="{{if eq .ViewType "assigned"}}active{{end}} l-item" href="{{.Link}}?type=assigned&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state={{.State}}">
+								{{.i18n.Tr "repo.issues.filter_type.assigned_to_you"}}
+								<strong class="ui right">{{.IssueStats.AssignCount}}</strong>
+							</a>
+							<a class="{{if eq .ViewType "created_by"}}active{{end}} l-item" href="{{.Link}}?type=created_by&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state={{.State}}">
+								{{.i18n.Tr "repo.issues.filter_type.created_by_you"}}
+								<strong class="ui right">{{.IssueStats.CreateCount}}</strong>
+							</a>
+							<a class="{{if eq .ViewType "mentioned"}}active{{end}} l-item" href="{{.Link}}?type=mentioned&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]&sort={{$.SortType}}&state={{.State}}">
+								{{.i18n.Tr "repo.issues.filter_type.mentioning_you"}}
+								<strong class="ui right">{{.IssueStats.MentionCount}}</strong>
+							</a>
+						{{end}}
+					</div>
+					<div class="l-wrap">
+						<a class="{{if not $.RepoIDs}}active{{end}} l-item" href="{{$.Link}}?type={{$.ViewType}}&sort={{$.SortType}}&state={{$.State}}&q={{$.Keyword}}">
+							<span class="text truncate">All</span>
+							<div class="ui {{if $.IsShowClosed}}red{{else}}green{{end}} label">{{.TotalIssueCount}}</div>
+						</a>
+						{{range .Repos}}
+								{{with $Repo := .}}
+									<a class="{{range $.RepoIDs}}{{if eq . $Repo.ID}}active{{end}}{{end}} l-item" href="{{$.Link}}?type={{$.ViewType}}&repos=[
+											{{with $include := true}}
+												{{range $.RepoIDs}}
+													{{if eq . $Repo.ID}}
+														{{$include = false}}
+													{{else}}
+														{{.}}%2C
+													{{end}}
+												{{end}}
+												{{if eq $include true}}
+													{{$Repo.ID}}%2C
+												{{end}}
+											{{end}}
+											]&sort={{$.SortType}}&state={{$.State}}&q={{$.Keyword}}" title="{{.FullName}}">
+										<span class="text truncate nowrap">{{$Repo.FullName}}</span>
+										<div class="ui right {{if $.IsShowClosed}}red{{else}}green{{end}} label">{{index $.Counts $Repo.ID}}</div>
+									</a>
+								{{end}}
+							{{end}}
+					</div>
+				</div>
+				<div class="content-r">
+					<div class="r-wrap">
+						{{if eq 0 (len .Issues)}}
+						<div class="ui placeholder segment bgtask-none">
+							<div class="ui icon header bgtask-header-pic"></div>
+							<div class="bgtask-content-header">{{$.i18n.Tr "repo.noDataset"}}</div>
+						</div>
+						{{else}}
+							{{ $approvalCounts := .ApprovalCounts}}
+							{{range .Issues}}
+								{{ $timeStr:= TimeSinceUnix .CreatedUnix $.Lang }}
+								{{if .Repo}}
+								<div class="r-item">
+									<div class="top-w">
+										<div class="top-left">
+											<a class="title-r nowrap" title="{{RenderEmoji .Title}}" target="_blank" href="{{.HTMLURL}}">{{RenderEmoji .Title}}</a>
+											{{if .IsPull}}
+												{{if (index $.CommitStatus .PullRequest.ID)}}
+														{{template "repo/commit_status" (index $.CommitStatus .PullRequest.ID)}}
+												{{end}}
+											{{end}}
+											{{with .Labels}}
+												{{/* If we have any labels, we should show them
+												with a 2.5 line height, this way they don't look
+												awful and they don't stack on top of each other,
+												especially on mobile views. */}}
+												<span>
+													{{range .}}
+														<a class="ui label" target="_blank" href="{{$.Link}}?q={{$.Keyword}}&type={{$.ViewType}}&state={{$.State}}&labels={{.ID}}&milestone={{$.MilestoneID}}&assignee={{$.AssigneeID}}&repos=[{{range $.RepoIDs}}{{.}}%2C{{end}}]" style="color: {{.ForegroundColor}}; background-color: {{.Color}}" title="{{.Description | RenderEmojiPlain}}">{{.Name | RenderEmoji}}</a>
+													{{end}}
+												</span>
+											{{end}}
+										</div>
+										{{if .TotalTrackedTime}}
+											<span class="comment ui right" style="padding-right: 10px;">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 8h3v2H7c-.55 0-1-.45-1-1V4h2v4zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 011.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"></path></svg> 
+												&nbsp;{{.TotalTrackedTime | Sec2Time}}
+											</span>
+										{{end}}
+										{{if .NumComments}}
+											<span class="comment ui right">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M14 1H2c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h2v3.5L7.5 11H14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zm0 9H7l-2 2v-2H2V2h12v8z"></path></svg>
+												&nbsp;{{.NumComments}}
+											</span>
+										{{end}}
+									</div>
+									<div class="bottom-w nowrap">
+										<div class="desc-b">
+											<div class="b-label">{{.Repo.OwnerName}}/{{.Repo.Alias}}#{{.Index}}</div>
+											{{if .OriginalAuthor}}
+												{{$.i18n.Tr .GetLastEventLabelFake $timeStr .OriginalAuthor | Safe}}
+											{{else if gt .Poster.ID 0}}
+												{{$.i18n.Tr .GetLastEventLabel $timeStr .Poster.HomeLink (.Poster.GetDisplayName|Escape) | Safe}}
+											{{else}}
+												{{$.i18n.Tr .GetLastEventLabelFake $timeStr (.Poster.GetDisplayName|Escape) | Safe}}
+											{{end}}
+											{{if .Milestone}}
+												<a class="milestone" target="_blank" href="{{AppSubUrl}}/{{.Repo.Owner.Name}}/{{.Repo.Name}}/issues?q={{$.Keyword}}&type={{$.ViewType}}&state={{$.State}}&labels={{$.SelectLabels}}&milestone={{.Milestone.ID}}&assignee={{$.AssigneeID}}">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16" width="16" height="16"><path fill-rule="evenodd" d="M8 2H6V0h2v2zm4 5H2c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h10l2 2-2 2zM8 4H6v2h2V4zM6 16h2V8H6v8z"></path></svg> 
+													&nbsp;{{.Milestone.Name}}
+												</a>
+											{{end}}
+											{{if .Ref}}
+												<a class="ref" target="_blank" href="{{AppSubUrl}}/{{.Repo.Owner.Name}}/{{.Repo.Name}}{{index $.IssueRefURLs .ID}}">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16" width="16" height="16"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 00-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 00-1-3.72C.88 1 0 1.89 0 3a2 2 0 001 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"></path></svg> 
+													&nbsp;{{index $.IssueRefEndNames .ID}}
+												</a>
+											{{end}}
+											
+											{{$tasks := .GetTasks}}
+											{{if gt $tasks 0}}
+												{{$tasksDone := .GetTasksDone}}
+												<span class="checklist">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+													&nbsp;{{$tasksDone}} / {{$tasks}} <span class="progress-bar"><span class="progress" style="width:calc(100% * {{$tasksDone}} / {{$tasks}});"></span></span>
+												</span>
+											{{end}}
+											{{if ne .DeadlineUnix 0}}
+												<span class="due-date poping up" data-content="{{$.i18n.Tr "repo.issues.due_date"}}" data-variation="tiny inverted" data-position="right center">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 16" width="16" height="16"><path fill-rule="evenodd" d="M13 2h-1v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H6v1.5c0 .28-.22.5-.5.5h-2c-.28 0-.5-.22-.5-.5V2H2c-.55 0-1 .45-1 1v11c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 12H2V5h11v9zM5 3H4V1h1v2zm6 0h-1V1h1v2zM6 7H5V6h1v1zm2 0H7V6h1v1zm2 0H9V6h1v1zm2 0h-1V6h1v1zM4 9H3V8h1v1zm2 0H5V8h1v1zm2 0H7V8h1v1zm2 0H9V8h1v1zm2 0h-1V8h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1zm2 0h-1v-1h1v1zm-8 2H3v-1h1v1zm2 0H5v-1h1v1zm2 0H7v-1h1v1zm2 0H9v-1h1v1z"></path></svg>
+													<span{{if .IsOverdue}} class="overdue"{{end}}> {{.DeadlineUnix.FormatShort}} </span>
+												</span>
+											{{end}}
+											{{if .IsPull}}
+												{{$approveOfficial := call $approvalCounts .ID "approve"}}
+												{{$rejectOfficial := call $approvalCounts .ID "reject"}}
+												{{$waitingOfficial := call $approvalCounts .ID "waiting"}}
+												{{if gt $approveOfficial 0}}
+													<span class="approvals">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+														&nbsp;{{$.i18n.Tr (TrN $.i18n.Lang $approveOfficial "repo.pulls.approve_count_1" "repo.pulls.approve_count_n") $approveOfficial}}
+													</span>
+												{{end}}
+			
+												{{if gt $rejectOfficial 0}}
+													<span class="rejects">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M0 1a1 1 0 011-1h14a1 1 0 011 1v10a1 1 0 01-1 1H7.5L4 15.5V12H1a1 1 0 01-1-1V1zm1 0v10h4v2l2-2h8V1H1zm7.5 3h2v1h-2v2h-1V5h-2V4h2V2h1v2zm2 5h-5V8h5v1z"></path></svg>
+														&nbsp;{{$.i18n.Tr (TrN $.i18n.Lang $rejectOfficial "repo.pulls.reject_count_1" "repo.pulls.reject_count_n") $rejectOfficial}}
+													</span>
+												{{end}}
+			
+												{{if gt $waitingOfficial 0}}
+													<span class="waiting">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+														&nbsp;{{$.i18n.Tr (TrN $.i18n.Lang $waitingOfficial "repo.pulls.waiting_count_1" "repo.pulls.waiting_count_n") $waitingOfficial}}
+													</span>
+												{{end}}
+			
+												{{if and (not .PullRequest.HasMerged) (gt (len .PullRequest.ConflictedFiles) 0)}}
+													<span class="conflicting">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M15.5 4.7L8.5 0l-7 4.7c-.3.19-.5.45-.5.8V16l7.5-4 7.5 4V5.5c0-.34-.2-.61-.5-.8zm-.5 9.8l-6-3.25V10H8v1.25L2 14.5v-9l6-4V6h1V1.5l6 4v9zM6 7h5V5l3 3-3 3V9H6v2L3 8l3-3v2z"></path></svg>
+														&nbsp;{{$.i18n.Tr (TrN $.i18n.Lang (len .PullRequest.ConflictedFiles) "repo.pulls.num_conflicting_files_1" "repo.pulls.num_conflicting_files_n") (len .PullRequest.ConflictedFiles)}}
+													</span>
+												{{end}}
+											{{end}}
+											
+										</div>
+										<div class="user-b">
+											{{range .Assignees}}
+												<a class="ui right assignee poping up" target="_blank" href="{{.HomeLink}}" data-content="{{.GetDisplayName}}" data-variation="inverted" data-position="left center">
+													<img class="ui avatar image" style="width: 24px;height: 24px;" src="{{.RelAvatarLink}}">
+												</a>
+											{{end}}
+										</div>
+									</div>
+								</div>
+								{{end}}
+							{{end}}
+							{{template "base/paginate" .}}
+						{{end}}		
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

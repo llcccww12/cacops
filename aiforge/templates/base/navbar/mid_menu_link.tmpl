@@ -1,0 +1,48 @@
+<div class="ui simple dropdown item edge">
+  <span><a style="color:inherit;display:inline" href="/dashboard"
+    onclick="javascript:event.preventDefault();event.stopPropagation();window.location.href='/dashboard';">{{.i18n.Tr "dashboard"}}</a></span>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <a style="border:none;color:#000;" class="item" href="{{AppSubUrl}}/issues">{{.i18n.Tr "issues"}}</a>
+    <a style="border:none;color:#000;white-space:nowrap;" class="item" href="{{AppSubUrl}}/pulls">{{.i18n.Tr "pull_requests"}}</a>
+    <a style="border:none;color:#000;" class="item" href="{{AppSubUrl}}/milestones">{{.i18n.Tr "milestones"}}</a>
+    <a style="border:none;color:#000;" class="item" href="{{AppSubUrl}}/cloudbrains">{{.i18n.Tr "repo.cloudbrain.task"}}</a>
+    <a style="border:none;color:#000;" class="item" href="{{AppSubUrl}}/reward/point">{{.i18n.Tr "calculation_points"}}</a>
+    <a style="border:none;color:#000;" class="item" href="{{AppSubUrl}}/storages">{{.i18n.Tr "storage_capacity"}}</a>
+    {{if and MLOPS .IsMonitorAdmin}}<a  style="border: none;color:#000;" class="item" href="{{AppSubUrl}}/pipeline">AI流水线</a>{{end}}
+  </div>
+</div>
+<a class="item" href="{{AppSubUrl}}/explore/repos/square">{{.i18n.Tr "custom.head.project"}}</a>
+<a class="item" href="{{AppSubUrl}}/explore/datasets">{{.i18n.Tr "custom.head.dataset"}}</a>
+<div class="ui simple dropdown item" >
+  <span class="menu-new-dot">{{.i18n.Tr "repo.model_manager"}}</span>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <a class="item" href="{{AppSubUrl}}/explore/models">{{.i18n.Tr "repo.model_square"}}</a>
+    <a class="item" href="{{AppSubUrl}}/modelbase"><span  class="menu-new" style="margin-right: 20px;">{{.i18n.Tr "repo.model_base"}}</span></a>
+    <a class="item" href="{{AppSubUrl}}/extension/mind"><span class="menu-new" style="margin-right: 20px;">{{.i18n.Tr "repo.model_pengcheng"}}</span></a>
+  </div>
+</div>
+<div class="ui simple dropdown item" >
+  <span>{{.i18n.Tr "explore.computing_power"}}</span>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <a class="item" href="{{AppSubUrl}}/computingpower/demand"><span>{{.i18n.Tr "explore.computing_resources"}}</span></a>
+    <a class="item" href="{{AppSubUrl}}/computingpower/domestic"><span>{{.i18n.Tr "explore.domestic_computing_power"}}</span></a>
+    <a class="item" href="{{AppSubUrl}}/explore/c2net_map"><span>{{.i18n.Tr "explore.ai_computing_center"}}</span></a>
+  </div>
+</div>
+<div class="ui simple dropdown item">
+  <span>{{.i18n.Tr "explore"}}</span>
+  <i class="dropdown icon"></i>
+  <div class="menu">
+    <a class="item" href="{{AppSubUrl}}/explore/organizations">{{.i18n.Tr "explore.organizations"}}</a>
+    <a class="item" href="{{AppSubUrl}}/explore/images">{{.i18n.Tr "explore.images"}}</a>
+    {{if .IsOperator}}
+      <a class="item" href="{{AppSubUrl}}/kanban/index.html" target="_blank" rel="opener">{{.i18n.Tr "explore.data_analysis"}}</a>
+    {{end}}
+    <a class="item" target="_blank" href="https://openi.pcl.ac.cn/login/oauth/authorize?client_id=9c23803d-b190-4b33-a59a-01a65f439bce&redirect_uri=https://course.openi.org.cn/auth/openi/login&response_type=code&state=STATE"><span>{{.i18n.Tr "custom.head.course"}}</span></a>
+    <a class="item" href="{{AppSubUrl}}/OpenI">{{.i18n.Tr "custom.head.openi.repo"}}</a>
+  </div>
+</div>
+<a class="item" target="_blank" href="https://openi.pcl.ac.cn/login/oauth/authorize?client_id=08ed2763-e77b-4326-b06d-fab35338fe05&redirect_uri=https://bbs.openi.org.cn/auth/openi/login&response_type=code&state=STATE"><span>{{.i18n.Tr "custom.head.forum"}}</span></a>

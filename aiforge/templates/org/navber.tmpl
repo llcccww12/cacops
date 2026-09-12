@@ -1,0 +1,60 @@
+<style>
+	.mbom .active {
+		color:#1684fc !important;
+		font-weight: normal !important;
+    	border-bottom: 2px solid #1684fc !important;
+	}
+	.mbom {
+		border-bottom: none !important;
+	}
+	.mbom .item svg, i {
+		margin-right: 5px;
+		color: #10101080;
+	}
+	@media only screen and (max-width: 767px) {
+		.mbom {
+			margin-bottom: 4px !important;
+		}
+		.mbom .item {
+    		padding: .65714286em 0.82285714em !important;
+		}
+	}
+</style>
+<div class="row" style="position: absolute;bottom: 2px;">
+	<div class="ui secondary pointing borderless menu aligned grid mbom">
+		{{with .Org}}
+		<a class="{{if and $.PageIsOrgHome (not $.PageIsOrgHomeModel) (not $.PageIsOrgHomeDataset) (not $.PageIsOrgHomeStorage)}}active{{end}} item" href="{{.HomeLink}}">
+			<svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="32" rx="2" fill="none" stroke="#10101080" stroke-width="4" stroke-linejoin="round"/><path d="M12 18L19 24L12 30" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 32H36" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{$.i18n.Tr "repository"}}
+		</a>
+		<a class="{{if and $.PageIsOrgHome $.PageIsOrgHomeModel}}active{{end}} item" href="{{.HomeLink}}?model=true">
+			<svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 9L7 14V24V34L15.5 39L24 44L32.5001 39L41 34V24V14L32.5001 9L24 4L15.5 9Z" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 4L24 24" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 34L24 24" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 34L24 24" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 44V34" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M41 14L33 19" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 14L15 19" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{$.i18n.Tr "admin.models"}}
+		</a>
+		<a class="{{if and $.PageIsOrgHome $.PageIsOrgHomeDataset}}active{{end}} item" href="{{.HomeLink}}?dataset=true">
+			<svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44.0001 11C44.0001 11 44 36.0623 44 38C44 41.3137 35.0457 44 24 44C12.9543 44 4.00003 41.3137 4.00003 38C4.00003 36.1423 4 11 4 11" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 29C44 32.3137 35.0457 35 24 35C12.9543 35 4 32.3137 4 29" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 20C44 23.3137 35.0457 26 24 26C12.9543 26 4 23.3137 4 20" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="24" cy="10" rx="20" ry="6" fill="none" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>{{$.i18n.Tr "admin.datasets"}}
+		</a>
+		{{end}}
+		<a class="{{if $.PageIsOrgMembers}}active{{end}} item" href="{{$.OrgLink}}/members">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" filter="none">
+			  <g>
+				<path d="M5.333 29.333c0-5.891 4.776-10.667 10.667-10.667s10.667 4.776 10.667 10.667v0h-2.667c0-4.418-3.582-8-8-8s-8 3.582-8 8v0h-2.667zM16 17.333c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM16 14.667c2.947 0 5.333-2.387 5.333-5.333s-2.387-5.333-5.333-5.333-5.333 2.387-5.333 5.333 2.387 5.333 5.333 5.333z" fill="rgba(65,80,88,1)"/>
+			  </g>
+			</svg>{{$.i18n.Tr "org.nav_people"}}
+		</a>
+		{{if or ($.IsOrganizationMember) ($.IsOrganizationOwner)}}
+			<a class="{{if $.PageIsOrgTeams}}active{{end}} item" href="{{$.OrgLink}}/teams">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" filter="none">
+				  <g>
+					<path d="M2.667 29.333c0-5.891 4.776-10.667 10.667-10.667s10.667 4.776 10.667 10.667v0h-2.667c0-4.418-3.582-8-8-8s-8 3.582-8 8v0h-2.667zM13.333 17.333c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM13.333 14.667c2.947 0 5.333-2.387 5.333-5.333s-2.387-5.333-5.333-5.333-5.333 2.387-5.333 5.333 2.387 5.333 5.333 5.333zM24.379 19.604c3.738 1.714 6.288 5.423 6.288 9.728 0 0 0 0.001 0 0.001v-0h-2.667c0-0 0-0.001 0-0.002 0-3.229-1.912-6.011-4.666-7.275l-0.050-0.020 1.093-2.432zM23.461 4.551c2.686 1.129 4.539 3.738 4.539 6.78 0 0.001 0 0.002 0 0.003v-0c0 0.001 0 0.001 0 0.002 0 3.815-2.914 6.95-6.637 7.3l-0.029 0.002v-2.684c2.277-0.335 4.005-2.276 4.005-4.62 0-1.831-1.055-3.416-2.59-4.18l-0.027-0.012 0.74-2.591z" fill="rgba(65,80,88,1)"/>
+				  </g>
+				</svg>{{$.i18n.Tr "org.nav_teams"}}
+			</a>
+		{{end}}
+		{{if $.IsOrganizationOwner}}
+			{{with .Org}}
+				<a class="{{if and $.PageIsOrgHome $.PageIsOrgHomeStorage}}active{{end}} item" href="{{.HomeLink}}?storage=true">
+					<svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.3446 5.51758C13.9 6.53124 11.7001 8.01574 9.85786 9.85797C6.23858 13.4773 4 18.4773 4 24.0001C4 35.0458 12.9543 44.0001 24 44.0001V44.0001C29.5228 44.0001 34.5228 41.7615 38.1421 38.1422C39.9844 36.3 41.4689 34.1001 42.4825 31.6555" stroke="#10101080" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 24H44C44 12.9543 35.0457 4 24 4L24 24Z" fill="none" stroke="#10101080" stroke-width="4" stroke-linejoin="round"/></svg>{{$.i18n.Tr "storage_capacity"}}
+				</a>
+			{{end}}
+		{{end}}
+	</div>
+</div>

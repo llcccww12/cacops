@@ -1,0 +1,17 @@
+{{template "base/head" .}}
+<style>
+.full.height {
+    display: flex; 
+    flex-flow: column wrap;
+    padding-bottom:0px;
+ }
+ .ui.top.secondary.stackable.main.menu,
+ .notic_content,
+ .network-security,
+ footer {
+    display: none !important;
+ }
+</style>
+<input id="url_params" type="hidden" value={{.url_params}}/>
+<div id="initVueIde" style="height: 100%;"></div>
+{{template "base/footer" .}}

@@ -1,0 +1,619 @@
+<!-- 头部导航栏 -->
+{{template "base/head" .}}
+<!-- 弹窗 -->
+<style>
+.inline.fields .right.aligned label{ 
+        width: 100% !important;
+        text-align: right;
+}
+.inline .ui.dropdown .text {
+        color: rgba(0, 0, 0, .87) !important;
+        left: 15px !important;
+}
+.text_color {
+    color: rgb(0 0 0 / 87%);
+}
+.mobile-tip{
+    height: 100%;
+    align-items: center;
+    padding-top: 25vh;
+    font-size: 14px;
+    display: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 100vh;
+    
+}
+@media screen and (max-width: 767px) {
+/* 当视口宽度 ≤ 767px 时生效 */
+    /* #loadContainer { display: none; } */
+    .__btn_group {display: none !important;}
+    .mobile-tip {display: flex;flex-direction: column;}
+}
+</style>
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+{{$repository := .Repository.ID}}
+<!-- 提示框 -->
+<div class="alert"></div>
+
+<div class="repository release dataset-list view">
+    {{template "repo/header" .}}
+    <!-- 列表容器 -->
+    <div class="ui container" id="loadContainer">
+        {{template "base/alert" .}}
+        <div class="ui two column stackable grid">
+            <div class="column">
+                <div class="ui blue small menu compact selectcloudbrain">
+                    <a class="item" href="{{.RepoLink}}/modelmanage/show_model">{{$.i18n.Tr "repo.model.list"}}</a>
+                    <a class="active item" href="{{.RepoLink}}/modelmanage/convert_model">{{$.i18n.Tr "repo.model.convert"}}</a>
+                </div>
+            </div>
+            <div class="column right aligned __btn_group">
+                <!--  -->
+                <a class="ui button {{if .Permission.CanWrite $.UnitTypeModelManage}} green {{else}} disabled {{end}}" onclick="showcreate(this)">{{$.i18n.Tr "repo.model.manage.create_new_convert_task"}}</a>
+            </div>
+        </div>
+        <div class="mobile-tip" >
+            <img style="width: 132px;height: 97px;" src="/img/model/pc-view.png" alt="">
+            <div style="margin-top: 2rem;">{{$.i18n.Tr "useInPcWeb"}}</div>
+        </div>
+       {{if eq .MODEL_CONVERT_COUNT 0}}
+        <div class="ui placeholder segment bgtask-none">
+            <div class="ui icon header bgtask-header-pic"></div>
+            <div class="bgtask-content-header">{{$.i18n.Tr "repo.modelconvert.notcreate"}}</div>
+            <div class="bgtask-content">
+                {{if eq .MODEL_COUNT 0}}
+                <div class="bgtask-content-txt">{{$.i18n.Tr "repo.modelconvert.importfirst1"}}<a href="{{.RepoLink}}/modelmanage/show_model">&nbsp;{{$.i18n.Tr "repo.modelconvert.importfirst2"}}&nbsp;</a>{{$.i18n.Tr "repo.modelconvert.importfirst3"}}</div>
+                {{end}}
+                <div class="bgtask-content-txt">{{$.i18n.Tr "repo.platform_instructions1"}}<a href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning">&nbsp;{{$.i18n.Tr "repo.platform_instructions2"}}&nbsp;</a>{{$.i18n.Tr "repo.platform_instructions3"}}</div>
+
+            </div>
+        </div>
+        {{else}}
+        <!-- 中下列表展示区 -->
+        <div class="ui grid __content-box">
+            <div class="row" style="padding-top: 0;">
+                <div class="ui sixteen wide column">
+                    <!-- 任务展示 -->
+                    <div class="dataset list" id="model_convert_list">
+                        <!-- 表头 -->
+                        <div class="ui grid stackable" style="background: #f0f0f0;;">
+                            <div class="row">
+                                <div class="three wide column padding0">
+                                    <span style="margin:0 6px">{{$.i18n.Tr "repo.modelconvert.taskname"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0">
+                                    <span>{{$.i18n.Tr "repo.modelconvert.taskstatus"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0">
+                                        <span>{{$.i18n.Tr "repo.modelconvert.srcengine"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0">
+                                        <span>{{$.i18n.Tr "repo.modelconvert.outputformat"}}</span>
+                                </div>
+                                <div class="two wide column text center padding0">
+                                    <span>{{$.i18n.Tr "repo.modelconvert.createtime"}}</span>
+                                </div>
+                                <div class="one wide column text center padding0">
+                                    <span>{{$.i18n.Tr "repo.cloudbrain_creator"}}</span>
+                                </div>
+                                <div class="three wide column text center padding0">
+                                    <span>{{$.i18n.Tr "repo.cloudbrain_operate"}}</span>
+                                </div>
+                            </div>
+                        </div>
+                         {{range .Tasks}}
+                        <div class="ui grid stackable item">
+                            <div class="row">
+                                  <div class="three wide column padding0">
+                                    <a class="title" href="{{$.RepoLink}}/modelmanage/show_model_convert_info?id={{.ID}}" title="{{.Name}}" style="font-size: 14px;">
+                                        <span class="fitted" style="width: 90%;vertical-align: middle;">{{.Name}}</span>
+                                    </a>
+                                  </div>
+                                 <div class="two wide column padding0" style="padding-left: 2.2rem !important;">
+                                    <span class="job-status" id="{{.ID}}" data-repopath="{{$.RepoRelPath}}/modelmanage" data-jobid="{{.ID}}" data-version="">
+                                        <span><i id="{{.ID}}-icon" style="vertical-align: middle;" class="{{.Status}}"></i><span  id="{{.ID}}-text" style="margin-left: 0.4em;font-size: 12px;">{{.Status}}</span></span>
+                                    </span>
+                                </div>
+                                <div class="two wide column center padding0">
+                                     <span style="font-size: 12px;">{{if eq .SrcEngine 0}}PyTorch {{else if eq .SrcEngine 1}}TensorFlow {{else if eq .SrcEngine 2}}MindSpore {{else if eq .SrcEngine 4}}PaddlePaddle {{else if eq .SrcEngine 6}}MXNet {{end}}</span>
+                                </div>
+                                <div class="two wide column center padding0">
+                                     <span style="font-size: 12px;">{{if eq .DestFormat 0}}ONNX {{else if eq .DestFormat 1}}TensorRT {{end}}</span>
+                                </div>
+                                 <div class="two wide column center padding0">
+                                    <span style="font-size: 12px;" class="">{{TimeSinceUnix .CreatedUnix $.Lang}}</span>
+                                </div>
+                                <div class="one wide column text center padding0">
+                                    <a href="{{AppSubUrl}}/{{.UserName}}" title="{{.UserName}}"><img class="ui avatar image" src="{{.UserRelAvatarLink}}"></a>
+                                </div>
+                                <div class="three wide column text center padding0">
+                                 <div class="ui compact buttons" >
+                                    <!-- 停止任务 -->
+                                      <form id="stopForm-{{.ID}}"  style="margin-left:-1px;" action="{{$.RepoLink}}/modelmanage/convert_stop/{{.ID}}" method="post">
+                                            {{$.CsrfTokenHtml}}
+                                            {{if .IsCanDelete}}
+                                            <a id="ai-stop-{{.ID}}" href="javascript:stopTask('{{.ID}}');" class='ui basic model_stop {{if eq .Status "COMPLETED" "STOPPED" "FAILED" "START_FAILED" "STOPPING"  "CREATING"  "STARTING" "SUCCEEDED"}}disabled {{else}}blue {{end}}button' >
+                                                {{$.i18n.Tr "repo.stop"}}
+                                            </a>
+                                            {{else}}
+                                                <a  class="ui basic disabled button">{{$.i18n.Tr "repo.stop"}} </a>
+                                            {{end}}
+                                      </form>
+                                        
+                                      <!-- 删除任务 -->
+                                      <form  id="delForm-{{.ID}}" action="{{$.RepoLink}}/modelmanage/delete_model_convert/{{.ID}}" method="post">
+                                            {{$.CsrfTokenHtml}}
+                                             {{if .IsCanDelete}}
+                                            <a id="ai-delete-{{.ID}}" class='ui basic ai_delete blue button'  style="border-radius: .28571429rem;">
+                                                {{$.i18n.Tr "repo.delete"}}
+                                            </a>
+                                            {{else}}
+                                                <a  class="ui basic disabled button">{{$.i18n.Tr "repo.delete"}} </a>
+                                            {{end}}
+                                       </form>
+
+                                         {{if .IsCanOper}}
+                                            <a id="ai-download-{{.ID}}"  href="{{$.Repository.HTMLURL}}/modelmanage/download_model_convert/{{.ID}}?allDownload=true&a=1" class='ui basic {{if eq .Status "SUCCEEDED" "COMPLETED"}}blue {{else}}disabled {{end}}button'  style="border-radius: .28571429rem;">
+                                                {{$.i18n.Tr "repo.modelconvert.download"}}
+                                            </a>
+                                        {{else}}
+                                            <a  class="ui basic disabled button">{{$.i18n.Tr "repo.modelconvert.download"}}</a>
+                                        {{end}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{end}}
+                         <div id="app" style="margin-top: 2rem;">
+                            <div class="center">
+                                <el-pagination
+                                background
+                                @current-change="handleCurrentChange"
+                                :current-page="page"
+                                :page-sizes="[10]"
+                                :page-size="10"
+                                layout="total, sizes, prev, pager, next, jumper"
+                                :total="{{.Page.Paginater.Total}}">
+                                </el-pagination>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+
+</div>
+
+</div>
+
+<!-- 确认模态框 -->
+<div id="deletemodel">
+    <div class="ui basic modal first">
+        <div class="ui icon header">
+            <i class="trash icon"></i> 删除模型
+        </div>
+
+        <div class="content">
+            <p>你确认删除该模型转换任务么？一旦删除不可恢复。</p>
+        </div>
+        <div class="actions">
+            <div class="ui red basic inverted cancel button">
+                <i class="remove icon"></i> {{.i18n.Tr "cloudbrain.operate_cancel"}}
+            </div>
+            <div class="ui green basic inverted ok button">
+                <i class="checkmark icon"></i> {{.i18n.Tr "cloudbrain.operate_confirm"}}
+            </div>
+        </div>
+    </div>
+</div>
+<div id="newmodelconvert">
+    <div class="ui modal second">
+        <div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);">
+            <h4 id="model_header"></h4>
+        </div>
+        <div class="content content-padding">
+            <div id="formdiv"  class="ui form" >
+                <input type="hidden" name="initModel" value="{{$.MODEL_COUNT}}">
+                <div class="ui error message">
+                    <!-- <p>asdasdasd</p> -->
+                </div>
+                <input type="hidden" name="_csrf" value="">
+                <div class="unite min_title required inline fields" id="task_name">
+                    <div class="three wide field right aligned">
+                        <label for="model_convert_name">{{$.i18n.Tr "repo.modelconvert.taskname"}}</label>
+                    </div>
+                    <div class="twelve wide field">
+                        <input  id="model_convert_name" name="model_convert_name" required maxlength="127" onkeyup="this.value=this.value.replace(/[, ]/g,'')">
+                    </div>
+                </div>
+                <div class="unite min_title inline fields required">
+                    <div class="three wide field right aligned">
+                        <label for="choice_model">{{$.i18n.Tr "repo.modelconvert.modelname"}}</label>
+                    </div>
+                    <div class="ui dropdown selection search eight wide field loading" id="choice_model" name="choice_model">
+                            <div class="default text">{{$.i18n.Tr "repo.modelconvert.selectmodel"}}</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu" id="model-name">
+                            </div>
+                    </div>
+                </div>
+                <div class="unite min_title inline fields required">
+                    <div class="three wide field right aligned">
+                        <label for="choice_version">{{$.i18n.Tr "repo.modelconvert.modelversion"}}</label>
+                    </div>
+                    
+                    <div class="ui dropdown selection search eight wide field" id="choice_version">
+                            <input type="hidden" id="modelVersion" name="modelVersion" required>
+                            <div class="default text">{{$.i18n.Tr "repo.modelconvert.selectversion"}}</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu" id="model-version">
+
+                            </div>
+                    </div>
+                </div>
+                <div class="unite min_title inline fields required" id="ModelFile_Div">
+                    <div class="three wide field right aligned">
+                        <label for="choice_file">{{$.i18n.Tr "repo.model.manage.modelfile"}}</label>
+                    </div>
+                    <div class="ui dropdown selection search eight wide field" id="choice_file">
+                            <input type="hidden" id="modelFile" name="modelFile" required>
+                            <div class="default text">{{$.i18n.Tr "repo.modelconvert.selectmodelfile"}}</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu" id="model-file">
+
+                            </div>
+                    </div>
+                    <div data-tooltip="{{.i18n.Tr "cloudbrain.model_convert_postfix_rule"}}" data-inverted="" data-variation="mini">
+                        <i class="question circle icon"></i>
+                    </div>
+                    
+                </div>
+                <div class="unite min_title inline fields required">
+                    <div class="three wide field right aligned">
+                        <label for="srcEngine">{{$.i18n.Tr "repo.modelconvert.srcengine"}}</label>
+                    </div>
+                    
+                    <select id="srcEngine" class="ui search dropdown eight wide field" placeholder="" style='color:#000000;' name="srcEngine" onchange="javascript:srcEngineChanged()">
+                        
+                    </select>
+                </div>
+                <div class="unite min_title required inline fields" id="inputdataformat_div">
+                    <div class="three wide field right aligned">
+                        <label for="inputdataformat">{{$.i18n.Tr "repo.modelconvert.inputdataformat"}}</label>
+                    </div>
+          
+                    <select id="inputdataformat" class="ui search dropdown eight wide field" placeholder="" style='width:50%' name="inputdataformat">
+                            <option name="NCHW" value="NCHW">NCHW</option>
+                            <option name="NHWC" value="NHWC">NHWC</option>
+                    </select>
+                   
+                </div>
+                <div class="unite min_title required inline fields" id="inputshape_div">
+                    <div class="three wide field right aligned">
+                        <label for="inputshape">{{$.i18n.Tr "repo.modelconvert.inputshape"}}</label>
+                    </div>
+                    <div class="eight wide field">
+                        <input id="inputshape" name="inputshape" placeholder="{{$.i18n.Tr "repo.modelconvert.inputshapetip"}}" required maxlength="25">
+                    </div>
+                </div>
+                
+                <div class="unite min_title inline fields required">
+                    <div class="three wide field right aligned">
+                        <label for="destFormat">{{$.i18n.Tr "repo.modelconvert.outputformat"}}</label>
+                    </div>
+       
+                    <select id="destFormat" class="ui search dropdown eight wide field" placeholder="" style='width:50%' name="destFormat">
+ 
+                    </select>
+                    
+                </div>
+                <div class="unite min_title inline fields">
+                    <div class="three wide field right aligned">
+                        <label for="netOutputFormat">{{$.i18n.Tr "repo.modelconvert.netoutputdata"}}&nbsp;&nbsp;</label>
+                    </div>
+   
+                    <select id="netOutputFormat" class="ui search dropdown eight wide field" placeholder="" style='width:50%' name="netOutputFormat">
+
+                    </select>
+                    
+                </div>
+                <div class="unite min_title inline fields">
+                    <div class="three wide field right aligned">
+                        <label for="description">{{$.i18n.Tr "repo.modelconvert.taskdesc"}}&nbsp;&nbsp;</label>
+                    </div>
+                    <div class="twelve wide field">
+                        <textarea  id="description" name="description" rows="1" maxlength="255" placeholder='{{.i18n.Tr "repo.modelarts.train_job.new_place"}}' onchange="this.value=this.value.substring(0, 255)" onkeydown="this.value=this.value.substring(0, 255)" onkeyup="this.value=this.value.substring(0, 256)"></textarea>
+                    </div>
+                </div>
+                <div class="unite min_title inline field">
+                    <button id="submitId" name="submitId" type="button" class="ui create_train_job green button" style="position: absolute;margin-left: 150px;">
+                    {{$.i18n.Tr "repo.modelconvert.newtask"}}
+                    </button>
+                </div>
+            </div>
+            <div class="actions" style="display: inline-block;margin-left: 250px;">
+                <button class="ui button cancel" >{{.i18n.Tr "repo.cloudbrain.cancel"}}</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{{template "base/footer" .}}
+
+<script>
+    let repolink =  {{.RepoLink}}
+    let repoId = {{$repository}}
+    const {_AppSubUrl, _StaticUrlPrefix, csrf} = window.config;
+    $('input[name="_csrf"]').val(csrf)
+    var modelData;
+
+    function inputshapeNotValid(value){
+        if(value == null || value ==""){
+            return true;
+        }
+        var tmps = value.split(",");
+        if(tmps.length ==4){
+           return false;
+        }else{
+           return true;
+        }
+    }
+    $('#submitId').click(function(){
+        let data={};
+        data['_csrf']=csrf
+        data['name']= $('#model_convert_name').val()
+
+        if(data['name']==""){
+            $('.ui.error.message').text("{{.i18n.Tr "repo.modelconvert.tasknameempty"}}")
+            $('.ui.error.message').css('display','block')
+            $("#task_name").addClass("error")
+            return false
+        }else{
+            $("#task_name").removeClass("error")
+        }
+
+        data['desc']= $('#description').val()
+        data['modelId'] = $('#modelVersion').val()
+        data['srcEngine'] = $('#srcEngine').val();
+        data['inputshape']= $('#inputshape').val();
+
+        if(inputshapeNotValid(data['inputshape'])){
+            $('.ui.error.message').text("{{.i18n.Tr "repo.modelconvert.inputshapeerror"}}")
+            $('.ui.error.message').css('display','block')
+            $("#inputshape_div").addClass("error")
+            return false;
+        }else{
+            $("#inputshape_div").removeClass("error");
+        }
+
+        data['inputdataformat']= $('#inputdataformat').val();
+        data['destFormat'] = $('#destFormat').val();
+        data['netOutputFormat']= $('#netOutputFormat').val();
+        data['modelFile'] = $('#modelFile').val();
+        if(data['modelFile']==""){
+            $('.ui.error.message').text("{{.i18n.Tr "repo.modelconvert.modelfileempty"}}");
+            $('.ui.error.message').css('display','block');
+            $("#ModelFile_Div").addClass("error");
+            return false;
+        }else if(data['srcEngine'] ==2){
+            if(data['modelFile'].indexOf(".mindir") == -1){
+                $('.ui.error.message').text("{{.i18n.Tr "repo.modelconvert.mindirmodel"}}");
+                $('.ui.error.message').css('display','block');
+                $("#ModelFile_Div").addClass("error");
+                return false
+            }else{
+                $("#ModelFile_Div").removeClass("error");
+            }
+        }else{
+            $("#ModelFile_Div").removeClass("error");
+        }
+
+        
+        $.post(`${repolink}/modelmanage/create_model_convert`,data,(result) => {
+            if(result.code ==0){
+                $('.ui.modal.second').modal('hide');
+                window.location.reload();
+            }else{
+                $('.ui.error.message').text(result.msg)
+                $('.ui.error.message').css('display','block')
+            }
+        })
+    })
+
+    function stopTask(id){
+        document.getElementById("stopForm-" + id).submit();
+    }
+
+    function createModelName(){
+        let repoName = location.pathname.split('/')[2]
+        let modelName = repoName + '_modelConvert_' + Math.random().toString(36).substr(2, 4)
+        $('#model_convert_name').val(modelName)
+    }
+    function showcreate(obj){
+        $('.ui.modal.second')
+        .modal({
+            centered: false,
+            onShow:function(){
+                $('#model_header').text("{{.i18n.Tr "repo.modelconvert.createtask"}}")
+                $('.ui.dimmer').css({"background-color":"rgb(136, 136, 136,0.7)"})
+                createModelName()
+                loadModelList()
+            },
+            onHide:function(){
+                //document.getElementById("formId").reset();
+                $('#model_convert_name').val("")
+                $('#choice_model').dropdown('clear')
+                $('#choice_version').dropdown('clear')
+                $('#choice_file').dropdown('clear')
+                $('.ui.dimmer').css({"background-color":""})
+                $('.ui.error.message').text()
+                $('.ui.error.message').css('display','none')
+                $("#task_name").removeClass("error")
+                $("#inputshape_div").removeClass("error")
+            }
+        })
+        .modal('show')
+    }
+
+    $(function(){
+        $('#choice_model').dropdown({
+        onChange:function(value){
+                $("#choice_model").addClass("loading")
+                $('#choice_version').dropdown('clear')
+                $('#choice_file').dropdown('clear')
+                $("#model-version").empty()
+                $("#model-file").empty()
+                
+                loadModelVersion(value)
+                $("#choice_model").removeClass("loading")
+            }
+        })
+
+        $('#choice_version').dropdown({
+        onChange:function(value){
+                $('#choice_version input[name="modelVersion"]').val(value)
+                loadModelFile(value);
+            }
+        })
+
+         $('#choice_file').dropdown({
+        onChange:function(value){
+            $('#choice_file input[name="modelFile"]').val(value)
+            }
+        })
+
+    })
+
+    function srcEngineChanged(){
+        var ele = window.document.getElementById("srcEngine");
+        var index=ele.selectedIndex;
+        var options=ele.options;
+        var option = options[index];
+        let destFormatHtml = "<option name=\"ONNX\" value=\"0\">ONNX</option>";
+        let netOutputFormatHtml = "<option name=\"FP32\" value=\"0\">FP32</option>";
+        if(option==null || option =="undefined" || option.value == 0){
+             destFormatHtml += "<option name=\"TensorRT\" value=\"1\">TensorRT</option>"
+             netOutputFormatHtml += "<option name=\"FP16\" value=\"1\">FP16</option>";
+        }
+        $('#destFormat').html(destFormatHtml);
+        $('#netOutputFormat').html(netOutputFormatHtml);
+    }
+   
+    function loadModelList(){
+        $.get(`${repolink}/modelmanage/query_model_for_predict?repoId=${repoId}&type=-1&isOnlyThisRepo=true`, (data) => {
+            modelData = data
+            let nameList =  data.nameList
+            const n_length = nameList.length
+            let train_html=''
+            for (let i=0;i<n_length;i++){
+                train_html += `<div class="item" data-value="${nameList[i]}">${nameList[i]}</div>`
+                train_html += '</div>'
+            }
+            $("#model-name").append(train_html)
+            $("#choice_model").removeClass("loading")
+            $('#choice_model .default.text').text(nameList[0])
+            loadModelVersion(nameList[0])
+        })
+    }
+    function loadModelFile(modelId){
+        $('#choice_file').dropdown('clear')
+        $("#model-file").empty()
+        if(modelId ==null || modelId ==""){
+        }else{
+            $.get(`${repolink}/modelmanage/query_modelfile_for_predict?id=${modelId}`, (data) => {
+                const n_length = data.length
+                let file_html=''
+                let firstFileName =''
+                for (let i=0;i<n_length;i++){
+                    if(isModel(data[i].FileName)){
+                        if(firstFileName ==''){
+                            firstFileName = data[i].FileName;
+                        }
+                        file_html += `<div class="item" data-value="${data[i].FileName}">${data[i].FileName}</div>`
+                        file_html += '</div>'
+                    }else{
+                    }
+                }
+                $("#model-file").append(file_html)
+                $('#choice_file .default.text').text(firstFileName)
+                $('#choice_file input[name="modelFile"]').val(firstFileName)
+            })
+
+        }
+    }
+    function isModel(filename){
+       var postfix=[".pth",".pkl",".onnx",".mindir",".ckpt",".pb",".pdmodel",".pdiparams",".params",".json"];
+       for(var i =0; i<postfix.length;i++){
+            if(filename.substring(filename.length-postfix[i].length)==postfix[i]){
+                return true;
+            }
+       }
+       return false;
+    }
+    function loadModelVersion(value){
+        if(value ==null || value ==""){
+            
+        }else{
+            let nameMap = modelData.nameMap
+            let versionList = nameMap[value]
+            n_length = versionList.length
+            let train_html=''
+            for (let i=0;i<n_length;i++){
+                    train_html += `<div class="item" data-value="${versionList[i].id}">${versionList[i].version}</div>`
+                    train_html += '</div>'
+            }
+            $("#model-version").append(train_html)
+            
+            $('#choice_version .default.text').text(versionList[0].version)
+            $('#choice_version input[name="modelVersion"]').val(versionList[0].id)
+            loadModelFile(versionList[0].id);
+        }
+        setEngineValue(value);
+    }
+    function setEngineValue(value){
+        $('#srcEngine').dropdown('clear');
+        let html = ""
+        html +="<option name=\"PyTorch\" " + getSelected(0,value) +  " value=\"0\">PyTorch</option>";
+        html +="<option name=\"TensorFlow\" " + getSelected(1,value) +  " value=\"1\">TensorFlow</option>";
+        html +="<option name=\"MindSpore\" " + getSelected(2,value) +  " value=\"2\">MindSpore</option>";
+        html +="<option name=\"PaddlePaddle\" " + getSelected(4,value) +  " value=\"4\">PaddlePaddle</option>";
+        html +="<option name=\"MXNet\" " + getSelected(6,value) +  " value=\"6\">MXNet</option>";
+
+        $('#srcEngine').html(html);
+        srcEngineChanged();
+    }
+    function getSelected(engineOption, modelName){
+        if(modelName ==null || modelName ==""){
+            return "";
+        }
+        let nameMap = modelData.nameMap
+        let versionList = nameMap[modelName]
+        if(versionList != null && versionList.length >0){
+            if(versionList[0].engine == engineOption){
+                return "selected=\"selected\"";
+            }else{
+                if((versionList[0].engine==122 || versionList[0].engine==37) && engineOption==2){
+                    return "selected=\"selected\"";
+                }
+                if((versionList[0].engine==121 || versionList[0].engine==38) && engineOption==1){
+                    return "selected=\"selected\"";
+                }
+            }
+        }
+        return "";
+    }
+</script>
+

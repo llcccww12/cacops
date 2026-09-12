@@ -1,0 +1,6 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-dataset-detial.css?v={{MD5 AppVer}}" />
+<script>var MAX_MODEL_SIZE = {{ .max_model_size }};</script>
+<div id="__vue-root"></div>
+<script src="{{StaticUrlPrefix}}/js/vp-dataset-detial.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

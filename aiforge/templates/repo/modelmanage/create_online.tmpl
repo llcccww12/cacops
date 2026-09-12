@@ -1,0 +1,701 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="/self/ztree/css/zTreeStyle/zTreeStyle.css?v={{MD5 AppVer}}" type="text/css">
+<style>
+    #newmodel .header {
+        height: 45px;
+        border: 1px solid #d4d4d5;
+        border-radius: 5px 5px 0 0;
+        font-size: 14px;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+    }
+    #newmodel .content {        
+        margin-top: -1px;        
+        border: 1px solid #d4d4d5;
+        border-top: none;
+    }
+    .inline.fields .right.aligned label{ 
+        width: 100% !important;
+        text-align: right;
+    }
+    .inline .ui.dropdown .text {
+        color: rgba(0, 0, 0, .87) !important;
+        max-width: 360px;
+    }
+    .newtext{
+        margin-left: 12px !important
+    }
+    .menuContent{
+        position: absolute;
+        background: #ffffff;
+        left: 0;
+        right: 26px;
+        top: 36px;
+        z-index:999;
+        border: 1px solid #96c8da;
+        border-top: 0;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 2px 3px 0 rgb(34 36 38 / 15%);
+    }
+    .file-size {
+        float: right;
+        color: #666;
+        margin-left: 100px;
+        font-style: italic;
+    }
+    .limit-tip-wrap{
+        display: flex;
+        align-items: center;
+    }
+    .limit-tip-wrap .limit-tip{
+        display: flex;
+        align-items: center;
+        height: 28px;
+        border-radius: 4px;
+        background-color: rgba(250,140,22,1);
+        color: rgba(255,255,255,1);
+        padding: 0 8px;
+        margin: 0 6px;
+        
+    }
+    .limit-tip-wrap .limit-tip i{
+        font-size: 14px;
+        margin-right: 6px;
+    }
+    .limit-tip-wrap a{
+        color: #101010;
+        text-decoration:underline;
+    }
+</style>
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+{{$repository := .Repository.ID}}
+<div class="repository release dataset-list view">
+    {{template "repo/header" .}}
+    <div class="ui container">
+        <div id="newmodel">
+            <div class="ui second">
+                <div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);">
+                    <h4 id="model_header">{{.i18n.Tr "repo.model.manage.import_online_model"}}</h4>
+                </div>
+                <div class="content content-padding">
+                    <form id="formId" class="ui form dirty">
+                        <input class="ays-ignore" type="hidden" name="initModel" value="{{$.MODEL_COUNT}}">
+                        <div class="ui error message"></div>
+                        <input class="ays-ignore" type="hidden" name="_csrf" value="">
+                        <div class="inline fields">
+                            <div class="required two wide field right aligned">
+                                <label for="jobId">{{.i18n.Tr "repo.model.manage.select.trainjob"}}</label>
+                            </div>
+                            <div class="required thirteen wide inline field">
+                                <div class="ui dropdown selection search loading" id="choice_model">
+                                    <input class="ays-ignore" type="hidden" id="jobId" name="jobId" required>
+                                    <div class="default text">{{.i18n.Tr "repo.model.manage.select.trainjob"}}</div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" id="job-name">
+                                    </div>
+                                </div>
+                                <label for="versionName">{{.i18n.Tr "repo.model.manage.version"}}</label>
+                                <span>&nbsp;</span>
+                                <div class="ui dropdown selection search" id="choice_version">
+                                    <input class="ays-ignore" type="hidden" id="versionName" name="versionName" required>
+                                    <div class="default text">{{.i18n.Tr "repo.model.manage.select.version"}}</div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu" id="job-version">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="required inline fields" id="modelname">
+                            <div class="two wide field right aligned">
+                                <label for="name">{{.i18n.Tr "repo.model.manage.model_name"}}</label>
+                            </div>
+                            <div class="eight wide field">
+                                <input class="ays-ignore" id="name" name="name" required maxlength="127" onkeyup="this.value=this.value.replace(/[, ]/g,'')">
+                            </div>
+                        </div>
+                        <div class="required inline fields" id="verionName" style="display:none;">
+                            <div class="two wide field right aligned">
+                                <label for="version">{{.i18n.Tr "repo.model.manage.version"}}</label>
+                            </div>
+                            <div class="eight wide field">
+                                <input class="ays-ignore" id="version" name="version" value="" readonly required maxlength="255">
+                            </div>
+                        </div>
+                        <div class="unite min_title inline fields required">
+                            <div class="two wide field right aligned">
+                                <label for="Engine">{{.i18n.Tr "repo.model.manage.engine"}}</label>
+                            </div>
+                            <div class="ui ten wide field dropdown selection" id="choice_Engine">
+                                <input class="ays-ignore" type="hidden" id="engine" name="engine" required>
+                                <div class="default text newtext">{{.i18n.Tr "repo.model.manage.select.engine"}}</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu" id="job-Engine">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="unite min_title inline fields">
+                            <div class="two wide field right aligned">
+                                <label></label>
+                            </div>
+                            <div class="thirteen wide field" id="storage-limit">
+                                <div style="color: #888;">
+                                    {{.i18n.Tr "repo.model.manage.remain_storage"}}：
+                                    <span class="remain-storage-v" style="color: #101010;"></span> <span class="remain-storage-l"></span> 
+                                </div>
+                                <div style="color: #101010;">
+                                    ({{.i18n.Tr "repo.model.manage.selected_file_size"}}：
+                                    <span class="select-storage-v" style="color: #f66a00;">0</span> <span class="select-storage-l"></span> )
+                                </div>  
+                            </div>
+        
+                        </div>
+                        <div class="unite min_title inline fields required">
+                            <div class="two wide field right aligned">
+                                <label for="modelSelectedFile">{{.i18n.Tr "repo.model.manage.modelfile"}}</label>
+                            </div>                    
+                            <div class="thirteen wide field" style="position:relative">
+                                <input class="ays-ignore" id="modelSelectedFile" type="text" readonly required onclick="showMenu();"  name="modelSelectedFile" >
+                                <div id="menuContent" class="menuContent" style="display:none;">
+                                    <ul id="treeDemo" class="ztree"></ul>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="inline fields">
+                            <div class="two wide field right aligned">
+                                <label for="license">{{.i18n.Tr "repo.model.manage.modellicense"}} &nbsp</label>
+                            </div>
+                            <div class="ui ten wide field dropdown selection" id="choice_License">
+                                <input class="ays-ignore" type="hidden" id="license" name="license" required>
+                                <div class="default text newtext">{{.i18n.Tr "repo.model.manage.select.modellicense"}}</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu" id="job-license">
+
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="inline fields">
+                            <div class="two wide field right aligned">
+                                <label for="Label">{{.i18n.Tr "repo.model.manage.modellabel"}} &nbsp</label>
+                            </div>
+                            <div class="thirteen wide field">
+                                <input class="ays-ignore" id="label" name="label" maxlength="255" placeholder='{{.i18n.Tr "repo.modelarts.train_job.label_place"}}'>
+                            </div>    
+                        </div>
+                        {{if eq $.Repository.IsPrivate false}}
+                            <div class="inline fields">
+                                <div class="two wide field right aligned">
+                                    <label>{{.i18n.Tr "repo.model.manage.modelaccess"}}  &nbsp</label>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="isPrivate" checked="checked" value="false">
+                                        <label>{{.i18n.Tr "repo.model.manage.modelaccess.public"}}</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="isPrivate" value="true">
+                                        <label>{{.i18n.Tr "repo.model.manage.modelaccess.private"}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        {{end}}
+                        <div class="inline fields">
+                            <div class="two wide field right aligned">                    
+                                <label for="description">{{.i18n.Tr "repo.model.manage.modeldesc"}} &nbsp</label>
+                            </div>
+                            <div class="thirteen wide field">
+                                <textarea id="description" class="ays-ignore" name="description" rows="3"
+                                    maxlength="255" placeholder='{{.i18n.Tr "repo.modelarts.train_job.new_place"}}'
+                                    onchange="this.value=this.value.substring(0, 255)"
+                                    onkeydown="this.value=this.value.substring(0, 255)"
+                                    onkeyup="this.value=this.value.substring(0, 256)"></textarea>
+                            </div> 
+                        </div>                       
+                    </form>
+                     <div class="inline field" style="margin-left:140px;margin-top:28px;">
+                        <button id="submitId" type="button" class="ui create_train_job green button" onclick="submitSaveModel()"
+                            style="">
+                            {{.i18n.Tr "repo.model.manage.sava_model"}}
+                        </button>
+                        <button style="margin-left:0px;" class="ui button cancel" onclick="backToModelListPage()">{{.i18n.Tr "repo.cloudbrain.cancel"}}</button>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+</div>
+{{template "base/footer" .}}
+<script type="text/javascript" src="/self/ztree/js/jquery.ztree.core.js?v={{MD5 AppVer}}"></script>
+<script type="text/javascript" src="/self/ztree/js/jquery.ztree.excheck.js?v={{MD5 AppVer}}"></script>
+<script>
+    ;(function() {
+        var setting = {
+			check: {
+				enable: true,
+				chkboxType: {"Y":"ps", "N":"ps"}
+			},
+			view: {
+				dblClickExpand: false,
+                nameIsHTML: true
+			},
+			callback: {
+				beforeClick: beforeClick,
+				onCheck: onCheck
+			}
+		};
+        let remainStorageRaw = 0
+		function beforeClick(treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+			zTree.checkNode(treeNode, !treeNode.checked, null, true);
+			return false;
+		}
+		
+		function onCheck(e, treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo")
+			nodes = zTree.getCheckedNodes(true)
+            let totalBytes = nodes
+                .filter(node => node.isFile)
+                .reduce((sum, node) => sum + node.rawSize, 0);
+            let selectSize = formatBytes(totalBytes);
+            $(".select-storage-v").text(selectSize[0]);
+            $(".select-storage-l").text(selectSize[1]);
+            let exceedStorage ={{.i18n.Tr "repo.model.manage.exceedStorage"}}
+            let capacityDetails ={{.i18n.Tr "repo.model.manage.capacity_details"}}
+            if(totalBytes > remainStorageRaw){
+                $('#storage-limit .limit-tip-wrap').remove();
+                $('#submitId').removeClass('disabled');
+                $('#submitId').addClass('disabled');
+                $('#storage-limit').append(`<div class="limit-tip-wrap">
+                  <div class="limit-tip"><i class="ri-information-line"></i>${exceedStorage}</div>
+                  <a href="/storages">${capacityDetails}</a>
+                </div>`)
+            }else{
+                $('#storage-limit .limit-tip-wrap').remove();
+                $('#submitId').removeClass('disabled');
+            }
+			v = "";
+			for (var i=0, l=nodes.length; i<l; i++) {
+                if(nodes[i].isParent){
+                   continue;
+                }
+                var pathNodes = nodes[i].getPath();
+                var path ="";
+                for(var j=0;j<pathNodes.length;j++){
+                    if(j ==0){
+                        path +=  pathNodes[j].rawName;
+                    }else{
+                        path += "/" + pathNodes[j].rawName;
+                    }
+                }
+				v += path + ";";
+			}
+			if (v.length > 0 ) v = v.substring(0, v.length-1);
+			var cityObj = $("#modelSelectedFile");
+			cityObj.attr("value", v);
+		}
+       
+		function showMenu() {
+			var cityObj = $("#modelSelectedFile");
+			var cityOffset = $("#modelSelectedFile").offset();
+			// $("#menuContent").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+            $("#menuContent").slideDown("fast");
+
+			$("body").bind("mousedown", onBodyDown);
+		}
+        window.showMenu = showMenu;
+
+		function hideMenu() {
+			$("#menuContent").fadeOut("fast");
+			$("body").unbind("mousedown", onBodyDown);
+		}
+		function onBodyDown(event) {
+			if (!(event.target.id == "menuBtn" || event.target.id == "modelSelectedFile" || event.target.id == "menuContent" || $(event.target).parents("#menuContent").length>0)) {
+				hideMenu();
+			}
+		}
+
+		$(document).ready(function(){
+			//$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+	
+	
+        let repolink = {{.RepoLink }}
+        let repoId = {{ $repository }}
+        const { _AppSubUrl, _StaticUrlPrefix, csrf } = window.config;
+        $('input[name="_csrf"]').val(csrf)
+        let modelData;
+        function createModelName() {
+            let repoName = location.pathname.split('/')[2]
+            let modelName = repoName + '_model_' + Math.random().toString(36).substr(2, 4)
+            $('#name').val(modelName)
+            $('#version').val("0.0.1")
+        }
+        const dirKey = "isDir"; // 定义目录标识key
+        
+        $('input[name="version"]').addClass('model_disabled')
+        $('.ui.dimmer').css({ "background-color": "rgb(136, 136, 136,0.7)" })
+        $("#job-name").empty()
+        createModelName()
+        loadTrainList()
+        initLicense()
+        getSummaryStorage()
+        $(function () {
+            $('#choice_model').dropdown({
+                onChange: function (value) {
+                    $("#choice_version").addClass("loading")
+                    $('#choice_version').dropdown('clear')
+                    $("#job-version").empty()
+                    loadTrainVersion(value)
+                }
+            })
+
+            $('#choice_version').dropdown({
+                onChange: function (value) {
+                    if (modelData != null) {
+                        for (var i = 0; i < modelData.length; i++) {
+                            if (modelData[i].VersionName == value) {
+                                setEngine(modelData[i]);
+                                loadModelFile(modelData[i]);
+                                break;
+                            }
+                        }
+                    }
+                }
+            })
+        });
+
+        function versionAdd(version) {
+            let versionArray = version.split('.')
+            if (versionArray[2] == '9') {
+                if (versionArray[1] == '9') {
+                    versionArray[0] = String(Number(versionArray[1]) + 1)
+                    versionArray[1] = '0'
+                } else {
+                    versionArray[1] = String(Number(versionArray[1]) + 1)
+                }
+                versionArray[2] = '0'
+            } else {
+                versionArray[2] = String(Number(versionArray[2]) + 1)
+            }
+            return versionArray.join('.')
+        }
+
+        function loadTrainList() {
+            $.get(`${repolink}/modelmanage/query_train_job?repoId=${repoId}`, (data) => {
+
+                const n_length = data.length
+                if(n_length > 0){
+                    let train_html = ''
+                    for (let i = 0; i < n_length; i++) {
+                        train_html += `<div class="item" data-value="${data[i].JobID}">${data[i].DisplayJobName}</div>`
+                        train_html += '</div>'
+                    }
+                    $("#job-name").append(train_html)
+                    $("#choice_model").removeClass("loading")
+                    $('#choice_model .default.text').text(data[0].DisplayJobName)
+                    $('#choice_model input[name="jobId"]').val(data[0].JobID)
+                    loadTrainVersion()
+                }else{
+                    $("#choice_model").removeClass("loading")
+                }
+            })
+        }
+
+        function loadTrainVersion(value) {
+            let tmp = $('#choice_model input[name="jobId"]').val();
+            let jobId = !value ? $('#choice_model input[name="jobId"]').val() : value
+            $.get(`${repolink}/modelmanage/query_train_job_version?jobId=${jobId}`, (data) => {
+                const n_length = data.length
+                let train_html = '';
+                modelData = data;
+                for (let i = 0; i < n_length; i++) {
+                    var VersionName = data[i].VersionName || 'V0001';
+                    train_html += `<div class="item" data-value="${VersionName}">${VersionName}</div>`
+                    train_html += '</div>'
+                }
+                if (data.length) {
+                    $("#job-version").append(train_html)
+                    $("#choice_version").removeClass("loading")
+                    var versionName = data[0].VersionName;
+                    if (versionName == null || versionName == "") {
+                        versionName = "V0001";
+                    }
+                    $('#choice_version .default.text').text(versionName)
+                    $('#choice_version input[name="versionName"]').val(versionName)
+                    setEngine(data[0])
+                    loadModelFile(data[0])
+                }
+
+            })
+        }
+
+        function loadModelFile(trainJob){
+            $('#choice_file').dropdown('clear')
+            $("#model-file").empty()
+            if(trainJob ==null || trainJob ==""){
+            }else{
+                let type = trainJob.Type;
+                if(type == 2){
+                    if(trainJob.ComputeResource=="NPU"){
+                        type=1;
+                    }else{
+                        type=0;
+                    }
+                }
+                $.get(`${repolink}/modelmanage/query_train_model?jobName=${trainJob.JobName}&type=${type}&versionName=${trainJob.VersionName}`, (data) => {
+                    var cityObj = $("#modelSelectedFile");
+			        cityObj.attr("value", "");
+                    const processedMap = processData(data);
+                    const zNodes = convertToNode(processedMap);
+                    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                })
+            }
+        }
+        // 数据处理部分优化
+        function processData(data) {
+            const nodesMap = {};
+            
+            data && data.forEach(item => {
+                const pathParts = item.FileName.split("/").filter(p => p !== "");
+                let currentLevel = nodesMap;
+                
+                pathParts.forEach((part, index) => {
+                    if (!currentLevel[part]) {
+                        currentLevel[part] = {
+                            __meta__: { // 元数据单独存放
+                                isDir: index !== pathParts.length - 1 || item.IsDir
+                            }
+                        };
+                    }
+                    currentLevel = currentLevel[part];
+                });
+                
+                if (!item.IsDir) {
+                    currentLevel.__meta__.size = item.Size;
+                }
+            });
+
+            return nodesMap;
+        }
+        // 转换节点结构优化
+        function convertToNode(nodesMap) {
+            return Object.keys(nodesMap)
+                .filter(key => key !== '__meta__') // 过滤元数据字段
+                .sort((a, b) => b.localeCompare(a))
+                .map(key => {
+                    const currentNode = nodesMap[key];
+                    const meta = currentNode.__meta__ || {};
+                    const formatSize = meta.size && formatBytes(meta.size); 
+                    
+                    const node = {
+                        name: meta.size 
+                            ? `${key} <span class="file-size">${formatSize[0]} ${formatSize[1]}</span>`
+                            : key,
+                        isParent: meta.isDir || false,
+                        rawSize: meta.size || 0,
+                        rawName: key,
+                        children: meta.isDir ? convertToNode(currentNode) : null,
+                        isFile: !meta.isDir
+                    };
+
+                    return node;
+                });
+        }
+        
+        function setEngine(trainJob) {
+            $('#choice_Engine').dropdown('clear')
+            $("#job-Engine").empty()
+            if (trainJob.EngineName != null && trainJob.EngineName != "") {
+                srcEngine = trainJob.EngineName.split('-')[0]
+                srcEngine = srcEngine.trim().toLowerCase();
+                let selectedText = "PyTorch";
+                let selectedValue = 0;
+                let itemHtml = "<option class=\"item\" data-value=\"0\">PyTorch</option>";
+                if (srcEngine == 'tensorflow') {
+                    selectedText = "TensorFlow";
+                    selectedValue = 1;
+                    itemHtml += "<option class=\"active item\" data-value=\"1\">TensorFlow</option>";
+                } else {
+                    itemHtml += "<option class=\"item\" data-value=\"1\">TensorFlow</option>";
+                }
+                if (srcEngine == 'mindspore') {
+                    selectedText = "MindSpore";
+                    selectedValue = 2;
+                    itemHtml += "<option class=\"active item\" data-value=\"2\">MindSpore</option>";
+                } else {
+                    itemHtml += "<option class=\"item\" data-value=\"2\">MindSpore</option>";
+                }
+                itemHtml += "<option class=\"item\" data-value=\"4\">PaddlePaddle</option>"
+                itemHtml += "<option class=\"item\" data-value=\"5\">OneFlow</option>"
+                itemHtml += "<option class=\"item\" data-value=\"6\">MXNet</option>"
+                itemHtml += "<option class=\"item\" data-value=\"3\">Other</option>"
+
+                $('#choice_Engine .default.text').text(selectedText)
+                $('#choice_Engine input[name="engine"]').val(selectedValue)
+                $("#job-Engine").append(itemHtml);
+                $("#choice_Engine").removeClass('disabled');
+            } else {
+                let itemHtml = "<option class=\"active item\" data-value=\"0\">PyTorch</option>";
+                itemHtml += "<option class=\"item\" data-value=\"1\">TensorFlow</option>"
+                itemHtml += "<option class=\"item\" data-value=\"2\">MindSpore</option>"
+                itemHtml += "<option class=\"item\" data-value=\"4\">PaddlePaddle</option>"
+                itemHtml += "<option class=\"item\" data-value=\"5\">OneFlow</option>"
+                itemHtml += "<option class=\"item\" data-value=\"6\">MXNet</option>"
+                itemHtml += "<option class=\"item\" data-value=\"3\">Other</option>"
+                $('#choice_Engine .default.text').text("PyTorch");
+                $('#choice_Engine input[name="engine"]').val(0)
+                $("#job-Engine").append(itemHtml);
+                $("#choice_Engine").removeClass('disabled');
+            }
+        }
+
+        function initLicense() {
+            $('#choice_License').dropdown('clear')
+            $('#choice_License').dropdown({ clearable: true })
+            $("#job-license").empty()
+            $.get(`/dashboard/invitation?filename=model/license.json`, (data) => {
+                try {
+                    const license = JSON.parse(data) || [];
+                    let itemHtml = '';
+                    for (let i = 0, iLen = license.length; i < iLen; i++) {
+                        const item = license[i];
+                        if (i == 0) {
+                            itemHtml = itemHtml + '<option class="active item" data-value="' + item.id + '">' + item.name + '</option>';
+                        } else {
+                            itemHtml = itemHtml + '<option class="item" data-value="' + item.id + '">' + item.name + '</option>';                        
+                        }
+                    }
+                    if (license.length) {
+                        $('#choice_License .default.text').text(license[0].name);
+                        $('#choice_License input[name="license"]').val(license[0].id)
+                        $("#job-license").append(itemHtml);
+                    }                                      
+                } catch(err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        function check() {
+            let jobid = document.getElementById("jobId").value;
+            let versionname = document.getElementById("versionName").value;
+            let name = document.getElementById("name").value;
+            let version = document.getElementById("version").value;
+            let modelSelectedFile = document.getElementById("modelSelectedFile").value;            
+            if (name == "") {
+                $("#modelname").closest('.required').addClass("error");
+                return false;
+            } else {
+                $("#modelname").closest('.required').removeClass("error");
+            }
+            if (versionname == "") {
+                $("#verionname").closest('.required').addClass("error");
+                return false;
+            } else {
+                $("#verionname").closest('.required').removeClass("error");
+            }
+            if (jobid == "") {
+                 $("#jobId").closest('.required').addClass("error");
+                return false;
+            } else {
+                $("#jobId").closest('.required').removeClass("error");
+            }
+            if (modelSelectedFile == "") {
+                $("#modelSelectedFile").closest('.required').addClass("error");
+                return false;
+            } else {
+                $("#modelSelectedFile").closest('.required').removeClass("error");
+            }
+            if (versionname == "") {
+                $("#versionName").closest('.required').addClass("error");
+                return false;
+            } else {
+                $("#versionName").closest('.required').removeClass("error");
+            }
+            return true;
+        }
+
+        function submitSaveModel() {
+            let flag = check();
+            if (!flag) return false;
+            $(".ui.error.message").hide();
+            let cName = $("input[name='name']").val();
+            let version = $("input[name='version']").val();
+            let data = $("#formId").serialize();
+            var radio = document.getElementsByName("isPrivate");
+            if(radio == null || radio.length == 0){
+                data +="&isPrivate=true";
+            }
+            const initModel = $("input[name='initModel']").val();
+            let url_href = location.href.split("create_online_model")[0] + 'create_new_model';
+            $("#mask").css({ display: "block", "z-index": "9999" });
+            $.ajax({
+                url: url_href,
+                type: "POST",
+                data: data,
+                success: function (res) {                    
+                    goDetailModelPage(cName);
+                },
+                error: function (xhr) {
+                    // 隐藏 loading
+                    // 只有请求不正常（状态码不为200）才会执行
+                    $(".ui.error.message").text(xhr.responseText);
+                    $(".ui.error.message").show();
+                },
+                complete: function (xhr) {
+                    $("#mask").css({ display: "none", "z-index": "1" });
+                },
+            });
+        }
+
+        function backToModelListPage() {
+            let url_href = location.href.split("create_online_model")[0] + 'show_model';
+            window.location.href = url_href;
+        }
+        function goDetailModelPage(name) {
+            let url_href = location.href.split("create_online_model")[0] + 'model_readme_tmpl?name=' + encodeURIComponent(name);
+            window.location.href = url_href;
+        }
+        window.submitSaveModel = submitSaveModel;
+        window.backToModelListPage = backToModelListPage;
+        window.goDetailModelPage = goDetailModelPage;
+        const UNITS = ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
+        function toPrecision(value, decimals = 2) {
+            if (value < 0.001 && value > 0) return '<0.001';
+            return Number(value.toFixed(decimals)).toString();
+        }
+        // 智能单位格式化
+       function formatBytes(bytes) {
+            let unitIndex = 0;
+            let value = bytes;
+            while (value >= 1024 && unitIndex < UNITS.length - 1) {
+                value /= 1024;
+                unitIndex++;
+            }
+            
+            return [toPrecision(value, 2),UNITS[unitIndex]]
+        }
+       function getSummaryStorage() { 
+            $.get(`/api/v1/storage/summary?_csrf=${csrf}`, (data) => {
+                let remainStorage = formatBytes(Math.max(data.remaining_storage,0))
+                remainStorageRaw = Math.max(data.remaining_storage,0)
+                $('.remain-storage-v').text(remainStorage[0])
+                $('.remain-storage-l').text(remainStorage[1])
+            })
+       }
+
+    })();
+</script>

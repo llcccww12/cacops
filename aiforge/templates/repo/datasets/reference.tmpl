@@ -1,0 +1,8 @@
+{{template "base/head" .}}
+
+<div class="repository">
+	{{template "repo/header" .}}
+	<div class="reference-dataset" data-repolink="{{.RepoLink}}" data-canwrite="{{.CanWrite}}" data-is-sign="{{$.IsSigned}}" data-max-reference-num="{{.MaxReferenceDatasetNum}}" data-address="{{IsShowDataSetOfCurrentRepo $.Repository.ID}}"></div>
+	<div id="reference-dataset"></div>
+</div>
+{{template "base/footer" .}}

@@ -1,0 +1,11 @@
+<form id="searchForm" class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty" style="margin:auto" action="/all/search/" method="post">
+  <div class="ui fluid action input" style="margin-right:5px;background:rgba(16,16,16,0.05);padding: 0 5px;border-radius:20px;width:240px;height:36px;border:rgba(90,90,90,1) solid 0px;">
+    <input name="q" value="{{.Keyword}}" placeholder="{{.i18n.Tr "explore.search"}}..."
+    style="transition:background-color 5000s ease-in-out 0s;background:transparent;border:none;outline:none;">
+    <input type="hidden" name="tab" value="{{$.TabName}}">
+    <input type="hidden" name="sort" value="hot">
+    <button style="border:none;background-color:transparent;outline:none;border-radius:5px;cursor:pointer;">
+      <img type="submit" style="width:21px;height:21px;margin:auto;vertical-align:bottom;" src="/img/search.svg" >
+    </button>
+  </div>
+</form>

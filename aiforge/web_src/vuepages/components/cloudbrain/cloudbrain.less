@@ -1,0 +1,309 @@
+.form-row {
+  display: flex;
+  margin-bottom: 12px;
+  min-height: 38.4px;
+
+  .left-area {
+    flex: 1;
+    width: 0;
+    display: flex;
+
+    .title {
+      width: 130px;
+      text-align: right;
+      margin-right: 24px;
+      color: #101010;
+      font-size: 14px;
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 8px;
+      flex-shrink: 0;
+
+      &.align-items-center {
+        padding-top: 0;
+        align-items: center;
+      }
+
+      .required {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: "*";
+          top: -3px;
+          right: -10px;
+          color: red;
+        }
+      }
+    }
+
+    .content {
+      flex: 1;
+      width: 0;
+
+      .field-input {
+        width: 100%;
+      }
+
+      .tips {
+        font-size: 12px;
+        color: rgba(136, 136, 136, 1);
+        margin-top: 10px;
+      }
+
+      .dynamic-tips {
+        font-size: 13px;
+        color: rgb(64, 64, 64);
+        margin-top: 10px;
+      }
+
+      .field-input {
+        /deep/.el-input__inner {
+          height: 37.6px;
+        }
+
+        /deep/.el-input__inner,
+        /deep/.el-textarea__inner {
+          color: rgba(0, 0, 0, .95);
+          font-size: 14px;
+          line-height: 37.6px;
+          background: rgb(245, 245, 245);
+          border: 0;
+          &:visited {
+            border-color: #85b7d9;
+          }
+
+          &:focus {
+            border-color: #85b7d9;
+          }
+
+          &:active {
+            border-color: #85b7d9;
+          }
+        }
+      }
+
+      &.error {
+        .field-input {
+
+          /deep/.el-input__inner,
+          /deep/.el-textarea__inner {
+            color: #9f3a38;
+            background: #fff6f6;
+            border-color: #e0b4b4;
+
+            &:visited {
+              border-color: #e0b4b4;
+            }
+
+            &:focus {
+              border-color: #e0b4b4;
+            }
+
+            &:active {
+              border-color: #e0b4b4;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right-area {
+    width: 136px;
+    display: flex;
+    margin-left: 8px;
+    align-items: center;
+
+    .btn-select {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: rgb(0, 102, 255);
+
+      i {
+        margin-right: 6px;
+        color: rgba(0, 0, 0, .87);
+      }
+    }
+
+    a {
+      color: #0366d6;
+    }
+  }
+}
+
+.submit-btn {
+  background-color: #5bb973;
+  color: #fff;
+  border-color: #5bb973;
+
+  &:hover {
+    background-color: #16ab39;
+  }
+
+  &:active {
+    background-color: #198f35;
+  }
+
+  &.is-disabled,
+  &.is-disabled:active,
+  &.is-disabled:focus,
+  &.is-disabled:hover {
+    background-color: #5bb973;
+    opacity: .45;
+  }
+
+  a {
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+.cancel-btn {
+  background: #e0e1e2;
+  color: rgba(0, 0, 0, .6);
+  border-color: #e0e1e2;
+
+  &:hover {
+    background-color: #cacbcd;
+  }
+
+  &:active {
+    background-color: #babbbc;
+  }
+}
+
+.table-container {
+  /deep/ .el-table__header {
+    th {
+      background: #f0f0f0;
+      color: rgba(0, 0, 0, .87);
+      font-weight: 400;
+      font-size: 14px;
+      height: 48px;
+    }
+  }
+
+  /deep/ .el-table__body {
+    td {
+      font-size: 12px;
+    }
+  }
+}
+
+.err-msg-wrap{
+  width: 1130px;
+  margin-left: 44px;
+  .err-msg-box-already {
+    padding: 1em 1.5em;
+    background-color: rgba(242, 113, 28, 0.05);
+    border: 1px solid rgba(242, 113, 28, 1);
+    border-radius: 5px;
+
+    .msg-content {
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 35px;
+        color: rgba(242, 113, 28, 1);
+      }
+
+      .msg-content-tip {
+        text-align: left;
+        margin-left: 1rem;
+
+        .line-1 {
+          font-weight: 600;
+          line-height: 2;
+
+          span {
+            color: rgba(242, 113, 28, 1);
+          }
+        }
+
+        .line-2 {
+          color: #939393
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column; // 改为垂直排列
+    margin-bottom: 20px; // 减少间距
+
+    .left-area {
+      width: 100%; // 宽度占满
+      flex-direction: column; // 改为垂直排列
+
+      .title {
+        width: 100%; // 宽度占满
+        text-align: left; // 左对齐
+        margin-right: 0; // 去掉右边距
+        margin-bottom: 8px; // 增加下边距
+        padding-top: 0; // 去掉上边距
+        justify-content: flex-start; // 左对齐
+        font-size: 13px; // 缩小字体
+      }
+
+      .content {
+        width: 100%; // 宽度占满
+
+        .field-input {
+          /deep/ .el-input__inner {
+            height: 32px; // 缩小输入框高度
+            font-size: 13px; // 缩小字体
+            line-height: 32px; // 调整行高
+          }
+        }
+
+        .tips,
+        .dynamic-tips {
+          font-size: 11px; // 缩小提示文字
+        }
+      }
+    }
+
+    .right-area {
+      width: 100%; // 宽度占满
+      margin-left: 0; // 去掉左边距
+      margin-top: 10px; // 增加上边距
+      justify-content: flex-start; // 左对齐
+
+      .btn-select {
+        font-size: 13px; // 缩小字体
+      }
+    }
+  }
+
+  .submit-btn,
+  .cancel-btn {
+    width: 100%; // 按钮宽度占满
+    margin-bottom: 10px; // 增加下边距
+    font-size: 14px; // 调整字体大小
+    margin-left: 0px;
+  }
+
+  .table-container {
+    /deep/ .el-table__header {
+      th {
+        font-size: 12px; // 缩小表头字体
+        height: 40px; // 缩小表头高度
+      }
+    }
+
+    /deep/ .el-table__body {
+      td {
+        font-size: 11px; // 缩小表格内容字体
+      }
+    }
+  }
+  .err-msg-wrap{
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.Dh6celcD.mjs";function t(e,t){return{description:`Sleek, responsive Framer template for AI agencies to showcase workflows and solutions.`,favicon:`/assets/images/v9c0a1Gwr0RiHsDteaYwY9FfpGo.png`,robots:`max-image-preview:large`,socialImage:`/assets/images/gl3B903h17Abu7iK7UhCy8qPVHk.png`,title:`Scalar — AI Agency & Automation Template`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=siteMetadata.MJq_yQ5B.mjs.map

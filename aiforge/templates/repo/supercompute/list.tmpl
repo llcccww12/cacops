@@ -1,0 +1,8 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-cloudbrain-super-list.css?v={{MD5 AppVer}}" />
+<div class="repository release dataset-list view">
+    {{template "repo/header" .}}
+    <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-cloudbrain-super-list.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

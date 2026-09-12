@@ -1,0 +1,15 @@
+<script>
+  ; (function () {
+    var wechatSignUpRequired = {{.WechatSignUpRequired}};
+    var userName = {{.user_name}};
+    var urlSearchParams = new URLSearchParams(window.location.search);
+    var signUpId = urlSearchParams.get('signUpId');
+    if (!signUpId && !userName && wechatSignUpRequired) {
+      window.location.href = '/user/sign_up_scancode?' + urlSearchParams.toString();
+      return;
+    }
+  })();
+</script>
+{{template "base/head" .}}
+{{template "user/auth/signup_inner" .}}
+{{template "base/footer" .}}

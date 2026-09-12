@@ -1,0 +1,45 @@
+<div id="mask">
+    <div id="loadingPage">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+{{template "base/head" .}}
+<div class="repository">
+{{template "repo/header" .}}
+    <div class="ui container">
+        <input type="hidden" id="dataset-file-desc" value="{{.Attachment.Description}}">
+        <div style="width: 80%;margin: auto;">
+            <h4 class="ui top attached header">
+                {{$.i18n.Tr "dataset.modify_dataset_description"}}
+            </h4>
+            <div class="ui attached segment" style="padding: 2em 3em;">
+                <div class="ui form" id="dataset-base">
+                    <el-form  label-width="140px">
+                        {{.CsrfTokenHtml}}
+                        <el-form-item style="display:none" label='{{$.i18n.Tr "dataset.dataset_available_clusters"}}:' prop="title">
+                            <span style="display: flex;color: #3291F8;"><i class="ri-archive-drawer-line" style="margin-right: 10px;"></i>{{.Attachment.Type | AttachmentResourceType}}</span>
+                            <!-- <span>请输入字母、数字、_和-，最长64个字符，且不能以中划线（-）结尾。</span> -->
+                        </el-form-item>
+                        <el-form-item label='{{$.i18n.Tr "dataset.file"}}:' prop="description">
+                        <span>{{.Attachment.Name}}</span>
+                    </el-form-item>
+                        <el-form-item label='{{$.i18n.Tr "dataset.file_description"}}:' prop="description">
+                            <el-input type="textarea" :rows="3" maxlength="255" placeholder="{{$.i18n.Tr "repo.modelarts.train_job.new_place"}}" v-model="descfile"></el-input>
+                        </el-form-item>
+                    <el-form-item>
+                        <el-button style="background-color: #21ba45;" type="success" @click="editDatasetFile({{.Attachment.ID}},'{{$.RepoLink}}')">确定</el-button>
+                        <el-button type="info" @click="cancelDataset('','{{$.RepoLink}}')">取消</el-button>
+                    </el-form-item>
+                        
+                    </el-form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{{template "base/footer" .}}

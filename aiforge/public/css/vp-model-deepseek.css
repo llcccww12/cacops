@@ -1,0 +1,580 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/llms/componenes/WindowAssistant.vue?vue&type=style&index=0&id=3e1194cf&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.chat-main-content[data-v-3e1194cf] {
+  margin-right: 60px;
+  padding-top: 10px;
+  display: flex;
+}
+.chat-main-content img[data-v-3e1194cf] {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+}
+.chat-main-content .chat-output-wrapper[data-v-3e1194cf] {
+  display: inline-block;
+  background: rgba(25, 117, 255, 0.1);
+  color: #43436b;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 20px;
+}
+.chat-main-content .chat-output-wrapper .chat-container[data-v-3e1194cf] {
+  display: inline-block;
+  line-height: 20px;
+  padding: 6px 12px;
+  word-break: break-all;
+}
+.chat-c2net-stop[data-v-3e1194cf] {
+  margin-left: 44px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.chat-c2net-tips[data-v-3e1194cf] {
+  margin-left: 44px;
+  font-size: 12px;
+  color: #bbbbbb;
+  margin-bottom: 8px;
+}
+.chat-c2net-tips[data-v-3e1194cf]  span {
+  color: rgba(0, 71, 169, 0.5);
+  font-weight: 400;
+}
+.file-view[data-v-3e1194cf] {
+  border-bottom: 1px solid rgba(1, 145, 255, 0.1);
+  word-break: break-word;
+}
+.file-view[data-v-3e1194cf]:first-child {
+  padding-bottom: 1rem;
+}
+.file-view[data-v-3e1194cf]:last-child {
+  padding-bottom: 0;
+  border: none;
+}
+@media (max-width: 768px) {
+.chat-main-content[data-v-3e1194cf] {
+    margin-right: 32px;
+    padding-top: 0;
+}
+.chat-main-content .chat-output-wrapper[data-v-3e1194cf] {
+    padding: 8px 0;
+}
+.chat-main-content .chat-output-wrapper .chat-container .chat[data-v-3e1194cf] {
+    padding: 0 !important;
+}
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/llms/componenes/WindowUser.vue?vue&type=style&index=0&id=625f5eea&scoped=true&lang=less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.chat-input-wrapper[data-v-625f5eea] {
+  margin-left: 60px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+  white-space: pre-line;
+}
+.chat-input-wrapper img[data-v-625f5eea] {
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
+}
+.chat-input-wrapper .chat-me[data-v-625f5eea] {
+  display: inline-block;
+  background-color: #ebebfb;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+@media (max-width: 768px) {
+.chat-input-wrapper[data-v-625f5eea] {
+    margin-left: 32px;
+}
+}
+
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/llms/componenes/WindowTts.vue?vue&type=style&index=0&id=7fc36fb8&scoped=true&lang=less ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tts-container[data-v-7fc36fb8] {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px 10px 10px 0px;
+  background: #fff;
+  width: 70%;
+  height: 192px;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+.tts-container .tts-label[data-v-7fc36fb8] {
+  border-radius: calc(8px - 1px) 0 calc(8px - 1px) 0;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+  border-left: none;
+  padding: 4px 12px;
+  display: inline-block;
+  background: rgba(255,255,255,1);
+  height: 30px;
+}
+.tts-container .component-wrapper[data-v-7fc36fb8] {
+  padding: 12px;
+  height: 100px;
+}
+.tts-container .component-wrapper .waveform-container[data-v-7fc36fb8] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.tts-container .component-wrapper .waveform-container #waveform[data-v-7fc36fb8] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.tts-container .component-wrapper .timestamps[data-v-7fc36fb8] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 4px 0;
+  color: #9ca3af;
+  font-size: 12px;
+}
+.tts-container .component-wrapper .waveform-controls[data-v-7fc36fb8] {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 5px;
+  align-items: center;
+  position: relative;
+}
+.tts-container .component-wrapper .control-wrapper[data-v-7fc36fb8] {
+  display: flex;
+  justify-self: self-start;
+  align-items: center;
+  justify-content: space-between;
+}
+.tts-container .component-wrapper .control-wrapper .volume-icon[data-v-7fc36fb8] {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  margin-left: 6px;
+  font-size: 16px;
+  color: #888;
+}
+.tts-container .component-wrapper .control-wrapper .volume-slider[data-v-7fc36fb8] {
+  background: #0191ff;
+  width: 80px;
+  height: 4px;
+  border-radius: 15px;
+  cursor: pointer;
+  outline: none;
+}
+.tts-container .component-wrapper .play-pause-icon[data-v-7fc36fb8] {
+  display: flex;
+  justify-self: center;
+  font-size: 20px;
+  color: #888;
+}
+.tts-container .component-wrapper .play-pause-icon div[data-v-7fc36fb8] {
+  cursor: pointer;
+}
+.tts-container .component-wrapper .play-pause-icon .skip-left-icon[data-v-7fc36fb8] {
+  margin: 0 10px;
+}
+.tts-container .component-wrapper .play-pause-icon .skip-right-icon[data-v-7fc36fb8] {
+  margin: 0 10px;
+}
+.tts-container .component-wrapper .download-icon[data-v-7fc36fb8] {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #e1e3e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/llms/componenes/SessionWindow.vue?vue&type=style&index=0&id=8ec4e732&lang=less&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.chat-op-wrap[data-v-8ec4e732] {
+  margin-left: 44px;
+  display: flex;
+  grid-gap: 12px;
+  gap: 12px;
+}
+.chat-op-wrap i[data-v-8ec4e732] {
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/deepseek/ChatMenu.vue?vue&type=style&index=0&id=1b195ca4&lang=less&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.menu-area[data-v-1b195ca4] {
+  border-radius: 10px;
+  background-color: #f9fafb;
+  border: 1px solid rgba(16, 16, 16, 0.15);
+  color: #101010;
+  padding: 26px 14px 20px 22px;
+  overflow-y: auto;
+  min-height: 400px;
+  min-width: 368px;
+  height: calc(100vh - 250px);
+}
+.menu-area .menu-select-container[data-v-1b195ca4] {
+  display: flex;
+  flex-direction: column;
+}
+.menu-area .text-model[data-v-1b195ca4] {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.menu-area .label-wrapper[data-v-1b195ca4] {
+  line-height: 32px;
+  padding-top: 12px;
+}
+.menu-area .label-wrapper .item-label[data-v-1b195ca4] {
+  display: flex;
+  align-items: center;
+}
+.menu-area .label-wrapper .item-label svg[data-v-1b195ca4] {
+  color: #babfc7;
+  margin-left: 6px;
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/model/deepseek/Index.vue?vue&type=style&index=0&id=3ed129d5&lang=less&scoped=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+*[data-v-3ed129d5] {
+  box-sizing: border-box;
+}
+.chat-wrap[data-v-3ed129d5] {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  margin-bottom: -40px;
+}
+.chat-wrap .model-text-wrapper[data-v-3ed129d5] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+}
+.chat-wrap .model-text-wrapper .model-title[data-v-3ed129d5] {
+  color: #101010;
+  font-size: 28px;
+  margin-bottom: 0.5rem;
+}
+.chat-wrap .model-text-wrapper .model-desc[data-v-3ed129d5] {
+  color: rgba(136, 136, 136, 0.87);
+  font-size: 14px;
+  height: 20px;
+}
+.chat-wrap .main-container[data-v-3ed129d5] {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: calc(100% - 80px);
+}
+.chat-wrap .main-container .main-left-menu[data-v-3ed129d5] {
+  width: 280px;
+  height: calc(100% - 12px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap[data-v-3ed129d5] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-header[data-v-3ed129d5] {
+  flex-shrink: 0;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-header .sidbar-title[data-v-3ed129d5] {
+  height: 60px;
+  font-size: 18px;
+  align-items: center;
+  display: flex;
+  background: url('/img/model/c2net-header.png');
+  color: #101010;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-header .sidbar-title div[data-v-3ed129d5] {
+  margin-left: 12px;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-header .sidbar-sub-title[data-v-3ed129d5] {
+  line-height: 20px;
+  color: #101010;
+  margin: 0 12px 16px 24px;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body[data-v-3ed129d5] {
+  flex: 1;
+  overflow: auto;
+  /* 整个滚动条 */
+  /* 水平滚动条的高度 */
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body[data-v-3ed129d5]::-webkit-scrollbar {
+  width: 4px !important;
+  /* 控制垂直滚动条的宽度 */
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body[data-v-3ed129d5]::-webkit-scrollbar:horizontal {
+  height: 4px !important;
+  /* 控制水平滚动条的高度 */
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body[data-v-3ed129d5]::-webkit-scrollbar-thumb {
+  background: #ccc;
+  /* 更浅的滑块颜色 */
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body .sidbar-main[data-v-3ed129d5] {
+  margin-left: 24px;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-body .sidbar-main .sidebar-item[data-v-3ed129d5] {
+  line-height: 32px;
+  color: #0047a9;
+  display: block;
+}
+.chat-wrap .main-container .main-left-menu .menu-wrap .sidbar-footer[data-v-3ed129d5] {
+  margin: 12px 0;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+.chat-wrap .main-container .main-code-wrap[data-v-3ed129d5] {
+  width: 100%;
+  max-width: 1000px;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body[data-v-3ed129d5] {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: calc(100vh - 140px);
+  position: relative;
+  overflow: hidden;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text[data-v-3ed129d5] {
+  overflow: auto;
+  flex: 1 1;
+  margin-bottom: 152px;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content[data-v-3ed129d5] {
+  height: 100%;
+  font-size: 14px;
+  padding: 0 32px;
+  padding-top: 0;
+  overflow: auto;
+  word-break: break-all;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content[data-v-3ed129d5]::-webkit-scrollbar {
+  width: 0 !important;
+  /* Chrome/Safari/Edge */
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap[data-v-3ed129d5] {
+  margin-bottom: 20px;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap .c2net-support-list[data-v-3ed129d5] {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fa8c16;
+  border-radius: 6px;
+  line-height: 14px;
+  text-align: center;
+  border: 1px solid #68539b;
+  color: #fbfbfb;
+  margin-right: 4px;
+  flex-direction: column;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap .output-welcome-banner[data-v-3ed129d5] {
+  padding: 12px;
+  background-color: aliceblue;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .user-input-wrapper[data-v-3ed129d5] {
+  margin-left: 60px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: top;
+  flex-direction: row-reverse;
+  white-space: pre-line;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .user-input-wrapper .user-input[data-v-3ed129d5] {
+  display: inline-block;
+  background: rgba(25, 117, 255, 0.1);
+  color: #43436b;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 20px;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .user-output-wrapper[data-v-3ed129d5] {
+  margin-right: 60px;
+  margin-bottom: 24px;
+  padding: 10px;
+  display: flex;
+  align-items: top;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .user-output-wrapper .user-output[data-v-3ed129d5] {
+  display: inline-block;
+  background: antiquewhite;
+  color: #43436b;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 20px;
+  position: relative;
+  word-break: break-all;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .ask-text-input[data-v-3ed129d5] {
+  position: relative;
+  height: 140px;
+  background-color: blue;
+}
+.chat-wrap .main-code-input[data-v-3ed129d5] {
+  bottom: 0;
+  margin-bottom: 12px;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  padding: 0 32px;
+}
+.chat-wrap .main-code-input .input-container[data-v-3ed129d5] {
+  flex: 1 1;
+  position: relative;
+  width: 100%;
+}
+.chat-wrap .main-code-input .input-container .input-box[data-v-3ed129d5] {
+  background: #fff;
+  border: 1px solid #2468f2;
+  border-radius: 6px;
+  width: 100%;
+}
+.chat-wrap .main-code-input .input-container .input-box .ask-input[data-v-3ed129d5] {
+  padding: 12px 12px 28px;
+  position: relative;
+}
+.chat-wrap .main-code-input .input-container .input-box .ask-input #code-input[data-v-3ed129d5] {
+  border: none;
+  color: #151b26;
+  font-family: PingFangSC-Regular;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  max-height: 120px;
+  min-height: 42px;
+  overflow-y: auto;
+  resize: none;
+  width: 100%;
+  outline: none;
+}
+.chat-wrap .main-code-input .input-container .input-box .ask-input .opera-submit[data-v-3ed129d5] {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJhZGlhbEdyYWRpZW50IGlkPSJhIiBjeD0iMTUzLjc5JSIgY3k9IjEyMS41OTklIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC0uNjI4MjYgLS4zMzQ1MyAuMjIzMDIgLS45NDIzOCAyLjIzMyAyLjg3NikiIHI9IjMzMi4wMjElIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNlODUzZjYiLz48c3RvcCBvZmZzZXQ9Ii42MzQiIHN0b3AtY29sb3I9IiMyMTY0ZWQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyMTY0ZWQiLz48L3JhZGlhbEdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDE9Ii02MS40NTElIiB4Mj0iMTAwJSIgeTE9IjY1LjAzNiUiIHkyPSI1MCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZmIi8+PC9saW5lYXJHcmFkaWVudD48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxyZWN0IGZpbGw9InVybCgjYSkiIGhlaWdodD0iMzIiIHJ4PSI2IiB3aWR0aD0iNDgiLz48cGF0aCBkPSJNMS41MzQgMTQuMDlhLjUxMi41MTIgMCAwIDEtLjM2Ny0uMTU2LjU5Ny41OTcgMCAwIDEtLjEzMy0uNjEzbDEuNDIyLTQuMDkzYS41NTkuNTU5IDAgMCAxIC4yODMtLjMyMkw1LjYgNy41MzUgMi43NDMgNi4yYS41NjIuNTYyIDAgMCAxLS4yODctLjMyNkwxLjAzNCAxLjc3YS41OTcuNTk3IDAgMCAxIC4xMzMtLjYxNC41MDYuNTA2IDAgMCAxIC41OC0uMTA4TDE0LjU3NiA3LjAyYy4xOTUuMDkuMzIuMjk2LjMyLjUyNGEuNTcyLjU3MiAwIDAgMS0uMzIuNTIzTDEuNzQ4IDE0LjA0M2EuNTA0LjUwNCAwIDAgMS0uMjE0LjA0OHoiIGZpbGw9InVybCgjYikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2IDgpIi8+PC9nPjwvc3ZnPg==);
+  border: none;
+  border-radius: 6px;
+  bottom: 8px;
+  cursor: pointer;
+  height: 32px;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: 12px;
+  width: 48px;
+}
+[dir="ltr"] .chat-wrap .main-code-input .input-container .input-tips[data-v-3ed129d5] {
+  text-align: right;
+}
+[dir="rtl"] .chat-wrap .main-code-input .input-container .input-tips[data-v-3ed129d5] {
+  text-align: left;
+}
+.chat-wrap .main-code-input .input-container .input-tips[data-v-3ed129d5] {
+  color: #999;
+  font-size: 12px;
+  padding-top: 6px;
+}
+.chat-wrap .main-code-input .tips-privacy[data-v-3ed129d5] {
+  text-align: center;
+  font-size: 12px;
+  display: none;
+}
+[data-v-3ed129d5] .el-slider__input {
+  width: 55px;
+}
+[data-v-3ed129d5] .el-slider__runway.show-input {
+  margin-right: 70px;
+}
+[data-v-3ed129d5] .el-input__suffix {
+  right: 0px;
+}
+[data-v-3ed129d5] .el-input-number.is-without-controls .el-input__inner {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media (max-width: 768px) {
+.menu-mask[data-v-3ed129d5] {
+    position: fixed;
+    top: 62px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.chat-wrap[data-v-3ed129d5] {
+    margin-bottom: -80px;
+}
+.chat-wrap .model-text-wrapper[data-v-3ed129d5] {
+    min-height: 60px;
+}
+.chat-wrap .model-text-wrapper .model-title[data-v-3ed129d5] {
+    font-size: 16px;
+}
+.chat-wrap .main-container .main-left-menu[data-v-3ed129d5] {
+    position: fixed;
+    height: calc(100% - 62px);
+    left: -280px;
+    top: 62px;
+    z-index: 1000;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+.chat-wrap .main-container .main-left-menu.mobile-menu-active[data-v-3ed129d5] {
+    transform: translateX(280px);
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body[data-v-3ed129d5] {
+    height: calc(100vh - 130px);
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content[data-v-3ed129d5] {
+    padding: 0;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap[data-v-3ed129d5] {
+    display: flex;
+    font-size: 12px;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap .c2net-support-list[data-v-3ed129d5] {
+    width: 40px;
+    display: flex;
+}
+.chat-wrap .main-container .main-code-wrap .main-code-body .output-text .output-content .out-header-wrap .output-welcome-banner[data-v-3ed129d5] {
+    flex: 1;
+}
+.chat-wrap .main-code-input[data-v-3ed129d5] {
+    padding: 0;
+    margin-bottom: 0;
+}
+.chat-wrap .main-code-input .tips-privacy[data-v-3ed129d5] {
+    display: block;
+}
+}
+

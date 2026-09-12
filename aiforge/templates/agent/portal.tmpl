@@ -1,0 +1,16 @@
+{{template "base/head" .}}
+<style>
+.full.height {
+  padding-bottom: 0px;
+}
+footer {
+  display:none !important;
+}
+</style>
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-agent-portal.css?v={{MD5 AppVer}}"/>
+<div>
+  <div class="userAvatar" src="{{.SignedUser.RelAvatarLink}}"></div>
+  <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-agent-portal.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

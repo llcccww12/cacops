@@ -1,0 +1,115 @@
+{{template "base/head" .}}
+<div style="display:flex;">
+	{{template "base/nav_left" .}}
+	<div id="nav_left_right_content" class="dashboard feeds">
+		{{template "user/dashboard/navbar" .}}
+		<div class="ui container">
+			{{template "base/alert" .}}
+			<div class="ui mobile reversed stackable grid">
+				<div class="ui container ten wide column">
+					<div class="default" id = 'default_page' style="display: none;">
+						<div class="w_title">
+							{{.i18n.Tr "home.wecome_AI_plt"}}
+						</div>
+						<div class="content">						
+							<p class="ui text grey" style="line-height:26px">{{.i18n.Tr "home.wecome_AI_plt_descr"}}</p>
+						</div>
+						<div class="guide ">
+							<div style="color:rgba(105,192,255,1);font-size:14px;font-weight:400;line-height:20px;margin-bottom:16px;">初次使用，请查看</div>
+							<a class="mini ui blue basic button"
+								style="font-weight:700;height:32px;
+											color: rgb(50, 145, 248) !important;background:white;
+											border: 1px solid rgb(24, 144, 255);box-shadow: none !important;"
+								href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning" target="_blank">{{.i18n.Tr "custom.Platform_Tutorial"}} <i class="ri-arrow-right-line" ></i></a>
+						</div>
+					</div>
+					{{if .EnableHeatmap}}
+						{{template "user/dashboard/heatmap" .}}
+					{{end}}
+					{{template "user/dashboard/feeds" .}}
+					{{ if eq (len .Feeds) 0 }}
+						<diV ss="{{(len .Feeds)}}" id = "activity_cont" style="display: block;"> 		
+							<div  class="ui placeholder segment bgtask-none padding_none line" >
+								<div class="act_title" style="padding-left: 0px ;">
+									{{.i18n.Tr "home.activity"}} ：
+								</div>
+								<div class="ui icon header bgtask-header-pic"></div>
+								<p class="p_hint">
+									{{.i18n.Tr "home.no_events"}}
+								</p>
+							</div>
+						</diV>	
+					{{ end }}
+				</div>
+				{{template "user/dashboard/repolist" .}}
+			</div>
+		</div>
+	</div>
+</div>
+{{template "base/footer" .}}
+<script>	
+
+	const {AppSubUrl, StaticUrlPrefix, csrf} = window.config;
+    uid_ = Number((document.querySelector('meta[name=_context_uid]') || {}).content)
+	let URL = AppSubUrl +  '/api/v1/repos/search?_csrf='+csrf+'&sort=updated&order=desc&uid='+uid_ +'&q=&page=1&limit=10&mode= ';
+        
+	$.getJSON(URL, (result, _textStatus, request) => {
+        const counts_pro = request.getResponseHeader('X-Total-Count');
+		if (counts_pro == 0 && {{ (len .Feeds) }} == 0) {
+			document.getElementById("default_page").style.display = "block";
+		}
+		setTimeout(()=> {
+			document.querySelector('.dashboard-repos.list .header .label').innerText = counts_pro;
+		}, 200)
+  })		
+</script>
+
+<style>
+	.default{
+		background-color: rgba(24, 144, 255, 0.1);
+		margin-bottom: 20px;
+		border-radius: 15px;
+		line-height: 20px;
+		padding:0px 25px;
+	}
+	.w_title{
+		padding-top: 25px;
+		margin-bottom: 20px;
+		color: rgba(16, 16, 16, 100);
+		font-size: 20px;
+		text-align: left;
+		font-weight: 700;
+	}
+	.guide{
+		margin-top:20px;
+		padding-bottom: 30px;
+	}
+
+	.activity{
+		margin-top: 20px;
+	}
+	.act_title{
+		color: rgba(16, 16, 16, 100) !important;
+		font-size: 20px;
+		text-align: left;
+		background-color: #fff !important;
+		font-weight: 700;
+	}
+	.p_hint{
+		color: rgba(136, 136, 136, 100);
+		font-size: 14px;
+		text-align: center;
+		font-family: SourceHanSansSC-regular;
+	}
+	.padding_none{
+		padding: 0px !important;
+	}
+
+	.ui.placeholder.segment {
+		min-height: 15rem !important;
+	}
+	.bgtask-none.line{
+		border-top: 1px solid rgba(187, 187, 187, 0.5) !important;
+    	margin-top: 20px !important;
+	}
+</style>

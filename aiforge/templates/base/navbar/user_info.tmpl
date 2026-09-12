@@ -1,0 +1,151 @@
+<div class="web-show-mobile-hide right stackable menu">
+	{{template "base/navbar/search_bar" .}}
+  {{if .IsSigned}}
+    <a href="{{AppSubUrl}}/notifications"
+      style="margin-left:40px;
+      border: 1px solid rgba(16, 16, 16, 0.2);
+      height:30px;border-radius:20px;
+      " 
+    class="ui simple item poping up" data-content='{{.i18n.Tr "notifications"}}' data-variation="tiny">
+      <span class="text" style="display:flex;align-items:center;height:30px;min-width:18px;">
+        <span class="fitted"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="rgba(32, 37, 101, 0.9)" viewBox="0 0 32 32" width="16" height="16"><defs></defs><g><path d="M26.667 22.667h2.667v2.667h-26.667v-2.667h2.667v-9.333c0-5.891 4.776-10.667 10.667-10.667s10.667 4.776 10.667 10.667v0 9.333zM24 22.667v-9.333c0-4.418-3.582-8-8-8s-8 3.582-8 8v0 9.333h16zM12 28h8v2.667h-8v-2.667z"></path></g></svg>
+        <span class="sr-mobile-only">{{.i18n.Tr "notifications"}}</span>
+        {{$notificationUnreadCount := 0}}
+        {{if .NotificationUnreadCount}}{{$notificationUnreadCount = call .NotificationUnreadCount}}{{end}}
+        <span style="color:rgba(0, 98, 255, 1);background:none;border:none" class="ui red label {{if not $notificationUnreadCount}}hidden{{end}} notification_count">
+          {{$notificationUnreadCount}}
+        </span>
+      </span>
+		</a>
+    <div class="ui simple jump dropdown item poping up" data-content="{{.i18n.Tr "create_new"}}" data-variation="tiny">
+      <span class="text" style="display:flex;align-items:center;">
+        <div style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;margin-right:5px;border:1px solid rgba(16, 16, 16, 0.2);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="styles__StyledSVGIconPathComponent-sc-1sh3oaa-0 bFqWRb svg-icon-path-icon fill" viewBox="0 0 48 48" width="16" height="16"><defs></defs><g><rect width="48" height="48" fill="white" fill-opacity="0.01"></rect><path d="M24.0607 10L24.024 38" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 24L38 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+        </div>
+        <span class="sr-mobile-only">{{.i18n.Tr "create_new"}}</span>
+        <span class="fitted not-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(187, 187, 187)" viewBox="0 0 32 32" width="10" height="10"><defs></defs><g><path d="M15.811 23.47c-0.252-0.060-0.47-0.185-0.641-0.356l-10.685-10.685c-0.521-0.521-0.521-1.365 0-1.886s1.365-0.521 1.886 0l9.746 9.746 9.745-9.745c0.521-0.521 1.365-0.521 1.886 0s0.521 1.365 0 1.886l-10.685 10.685c-0.339 0.339-0.816 0.458-1.251 0.355z"></path></g></svg>
+        </span>
+      </span>
+      <div class="menu" style="z-index: 9999;">
+        <a class="item" href="{{AppSubUrl}}/cloudbrains/create">
+          <span class="fitted">{{svg "octicon-plus" 16}}</span> {{.i18n.Tr "new_aitask"}}
+        </a>
+        <a class="item" href="{{AppSubUrl}}/guide/create_dataset">
+          <span class="fitted">{{svg "octicon-plus" 16}}</span> {{.i18n.Tr "new_dataset"}}
+        </a>
+        <a class="item" href="{{AppSubUrl}}/guide/create_model">
+          <span class="fitted">{{svg "octicon-plus" 16}}</span> {{.i18n.Tr "new_model"}}
+        </a>
+        <a class="item" href="{{AppSubUrl}}/repo/create">
+          <span class="fitted">{{svg "octicon-plus" 16}}</span> {{.i18n.Tr "new_repo"}}
+        </a>
+        <div class="divider"></div>
+        <a class="item" href="{{AppSubUrl}}/repo/migrate">
+          <span class="fitted">{{svg "octicon-repo-clone" 16}}</span> {{.i18n.Tr "new_migrate"}}
+        </a>
+        <a class="item" href="{{AppSubUrl}}/repo/model_migrate">
+          <span class="fitted">
+            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M3.741 1.408l18.462 10.154a.5.5 0 0 1 0 .876L3.741 22.592A.5.5 0 0 1 3 22.154V1.846a.5.5 0 0 1 .741-.438zM5 13v6.617L18.85 12 5 4.383V11h5v2H5z"/></svg>
+          </span>
+          <span style="margin-right: 20px;">{{.i18n.Tr "new_model_migrate"}}</span>
+        </a>
+        {{if .SignedUser.CanCreateOrganization}}
+        <div class="divider"></div>
+        <a class="item" href="{{AppSubUrl}}/org/create">
+          <span class="fitted">{{svg "octicon-organization" 16}}</span> {{.i18n.Tr "new_org"}}
+        </a>
+        {{end}}
+      </div>
+    </div>
+    <div class="ui simple jump dropdown item poping up" tabindex="-1" data-content="{{.i18n.Tr "user_profile_and_more"}}" data-variation="tiny">
+      <span class="text" style="display:flex;align-items:center;height:30px;">
+        <img style="margin-right:5px;height:28px;max-height:28px;width:28px;border-radius:50%;" width="28" height="28" src="{{.SignedUser.RelAvatarLink}}">
+        <span class="sr-only">{{.i18n.Tr "user_profile_and_more"}}</span>
+        <span class="mobile-only">{{.SignedUser.Name}}</span>
+        <span class="fitted not-mobile" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="rgb(187, 187, 187)" viewBox="0 0 32 32" width="10" height="10"><defs></defs><g><path d="M15.811 23.47c-0.252-0.060-0.47-0.185-0.641-0.356l-10.685-10.685c-0.521-0.521-0.521-1.365 0-1.886s1.365-0.521 1.886 0l9.746 9.746 9.745-9.745c0.521-0.521 1.365-0.521 1.886 0s0.521 1.365 0 1.886l-10.685 10.685c-0.339 0.339-0.816 0.458-1.251 0.355z"></path></g></svg>       
+        </span>
+      </span>
+      <div class="menu user-menu" tabindex="-1" style="z-index: 9999;">
+        <div class="ui header">
+          {{.i18n.Tr "signed_in_as"}} <strong>{{.SignedUser.Name}}</strong>
+        </div>
+        <div class="divider"></div>
+        <a class="item" href="{{AppSubUrl}}/{{.SignedUser.Name}}">
+          {{svg "octicon-person" 16}}
+          {{.i18n.Tr "your_profile"}}
+        </a>
+        <a class="item" href="{{AppSubUrl}}/{{.SignedUser.Name}}?tab=stars">
+          {{svg "octicon-star" 16}}
+          {{.i18n.Tr "your_starred"}}
+        </a>
+        <a class="{{if .PageIsUserSettings}}active{{end}} item" href="{{AppSubUrl}}/user/settings">
+          {{svg "octicon-settings" 16}}
+          {{.i18n.Tr "your_settings"}}
+        </a>
+        <a class="item"  href="https://openi.pcl.ac.cn/zeizei/OpenI_Learning" target="_blank">
+          <i class="tutorial_icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="none" d="M0 0h24v24H0z"/><path d="M2 3.993A1 1 0 0 1 2.992 3h18.016c.548 0 .992.445.992.993v16.014a1 1 0 0 1-.992.993H2.992A.993.993 0 0 1 2 20.007V3.993zM12 5v14h8V5h-8zm1 2h6v2h-6V7zm0 3h6v2h-6v-2z"/>
+            </svg>
+          </i> 
+          {{.i18n.Tr "custom.Platform_Tutorial"}}
+        </a>
+        {{if .IsAdmin}}
+          <div class="divider"></div>
+          <a class="{{if .PageIsAdmin}}active{{end}} item" href="{{AppSubUrl}}/admin">
+            <i class="icon settings"></i>
+            {{.i18n.Tr "admin_panel"}}
+          </a>
+        {{end}}
+        <div class="divider"></div>
+        <a class="item link-action" href data-url="{{AppSubUrl}}/user/logout" data-redirect="{{AppSubUrl}}/">
+          {{svg "octicon-sign-out" 16}}
+          {{.i18n.Tr "sign_out"}}
+        </a>
+      </div>
+    </div>
+  {{else}}
+    <style>
+      .ui.secondary.menu #navbar .right.menu .ui.item.simple.login-reg-btn {
+        display: flex;
+        align-items: center;
+        color: rgba(0, 98, 255, 1);
+        border-color: rgba(50, 145, 248, 0.3);
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 4px;
+        padding: 2px 10px;        
+        padding: 8px 10px;
+        height: 30px;
+      }
+      .ui.secondary.menu #navbar .right.menu .ui.item.simple.login-reg-btn i {
+        font-size: 16px;
+        margin-right: 4px;
+      }
+    </style>
+    {{if .ShowRegistrationButton}}
+      {{if .IsCourse}}
+        <a style="margin-left:40px;margin-right:8px;" class="login-reg-btn ui item simple{{if .PageIsSignUp}} active{{end}}" href="https://openi.pcl.ac.cn/user/sign_up" target="_blank">
+          <i class="ri-user-6-line"></i> {{.i18n.Tr "register"}}
+        </a>
+      {{else}}
+        <a style="margin-left:40px;margin-right:8px;" class="login-reg-btn ui item simple{{if .PageIsSignUp}} active{{end}}" href="{{AppSubUrl}}/user/sign_up">
+          <i class="ri-user-6-line"></i> {{.i18n.Tr "register"}}
+        </a>
+      {{end}}
+		{{end}}
+		{{if .IsCourse}}
+      <a class="login-reg-btn ui item simple{{if .PageIsSignIn}} active{{end}}" rel="nofollow" href="https://openi.pcl.ac.cn/user/login?course=true" target="_blank">
+        <i class="ri-login-box-line"></i>{{.i18n.Tr "sign_in"}}
+      </a>
+    {{else}}
+      <a class="login-reg-btn ui item simple{{if .PageIsSignIn}} active{{end}}" rel="nofollow" href="{{AppSubUrl}}/user/login">
+        <i class="ri-login-box-line"></i>{{.i18n.Tr "sign_in"}}
+      </a>
+    {{end}}
+  {{end}}  
+  {{template "base/navbar/lan_and_help" .}}
+</div>

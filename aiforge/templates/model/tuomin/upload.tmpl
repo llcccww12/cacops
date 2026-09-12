@@ -1,0 +1,13 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-model-tuomin.css?v={{MD5 AppVer}}" />
+<div>
+  {{if .Flash}}
+		<div class="sixteen wide column">
+			{{template "base/alert" .}}
+		</div>
+	{{end}}
+	<div id="isSignd" data-sign="{{$.IsSigned}}" style="display: none;"></div>
+  	<div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-tuomin.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

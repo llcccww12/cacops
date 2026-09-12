@@ -1,0 +1,17 @@
+.DS_Store
+.idea
+.vscode
+*.log
+*.local
+
+aiforge/node_modules
+aiforge/data
+aiforge/opendata
+aiforge/opendata.new
+aiforge/log
+aiforge/indexers
+aiforge/custom/conf/app.ini
+aiforge/*.log
+aiforge/go_build_code_gitea_io_gitea
+
+landing/node_modules

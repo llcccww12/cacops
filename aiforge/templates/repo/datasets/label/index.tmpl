@@ -1,0 +1,221 @@
+{{template "base/head" .}}
+
+		<style>
+		 #progress{
+            width: 100%;
+            height: 20px;
+            background: rgb(255, 255, 255);
+         }
+        #bar{
+            width: 1%;
+            height: 20px;
+            margin-top: 1px;             
+			background: green;
+         }
+		</style>
+
+<div class="repository dataset dir-list view">
+	{{template "repo/header" .}}
+     <input type="hidden" id="repoId" value="{{.repoId}}">
+     
+
+	 <div class="ui container">
+               <div class="header">
+                      <h3 class="modal-title">标注任务列表</h3>
+                </div>
+                                        <div  class="ui container">
+                                          <div  class="ui container">
+                                     
+                                            <table class="ui celled table" id="label_task_list"></table>
+
+                                            <div  class="ui container" style="height: 30px;">
+                                                    <div style="float:right">  
+                                                       显示<span  id="startIndex">0</span>到<span id="endIndex">0</span>条，共<span id="totalNum">0</span>条。&nbsp;&nbsp;   
+                                                       <span >   
+                                                       <a id="prePage" href=""><b>上一页</b></a>
+                                                       <span >
+                                                          &nbsp;当前页：<span id="displayPage1">1</span>&nbsp;
+                                                       </span>
+                                                        <a id="nextPage" href=""><b>下一页</b></a>
+                                                        <span>
+                                                          &nbsp;共<span id="totalPageNum"></span>页&nbsp;
+                                                         </span>
+                                                        <span>&nbsp;跳转到：<input type="text" id="goNum" style="width: 50px;border-radius:6px" maxlength="5" oninput="value=value.replace(/[^\d]/g,'')"><a id="goHref" href="javascript:goPage()">&nbsp;GO</a></span>
+                                                        </span>
+                                                    </div>
+                                                    
+                                             </div>
+
+                                             <div class="ui container" style="height: 30px;">
+                                                <!--<button type="button"  onclick="setPredictTask();"  class="ui blue button"  style="float:left">新建图片自动标注</button>-->
+                                                <button type="button"  onclick="setDataSetTask();"  class="ui blue button"  style="float:left">新建图片人工标注</button>
+												
+												<button type="button"  onclick="setMultiTaskId();"  class="ui blue button"  style="float:right;margin-left:20px;">导出标注数据</button>
+												<button type="button"  onclick="countLabel();"  class="ui blue button"  style="float:right;margin-left:20px;">统计所有标注数量</button>
+                                                <button type="button"  onclick="delete_labeltask();" class="ui blue button" style="float:right">删除人工标注</button>
+                                            </div>
+
+
+                                            <!-- 增加新建数据集人工标注-->
+                                          <div  id="labelDataModal" class="ui dataset modal">
+                                                      <i class="close icon"></i>
+                                                      <div class="header">
+                                                          <h4 class="modal-title">新建数据集图片标注</h4>
+                                                      </div>
+                                                      <div class="content">
+                                                          <div class="ui form"> 
+                                                                <div class="field">
+                                                                    <label for="exampleInputPassword1">选择数据集对象<font color=red>*</font></label>
+                                                                    <select  name="pre_predict_task" id="dataset_list"  onchange="dataset_sele_Change(this)">
+                                                                            {{if .Attachments}}
+                                                                                {{range .Attachments}}
+                                                                                        <option value="{{.UUID}}">{{.Name}}</option>
+                                                                                {{end}}
+                                                                            {{end}}
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="field" >
+                                                                    <label for="exampleInputEmail1">人工标注任务名称<font color=red>*</font></label>
+                                                                    <input type="text" id="datasetlabeltaskname" placeholder="标注任务名称，不超过32个字符">
+                                                                </div>
+                                                                
+                                                                <div class="field" style="display:none">
+                                                                    <label for="exampleInputEmail2">任务指派给</label>                                          
+                                                                    <select  name="任务指派给" id="assign_user">
+                                                                        <option value="">请选择</option>         
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                                <div class="field" >
+                                                                    <label for="exampleInputEmail2">模式</label>                                          
+                                                                    <select  name="模式" id="task_flow_type" onchange="flow_type_sele_Change(this)">
+                                                                        <option value="1" select="true"> 标注工作模式</option>  
+                                                                      <!--  <option value="2"> 标注审核模式</option> 
+                                                                        <option value="3"> 主动分类学习模式</option>  	-->																   
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                                <div class="field" style="display:none">
+                                                                    <label id = "labelInfo" for="exampleInputFile">标注类别(也可以直接在标注界面上进行设置)</label>
+                                                                    <select  name="labelpropertytask" id="labelpropertytask_dataset" >
+                                                                                <option value="" selected="">请选择</option>														   
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                                <button type="button"  onclick="submit_datasettask();">提交</button>
+                                                          </div>
+                                                      </div>
+           
+                                          </div> <!-- /.box-body -->
+    
+
+                                          <div  id="labelModal"  class="ui predict modal">
+
+                                                <i class="close icon"></i>
+                                                <div class="header">
+                                                          <h4 class="modal-title">新建自动标注任务</h4>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="ui form"> 
+                                                        <div class="field">
+                                                                    <label for="exampleInputPassword1">选择数据集对象<font color=red>*</font></label>
+                                                                    <select  name="pre_predict_task" id="dataset_list_auto"  onchange="dataset_auto_sele_Change(this)">
+                                                                            {{if .Attachments}}
+                                                                                {{range .Attachments}}
+                                                                                    <option value="{{.UUID}}">{{.Name}}</option>
+                                                                                {{end}}
+                                                                            {{end}}
+                                                                    </select>
+                                                        </div>
+                                                        <div class="field">
+                                                                    <label for="exampleInputPassword1">选择标注模型<font color=red>*</font></label>
+                                                                    <select  name="pre_predict_task" id="model_list">
+                                                                            <option value="" selected="">请选择</option>
+                                                                    </select>
+                                                        </div>
+                                                        <div class="field" >
+                                                                  <label for="exampleInputEmail1">自动标注任务名称<font color=red>*</font></label>
+                                                                  <input type="text" id="autolabeltaskname" placeholder="标注任务名称，不超过32个字符">
+                                                        </div>
+
+                                                        <div class="field" style="display:none">
+                                                                    <label for="exampleInputEmail2">任务指派给</label>                                          
+                                                                    <select  name="任务指派给" id="label_assign_user">
+                                                                        <option value="">请选择</option>         
+                                                                    </select>
+                                                        </div>
+
+                                                        <div class="field" style="display:none">
+                                                                    <label id = "labelInfo" for="exampleInputFile">标注类别(也可以直接在标注界面上进行设置)</label>
+                                                                    <select  name="labelpropertytask" id="labelpropertytask_auto" >
+                                                                                <option value="" selected="">请选择</option>														   
+                                                                    </select>
+                                                        </div>    
+                                        
+                                                        <button type="button"  onclick="submit_autolabeltask();">提交</button>
+                                             
+                                                  </div>
+                                              </div>
+                                          </div> <!-- /.box-body -->
+										  
+										   <div  id="labeltaskexport" class="ui export modal">
+                                                
+                                                    <i class="close icon"></i>
+                                                    <div class="header">
+                                                          <h4 class="modal-title">导出标注数据</h4>
+                                                    </div>
+                                                    <div class="content">
+                                                        <div class="ui form">
+                                                            
+                                                                <input type="" value="" id="hide_labeltaskid" style="display:none;">  
+                                                                <div class="field">
+                                                                    <label for="exampleInputPassword1">是否带图片导出<font color=red>*</font></label>
+                                                                    <select class="form-control" name="是否带图片导出" id="isNeedPicture" onchange="sele_export_Change(this)">
+                                                                        <option value="1" selected="">不带图片导出</option>
+                                                                        <option value="2">带图片导出</option>
+                                                                        <option value="3">导出所有标注抠图</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <label for="exampleInputPassword1">选择标注导出格式<font color=red>*</font></label>
+                                                                    <select class="form-control"  id="exportFormat">
+                                                                        <option value="1" selected="">COCO</option>
+                                                                        <option value="2">VOC</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="field" id="maxscore_div" style="display:none;">
+                                                                            <label for="exampleInputEmail1">标注得分最大值(0--1.0)，目标检测得分大于此值时，不导出</label>
+                                                                            <input type="" class="form-control" id="maxscore" placeholder="标注得分最大值(0--1.0)，当目标检测得分大于此值时，不导出。" maxlength="10">
+                                                                </div>
+                                                                <div class="field"  id="minscore_div" style="display:none;">
+                                                                            <label for="exampleInputEmail1">标注得分最小值(0--0.99)，目标检测得分小于此值时，不导出</label>
+                                                                            <input type="" class="form-control" id="minscore" placeholder="标注得分最小值(0--0.99)，当目标检测得分小于此值时，不导出。" maxlength="10">
+                                                                </div>
+                                                                
+                                                                <div class="field"  id="progress">
+                                                                        <div id="bar"></div>
+                                                                </div>
+                                                                <div class="field"><h5 id="text-progress">0%</h3></div>
+                                                                <div class="field">
+                                                                    <button id="predtask_id" type="button" class="btn btn-default" onclick="downloadFile();">提交</button>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div>  
+								
+										  
+                                          </div><!-- /.box-body -->
+                                        </div>
+                                        <!-- </div> -->
+        
+                </div><!-- /.box -->
+</div>
+
+
+
+<script src="/self/labelTaskPage.js?v={{MD5 AppVer}}"></script>
+ 
+
+{{template "base/footer" .}}

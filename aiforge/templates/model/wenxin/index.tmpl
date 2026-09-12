@@ -1,0 +1,7 @@
+{{template "base/head" .}}
+<div>
+    <div id="isSignd" data-sign="{{$.IsSigned}}" style="display: none;"></div>
+    <div id="__vue-root"></div>
+</div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-wenxin.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

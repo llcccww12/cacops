@@ -1,0 +1,72 @@
+<div id="newdataset">
+	<div class="ui modal export_dataset">
+        <div id="container">
+          <div class="header" style="padding: 1rem;background-color: rgba(240, 240, 240, 100);">
+            <h4 id="model_header">{{$.i18n.Tr "repo.export_result_to_dataset"}}</h4>
+          </div>
+          <div class="content content-padding">
+            <div style="text-align: center;padding-bottom: 2rem;">
+              <span class="text-tip">{{$.i18n.Tr "dataset.export_tips" | Safe}}</span>
+            </div>
+            <form class="ui form">
+                <div class="ui error message"></div>
+                {{.CsrfTokenHtml}}
+                <input type="hidden" name="type" value="0">
+                <input type="hidden" name="modelSelectedFile">
+                <div class="inline field">
+                    <label class="label-fix-width">{{$.i18n.Tr "dataset.dataset_available_clusters"}}</label>
+                    <div class="ui blue mini menu compact selectcloudbrain" id="export-dataset-type">
+                        <a class="active item" data-type="0">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="none" d="M0 0h24v24H0z"/>
+                                <path d="M3 2.992C3 2.444 3.445 2 3.993 2h16.014a1 1 0 0 1 .993.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 21.008V2.992zM19 11V4H5v7h14zm0 2H5v7h14v-7zM9 6h6v2H9V6zm0 9h6v2H9v-2z"/>
+                            </svg>
+                            CPU/GPU
+                        </a>
+                        <a class="item" data-type="1">
+                            <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="none" d="M0 0h24v24H0z"/>
+                                <path d="M3 2.992C3 2.444 3.445 2 3.993 2h16.014a1 1 0 0 1 .993.992v18.016a.993.993 0 0 1-.993.992H3.993A1 1 0 0 1 3 21.008V2.992zM19 11V4H5v7h14zm0 2H5v7h14v-7zM9 6h6v2H9V6zm0 9h6v2H9v-2z"/>
+                            </svg>
+                            NPU
+                        </a>
+                    </div>
+                </div>
+                <div class="inline field">
+                    <label class="label-fix-width">{{$.i18n.Tr "dataset.file_description"}}:</label>
+                    <textarea style="width: 80%;" id="description" name="description" placeholder='{{.i18n.Tr "repo.modelarts.train_job.new_place"}}' rows="3" maxlength="255" placeholder="" onchange="this.value=this.value.substring(0, 255)" onkeydown="this.value=this.value.substring(0, 255)" onkeyup="this.value=this.value.substring(0, 255)"></textarea>
+                </div>
+                <div class="inline field">
+                  <label class="label-fix-width"></label>
+                  <div id="export-dataset-file">
+                    <div class="ui items" id="model-file-export">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="inline field">
+                  <label class="label-fix-width">{{$.i18n.Tr "dataset.select_result_file"}}</label>
+                  <span id="export-dataset-select">
+                    <i class="plus square outline icon"></i>{{$.i18n.Tr "dataset.select_file"}}
+                    <div id="model-file-wrap" style="display:none">
+                      <div class="ui list" id="model-file-result" >
+                        
+                      </div>
+                    </div>
+                  </span>
+                </div>
+            </form>
+            <div class="actions" style="margin-left: 140px;margin-top: 2rem;">
+                <button type="button" class="ui approve green button">{{$.i18n.Tr "dataset.export_file"}}</button>
+                <button type="button" class="ui button cancel">{{$.i18n.Tr "cancel"}}</button>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="ui modal no_export_dataset">
+    <div class="item-empty">
+      <div class="item-empty-icon"></div>
+      <div class="item-empty-tips">{{.i18n.Tr "dataset.dataset_no_create"}} <a href="/{{$.RepoRelPath}}/datasets/create">{{$.i18n.Tr "dataset.go_new_dataset"}}</a></div>
+    </div>
+  </div>
+</div>

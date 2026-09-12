@@ -1,0 +1,248 @@
+<style>
+  #navbar .menu-link.menu-link-expand {
+    position: relative;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-drop-btn-c {
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel {
+    position: absolute;
+    top: 60px;
+    left: 97px;
+    width: 204px;
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0px 4px 4px 0px rgba(16,16,16,0.3);
+    border-radius: 0px 0px 15px 15px;
+    z-index: 100000;
+    height: 0;
+    min-height: 0;
+    interpolate-size: allow-keywords;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+  }
+  
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list {    
+    background-color: rgba(255,255,255,1);
+    box-shadow: 0pt 2pt 6pt 0pt rgba(16, 16, 16, 0.3);
+    padding: 5pt 8pt;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c {
+    border-bottom: 1px solid rgba(16, 16, 16, 0.05);
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item {
+    height: 40px;
+    display: flex;
+    align-items: center;    
+    padding: 0 4px;
+    margin: 0 4px;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item .icon-c {
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item .title {
+    color: rgba(32, 37, 101, 0.9);
+    font-size: 14px;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item.focused,
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .sub-menu-item.focused {    
+    background-color: rgba(228,241,255,0.7);
+    box-shadow: none;
+    border-radius: 6px;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item:hover .title,
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .sub-menu-item:hover .title {    
+    color: rgba(0, 26, 199, 1);
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .menu-item.focused .title,
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .menu-item-c .sub-menu-item.focused .title {
+    color: rgba(0, 26, 199, 1);
+    font-weight: 700;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c {}
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .menu-item-c .toggle-icon-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .menu-item-c .toggle-icon-c svg {
+    transition: all .2s ease-in-out;
+    transform: rotate(-90deg);
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .menu-item-c.expanded .toggle-icon-c svg {
+    transform: rotate(0deg);
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c>.menu-item-c {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .menu-item .menu-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .sub-menu-list {
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+    height: 0;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .menu-item,
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .sub-menu-item {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(16, 16, 16, 0.05);
+    color: rgba(32, 37, 101, 0.9);
+    padding: 0 4px;
+    margin: 0 4px;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .icon-c {
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c .title {
+    color: rgba(32, 37, 101, 0.9);
+    font-size: 14px;
+  }
+</style>
+<div class="menu-link menu-link-expand">  
+  <div class="menu-item-c">
+    <a class="menu-item" key="workspace" href="/dashboard">      
+      <div class="title">{{.i18n.Tr "explore.workspace"}}</div>
+    </a>
+  </div>
+  <div class="menu-expand-drop-btn-c"><svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="24" r="3" fill="#202565e6"/><circle cx="24" cy="24" r="3" fill="#202565e6"/><circle cx="36" cy="24" r="3" fill="#202565e6"/></svg></div>
+  <div class="menu-expand-pannel">
+    <div class="menu-list">
+      <div class="menu-item-c">
+        <a class="menu-item" key="agent" href="/agent">
+          <div class="icon-c"><img src="/img/menu-icon/agent.svg"></div>
+          <div class="title">{{.i18n.Tr "explore.agent"}}</div>
+        </a>
+      </div>
+      <div class="menu-item-c">
+        <a class="menu-item" key="modelbase" href="/modelbase">
+          <div class="icon-c"><img src="/img/menu-icon/modelbase.svg"></div>
+          <div class="title">{{.i18n.Tr "repo.model_base"}}</div>
+        </a>
+      </div>
+      <div class="menu-item-c">
+        <a class="menu-item" key="resources" href="/explore/datasets">
+          <div class="icon-c"><img src="/img/menu-icon/resources.svg"></div>
+          <div class="title">{{.i18n.Tr "explore.open_resources"}}</div>
+        </a>
+      </div>
+      <div class="menu-item-c">
+        <a class="menu-item" key="computingpower" href="/computingpower/demand">
+          <div class="icon-c"><img src="/img/menu-icon/computepower.svg"></div>
+          <div class="title">{{.i18n.Tr "explore.inclusive_computing_power"}}</div>
+        </a>
+      </div>
+      {{if .IsOperator}}
+      <div class="sub-menu-c">
+        <div class="menu-item-c ">
+          <div class="menu-item" style="flex:1">
+            <div class="icon-c"><img src="/img/menu-icon/more.svg"></div>
+            <div class="title">{{.i18n.Tr "repo.more"}}</div>
+          </div>
+          <div class="toggle-icon-c">
+            <svg class="toggle-btn" xmlns="http://www.w3.org/2000/svg" fill="#0066ffe6" viewBox="0 0 32 32" width="20"
+              height="20">
+              <defs></defs>
+              <g>
+                <path d="M16 17.563l6.6-6.6 1.885 1.885-8.485 8.485-8.485-8.485 1.885-1.885z"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="sub-menu-list">
+          {{if .IsOperator}}
+          <div class="menu-item-c">
+            <a class="sub-menu-item" href="{{AppSubUrl}}/kanban/index.html" target="_blank" rel="opener">
+              <div class="icon-c"></div>
+              <div class="title">{{.i18n.Tr "explore.data_analysis"}}</div>
+            </a>
+          </div>   
+          {{end}}
+        </div>
+      </div>
+      {{end}}        
+    </div>
+  </div>
+</div>
+<script>
+ ;(function () {
+  document.querySelector('#navbar .menu-link.menu-link-expand .menu-expand-drop-btn-c').addEventListener('click', function(e) {
+    var target = e.target;
+    while (!target.classList.contains('menu-expand-drop-btn-c')) {
+      target = target.parentNode
+    }
+    if (target.classList.contains('expanded')) {
+      target.classList.remove('expanded')
+      target.parentNode.querySelector('.menu-expand-pannel').style.height = '0'
+    } else {    
+      target.classList.add('expanded')
+      target.parentNode.querySelector('.menu-expand-pannel').style.height = 'auto'
+    }
+  })
+
+  document.querySelectorAll('#navbar .menu-link.menu-link-expand .menu-expand-pannel .menu-list .sub-menu-c >.menu-item-c').forEach(function(ele){
+    ele.addEventListener('click', function (e) {
+      var target = e.target;
+      while (!target.classList.contains('menu-item-c')) {
+        target = target.parentNode
+      }
+      if (target.classList.contains('expanded')) {
+        target.classList.remove('expanded')
+        target.parentNode.querySelector('.sub-menu-list').style.height = '0'
+      } else {
+        target.classList.add('expanded')
+        target.parentNode.querySelector('.sub-menu-list').style.height = 'auto'
+      }
+    });
+  })
+
+  var containerElement = document.querySelector('#navbar .menu-link.menu-link-expand .menu-expand-pannel');
+  var trigger = document.querySelector('#navbar .menu-link.menu-link-expand .menu-expand-drop-btn-c');
+  document.addEventListener('click', function(event) {
+    var targetElement = event.target;
+    if (!containerElement.contains(targetElement) && !trigger.contains(targetElement)) {
+      if (trigger.classList.contains('expanded')) {
+        trigger.classList.remove('expanded')
+        trigger.parentNode.querySelector('.menu-expand-pannel').style.height = '0'
+      }
+    }
+  }, true);
+ })();
+</script>

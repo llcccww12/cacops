@@ -1,0 +1,19 @@
+{{template "base/head_home" .}}
+{{ if .SquareBanners }}
+  {{ range .SquareBanners }}
+    <img preload style="height:0;width:0;position:absolute;left:-2000px;" src="{{.src}}" />
+  {{ end }}
+{{ end }}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-repos-square.css?v={{MD5 AppVer}}" />
+<script>
+  var staticSquareBanners = {{ .SquareBanners }};
+  var staticSquarePreferredRepos = {{ .SquarePreferredRepos }};
+  var staticSquareTopics = {{ .SquareTopics }};
+  var staticSquareRecommendRepos = {{ .SquareRecommendRepos }};
+</script>
+<div class="container-menu-main">
+	{{template "base/nav_left" .}}
+  <div id="nav_left_right_content" class="bg-f9f9f9"><div id="__vue-root"></div></div>
+ </div> 
+<script src="{{StaticUrlPrefix}}/js/vp-repos-square.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

@@ -1,0 +1,1385 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/BaseDialog.vue?vue&type=style&index=0&id=165bc8c5&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.base-dlg[data-v-165bc8c5] .el-dialog__header {
+  text-align: left;
+  height: 45px;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 1px solid #d4d4d5;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #101010;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__header .el-dialog__headerbtn {
+  top: 15px;
+  right: 15px;
+}
+.base-dlg[data-v-165bc8c5] .el-dialog__body {
+  padding: 15px 15px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/RepoItem.vue?vue&type=style&index=0&id=7649d2dc&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.repo-item[data-v-7649d2dc] {
+  border-color: rgba(157, 197, 226, 0.4);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 6px;
+  padding: 15px;
+  background: transparent;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 82px;
+}
+.repo-item .title-c[data-v-7649d2dc] {
+  display: flex;
+  align-items: center;
+}
+.repo-item .title-c .repo-icon[data-v-7649d2dc] {
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+}
+.repo-item .title-c .repo-icon img[data-v-7649d2dc] {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.repo-item .title-c .repo-name[data-v-7649d2dc] {
+  flex: 1;
+  color: #3291f8;
+  font-size: 14px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+  overflow: hidden;
+  width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.repo-item .descr[data-v-7649d2dc] {
+  margin-top: 4px;
+  color: #101010;
+  font-size: 12px;
+  font-family: SourceHanSansSC;
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 40px;
+  white-space: break-spaces;
+}
+.repo-item[data-v-7649d2dc]:hover {
+  border-color: rgba(204, 204, 255, 0.6);
+  box-shadow: rgba(204, 204, 255, 0.6) 0px 4px 8px 0px;
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(-0.34000000000000014%2C%20-0.643%2C%200.07087403200000002%2C%20-0.34000000000000014%2C%200.935%2C%200.997)%22%3E%3Cstop%20stop-color%3D%22%23ccfff4%22%20stop-opacity%3D%220.6%22%20offset%3D%220.01%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ece2ff%22%20stop-opacity%3D%220%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/square/RightItem.vue?vue&type=style&index=0&id=6e00cce9&scoped=true&lang=less ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.dZJqQS.fill[data-v-6e00cce9]:not([stroke]) {
+  fill: #ff6200;
+}
+.item__dataset[data-v-6e00cce9] {
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(0.13300000000000006%2C%201.125%2C%20-0.09968631692806922%2C%200.13300000000000006%2C%200.026%2C%20-0.121)%22%3E%3Cstop%20stop-color%3D%22%23e1f4ff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.item__aimodel[data-v-6e00cce9] {
+  background: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20version%3D%221.1%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%221%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%220%22%20gradientTransform%3D%22matrix(0.13300000000000006%2C%201.125%2C%20-0.09968631692806922%2C%200.13300000000000006%2C%200.026%2C%20-0.121)%22%3E%3Cstop%20stop-color%3D%22%23e5e5ff%22%20stop-opacity%3D%221%22%20offset%3D%220%22%3E%3C%2Fstop%3E%3Cstop%20stop-color%3D%22%23ffffff%22%20stop-opacity%3D%221%22%20offset%3D%221%22%3E%3C%2Fstop%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url(%231)%22%3E%3C%2Frect%3E%3C%2Fsvg%3E");
+}
+.item[data-v-6e00cce9] {
+  width: 100%;
+  min-height: 128px;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.item[data-v-6e00cce9]:hover {
+  border: 1px solid #0066ff;
+}
+.item:hover .top .top-head .name[data-v-6e00cce9] {
+  color: #0066ff;
+}
+.item .top .top-head[data-v-6e00cce9] {
+  display: flex;
+  position: relative;
+  height: 55px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 16px;
+}
+.item .top .top-head .icon-c[data-v-6e00cce9] {
+  width: 40px;
+  height: 40px;
+  margin-right: 6px;
+}
+.item .top .top-head .icon-c img[data-v-6e00cce9] {
+  width: 100%;
+  height: 100%;
+}
+.item .top .top-head .name[data-v-6e00cce9] {
+  color: #101010;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+.item .top .top-head .reconmend-icon[data-v-6e00cce9] {
+  margin-right: 6px;
+}
+.item .top .top-bottom[data-v-6e00cce9] {
+  padding: 0 16px;
+}
+.item .top .top-bottom .labels[data-v-6e00cce9] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item .top .top-bottom .labels .label[data-v-6e00cce9] {
+  margin-right: 12px;
+  color: rgba(16, 16, 16, 0.5);
+  font-size: 12px;
+}
+.item .footer[data-v-6e00cce9] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  padding-top: 0;
+}
+.item .footer .footer-l[data-v-6e00cce9] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.item .footer .footer-l .avatar-c[data-v-6e00cce9] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.item .footer .footer-l .avatar-c .avatar[data-v-6e00cce9] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.item .footer .footer-l .greenPoint[data-v-6e00cce9] {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: #5dbf77;
+  border-radius: 50%;
+}
+.item .footer .footer-r[data-v-6e00cce9] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.item .footer .footer-r .line[data-v-6e00cce9] {
+  height: 16px;
+  margin-left: 8px;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+}
+.item .footer .footer-r .r-item[data-v-6e00cce9] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+.item .footer .footer-r .r-item i[data-v-6e00cce9] {
+  margin-right: 5px;
+}
+.item .footer .footer-r .fav-c[data-v-6e00cce9] {
+  display: flex;
+  align-items: flex-start;
+}
+.item .footer .footer-r .fav-c i[data-v-6e00cce9] {
+  color: #fa8c16;
+}
+.item .footer .footer-r .fav-c.fav-disabled i[data-v-6e00cce9] {
+  cursor: default;
+}
+
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/SpecailSelect.vue?vue&type=style&index=0&id=2c30eb30&scoped=true&lang=less ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.special-select-c[data-v-2c30eb30] {
+  border-color: #e1e3e6;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 18px 28px;
+  margin-bottom: 32px;
+}
+.special-select-c .head[data-v-2c30eb30] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.special-select-c .head .head-l[data-v-2c30eb30] {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 18px;
+}
+.special-select-c .head .head-l span[data-v-2c30eb30] {
+  margin-left: 5px;
+  color: #101010;
+  font-family: SourceHanSansSC;
+  font-weight: 550;
+}
+.special-select-c .head .head-r .btn-c[data-v-2c30eb30] {
+  display: flex;
+  align-items: center;
+  color: #0366d6;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+.special-select-c .head .head-r .btn-c i[data-v-2c30eb30] {
+  margin-right: 5px;
+}
+.special-select-c .head .head-r .btn-c[data-v-2c30eb30]:hover {
+  color: rgba(3, 102, 214, 0.8);
+}
+.special-select-c .body.list-item-container.repo-c[data-v-2c30eb30] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.special-select-c .body.list-item-container.repo-c .item-container[data-v-2c30eb30] {
+  width: 33.3%;
+  padding: 8px;
+}
+.special-select-c .body.list-item-container.repo-c .item-container[data-v-2c30eb30]:nth-child(3n+1) {
+  padding-left: 0;
+}
+.special-select-c .body.list-item-container.repo-c .item-container[data-v-2c30eb30]:nth-child(3n) {
+  padding-right: 0;
+}
+.special-select-c .body.list-item-container.model-c[data-v-2c30eb30],
+.special-select-c .body.list-item-container.dataset-c[data-v-2c30eb30] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.special-select-c .body.list-item-container.model-c .item-container[data-v-2c30eb30],
+.special-select-c .body.list-item-container.dataset-c .item-container[data-v-2c30eb30] {
+  width: 50%;
+  padding: 12px;
+}
+.special-select-c .body.list-item-container.model-c .item-container[data-v-2c30eb30]:nth-child(odd),
+.special-select-c .body.list-item-container.dataset-c .item-container[data-v-2c30eb30]:nth-child(odd) {
+  padding-left: 0;
+}
+.special-select-c .body.list-item-container.model-c .item-container[data-v-2c30eb30]:nth-child(even),
+.special-select-c .body.list-item-container.dataset-c .item-container[data-v-2c30eb30]:nth-child(even) {
+  padding-right: 0;
+}
+.special-select-c .dlg-content[data-v-2c30eb30] {
+  padding: 30px 60px 20px 60px;
+}
+.special-select-c .dlg-content .tips[data-v-2c30eb30] {
+  color: #444444;
+  font-size: 14px;
+}
+.special-select-c .dlg-content .search-bar[data-v-2c30eb30] {
+  height: 40px;
+  position: relative;
+  margin-top: 12px;
+}
+.special-select-c .dlg-content .search-bar input[data-v-2c30eb30] {
+  width: 100%;
+  height: 100%;
+  padding: 0px 8px;
+  letter-spacing: 0px;
+  color: #888888;
+  position: relative;
+  font-family: PingFangSC;
+  font-weight: 400;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-color: #bbbbbb;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+}
+.special-select-c .dlg-content .search-bar input[data-v-2c30eb30]:focus {
+  border-color: #66b1ff;
+}
+.special-select-c .dlg-content .list-c[data-v-2c30eb30] {
+  min-height: 200px;
+}
+.special-select-c .dlg-content .list-c .list[data-v-2c30eb30] {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 240px;
+  overflow-y: auto;
+  margin-top: 12px;
+}
+.special-select-c .dlg-content .list-c .list .el-checkbox[data-v-2c30eb30] {
+  width: 33%;
+  margin-bottom: 6px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0px;
+  height: 22px;
+}
+.special-select-c .dlg-content .list-c .list .el-checkbox[data-v-2c30eb30] .el-checkbox__input {
+  margin-top: 2px;
+}
+.special-select-c .dlg-content .list-c .list .el-checkbox[data-v-2c30eb30] .el-checkbox__label {
+  width: calc(100% - 24px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.special-select-c .dlg-content .tips-remaining[data-v-2c30eb30] {
+  color: #101010;
+  font-size: 14px;
+  font-family: SourceHanSansSC;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 16px;
+}
+.special-select-c .dlg-content .btn-c[data-v-2c30eb30] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.special-select-c .dlg-content .btn-c .btn[data-v-2c30eb30] {
+  color: #020004;
+  background-color: #c2c7cc;
+  border-color: #c2c7cc;
+}
+.special-select-c .dlg-content .btn-c .btn.confirm-btn[data-v-2c30eb30] {
+  color: #fff;
+  background-color: #389e0d;
+  border-color: #389e0d;
+  margin-right: 10px;
+}
+@media only screen and (max-width: 767px) {
+.special-select-c[data-v-2c30eb30] {
+    border: none;
+    background: #f5f5f6;
+    border-radius: 0;
+    padding: 12px 12px;
+    margin-bottom: 20px;
+    width: calc(100% + 2em);
+    margin-left: -1em;
+}
+.special-select-c .head[data-v-2c30eb30] {
+    justify-content: flex-start;
+}
+.special-select-c .head .head-r[data-v-2c30eb30] {
+    margin-left: 10px;
+}
+.special-select-c .repo-c .item-container[data-v-2c30eb30] {
+    width: 50% !important;
+    padding: 8px !important;
+}
+.special-select-c .repo-c .item-container[data-v-2c30eb30]:nth-child(2n+1) {
+    padding-left: 2px !important;
+}
+.special-select-c .repo-c .item-container[data-v-2c30eb30]:nth-child(2n) {
+    padding-right: 2px !important;
+}
+.special-select-c .repo-c .item-container .repo-item[data-v-2c30eb30] {
+    background-color: white;
+}
+.special-select-c .model-c .item-container[data-v-2c30eb30],
+  .special-select-c .dataset-c .item-container[data-v-2c30eb30] {
+    width: 100% !important;
+    padding: 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+.special-select-c .model-c .item-container .item[data-v-2c30eb30],
+  .special-select-c .dataset-c .item-container .item[data-v-2c30eb30] {
+    background-color: white;
+}
+.model-dlg[data-v-2c30eb30] .el-dialog {
+    width: 95% !important;
+}
+.model-dlg[data-v-2c30eb30] .el-dialog .dlg-content {
+    padding: 20px 20px 20px 20px !important;
+}
+.model-dlg[data-v-2c30eb30] .el-dialog .dlg-content .el-checkbox-group .el-checkbox {
+    width: 100%;
+}
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/LabelSelect.vue?vue&type=style&index=0&id=0ba21ab3&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.label-select-c[data-v-0ba21ab3] {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  max-height: 74px;
+  overflow: hidden;
+  padding-right: 56px;
+  margin: 16px 0;
+}
+.label-select-c.expand[data-v-0ba21ab3] {
+  max-height: none;
+}
+.label-select-c .label-item[data-v-0ba21ab3] {
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  color: #415058;
+  font-family: Microsoft Yahei;
+  font-size: 14px;
+  padding: 0.3em 0.5em;
+  height: 30px;
+  text-align: center;
+  margin: 0.2em;
+  max-width: 100%;
+  display: inline-flex;
+  cursor: pointer;
+}
+.label-select-c .label-item.active[data-v-0ba21ab3] {
+  background-color: #0366d6 !important;
+  color: #fff !important;
+}
+.label-select-c .label-item[data-v-0ba21ab3]:hover {
+  color: #1e70bf;
+}
+.label-select-c .expand-btn[data-v-0ba21ab3] {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  height: 33px;
+  overflow: hidden;
+}
+.label-select-c .expand-btn span[data-v-0ba21ab3] {
+  margin: 0 5px 0 5px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0366d6;
+  cursor: pointer;
+  background-color: white;
+}
+.label-select-c .expand-btn span i[data-v-0ba21ab3] {
+  margin-right: 4px;
+}
+
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/Members.vue?vue&type=style&index=0&id=f3854888&scoped=true&lang=less ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.members-c .members-head[data-v-f3854888] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+.members-c .members-head .members-head-l[data-v-f3854888] {
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-size: 16px;
+  font-weight: 700;
+}
+.members-c .members-head .members-head-l .icon[data-v-f3854888] {
+  font-size: 24px;
+}
+.members-c .members-head .members-head-r[data-v-f3854888] {
+  display: flex;
+  align-items: center;
+  color: #888888;
+  font-size: 14px;
+}
+.members-c .members-head .members-head-r[data-v-f3854888]:hover {
+  color: rgba(136, 136, 136, 0.8);
+}
+.members-c .members-head .members-head-r .icon[data-v-f3854888] {
+  font-size: 20px;
+}
+.members-c .members-list[data-v-f3854888] {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.members-c .members-list .members-item[data-v-f3854888] {
+  height: 45px;
+  width: 45px;
+  margin: 4px;
+}
+.members-c .members-list .members-item img[data-v-f3854888] {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/Teams.vue?vue&type=style&index=0&id=63c6ac99&scoped=true&lang=less ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.teams-c .teams-head[data-v-63c6ac99] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+.teams-c .teams-head .teams-head-l[data-v-63c6ac99] {
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-size: 16px;
+  font-weight: 700;
+}
+.teams-c .teams-head .teams-head-l .icon[data-v-63c6ac99] {
+  font-size: 24px;
+}
+.teams-c .teams-head .teams-head-r[data-v-63c6ac99] {
+  display: flex;
+  align-items: center;
+  color: #888888;
+  font-size: 14px;
+}
+.teams-c .teams-head .teams-head-r[data-v-63c6ac99]:hover {
+  color: rgba(136, 136, 136, 0.8);
+}
+.teams-c .teams-head .teams-head-r .icon[data-v-63c6ac99] {
+  font-size: 20px;
+}
+.teams-c .teams-list[data-v-63c6ac99] {
+  margin-bottom: 6px;
+  padding: 0 8px;
+}
+.teams-c .teams-list .teams-item[data-v-63c6ac99] {
+  margin-bottom: 8px;
+}
+.teams-c .teams-list .teams-item > div[data-v-63c6ac99] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.teams-c .teams-list .teams-item > div a[data-v-63c6ac99] {
+  color: #0366d6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.teams-c .teams-list .teams-item > div a[data-v-63c6ac99]:hover {
+  opacity: 0.8;
+}
+.teams-c .teams-list .teams-item p a[data-v-63c6ac99] {
+  color: #101010;
+  font-size: 14px;
+  line-height: 20px;
+}
+.teams-c .teams-list .teams-item p a[data-v-63c6ac99]:hover {
+  opacity: 0.8;
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/repos/square/components/Item.vue?vue&type=style&index=0&id=5f1aa890&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.item[data-v-5f1aa890] {
+  display: flex;
+  width: 100%;
+  min-height: 146px;
+  box-shadow: 0px 4px 4px 0px rgba(16, 16, 16, 0.1);
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+  background: linear-gradient(176.14deg, #e9f7ff 0.84%, #ffffff 54.19%);
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+.item[data-v-5f1aa890]:hover {
+  border: 1px solid #0066ff;
+}
+.item:hover .top .top-head .name[data-v-5f1aa890] {
+  color: #0066ff;
+}
+.item .top .top-head[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 55px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 16px;
+}
+.item .top .top-head .icon-c[data-v-5f1aa890] {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+.item .top .top-head .icon-c img[data-v-5f1aa890] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.item .top .top-head .name[data-v-5f1aa890] {
+  color: #0e2545;
+  font-size: 16px;
+  flex: 1;
+  width: 0;
+  display: flex;
+  align-items: center;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-head .name .title-2[data-v-5f1aa890] {
+  margin-right: 3px;
+}
+.item .top .top-head .reconmend-icon[data-v-5f1aa890] {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 19.28px;
+  width: 29.61px;
+}
+.item .top .top-head .reconmend-icon img[data-v-5f1aa890] {
+  height: 100%;
+  width: 100%;
+}
+.item .top .top-bottom[data-v-5f1aa890] {
+  padding: 16px;
+  padding-top: 12px;
+  padding-bottom: 0px;
+}
+.item .top .top-bottom .labels[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item .top .top-bottom .labels .label[data-v-5f1aa890] {
+  border-radius: 3px;
+  color: rgba(16, 16, 16, 0.7);
+  font-size: 12px;
+  padding: 0px 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .top .top-bottom .labels .label.normal[data-v-5f1aa890] {
+  background-color: rgba(16, 16, 16, 0.05);
+}
+.item .top .top-descr[data-v-5f1aa890] {
+  padding: 0 16px;
+}
+.item .top .top-descr .descr[data-v-5f1aa890] {
+  color: rgba(16, 16, 16, 0.75);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 40px;
+  white-space: break-spaces;
+}
+.item .footer[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 6px 16px 10px 16px;
+}
+.item .footer .footer-l[data-v-5f1aa890] {
+  font-size: 12px;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #888888;
+  display: flex;
+  align-items: center;
+}
+.item .footer .footer-l .avatar-c[data-v-5f1aa890] {
+  margin-right: 4px;
+  display: inline-block;
+  height: 24px;
+}
+.item .footer .footer-l .avatar-c .avatar[data-v-5f1aa890] {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+}
+.item .footer .footer-l .greenPoint[data-v-5f1aa890] {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  background-color: #5dbf77;
+  border-radius: 50%;
+}
+.item .footer .footer-r[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.item .footer .footer-r .line[data-v-5f1aa890] {
+  height: 16px;
+  margin-left: 8px;
+  border-right: 1px solid rgba(16, 16, 16, 0.1);
+}
+.item .footer .footer-r .r-item[data-v-5f1aa890] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+.item .footer .footer-r .r-item i[data-v-5f1aa890] {
+  margin-right: 5px;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/RepoList.vue?vue&type=style&index=0&id=623ee2c6&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container[data-v-623ee2c6] {
+  margin-top: 16px;
+}
+.list-container .list-head[data-v-623ee2c6] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.list-container .list-head .title[data-v-623ee2c6] {
+  color: #101010;
+  font-size: 24px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+  line-height: 35px;
+}
+.list-container .list-head .title-r[data-v-623ee2c6] {
+  display: flex;
+  align-items: center;
+}
+.list-container .list-head .title-r .search-c[data-v-623ee2c6] {
+  margin-right: 16px;
+}
+.list-container .list-head .title-r .search-c .el-input .el-button[data-v-623ee2c6] {
+  color: #101010;
+}
+.list-container .list-item-container[data-v-623ee2c6] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.list-container .list-item-container .item-container[data-v-623ee2c6] {
+  width: 100%;
+}
+.center[data-v-623ee2c6] {
+  text-align: center;
+}
+.no-data[data-v-623ee2c6] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+  margin-top: -10px;
+}
+.no-data .item-empty[data-v-623ee2c6] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-623ee2c6] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-623ee2c6] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+.sort-c[data-v-623ee2c6] {
+  color: #101010;
+  cursor: pointer;
+}
+[data-v-623ee2c6] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 850px) {
+[data-v-623ee2c6] .el-pagination__total,[data-v-623ee2c6] .el-pagination__jump {
+    display: none !important;
+}
+.list-container .list-head .title[data-v-623ee2c6] {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.list-container .list-head .title-r[data-v-623ee2c6] {
+    width: 0;
+    flex: 1;
+}
+.list-container .list-head .title-r .search-c[data-v-623ee2c6] {
+    width: 0;
+    flex: 1;
+    margin-right: 8px;
+}
+}
+@media only screen and (max-width: 1200px) {
+.list-item-container .item-container[data-v-623ee2c6] {
+    margin-bottom: 20px;
+}
+}
+@media only screen and (min-width: 1200px) {
+.list-item-container .item-container[data-v-623ee2c6] {
+    width: 50% !important;
+    padding: 14px;
+}
+.list-item-container .item-container[data-v-623ee2c6]:nth-child(odd) {
+    padding-left: 0;
+}
+.list-item-container .item-container[data-v-623ee2c6]:nth-child(even) {
+    padding-right: 0;
+}
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/ModelList.vue?vue&type=style&index=0&id=3de3af6c&scoped=true&lang=less ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container .list-head[data-v-3de3af6c] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.list-container .list-head .title[data-v-3de3af6c] {
+  color: #101010;
+  font-size: 24px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+  line-height: 35px;
+}
+.list-container .list-head .title-r[data-v-3de3af6c] {
+  display: flex;
+  align-items: center;
+}
+.list-container .list-head .title-r .search-c[data-v-3de3af6c] {
+  margin-right: 16px;
+}
+.list-container .list-head .title-r .search-c .el-input .el-button[data-v-3de3af6c] {
+  color: #101010;
+}
+.list-container .list-item-container[data-v-3de3af6c] {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 120px;
+}
+.list-container .list-item-container .item-container[data-v-3de3af6c] {
+  width: 33.3%;
+  padding: 12px;
+}
+.list-container .list-item-container .item-container[data-v-3de3af6c]:nth-child(3n+1) {
+  padding-left: 0;
+}
+.list-container .list-item-container .item-container[data-v-3de3af6c]:nth-child(3n) {
+  padding-right: 0;
+}
+.center[data-v-3de3af6c] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-3de3af6c] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-3de3af6c] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-3de3af6c] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-3de3af6c] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+.sort-c[data-v-3de3af6c] {
+  color: #101010;
+  cursor: pointer;
+}
+[data-v-3de3af6c] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 767px) {
+[data-v-3de3af6c] .el-pagination__total,[data-v-3de3af6c] .el-pagination__jump {
+    display: none !important;
+}
+.list-container .list-head .title[data-v-3de3af6c] {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.list-container .list-head .title-r[data-v-3de3af6c] {
+    width: 0;
+    flex: 1;
+}
+.list-container .list-head .title-r .search-c[data-v-3de3af6c] {
+    width: 0;
+    flex: 1;
+    margin-right: 8px;
+}
+.list-container .list-item-container .item-container[data-v-3de3af6c] {
+    width: 100% !important;
+    padding: 8px !important;
+}
+}
+@media only screen and (min-width: 767px) and (max-width: 1440px) {
+.list-item-container .item-container[data-v-3de3af6c] {
+    width: 50% !important;
+}
+.list-item-container .item-container[data-v-3de3af6c]:nth-child(2n+1) {
+    padding-left: 0 !important;
+    padding-right: 12px !important;
+}
+.list-item-container .item-container[data-v-3de3af6c]:nth-child(2n) {
+    padding-left: 12px !important;
+    padding-right: 0 !important;
+}
+}
+
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/components/DatasetList.vue?vue&type=style&index=0&id=7536484e&scoped=true&lang=less ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.list-container .list-head[data-v-7536484e] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.list-container .list-head .title[data-v-7536484e] {
+  color: #101010;
+  font-size: 24px;
+  font-family: SourceHanSansSC;
+  font-weight: 500;
+  line-height: 35px;
+}
+.list-container .list-head .title-r[data-v-7536484e] {
+  display: flex;
+  align-items: center;
+}
+.list-container .list-head .title-r .search-c[data-v-7536484e] {
+  margin-right: 16px;
+}
+.list-container .list-head .title-r .search-c .el-input .el-button[data-v-7536484e] {
+  color: #101010;
+}
+.list-container .list-item-container[data-v-7536484e] {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 120px;
+}
+.list-container .list-item-container .item-container[data-v-7536484e] {
+  width: 33.3%;
+  padding: 12px;
+}
+.list-container .list-item-container .item-container[data-v-7536484e]:nth-child(3n+1) {
+  padding-left: 0;
+}
+.list-container .list-item-container .item-container[data-v-7536484e]:nth-child(3n) {
+  padding-right: 0;
+}
+.center[data-v-7536484e] {
+  text-align: center;
+  margin-top: 10px;
+}
+.no-data[data-v-7536484e] {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+  width: 100%;
+}
+.no-data .item-empty[data-v-7536484e] {
+  height: 391px;
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(245, 245, 246, 0.5);
+}
+.no-data .item-empty .item-empty-icon[data-v-7536484e] {
+  height: 80px;
+  width: 100%;
+  background: url(/img/empty-box.svg) center center no-repeat;
+}
+.no-data .item-empty .item-empty-tips[data-v-7536484e] {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #3f3f40;
+}
+.sort-c[data-v-7536484e] {
+  color: #101010;
+  cursor: pointer;
+}
+[data-v-7536484e] .el-dropdown-menu__item.active {
+  color: #409EFF;
+  background-color: rgba(179, 216, 255, 0.3);
+}
+@media only screen and (max-width: 767px) {
+[data-v-7536484e] .el-pagination__total,[data-v-7536484e] .el-pagination__jump {
+    display: none !important;
+}
+.list-container .list-head .title[data-v-7536484e] {
+    font-size: 16px;
+    margin-right: 8px;
+}
+.list-container .list-head .title-r[data-v-7536484e] {
+    width: 0;
+    flex: 1;
+}
+.list-container .list-head .title-r .search-c[data-v-7536484e] {
+    width: 0;
+    flex: 1;
+    margin-right: 8px;
+}
+.list-container .list-item-container .item-container[data-v-7536484e] {
+    width: 100% !important;
+    padding: 8px !important;
+}
+}
+@media only screen and (min-width: 767px) and (max-width: 1440px) {
+.list-item-container .item-container[data-v-7536484e] {
+    width: 50% !important;
+}
+.list-item-container .item-container[data-v-7536484e]:nth-child(2n+1) {
+    padding-left: 0 !important;
+    padding-right: 12px !important;
+}
+.list-item-container .item-container[data-v-7536484e]:nth-child(2n) {
+    padding-left: 12px !important;
+    padding-right: 0 !important;
+}
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/components/cloudbrain/LoadingMask.vue?vue&type=style&index=0&id=6de925a6&scoped=true&lang=less ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.loading-mask[data-v-6de925a6] {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  filter: alpha(opacity=60);
+  background-color: rgba(119, 119, 119, 0.8);
+  z-index: 9999;
+  color: #000000;
+}
+.loading-mask .loading-wrap[data-v-6de925a6] {
+  width: 20%;
+  height: 25%;
+  min-width: 360px;
+  min-height: 205px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.loading-mask .loading-wrap .loading-icon[data-v-6de925a6] {
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+  display: block;
+}
+.loading-mask .loading-wrap .loading-icon > div[data-v-6de925a6] {
+  background-color: green;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  animation: sk-stretchdelay-data-v-6de925a6 1.2s infinite ease-in-out;
+}
+.loading-mask .loading-wrap .loading-icon .rect2[data-v-6de925a6] {
+  animation-delay: -1.1s;
+}
+.loading-mask .loading-wrap .loading-icon .rect3[data-v-6de925a6] {
+  animation-delay: -1s;
+}
+.loading-mask .loading-wrap .loading-icon .rect4[data-v-6de925a6] {
+  animation-delay: -0.9s;
+}
+.loading-mask .loading-wrap .loading-icon .rect5[data-v-6de925a6] {
+  animation-delay: -0.8s;
+}
+.loading-mask .loading-wrap .loading-tips[data-v-6de925a6] {
+  margin-top: 10%;
+  font-size: 14px;
+  color: #101010;
+  font-family: SourceHanSansSC-regular;
+  text-align: center;
+  padding: 0 16px;
+}
+@keyframes sk-stretchdelay-data-v-6de925a6 {
+0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+}
+20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+}
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/storage/index.vue?vue&type=style&index=0&id=6832c806&scoped=true&lang=less ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.__flex-1[data-v-6832c806] {
+  flex: 1;
+}
+.__reward-pointer-c .__r_p_header[data-v-6832c806] {
+  height: 30px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.__reward-pointer-c .__r_p_header .__title[data-v-6832c806] {
+  font-weight: 400;
+  font-size: 18px;
+  color: #101010;
+  line-height: 26px;
+}
+.__reward-pointer-c .__r_p_summary[data-v-6832c806] {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  background-color: #f5f5f6;
+  width: 100%;
+  padding: 0 26px;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary-item[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary-item .__r_p_summary-progress[data-v-6832c806] {
+  position: relative;
+  width: 80%;
+  height: 15px;
+  transition: border-color 0.3s ease;
+  overflow: hidden;
+  /* 防止子元素溢出 */
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary-item .__r_p_summary-progress .__r_p-data-usage[data-v-6832c806],
+.__reward-pointer-c .__r_p_summary .__r_p_summary-item .__r_p_summary-progress .__r_p-model-usage[data-v-6832c806] {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  transition: all 0.3s ease;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_summary-item .__r_p_summary-total[data-v-6832c806] {
+  margin-left: 15px;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_-storage-info[data-v-6832c806] {
+  display: flex;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_-storage-info .__r_p_-storage-item[data-v-6832c806] {
+  margin-right: 30px;
+  color: #101010;
+  display: flex;
+  align-items: center;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_-storage-info .__r_p_-storage-item .color-block[data-v-6832c806] {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 6px;
+}
+.__reward-pointer-c .__r_p_summary .__r_p_-storage-info .__r_p_-storage-item ._ehance-color[data-v-6832c806] {
+  font-weight: 600;
+}
+.__reward-pointer-c .__r_p_summary .__r_p-total-usage[data-v-6832c806] {
+  background-color: #fbfbfb;
+  border: 1px solid #bbbbbb;
+}
+.__reward-pointer-c .__r_p_summary .__r_p-data-usage[data-v-6832c806] {
+  background-color: #16a6fc;
+}
+.__reward-pointer-c .__r_p_summary .__r_p-model-usage[data-v-6832c806] {
+  background-color: #00d795;
+}
+.__r_p_tab[data-v-6832c806] {
+  display: flex;
+  margin: 18px 0;
+}
+.__r_p_tab .__r_p_tab-item[data-v-6832c806] {
+  width: 115px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e1e3e6;
+  color: #101010;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.__r_p_tab .__r_p_tab-item.__focus[data-v-6832c806] {
+  border-color: #3291f8;
+  color: #3291f8;
+  cursor: default;
+}
+.__r_p_table[data-v-6832c806] .el-table__header th {
+  background: #f5f5f6;
+  color: #606266;
+  font-weight: 400;
+  font-size: 14px;
+}
+.__r_p_table .diy-popper[data-v-6832c806] {
+  max-width: 400px;
+}
+.__r_p_table .dataset-name-wrap[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+}
+.__r_p_table .__item-name[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+}
+.__r_p_table .__item-name span[data-v-6832c806] {
+  margin: 0 6px;
+}
+.__r_p_table .clipboard-model-name[data-v-6832c806] {
+  margin-left: 5px;
+  color: #919191;
+  cursor: pointer;
+}
+.__r_p_table .op-wrap[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.__r_p_table .op-wrap a[data-v-6832c806] {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #1678c2;
+}
+.__r_p_table .op-wrap a.disabled[data-v-6832c806] {
+  color: rgba(0, 0, 0, 0.87);
+}
+.__r_p_pagination .list-foot[data-v-6832c806] {
+  display: flex;
+  justify-content: space-between;
+  /* 初始设置为两端对齐 */
+  align-items: center;
+  /* 垂直方向居中 */
+  margin-top: 20px;
+}
+.__r_p_pagination .list-foot .left-btn[data-v-6832c806] {
+  border-color: #ff4d4f;
+  color: #ff4d4f;
+}
+.__r_p_pagination .list-foot .center-btn[data-v-6832c806] {
+  margin-right: auto;
+  margin-left: auto;
+}
+.datset-status[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+}
+.datset-status .down-wrap[data-v-6832c806] {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+.datset-status .down-wrap i[data-v-6832c806] {
+  font-size: 10px;
+}
+.datset-status a[data-v-6832c806] {
+  flex-shrink: 0;
+  color: #fedd59;
+  margin-left: 8px;
+}
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-4.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-4.use[2]!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./web_src/vuepages/pages/organization/home/index.vue?vue&type=style&index=0&id=b8d70c74&scoped=true&lang=less ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.org-area-c[data-v-b8d70c74] {
+  display: flex;
+}
+.org-area-c .org-area-l[data-v-b8d70c74] {
+  width: 0;
+  flex: 1;
+}
+.org-area-c .org-area-r[data-v-b8d70c74] {
+  margin-left: 28px;
+  width: 320px;
+}
+.org-area-c .org-area-r .line[data-v-b8d70c74] {
+  border-bottom: 1px solid #e1e3e6;
+  margin: 16px 0;
+}
+@media only screen and (max-width: 767px) {
+.org-area-r[data-v-b8d70c74] {
+    display: none;
+}
+}
+

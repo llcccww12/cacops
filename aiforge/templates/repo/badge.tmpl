@@ -1,0 +1,25 @@
+<div class="badge-achive">
+	{{range .AllBadges }}
+	<div class="bagde-section">
+		<div class="badge-section-title">{{.CategoryName}} &nbsp; (已点亮 {{.LightedNum}} 个)</div>
+		<div class="badge-section-children">
+			<div class="badge-honor-badge">
+				<div class="badge-honor-badge-basic">
+					{{range .Badges }}
+					<a class="badge-honor-badge-basic-item {{if not .Badge.Url}} is-not-pointer {{end}}" href="{{.Badge.Url}}">
+                        {{if .IsLighted}}
+						<img  src="{{.Badge.LightedIcon}}" alt=""  class="badge-honor-badge-basic-img" />
+						{{else}}
+						<img src="{{.Badge.GreyedIcon}}" alt="" class="badge-honor-badge-basic-img" />
+						{{ end }}
+						<div class="badge-honor-badge-basic-txt">{{.Badge.Name}}</div>
+					</a>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ end }}
+	{{ template "base/paginate" . }}
+</div>
+

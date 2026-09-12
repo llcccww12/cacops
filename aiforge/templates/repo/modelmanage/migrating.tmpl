@@ -1,0 +1,6 @@
+{{template "base/head" .}}
+<link rel="stylesheet" href="{{StaticUrlPrefix}}/css/vp-model-migrating.css?v={{MD5 AppVer}}" />
+<script>window.REPO_IS_PRIVATE = {{$.Repository.IsPrivate}};</script>
+<div id="__vue-root"></div>
+<script src="{{StaticUrlPrefix}}/js/vp-model-migrating.js?v={{MD5 AppVer}}"></script>
+{{template "base/footer" .}}

@@ -1,0 +1,69 @@
+<div class="computer only four wide computer column">
+    <div class="ui grid">
+        <div class="ui sixteen wide column">
+            <h2 class="ui medium header" style="margin-top: 0;visibility: hidden;" >
+                {{.i18n.Tr "datasets"}}
+            </h2>
+            <div id="task-square-range-value" style="display: none;">
+                {{range $task := tasks}}
+                <div class="item" data-task='{{$task}}'></div>
+                {{end}}
+            </div>
+            <div id="square-link" style="display: none;" data-link="{{$.Link}}"></div>
+            <div id="licenses-square-range-value" style="display: none;">
+                {{range $license := licenses}}
+                <div class="item" data-license="{{$license}}"></div>
+                {{end}}
+            </div>
+            <div class="mg-b-2">
+                <div class="flex mg-b-1">
+                    <h3 class="font-medium">
+                        {{.i18n.Tr "dataset.category"}}
+                        {{if $.Category}}
+                        <span class="mg-l-1 underline text-gray-400 text-sm clear_dataset_value" data-clear-value="category"style="cursor: pointer;" >Clear</span>
+                        {{end}}
+                    </h3>
+                </div>
+                <div class="flex flex-wrap">
+                    {{range $category := categories}}
+                    {{$Cate := $.i18n.Tr (printf "dataset.category.%s" $category)}}
+                    <a class="tag  tag-gray" href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{$category}}&task={{$.Task}}&license={{$.License}}"><span>{{$Cate}}</span></a>
+                    {{end}}
+                    
+                </div>
+            </div>
+            <div class="mg-b-2">
+                <div class="flex mg-b-1">
+                    <h3 class="font-medium">
+                        {{.i18n.Tr "dataset.task"}}
+                        {{if $.Task}}
+                        <span class="mg-l-1 underline text-gray-400 text-sm clear_dataset_value" data-clear-value="task" style="cursor: pointer;" >Clear</span>
+                        {{end}}
+                    </h3>
+                </div>
+                <div class="flex flex-wrap history-content">
+                    {{range $task := tasks}}
+                    {{$Task := $.i18n.Tr (printf "dataset.task.%s" $task)}}
+                    <a class="tag tag-gray" href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$task}}&license={{$.License}}"><span>{{$Task}}</span></a>
+                    {{end}}
+                </div>
+            </div>
+            <div class="mg-b-2">
+                <div class="flex mg-b-1">
+                    <h3 class="font-medium">
+                        {{.i18n.Tr "repo.license"}}
+                        {{if $.License}}
+                        <span class="mg-l-1 underline text-gray-400 text-sm clear_dataset_value" data-clear-value="license" style="cursor: pointer;" >Clear</span>
+                        {{end}}
+                    </h3>
+                </div>
+                <div class="flex flex-wrap">
+                    {{range $license := licenses}}
+                    <a class="tag {{if eq $license $.License}} tag-active {{else}} tag-gray {{end}}" href="{{$.Link}}?sort={{$.SortType}}&q={{$.Keyword}}&tab={{$.TabName}}&category={{$.Category}}&task={{$.Task}}&license={{$license}}"><span>{{$license}}</span></a>
+                    {{end}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

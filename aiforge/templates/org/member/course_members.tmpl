@@ -1,0 +1,129 @@
+<style>
+    .organization-header{
+        margin-bottom: 0px !important;
+        border-bottom:none !important
+    }
+	.course_header{
+		color: rgba(3, 102, 214, 100);
+		font-size: 16px;
+		text-align: left;
+		font-family: SourceHanSansSC-medium;
+		font-weight: bolder;
+		vertical-align: bottom;
+	}
+	.meb_label{
+		border-radius: 5px;
+		background-color: rgba(255, 255, 255, 100) !important;
+		color: rgba(255, 255, 255, 100);
+		font-size: 12px;
+		text-align: center;
+		font-family: Roboto;
+		border: 1px solid rgba(212, 212, 213, 100) !important;
+		margin-left: 1em !important;
+	}
+	.ui.small.label.topic {
+    	margin-bottom: 0px !important;
+	}
+	.cor{
+		color:#888888 !important
+	}
+	.card_course{
+		padding:1em;
+		border: 1px solid #F5F5F6;
+		margin:1em;box-shadow: 0px 4px 4px 0px rgba(232, 232, 232, 60);
+		border-radius: 5px;border: 1px solid rgba(232, 232, 232, 100);
+		display: flex; width:calc(33.33333333333333% - 2em)
+	}
+	.button_leaveOrg{
+		position:absolute;right: -1px;top:0px;
+	}
+	.bt_mr{
+		margin-right: 0px !important;
+		font-size: 12px !important;
+		padding: 5px !important;
+	}
+</style>
+
+{{template "base/head" .}}
+<!-- 提示框 -->
+<div class="alert"></div>
+<div class="organization members">
+	{{template "org/header" .}}
+	{{template "org/navber_course" .}}
+	<div class="ui container">
+		{{template "base/alert" .}}
+		<div class="ui stackable grid">
+		
+		
+			<div class="ui sixteen wide computer column list">
+				<div class="ui three cards" >
+				{{ range .Members}}			
+					<div  class="card_course" style="position: relative;" id = "{{.ID}}" onmouseover ="show_bt( {{.ID}}  )" onmouseout="hide_bt({{.ID}})">
+						<div >
+							<img class="ui avatar " style="width: 45px;height:45px;margin-top: 2px;" src="{{.SizedRelAvatarLink 48}}">
+							
+							<div class="meta" style="text-align: center; margin-top: 0.5em;">
+								{{ $isPublic := index $.MembersIsPublicMember .ID}}
+								{{if $isPublic}}
+									{{if or (eq $.SignedUser.ID .ID) $.IsOrganizationOwner}} <a class="link-action"  href data-url="{{$.OrgLink}}/members/action/private?uid={{.ID}}">{{$.i18n.Tr "org.members.public_helper"}}</a> {{end}}
+								{{else}}
+									{{if or (eq $.SignedUser.ID .ID) $.IsOrganizationOwner}} <a class="link-action"   href data-url="{{$.OrgLink}}/members/action/public?uid={{.ID}}">{{$.i18n.Tr "org.members.private_helper"}}</a> {{end}}
+								{{end}}
+							</div>
+						</div>
+						
+						<div  style="padding-left: 0.8em;">
+							<div>
+								<a  href="{{.HomeLink}}" class="course_header"> {{.Name}}</a> 
+					
+								<div class="ui small label topic meb_label" >
+									{{if index $.MembersIsUserOrgOwner .ID}} {{$.i18n.Tr "org.members.owner"}}{{else}}{{$.i18n.Tr "org.members.member"}}{{end}}
+								</div>
+							</div>
+		
+							<div class="meta" style="margin-top: 0.5em;">
+								{{.FullName}}
+							</div>
+
+							<div class="meta" style="margin-top: 0.5em;">
+								{{svg "octicon-mail" 16}}
+								<a  class="cor" href="mailto:{{.Email}}" rel="nofollow"> {{.Email}}</a>
+							</div>
+							
+						</div>
+						<div class="button_leaveOrg" style="display:none" >
+							{{if eq $.SignedUser.ID .ID}}
+								<form method="post" action="{{$.OrgLink}}/members/action/leave">
+									{{$.CsrfTokenHtml}}
+									<button type="submit" class="ui red basic button bt_mr" name="uid" value="{{.ID}}">{{$.i18n.Tr "org.course_members.leave"}}</button>
+								</form>
+							{{else if $.IsOrganizationOwner}}
+								<form method="post" action="{{$.OrgLink}}/members/action/remove">
+									{{$.CsrfTokenHtml}}
+									<button type="submit" class="ui red basic  button bt_mr" name="uid" value="{{.ID}}">{{$.i18n.Tr "org.course_members.remove"}}</button>
+								</form>
+							{{end}}
+						</div>
+					</div>
+					
+				{{end}}
+					
+			</div>
+		</div>
+			
+			{{template "base/paginate" .}}
+		</div>
+		
+	</div>
+</div>
+{{template "base/footer" .}}
+
+<script>
+	function show_bt(bt_id){
+		document.getElementById(""+bt_id).getElementsByClassName("button_leaveOrg")[0].style.display="inline-block";
+	
+	}
+	function hide_bt(bt_id){
+		document.getElementById(""+bt_id).getElementsByClassName("button_leaveOrg")[0].style.display="none";
+	}
+</script>

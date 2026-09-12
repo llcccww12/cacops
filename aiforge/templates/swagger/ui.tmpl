@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenI API</title>
+    <!-- 先加载 Swagger UI 的 CSS -->
+    <link href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" rel="stylesheet">
+    <style>
+        html {
+          box-sizing: border-box;
+          overflow-y: scroll;
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        body {
+          margin: 0;
+          background: #fff;
+        }
+        .swagger-back-link {
+            color: #1f69c0;
+            text-decoration: none;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .swagger-back-link svg {
+            color: inherit;
+            fill: currentColor;
+            margin-right: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <a class="swagger-back-link" href="{{AppUrl}}">{{svg "octicon-reply" 16}}{{.i18n.Tr "return"}}</a>
+    <div id="swagger-ui" data-source="{{AppUrl}}swagger.{{.APIJSONVersion}}.json"></div>
+
+    <!-- 1. 先加载 Swagger UI 的 JS 库 -->
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
+    <!-- 2. 然后执行初始化代码 -->
+    <script>
+        window.addEventListener('load', async () => {
+            const url = document.getElementById('swagger-ui').dataset.source;
+            const res = await fetch(url);
+            const spec = await res.json();
+
+            // Make the page's protocol be at the top of the schemes list
+            const proto = window.location.protocol.slice(0, -1);
+            spec.schemes.sort((a, b) => {
+                if (a === proto) return -1;
+                if (b === proto) return 1;
+                return 0;
+            });
+
+            const ui = SwaggerUIBundle({
+                spec,
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                SwaggerUIBundle.presets.apis
+                ],
+                plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl
+                ]
+            });
+
+            window.ui = ui;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<span>
+  <i class="question circle icon indicators_descr" style="cursor:pointer;"></i>
+  <div class="ui flowing popup bottom left transition hidden" style="inset: 564px auto auto 1px; width: 920px">
+      <table class="ui celled table">
+          <thead>
+              <tr>
+                  <th style="width:80px;">指标</th>
+                  <th>说明</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td data-label="指标">ACC</td>
+                  <td data-label="说明" indicator="ACC">Accuracy：精确度，计算模型预测准确率，该指标越高，说明评测结果越好。</td>
+              </tr>
+             <!-- <tr>
+                  <td data-label="指标">CAV</td>
+                  <td data-label="说明" indicator="CAV">Classification Accuracy Variance：用于评估深度学习模型性能的最重要指标为准确性。该指标值越高，说明评测结果越好。</td>
+              </tr>  -->
+              <tr>
+                  <td data-label="指标">ASS</td>
+                  <td data-label="说明" indicator="ASS">Average Structural Similarity：所有攻击成功对抗样本与其原始样本间的平均相似性。该指标越大，说明评测结果越好。</td>
+              </tr>
+              <tr>
+                  <td data-label="指标">ALDp</td>
+                  <td data-label="说明" indicator="ALDp">Average LpDistortion：为所有攻击成功的对抗样本的平均归一化Lp失真度，ALDp值越小，对抗样本的不可感知性越强。</td>
+              </tr>
+              
+              <tr>
+                  <td data-label="指标">ACAC</td>
+                  <td data-label="说明" indicator="ACAC">Average Confidence of Adversarial Class(ACAC)：这个数值越高，攻击算法的攻击能力越强。</td>
+              </tr> 
+              <!--  <tr>
+                  <td data-label="指标">ACTC</td>
+                  <td data-label="说明" indicator="ACTC">Average Confidence of True Class(ACTC)：这个数值越低，攻击算法的攻击能力越强。</td>
+              </tr>  -->
+              <tr>
+                  <td data-label="指标">PSD</td>
+                  <td data-label="说明" indicator="PSD">Perturbation Sensitivity Distance：用于评测人类对扰动的感知能力。该指标值越大，说明评测结果越差。</td>
+              </tr>
+              <!-- <tr>
+                  <td data-label="指标">CACC</td>
+                  <td data-label="说明" indicator="CACC">Clean ACC：该值计算的是原始未被攻击的样本，使用模型和groundtruth相比较的模型的本身的一个。</td>
+              </tr> -->
+          </tbody>
+      </table>
+  </div>
+</span>
+<script>
+  ;(function() {
+    setTimeout(function(){
+      $('.indicators_descr').popup({
+          inline: true,
+          hoverable: true,
+          position: 'top center',
+          delay: {
+            show: 300,
+            hide: 800
+          }
+      });
+    }, 1000);
+  })();
+</script>

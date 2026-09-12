@@ -1,0 +1,32 @@
+{{if not .IsCourse}}
+    {{ if (and .notices (not .PageIsHome)) }}
+        <div  class="notic_content" id ="notic_content"  style="display: block; position: relative">
+            <div class="ui container">
+                <marquee behavior="scroll" direction="left">
+                        {{ $firstTag := true }}
+                        {{range .notices.Notices}}
+                            {{if eq .Visible 1}}
+                                {{if $firstTag}}
+                                    <a  href={{.Link}} class="a_width" style = 'margin-left: 0px !important;' target="_blank">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        {{.Title}}
+                                    </a>
+                                {{else}}
+                                    <a  href={{.Link}} class="a_width" target="_blank">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        {{.Title}}
+                                    </a>
+                                {{end}}
+                                {{ $firstTag = false }}
+                            {{end}}
+                        {{end}}
+                        
+                </marquee>
+                <div class="item right" style="position:absolute;right: 1px;top:0px;">
+                    <i class="ri-close-fill x_icon" onclick="closeNoice()"></i>
+                </div>
+            </div>
+            
+        </div>
+    {{end}}
+{{end}}

@@ -1,0 +1,424 @@
+<style>
+.repos-search-mobile { 
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.empty-placeholder {
+  width: 185px
+}
+.two-buttons-mobile {
+  height: 66px;
+  display: flex;
+  align-items: center;
+}
+.update_button-mobile, .stars_button-mobile {
+  height: 38px;
+  white-space: nowrap;
+  min-width: 70px;
+  padding: 0 5px;
+  width: auto;
+  text-decoration: none !important;
+  color: rgba(16, 16, 16, 1) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+  font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+  cursor: pointer;
+}
+.update_button-mobile {
+  border-radius: 5px 0px 0px 5px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 102, 255, 1);
+  border: 1px solid rgba(50, 145, 248, 1);
+  
+}
+.stars_button-mobile {
+  border-radius: 0px 5px 5px 0px;
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1);
+  border: 1px solid rgba(214, 215, 217, 1);
+}
+.two-buttons-mobile.swapped .update_button-mobile {
+  background-color: rgba(16, 16, 16, 0.05);
+  color: rgba(16, 16, 16, 1);
+  border: 1px solid #d6d7d9; /* 灰边框 */
+}
+.two-buttons-mobile.swapped .stars_button-mobile {
+  background-color: #fff;
+  color: #0066ff !important;
+  border: 1px solid #3291f8; /* 蓝边框 */
+}
+
+.filter {
+  margin-top: 1.2rem !important;
+}
+.profile-filter { 
+  display: flex;
+  height: 66px;
+  align-items: center;
+  margin: 0;
+  width: 60%;
+}
+.profile-filter .button {
+  background-color: rgba(16,16,16,0.05) !important;
+  color: rgba(16,16,16,1) !important;
+  border: 1px solid rgba(214,215,217,1) !important;
+}
+.profile-filter .input { 
+  width: 60%;
+}
+
+.search_filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+
+#search-input-form {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* 搜索图标样式 */
+.search-icon {
+  cursor: pointer;
+  padding: 14px 10px 10px 10px;
+  transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+  background-color: rgba(16,16,16,0.1);
+}
+
+.search-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: rgba(16,16,16,0.6);
+}
+
+/* 搜索输入框样式 */
+.search-input-container {
+  position: relative;
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+.search-input-container input {
+  padding-left: 35px !important;
+  border-radius: 5px !important;
+}
+
+.search-input-container .search-icon-inside {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.search-input-container .search-icon-inside svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(16,16,16,0.4);
+}
+
+.search-input-container .clear-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: none;
+}
+
+.search-input-container .clear-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(16,16,16,0.4);
+}
+
+.search-input-container .clear-icon:hover svg {
+  fill: rgba(16,16,16,0.8);
+}
+</style>
+<div class="repos-search-mobile">
+  <div id="sort-buttons" class="two-buttons-mobile {{if eq .TabName "stars"}}swapped{{end}}">
+    <a 
+      class="update_button-mobile"
+      href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab=repository"
+    >
+    {{.i18n.Tr "repo.issues.filter_sort.personalproject"}}
+    </a>
+    <a class="stars_button-mobile" 
+      href="{{$.Link}}?tab=stars&sort=moststars&q={{$.Keyword}}&topic={{$.Topic}}">
+      {{.i18n.Tr "user.starred_project"}}
+    </a>
+  </div>
+
+  
+  <!-- 搜索输入框 -->
+  <form id="search-input-form" class="fourteen wide mobile ten wide tablet ten wide computer column ui form ignore-dirty profile-filter" style="display: none;">
+    <div class="ui fluid action input">
+      <input name="q" value="{{.Keyword}}" placeholder="{{.i18n.Tr "explore.search"}}..." autofocus>
+      <input type="hidden" name="topic" value="{{$.Topic}}">
+      <input type="hidden" name="tab" value="{{$.TabName}}">
+      <input type="hidden" name="sort" value="{{$.SortType}}">
+      <div id="clear-icon" class="clear-icon" style="position: absolute; right: 80px; top: 50%; transform: translateY(-50%); cursor: pointer; display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg>
+      </div>
+      <button class="ui green button">{{.i18n.Tr "explore.search"}}</button>
+    </div>
+  </form>
+
+  <div class="search_filter">
+    <!-- 搜索图标 -->
+    <div id="search-icon-container" class="n" style="display: flex; justify-content: flex-end;">
+      <div id="search-icon" class="search-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z"/></svg>
+      </div>
+    </div>
+
+
+    <!-- Sort -->
+    <div class="ui right dropdown type jump item">
+      <span class="text" id="sort-dropdown-text">
+        {{if eq .SortType "newest"}}
+          {{.i18n.Tr "repo.issues.filter_sort.latest"}}
+        {{else if eq .SortType "oldest"}}
+          {{.i18n.Tr "repo.issues.filter_sort.oldest"}}
+        {{else if eq .SortType "alphabetically"}}
+          {{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}
+        {{else if eq .SortType "reversealphabetically"}}
+          {{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}
+        {{else if eq .SortType "recentupdate"}}
+          {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+        {{else if eq .SortType "leastupdate"}}
+          {{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}
+        {{else if eq .SortType "moststars"}}
+          {{.i18n.Tr "repo.issues.filter_sort.moststars"}}
+        {{else if eq .SortType "feweststars"}}
+          {{.i18n.Tr "repo.issues.filter_sort.feweststars"}}
+        {{else if eq .SortType "mostforks"}}
+          {{.i18n.Tr "repo.issues.filter_sort.mostforks"}}
+        {{else if eq .SortType "fewestforks"}}
+          {{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}
+        {{else}}
+          {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+        {{end}}
+        <i class="dropdown icon"></i>
+      </span>
+      <div class="menu" id="sort-dropdown-menu">
+      <a class="{{if eq .SortType "recentupdate"}}active{{end}} item"
+          href="{{$.Link}}?sort=recentupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}"
+          data-sort="recentupdate"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.recentupdate"}}
+        </a>
+        <a class="{{if eq .SortType "newest"}}active{{end}} item"
+          href="{{$.Link}}?sort=newest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.latest"}}"
+          data-sort="newest"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.latest"}}
+        </a>
+        <a class="{{if eq .SortType "moststars"}}active{{end}} item"
+          href="{{$.Link}}?sort=moststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.moststars"}}"
+          data-sort="moststars"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.moststars"}}
+        </a>
+        <a class="{{if eq .SortType "mostforks"}}active{{end}} item"
+          href="{{$.Link}}?sort=mostforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.mostforks"}}"
+          data-sort="mostforks"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.mostforks"}}
+        </a>
+        <a class="{{if eq .SortType "alphabetically"}}active{{end}} item"
+          href="{{$.Link}}?sort=alphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}"
+          data-sort="alphabetically"
+        >
+          {{.i18n.Tr "repo.issues.label.filter_sort.alphabetically"}}
+        </a>
+        <a class="{{if eq .SortType "reversealphabetically"}}active{{end}} item"
+          href="{{$.Link}}?sort=reversealphabetically&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}"
+          data-sort="reversealphabetically"
+        >
+          {{.i18n.Tr "repo.issues.label.filter_sort.reverse_alphabetically"}}
+        </a>
+        <!-- <a class="{{if eq .SortType "oldest"}}active{{end}} item"
+          href="{{$.Link}}?sort=oldest&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.oldest"}}"
+          data-sort="oldest"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.oldest"}}
+        </a>             
+        <a class="{{if eq .SortType "leastupdate"}}active{{end}} item"
+          href="{{$.Link}}?sort=leastupdate&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}"
+          data-sort="leastupdate"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.leastupdate"}}
+        </a>
+        
+        <a class="{{if eq .SortType "feweststars"}}active{{end}} item"
+          href="{{$.Link}}?sort=feweststars&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.feweststars"}}"
+          data-sort="feweststars"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.feweststars"}}
+        </a>
+        
+        <a class="{{if eq .SortType "fewestforks"}}active{{end}} item"
+          href="{{$.Link}}?sort=fewestforks&q={{$.Keyword}}&topic={{$.Topic}}&tab={{$.TabName}}"
+          data-text="{{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}"
+          data-sort="fewestforks"
+        >
+          {{.i18n.Tr "repo.issues.filter_sort.fewestforks"}}
+        </a> --> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 确保 jQuery 加载完成
+if (typeof jQuery !== 'undefined') {
+  // 当页面加载完成后执行
+  jQuery(document).ready(function($) {
+    // 获取元素
+    var searchIconContainer = $('#search-icon-container');
+    var searchIcon = $('#search-icon');
+    var searchInputForm = $('#search-input-form');
+    var searchInput = searchInputForm.find('input[name="q"]');
+    var clearIcon = $('#clear-icon');
+    var sortButtons = $('#sort-buttons');
+
+    // 搜索图标点击事件
+    searchIcon.click(function() {
+      // 隐藏排序按钮和搜索图标
+      sortButtons.hide();
+      searchIconContainer.hide();
+      // 显示搜索输入框
+      searchInputForm.show();
+      // 聚焦输入框
+      searchInput.focus();
+    });
+
+    // 输入框输入事件
+    searchInput.on('input', function() {
+      // 如果输入框有内容，显示清除图标
+      if ($(this).val().length > 0) {
+        clearIcon.show();
+      } else {
+        clearIcon.hide();
+      }
+    });
+
+    // 清除图标点击事件
+    clearIcon.click(function() {
+      // 清空输入框内容
+      searchInput.val('');      
+    });
+
+    // 初始检查输入框内容
+    if (searchInput.val().length > 0) {
+      clearIcon.show();
+    }
+
+    // 点击空白区域恢复默认状态
+    $(document).click(function(event) {
+      // 检查点击的元素是否是搜索相关的元素
+      if (!searchInputForm.is(event.target) && !searchInputForm.has(event.target).length && 
+          !searchIcon.is(event.target) && !searchIcon.has(event.target).length) {
+        // 如果输入框是显示状态，恢复默认状态
+        if (searchInputForm.is(':visible')) {
+          // 清空输入框内容
+          searchInput.val('');
+          // 隐藏清除图标
+          clearIcon.hide();
+          // 隐藏搜索输入框
+          searchInputForm.hide();
+          // 显示排序按钮和搜索图标
+          sortButtons.show();
+          searchIconContainer.show();
+        }
+      }
+    });
+  });
+} else {
+  // 如果 jQuery 未加载，使用原生 JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    // 获取元素
+    var searchIconContainer = document.getElementById('search-icon-container');
+    var searchIcon = document.getElementById('search-icon');
+    var searchInputForm = document.getElementById('search-input-form');
+    var searchInput = searchInputForm.querySelector('input[name="q"]');
+    var clearIcon = document.getElementById('clear-icon');
+    var sortButtons = document.getElementById('sort-buttons');
+
+    // 搜索图标点击事件
+    searchIcon.addEventListener('click', function() {
+      // 隐藏排序按钮和搜索图标
+      sortButtons.style.display = 'none';
+      searchIconContainer.style.display = 'none';
+      // 显示搜索输入框
+      searchInputForm.style.display = 'flex';
+      // 聚焦输入框
+      searchInput.focus();
+    });
+
+    // 输入框输入事件
+    searchInput.addEventListener('input', function() {
+      // 如果输入框有内容，显示清除图标
+      if (this.value.length > 0) {
+        clearIcon.style.display = 'block';
+      } else {
+        clearIcon.style.display = 'none';
+      }
+    });
+
+    // 清除图标点击事件
+    clearIcon.addEventListener('click', function() {
+      // 清空输入框内容
+      searchInput.value = '';      
+    });
+
+    // 点击空白区域恢复默认状态
+    document.addEventListener('click', function(event) {
+      // 检查点击的元素是否是搜索相关的元素
+      var isSearchRelated = searchInputForm.contains(event.target) || 
+                           searchIcon.contains(event.target);
+      
+      // 如果输入框是显示状态且点击的不是搜索相关元素，恢复默认状态
+      if ((searchInputForm.style.display === 'flex' || searchInputForm.style.display === 'block') && !isSearchRelated) {
+        // 清空输入框内容
+        searchInput.value = '';
+        // 隐藏清除图标
+        clearIcon.style.display = 'none';
+        // 隐藏搜索输入框
+        searchInputForm.style.display = 'none';
+        // 显示排序按钮和搜索图标
+        sortButtons.style.display = 'flex';
+        searchIconContainer.style.display = 'flex';
+      }
+    });
+
+    // 初始检查输入框内容
+    if (searchInput.value.length > 0) {
+      clearIcon.style.display = 'block';
+    }
+  });
+}
+</script>
