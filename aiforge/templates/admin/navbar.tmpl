@@ -39,6 +39,9 @@
 		<a class="{{if .PageIsAdminRole}}active{{end}} item item-next" href="{{AppSubUrl}}/admin/roles">
 			{{.i18n.Tr "admin.role_management"}}
 		</a>
+		<a class="{{if .PageIsAdminPointGrant}}active{{end}} item item-next" href="{{AppSubUrl}}/admin/points">
+			{{.i18n.Tr "admin.point_grant"}}
+		</a>
 		<a class="{{if .PageIsAdminAccess}}active{{end}} item item-next" href="{{AppSubUrl}}/admin/access">
 			{{.i18n.Tr "admin.permission_configuration"}}
 		</a>

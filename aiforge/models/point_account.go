@@ -3,6 +3,7 @@ package models
 import (
 	"code.gitea.io/gitea/modules/log"
 	"code.gitea.io/gitea/modules/timeutil"
+	"code.gitea.io/gitea/modules/util"
 )
 
 type PointAccountStatus int
@@ -97,6 +98,45 @@ func GetAccountByUserId(userId int64) (*PointAccount, error) {
 
 func InsertAccount(tl *PointAccount) (int64, error) {
 	return x.Insert(tl)
+}
+
+func EnsureStarterPointBalances(amount float64) error {
+	if amount <= 0 {
+		return nil
+	}
+	users := make([]*User, 0)
+	if err := x.Where("`type` = ?", UserTypeIndividual).Find(&users); err != nil {
+		return err
+	}
+	for _, u := range users {
+		account, err := GetAccountByUserId(u.ID)
+		if err != nil {
+			if !IsErrRecordNotExist(err) {
+				return err
+			}
+			if _, err := InsertAccount(&PointAccount{
+				AccountCode:   util.UUID(),
+				Balance:       0,
+				TotalEarned:   0,
+				TotalConsumed: 0,
+				UserId:        u.ID,
+				Status:        PointAccountNormal,
+				Version:       0,
+			}); err != nil {
+				return err
+			}
+			account, err = GetAccountByUserId(u.ID)
+			if err != nil {
+				return err
+			}
+		}
+		if account.Balance == 0 && account.TotalEarned == 0 && account.TotalConsumed == 0 {
+			if err := account.Increase(amount, "local-starter"); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
 
 type SearchPointAccountOpts struct {

@@ -1154,6 +1154,13 @@ function displayTemplate(data) {
         }
     }
 }
+function resolveActivityLink(element) {
+    const title = (element && (element.Title || element.TitleEn)) || '';
+    if (title === '全能AI创作者加速营' || title === 'All-Purpose AI Creator Bootcamp') {
+        return 'https://ai.century-albert.com';
+    }
+    return element.Link;
+}
 function displayActivateInfo(data) {
     const activityDiv = document.getElementById("recommendactivity");
     if (activityDiv && data) {
@@ -1161,7 +1168,7 @@ function displayActivateInfo(data) {
             let html = ''
             data.forEach(element => {
                 html += `<div class="swiper-slide activate-cards">
-                    <a class="card-wrap" href="${element.Link}">
+                    <a class="card-wrap" href="${resolveActivityLink(element)}" target="_blank" rel="noopener">
                         <img width="318" height="150" class="card-img" data-src="${element.Background}" src="" alt="">
                         <div class="card-title">${isZh ? element.Title : element.TitleEn}</div>
                     </a>

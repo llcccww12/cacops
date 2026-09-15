@@ -97,8 +97,11 @@ export default {
     }
   },
   methods: {
+    isRealExternalUrl(url) {
+      return typeof url === 'string' && /^https?:\/\//i.test(url);
+    },
     getItemLink(data) {
-      if (data.external_url) {
+      if (this.isRealExternalUrl(data.external_url)) {
         return data.external_url;
       }
       const safeId = `${data.owner_name}/${data.name}`;
@@ -111,7 +114,7 @@ export default {
       return url.toString();
     },
     async changeFav(item) {
-      if (this.isSetting || !this.canChangeFav || item.external_url) return;
+      if (this.isSetting || !this.canChangeFav || this.isRealExternalUrl(item.external_url)) return;
       this.isSetting = true;
       let res;
       try {

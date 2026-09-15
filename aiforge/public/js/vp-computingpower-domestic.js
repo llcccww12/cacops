@@ -268,7 +268,7 @@ var manufacturerIconMap = {
           }]
         },
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/OpenIOSSG/MNIST_Example']
         }
       },
@@ -307,7 +307,7 @@ var manufacturerIconMap = {
           list: ['- 多层次API接口开放', '- 完整工具链，支持高效开发与模型调试', '- 编程模型开放，支持第三方深度定制']
         }],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/Enflame/GCU_Pytorch', 'https://openi.pcl.ac.cn/Enflame/GCU_PaddlePaddle_Example']
         }
       }, {
@@ -328,7 +328,7 @@ var manufacturerIconMap = {
           list: ['- 驭算TopsRider是燧原科技自主知识产权的计算及编程平台，通过软硬件协同的架构设计，充分释放云燧I20的性能。驭算2.0软件栈，通过软硬件结合提供极致的性能和优化的编程环境，进一步降低了用户的迁移成本和学习成本。驭算TopsRider适配主流框架，提供工具链支持开发与调优，不断提升用户的使用体验。']
         }],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/Enflame/SD_Inference']
         }
       }, {
@@ -408,7 +408,7 @@ var manufacturerIconMap = {
           list: ['天垓100 的核心IP 、系统架构、指令集、核心算子、软件栈均由天数科学家团队开发完成，本地支持团队能够根据客户需求提供定制化开发服务。']
         }],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/iluvatar/TianGai100', 'https://openi.pcl.ac.cn/iluvatar/bert_crf_sequence_labeling', 'https://openi.pcl.ac.cn/iluvatar/resnet50', 'https://openi.pcl.ac.cn/iluvatar/paddleyolo']
         }
       }, {
@@ -429,13 +429,13 @@ var manufacturerIconMap = {
           list: ['智铠100全自研架构、核心及软件栈，支持算力开发与优化，可根据客户需求提供定制化开发服务。']
         }],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/iluvatar/iluva202401091747306', 'https://openi.pcl.ac.cn/iluvatar/bert_crf_sequence_labeling', 'https://openi.pcl.ac.cn/iluvatar/resnet50', 'https://openi.pcl.ac.cn/iluvatar/paddleyolo']
         }
       }, {
         name: '沐曦曦思N100',
         icon: manufacturerIconMap.metax,
-        descr: ['沐曦在2020年9月成立于上海，它致力于为异构计算提供安全可靠的通用GPU芯片及解决方案，可广泛应用于人工智能、智慧城市、数据中心、云计算、自动驾驶、数字孪生、元宇宙等前沿领域，为数字经济发展提供强大的算力支撑。', '此次启智AI协作平台上线的沐曦GPGPU计算资源主要来自于沐曦的首款产品：“曦思N100” 人工智能推理GPU。曦思N100是一款面向云端数据中心应用的GPU人工智能加速卡，可广泛应用于智慧城市、智慧交通、机器视觉、智能视频处理等场景，该产品具备如下特点：'],
+        descr: ['沐曦在2020年9月成立于上海，它致力于为异构计算提供安全可靠的通用GPU芯片及解决方案，可广泛应用于人工智能、智慧城市、数据中心、云计算、自动驾驶、数字孪生、元宇宙等前沿领域，为数字经济发展提供强大的算力支撑。', '此次 CacOps 智算服务平台上线的沐曦GPGPU计算资源主要来自于沐曦的首款产品：“曦思N100” 人工智能推理GPU。曦思N100是一款面向云端数据中心应用的GPU人工智能加速卡，可广泛应用于智慧城市、智慧交通、机器视觉、智能视频处理等场景，该产品具备如下特点：'],
         features: [{
           title: '创新架构，多样算力',
           list: ['- 面向场景优化的异构GPGPU架构，兼顾计算效率和通用性', '- 单卡提供高达160TOPS INT8 算力和80TFLOPS FP16 算力']
@@ -481,7 +481,7 @@ var manufacturerIconMap = {
           }]
         },
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: ['https://openi.pcl.ac.cn/Metax/Metax202309121140356/src/branch/master/classification', 'https://openi.pcl.ac.cn/Metax/Metax202309121140356/src/branch/master/detecion']
         }
       }, {
@@ -4622,11 +4622,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "ui container" }, [
     _c("div", { staticClass: "top-field" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("启智社区国产算力英雄榜")]),
+      _c("div", { staticClass: "title" }, [_vm._v("Century Albert 国产算力英雄榜")]),
       _vm._v(" "),
       _c("div", { staticClass: "descr" }, [
         _vm._v(
-          "本页面仅统计国产算力在启智AI协作平台的使用情况。数据更新时间："
+          "本页面仅统计国产算力在 CacOps 智算服务平台的使用情况。数据更新时间："
         ),
         _c("span", [_vm._v(_vm._s(_vm.updateTime))])
       ])
@@ -4833,7 +4833,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "partners-field" }, [
       _c("div", { staticClass: "partners-title" }, [
-        _vm._v("启智社区国产算力合作伙伴")
+        _vm._v("Century Albert 国产算力合作伙伴")
       ]),
       _vm._v(" "),
       _c(
@@ -4850,7 +4850,7 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "apply-field" }, [
       _c("a", { staticClass: "apply-btn", attrs: { href: _vm.applyLink } }, [
-        _vm._v("加速卡申请加入启智AI协作平台请参考")
+        _vm._v("加速卡申请加入 CacOps 智算服务平台请参考")
       ])
     ]),
     _vm._v(" "),

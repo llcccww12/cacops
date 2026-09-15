@@ -1,8 +1,8 @@
 <template>
   <div class="ui container">
     <div class="top-field">
-      <div class="title">启智社区国产算力英雄榜</div>
-      <div class="descr">本页面仅统计国产算力在启智AI协作平台的使用情况。数据更新时间：<span>{{ updateTime }}</span></div>
+      <div class="title">Century Albert 国产算力英雄榜</div>
+      <div class="descr">本页面仅统计国产算力在 CacOps 智算服务平台的使用情况。数据更新时间：<span>{{ updateTime }}</span></div>
     </div>
     <div class="sort-field">
       <div class="sort-conds">
@@ -56,7 +56,7 @@
       </div>
     </div>
     <div class="partners-field">
-      <div class="partners-title">启智社区国产算力合作伙伴</div>
+      <div class="partners-title">Century Albert 国产算力合作伙伴</div>
       <div class="partners-c">
         <div class="img-c" v-for="(item, index) in partners" :key="index">
           <img :src="item.icon" :alt="item.name">
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="apply-field">
-      <a :href="applyLink" class="apply-btn">加速卡申请加入启智AI协作平台请参考</a>
+      <a :href="applyLink" class="apply-btn">加速卡申请加入 CacOps 智算服务平台请参考</a>
     </div>
     <div class="card-field">
       <div class="card" v-for="(card, cardIndex) in cards" :key="cardIndex">
@@ -171,7 +171,7 @@ export default {
           ]
         },
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/OpenIOSSG/MNIST_Example'
           ]
@@ -205,7 +205,7 @@ export default {
           { title: '工具开放 高效开发', list: ['- 多层次API接口开放', '- 完整工具链，支持高效开发与模型调试', '- 编程模型开放，支持第三方深度定制'], },
         ],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/Enflame/GCU_Pytorch',
             'https://openi.pcl.ac.cn/Enflame/GCU_PaddlePaddle_Example'
@@ -224,7 +224,7 @@ export default {
           { title: '工具开放 高效开发', list: ['- 驭算TopsRider是燧原科技自主知识产权的计算及编程平台，通过软硬件协同的架构设计，充分释放云燧I20的性能。驭算2.0软件栈，通过软硬件结合提供极致的性能和优化的编程环境，进一步降低了用户的迁移成本和学习成本。驭算TopsRider适配主流框架，提供工具链支持开发与调优，不断提升用户的使用体验。'], },
         ],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/Enflame/SD_Inference',
           ]
@@ -270,7 +270,7 @@ export default {
           { title: '全栈可定制', list: ['天垓100 的核心IP 、系统架构、指令集、核心算子、软件栈均由天数科学家团队开发完成，本地支持团队能够根据客户需求提供定制化开发服务。'], },
         ],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/iluvatar/TianGai100',
             'https://openi.pcl.ac.cn/iluvatar/bert_crf_sequence_labeling',
@@ -291,7 +291,7 @@ export default {
           { title: '落地支持强', list: ['智铠100全自研架构、核心及软件栈，支持算力开发与优化，可根据客户需求提供定制化开发服务。'], },
         ],
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/iluvatar/iluva202401091747306',
             'https://openi.pcl.ac.cn/iluvatar/bert_crf_sequence_labeling',
@@ -304,7 +304,7 @@ export default {
         icon: manufacturerIconMap.metax,
         descr: [
           '沐曦在2020年9月成立于上海，它致力于为异构计算提供安全可靠的通用GPU芯片及解决方案，可广泛应用于人工智能、智慧城市、数据中心、云计算、自动驾驶、数字孪生、元宇宙等前沿领域，为数字经济发展提供强大的算力支撑。',
-          '此次启智AI协作平台上线的沐曦GPGPU计算资源主要来自于沐曦的首款产品：“曦思N100” 人工智能推理GPU。曦思N100是一款面向云端数据中心应用的GPU人工智能加速卡，可广泛应用于智慧城市、智慧交通、机器视觉、智能视频处理等场景，该产品具备如下特点：'
+          '此次 CacOps 智算服务平台上线的沐曦GPGPU计算资源主要来自于沐曦的首款产品：“曦思N100” 人工智能推理GPU。曦思N100是一款面向云端数据中心应用的GPU人工智能加速卡，可广泛应用于智慧城市、智慧交通、机器视觉、智能视频处理等场景，该产品具备如下特点：'
         ],
         features: [
           { title: '创新架构，多样算力', list: ['- 面向场景优化的异构GPGPU架构，兼顾计算效率和通用性', '- 单卡提供高达160TOPS INT8 算力和80TFLOPS FP16 算力'], },
@@ -327,7 +327,7 @@ export default {
           ]
         },
         useExample: {
-          title: '在启智AI协作平台使用案例：',
+          title: '在 CacOps 智算服务平台使用案例：',
           list: [
             'https://openi.pcl.ac.cn/Metax/Metax202309121140356/src/branch/master/classification',
             'https://openi.pcl.ac.cn/Metax/Metax202309121140356/src/branch/master/detecion'

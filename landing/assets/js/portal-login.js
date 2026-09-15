@@ -1,14 +1,14 @@
 /**
  * CacOps 官网 CTA 跳转。
  *
- * 顶栏「立即开始 / 开始使用 / Get Started」→ 智算平台 dashboard。
- * 其它同类 CTA（启动项目、预约咨询等）→ 智算平台登录页。
+ * 顶栏「立即开始 / 开始使用 / Get Started」→ 8787/dashboard。
+ * 其它同类 CTA（启动项目、预约咨询等）→ Vben 登录页。
  * Framer 会拦 <a> 的默认跳转，所以不能只改 href，必须在捕获阶段自己 location.assign。
  */
 (function () {
   if (window.__CACOPS_PORTAL_LOGIN_BOOTED__) return;
   window.__CACOPS_PORTAL_LOGIN_BOOTED__ = true;
-  const DEFAULT_LOGIN = "http://127.0.0.1:8787/user/login";
+  const DEFAULT_LOGIN = "http://127.0.0.1:4180/auth/login?from=landing";
   const NAV_DASHBOARD = "http://127.0.0.1:8787/dashboard";
   const NAV_START_TEXT = /立即开始|开始使用|Get Started/i;
   const CTA_TEXT =

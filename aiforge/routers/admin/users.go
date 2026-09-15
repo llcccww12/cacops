@@ -34,6 +34,7 @@ const (
 	tplEditAccess    base.TplName = "admin/role/edit"
 	tplOrgAccess     base.TplName = "admin/role/org_access"
 	tplEditOrgAccess base.TplName = "admin/role/org_edit"
+	tplPoints        base.TplName = "admin/point/index"
 )
 
 // Users show all the users
@@ -352,6 +353,12 @@ func DeleteUser(ctx *context.Context) {
 func Roles(ctx *context.Context) {
 	ctx.Data["PageIsAdminRole"] = true
 	ctx.HTML(200, tplRoles)
+}
+
+func Points(ctx *context.Context) {
+	ctx.Data["Title"] = ctx.Tr("admin.point_grant")
+	ctx.Data["PageIsAdminPointGrant"] = true
+	ctx.HTML(200, tplPoints)
 }
 
 func BatchAccess(ctx *context.Context) {

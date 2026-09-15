@@ -62,7 +62,7 @@
         </span>
       </div>
       <div class="footer-r" v-if="operaFlag">
-        <div class="upload-bth" @click="uploadClick(data,type)">
+        <div class="upload-bth" @click.prevent.stop="uploadClick(data,type)">
           <svg width="14" height="14" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="icon-04f8237f10b972" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48" style="mask-type: alpha"><path d="M48 0H0V48H48V0Z" fill="#0066ff"/></mask><g mask="url(#icon-04f8237f10b972)"><path d="M6 24.0083V42H42V24" stroke="#0066ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 15L24 6L15 15" stroke="#0066ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23.9917 32V6" stroke="#0066ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
           <span style="line-height: 1px;">{{$t('modelManage.uploadFile')}}</span>
         </div>
@@ -105,12 +105,15 @@ export default {
     }
   },
   methods: {
+    isRealExternalUrl(url) {
+      return typeof url === 'string' && /^https?:\/\//i.test(url);
+    },
     getItemLink(data) {
-      // const baseUrl = window.location.href;
+      if (this.isRealExternalUrl(data.external_url)) {
+        return data.external_url;
+      }
       const safeId = `${data.owner_name}/${data.name}`;
-      // // 确保路径拼接正确
       const url = new URL(location.origin);
-      // url.pathname = url.pathname.replace(/\/$/, '') + '/' + safeId;
       if(this.type==='dataset'){
         url.pathname = `/datasets/detail/${safeId}`
       }else{

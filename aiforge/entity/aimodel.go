@@ -1,6 +1,8 @@
 package entity
 
 import (
+	"strings"
+
 	"code.gitea.io/gitea/models"
 	"code.gitea.io/gitea/modules/setting"
 	"code.gitea.io/gitea/modules/structs"
@@ -84,7 +86,7 @@ func BuildAimodelInfo(aimodel *models.AiModelManage) *AimodelInfo {
 	}
 
 	migrationInfo := BuildAimodelMigrationInfo(aimodel)
-	externalUrl := setting.ExternalTransfer.HfDomain + "/" + aimodel.ExternalName
+	externalUrl := buildAimodelExternalUrl(aimodel)
 
 	return &AimodelInfo{
 		ID:              aimodel.ID,
@@ -113,6 +115,17 @@ func BuildAimodelInfo(aimodel *models.AiModelManage) *AimodelInfo {
 		UpdatedUnix: aimodel.UpdatedUnix,
 	}
 
+}
+
+func buildAimodelExternalUrl(aimodel *models.AiModelManage) string {
+	if aimodel == nil || strings.TrimSpace(aimodel.ExternalName) == "" {
+		return ""
+	}
+	domain := strings.TrimSpace(setting.ExternalTransfer.HfDomain)
+	if domain == "" {
+		return ""
+	}
+	return strings.TrimRight(domain, "/") + "/" + strings.TrimLeft(aimodel.ExternalName, "/")
 }
 
 func BuildAimodelMigrationInfo(aimodel *models.AiModelManage) *AimodelMigrationInfo {

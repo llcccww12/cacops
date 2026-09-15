@@ -1,0 +1,45 @@
+.has-galaxy-login,
+.has-galaxy-login body {
+  background: #d4e6ff;
+}
+
+.has-galaxy-login .full.height {
+  background-color: transparent !important;
+}
+
+.galaxy-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.galaxy-bg canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.has-galaxy-login .following.bar,
+.has-galaxy-login #footer {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.has-galaxy-login .user.signin,
+.has-galaxy-login .ui.container.very.padded {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-galaxy-login .following.bar,
+  .has-galaxy-login #footer {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

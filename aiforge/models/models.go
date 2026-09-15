@@ -11,6 +11,7 @@ import (
 	"errors"
 	"fmt"
 
+	"code.gitea.io/gitea/modules/log"
 	"code.gitea.io/gitea/modules/setting"
 
 	// Needed for the MySQL driver
@@ -338,6 +339,18 @@ func NewEngine(ctx context.Context, migrateFunc func(*xorm.Engine) error) (err e
 	MigrateCustomStatic(x, xStatistic)
 
 	HasEngine = true
+	if err = EnsureDefaultAiforgeOperations(); err != nil {
+		log.Error("EnsureDefaultAiforgeOperations: %v", err)
+	}
+	if err = EnsureDefaultPointTaskConfigs(); err != nil {
+		log.Error("EnsureDefaultPointTaskConfigs: %v", err)
+	}
+	if err = EnsureStarterPointBalances(10000); err != nil {
+		log.Error("EnsureStarterPointBalances: %v", err)
+	}
+	if err = EnsureDemoComputingPowerData(); err != nil {
+		log.Error("EnsureDemoComputingPowerData: %v", err)
+	}
 
 	return nil
 }

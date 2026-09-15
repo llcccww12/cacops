@@ -1358,7 +1358,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getItemLink: function getItemLink(data) {
-      if (data.external_url) {
+      if (data.external_url && /^https?:\/\//i.test(data.external_url)) {
         return data.external_url;
       }
       var safeId = "".concat(data.owner_name, "/").concat(data.name);
@@ -1807,7 +1807,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getItemLink: function getItemLink(data) {
-      if (data.external_url) {
+      if (data.external_url && /^https?:\/\//i.test(data.external_url)) {
         return data.external_url;
       }
       var safeId = "".concat(data.owner_name, "/").concat(data.name);
@@ -13331,6 +13331,8 @@ var render = function() {
                   staticClass: "upload-bth",
                   on: {
                     click: function($event) {
+                      $event.preventDefault();
+                      $event.stopPropagation();
                       return _vm.uploadClick(_vm.data, _vm.type)
                     }
                   }

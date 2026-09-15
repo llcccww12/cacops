@@ -12,14 +12,17 @@ import (
 // UserOrganization 获取当前用户组织数据
 func UserOrganization(ctx *context.APIContext) {
 	var (
-		keyword     = strings.Trim(ctx.Query("q"), " ")
-		showPrivate = ctx.IsSigned && ctx.User.IsAdmin
-		resp        = make([]*models.PlatFormOrg, 0, 0)
+		keyword = strings.Trim(ctx.Query("q"), " ")
+		resp    = make([]*models.PlatFormOrg, 0, 0)
 	)
 
-	log.Info("UserOrganization start reqId[%v] keyword[%v] showPrivate[%v]", ctx.ReqId, keyword, showPrivate)
+	// This endpoint is "my organizations". Always include private memberships.
+	// Team add-member defaults org_user.is_public=false, so filtering to public
+	// memberships (the old admin-only showPrivate) made joined orgs invisible
+	// to every non-admin user.
+	log.Info("UserOrganization start reqId[%v] keyword[%v]", ctx.ReqId, keyword)
 
-	orgs, err := models.GetOrgsByName(ctx.User.ID, showPrivate, keyword)
+	orgs, err := models.GetOrgsByName(ctx.User.ID, true, keyword)
 	if err != nil {
 		ctx.ServerError("UserOrganization", err)
 		return

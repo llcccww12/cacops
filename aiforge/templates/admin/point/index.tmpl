@@ -1,0 +1,195 @@
+{{template "base/head" .}}
+<div class="admin user">
+	{{template "admin/navbar" .}}
+	<div class="ui container">
+		{{template "base/alert" .}}
+		<h4 class="ui top attached header">{{.i18n.Tr "admin.point_grant"}}</h4>
+		<div class="ui attached segment">
+			<p>给指定用户发放或扣减算力积分。单次最多 100000 分，备注必填。</p>
+			<div class="ui fluid action input" style="max-width:640px;">
+				<input id="point-search-q" type="text" placeholder="搜索用户名或邮箱">
+				<button class="ui blue button" id="point-search-btn" type="button">搜索</button>
+			</div>
+		</div>
+		<div class="ui attached table segment">
+			<table class="ui very basic striped table" id="point-account-table">
+				<thead>
+					<tr>
+						<th>用户 ID</th>
+						<th>用户名</th>
+						<th>邮箱</th>
+						<th>当前余额</th>
+						<th>累计获得</th>
+						<th>累计消耗</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="point-account-body">
+					<tr><td colspan="7">正在加载…</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="ui attached segment" id="point-pager" style="display:none;">
+			<button class="ui button" id="point-prev" type="button">上一页</button>
+			<span id="point-page-info" style="margin:0 12px;"></span>
+			<button class="ui button" id="point-next" type="button">下一页</button>
+		</div>
+	</div>
+</div>
+<div class="ui small modal" id="point-operate-modal">
+	<div class="header">发放 / 扣减积分</div>
+	<div class="content">
+		<form class="ui form" id="point-operate-form">
+			{{.CsrfTokenHtml}}
+			<div class="field">
+				<label>用户</label>
+				<input type="text" id="point-target-name" readonly>
+				<input type="hidden" id="point-target-id">
+			</div>
+			<div class="field">
+				<label>操作</label>
+				<select id="point-operate-type">
+					<option value="INCREASE">发放（增加）</option>
+					<option value="DECREASE">扣减</option>
+				</select>
+			</div>
+			<div class="field">
+				<label>积分数量</label>
+				<input type="number" id="point-amount" min="0.01" max="100000" step="0.01" required>
+			</div>
+			<div class="field">
+				<label>备注（用户明细里可见）</label>
+				<input type="text" id="point-remark" maxlength="200" required placeholder="例如：活动奖励、商务充值">
+			</div>
+		</form>
+		<div class="ui error message" id="point-operate-error" style="display:none;"></div>
+	</div>
+	<div class="actions">
+		<div class="ui cancel button">取消</div>
+		<div class="ui primary button" id="point-operate-submit">确定</div>
+	</div>
+</div>
+<script>
+(function () {
+	var csrf = (window.config && window.config.csrf) || '';
+	var page = 1;
+	var total = 0;
+	var pageSize = 20;
+
+	function esc(s) {
+		return String(s == null ? '' : s)
+			.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	}
+
+	function loadAccounts() {
+		var q = document.getElementById('point-search-q').value.trim();
+		var body = document.getElementById('point-account-body');
+		body.innerHTML = '<tr><td colspan="7">正在加载…</td></tr>';
+		fetch('/admin/points/search?q=' + encodeURIComponent(q) + '&page=' + page, {
+			credentials: 'same-origin',
+			headers: { 'X-Csrf-Token': csrf }
+		}).then(function (res) {
+			return res.text().then(function (text) {
+				if (!text) throw new Error('接口返回空（HTTP ' + res.status + '）');
+				try { return JSON.parse(text); }
+				catch (e) { throw new Error('接口返回异常（HTTP ' + res.status + '）'); }
+			});
+		}).then(function (res) {
+			if (!res || res.Code !== 0 || !res.Data) {
+				body.innerHTML = '<tr><td colspan="7">加载失败：' + esc(res && res.Msg ? res.Msg : '无权限或接口错误') + '</td></tr>';
+				return;
+			}
+			var records = res.Data.Records || [];
+			total = res.Data.Total || 0;
+			if (!records.length) {
+				body.innerHTML = '<tr><td colspan="7">没有匹配的用户</td></tr>';
+			} else {
+				body.innerHTML = records.map(function (row) {
+					return '<tr>' +
+						'<td>' + esc(row.UserId) + '</td>' +
+						'<td>' + esc(row.UserName) + '</td>' +
+						'<td>' + esc(row.Email) + '</td>' +
+						'<td>' + Number(row.Balance || 0).toFixed(2) + '</td>' +
+						'<td>' + Number(row.TotalEarned || 0).toFixed(2) + '</td>' +
+						'<td>' + Number(row.TotalConsumed || 0).toFixed(2) + '</td>' +
+						'<td><button class="ui mini primary button point-grant-btn" type="button" data-id="' +
+						esc(row.UserId) + '" data-name="' + esc(row.UserName) + '">发放/扣减</button></td>' +
+						'</tr>';
+				}).join('');
+			}
+			var pager = document.getElementById('point-pager');
+			pager.style.display = total > pageSize ? 'block' : 'none';
+			document.getElementById('point-page-info').textContent = '第 ' + page + ' 页 / 共 ' + total + ' 人';
+		}).catch(function (err) {
+			body.innerHTML = '<tr><td colspan="7">加载失败：' + esc(err) + '</td></tr>';
+		});
+	}
+
+	document.getElementById('point-search-btn').addEventListener('click', function () {
+		page = 1;
+		loadAccounts();
+	});
+	document.getElementById('point-search-q').addEventListener('keydown', function (e) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			page = 1;
+			loadAccounts();
+		}
+	});
+	document.getElementById('point-prev').addEventListener('click', function () {
+		if (page > 1) { page -= 1; loadAccounts(); }
+	});
+	document.getElementById('point-next').addEventListener('click', function () {
+		if (page * pageSize < total) { page += 1; loadAccounts(); }
+	});
+	document.getElementById('point-account-body').addEventListener('click', function (e) {
+		var btn = e.target.closest('.point-grant-btn');
+		if (!btn) return;
+		document.getElementById('point-target-id').value = btn.getAttribute('data-id');
+		document.getElementById('point-target-name').value = btn.getAttribute('data-name');
+		document.getElementById('point-amount').value = '';
+		document.getElementById('point-remark').value = '';
+		document.getElementById('point-operate-error').style.display = 'none';
+		$('#point-operate-modal').modal('show');
+	});
+	document.getElementById('point-operate-submit').addEventListener('click', function () {
+		var targetUserId = Number(document.getElementById('point-target-id').value);
+		var amount = Number(document.getElementById('point-amount').value);
+		var remark = document.getElementById('point-remark').value.trim();
+		var errBox = document.getElementById('point-operate-error');
+		if (!targetUserId || !(amount > 0) || !remark) {
+			errBox.textContent = '请填写数量和备注';
+			errBox.style.display = 'block';
+			return;
+		}
+		fetch('/admin/points/operate', {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-Csrf-Token': csrf
+			},
+			body: JSON.stringify({
+				TargetUserId: targetUserId,
+				OperateType: document.getElementById('point-operate-type').value,
+				Amount: amount,
+				Remark: remark,
+				RewardType: 'POINT'
+			})
+		}).then(function (res) { return res.json(); }).then(function (res) {
+			if (res && res.Code === 0) {
+				$('#point-operate-modal').modal('hide');
+				loadAccounts();
+				return;
+			}
+			errBox.textContent = (res && res.Msg) ? res.Msg : '发放失败';
+			errBox.style.display = 'block';
+		}).catch(function (err) {
+			errBox.textContent = String(err);
+			errBox.style.display = 'block';
+		});
+	});
+	loadAccounts();
+})();
+</script>
+{{template "base/footer" .}}

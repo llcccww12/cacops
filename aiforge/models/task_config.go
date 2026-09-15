@@ -255,6 +255,94 @@ func GetTaskConfigList() ([]*TaskConfig, error) {
 	return r, nil
 }
 
+type defaultPointTask struct {
+	Code        TaskType
+	Title       string
+	Amount      float64
+	RefreshRate string
+	LimitNum    float64
+}
+
+func EnsureDefaultPointTaskConfigs() error {
+	existing, err := GetTaskConfigList()
+	if err != nil && !IsErrRecordNotExist(err) {
+		return err
+	}
+	have := make(map[string]bool, len(existing))
+	for _, item := range existing {
+		have[item.TaskCode] = true
+	}
+
+	doer := &User{ID: 1, Name: "system"}
+	if admin, adminErr := GetUserByID(1); adminErr == nil && admin != nil {
+		doer = admin
+	}
+
+	defaults := []defaultPointTask{
+		{TaskBindWechat, "完成微信扫码验证", 50, PeriodNotCycle, 1},
+		{TaskChangeUserAvatar, "首次更换头像", 5, PeriodNotCycle, 1},
+		{TaskInviteFriendRegister, "邀请好友", 20, PeriodNotCycle, 20},
+		{TaskCreatePublicRepo, "创建或Fork公开项目", 10, PeriodDaily, 5},
+		{TaskCreatePullRequest, "每日提出PR", 5, PeriodDaily, 4},
+		{TaskPushCommits, "每日commit", 2, PeriodDaily, 10},
+		{TaskCreateIssue, "每日提出任务", 2, PeriodDaily, 5},
+		{TaskCommentIssue, "发表评论", 1, PeriodDaily, 10},
+		{TaskCreateDataset, "创建数据集", 20, PeriodDaily, 2},
+		{TaskDatasetRecommended, "数据集被平台推荐", 50, PeriodDaily, 1},
+		{TaskCreateAimodel, "创建模型", 20, PeriodDaily, 2},
+		{TaskAimodelRecommended, "模型被平台推荐", 50, PeriodDaily, 1},
+		{TaskCreateCloudbrainTask, "每日运行计算任务", 5, PeriodDaily, 4},
+		{TaskCreateImage, "提交新公开镜像", 20, PeriodDaily, 2},
+		{TaskImageRecommend, "镜像被平台推荐", 50, PeriodDaily, 1},
+	}
+	for _, item := range defaults {
+		if have[string(item.Code)] {
+			continue
+		}
+		if err := NewTaskConfig(TaskConfigWithLimit{
+			TaskCode:    string(item.Code),
+			Title:       item.Title,
+			AwardType:   RewardTypePoint.Name(),
+			AwardAmount: item.Amount,
+			Limiters: []*LimitConfigVO{{
+				Title:       item.Title + "上限",
+				RefreshRate: item.RefreshRate,
+				Scope:       LimitScopeSingleUser.Name(),
+				LimitNum:    item.LimitNum,
+			}},
+		}, doer); err != nil {
+			return err
+		}
+	}
+
+	cfgs, err := GetLimitConfigByLimitType(LimitTypeRewardPoint)
+	if err != nil && !IsErrRecordNotExist(err) {
+		return err
+	}
+	hasDaily := false
+	for _, cfg := range cfgs {
+		if cfg.RefreshRate == PeriodDaily && cfg.Scope == LimitScopeSingleUser.Name() && cfg.LimitCode == SourceTypeAccomplishTask.Name() {
+			hasDaily = true
+			break
+		}
+	}
+	if !hasDaily {
+		if err := AddLimitConfig(&LimitConfig{
+			Title:       "单日积分获取上限",
+			RefreshRate: PeriodDaily,
+			Scope:       LimitScopeSingleUser.Name(),
+			LimitNum:    200,
+			LimitCode:   SourceTypeAccomplishTask.Name(),
+			LimitType:   LimitTypeRewardPoint.Name(),
+			CreatorId:   doer.ID,
+			CreatorName: doer.Name,
+		}); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 type GetTaskConfigOpts struct {
 	ListOptions
 	Status   int //1 normal 2 deleted

@@ -31,6 +31,7 @@
             <div class="title" style="position:absolute">{{$t('userRole.roleSelected')}} </div>
             <div class="content box">
               <el-checkbox :disabled="type==='view'" :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">{{$t('userRole.roleSelectedTips')}}</el-checkbox>
+              <div v-if="!roleOptios.length" style="margin:16px 0 8px 40px;color:#888;font-size:13px;">权限清单为空，请确认已初始化操作权限数据后刷新页面。</div>
                 <el-checkbox-group :disabled="type==='view'" v-model="checkedRoleOps" @change="handleCheckedChange">
                   <el-checkbox v-for="item in roleOptios" :label="item.Name" :key="item.Name">
                     <el-row v-if="item.Name === 'multi_node'">

@@ -146,27 +146,52 @@
   <div class="menu-expand-pannel">
     <div class="menu-list">
       <div class="menu-item-c">
-        <a class="menu-item" key="agent" href="/agent">
-          <div class="icon-c"><img src="/img/menu-icon/agent.svg"></div>
-          <div class="title">{{.i18n.Tr "explore.agent"}}</div>
-        </a>
-      </div>
-      <div class="menu-item-c">
-        <a class="menu-item" key="modelbase" href="/modelbase">
+        <a class="menu-item" key="modelgateway" href="https://ai.century-albert.com" target="_blank" rel="noopener noreferrer">
           <div class="icon-c"><img src="/img/menu-icon/modelbase.svg"></div>
-          <div class="title">{{.i18n.Tr "repo.model_base"}}</div>
+          <div class="title">{{.i18n.Tr "explore.model_gateway"}}</div>
         </a>
       </div>
-      <div class="menu-item-c">
-        <a class="menu-item" key="resources" href="/explore/datasets">
-          <div class="icon-c"><img src="/img/menu-icon/resources.svg"></div>
-          <div class="title">{{.i18n.Tr "explore.open_resources"}}</div>
-        </a>
+      <div class="sub-menu-c">
+        <div class="menu-item-c">
+          <div class="menu-item" key="computingpower" style="flex:1">
+            <div class="icon-c"><img src="/img/menu-icon/computepower.svg"></div>
+            <div class="title">{{.i18n.Tr "explore.inclusive_computing_power"}}</div>
+          </div>
+          <div class="toggle-icon-c">
+            <svg class="toggle-btn" xmlns="http://www.w3.org/2000/svg" fill="#0066ffe6" viewBox="0 0 32 32" width="20"
+              height="20">
+              <defs></defs>
+              <g>
+                <path d="M16 17.563l6.6-6.6 1.885 1.885-8.485 8.485-8.485-8.485 1.885-1.885z"></path>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="sub-menu-list">
+          <div class="menu-item-c">
+            <a class="sub-menu-item" href="{{AppSubUrl}}/agent">
+              <div class="icon-c"><img src="/img/menu-icon/agent.svg"></div>
+              <div class="title">{{.i18n.Tr "explore.agent"}}</div>
+            </a>
+          </div>
+          <div class="menu-item-c">
+            <a class="sub-menu-item" href="{{AppSubUrl}}/modelbase">
+              <div class="icon-c"><img src="/img/menu-icon/modelbase.svg"></div>
+              <div class="title">{{.i18n.Tr "repo.model_base"}}</div>
+            </a>
+          </div>
+          <div class="menu-item-c">
+            <a class="sub-menu-item" href="{{AppSubUrl}}/explore/datasets">
+              <div class="icon-c"><img src="/img/menu-icon/resources.svg"></div>
+              <div class="title">{{.i18n.Tr "explore.open_resources"}}</div>
+            </a>
+          </div>
+        </div>
       </div>
       <div class="menu-item-c">
-        <a class="menu-item" key="computingpower" href="/computingpower/demand">
-          <div class="icon-c"><img src="/img/menu-icon/computepower.svg"></div>
-          <div class="title">{{.i18n.Tr "explore.inclusive_computing_power"}}</div>
+        <a class="menu-item" key="opsplatform" href="http://192.168.239.201:9999/dash/main" target="_blank" rel="noopener noreferrer">
+          <div class="icon-c"><img src="/img/menu-icon/more.svg"></div>
+          <div class="title">{{.i18n.Tr "explore.ops_platform"}}</div>
         </a>
       </div>
       {{if .IsOperator}}

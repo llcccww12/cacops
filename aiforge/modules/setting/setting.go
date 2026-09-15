@@ -78,6 +78,48 @@ type C2NetSqInfos struct {
 	C2NetSqInfo []*C2NetSequenceInfo `json:"sequence"`
 }
 
+func applyDemoAiCenterLocations() {
+	defaults := []*C2NetSequenceInfo{
+		{Name: "cloudbrain_one", Content: "鹏城云脑一号", ContentEN: "Pengcheng Cloudbrain I", Loc: "114.0579,22.5431", Type: "智算中心"},
+		{Name: "cloudbrain_two", Content: "鹏城云脑二号", ContentEN: "Pengcheng Cloudbrain II", Loc: "114.0850,22.5550", Type: "智算中心"},
+		{Name: "beida", Content: "北大人工智能集群系统", ContentEN: "Peking University AI Center", Loc: "116.3103,39.9927", Type: "智算中心"},
+		{Name: "hefei", Content: "合肥类脑智能开放平台", ContentEN: "Hefei AI Center", Loc: "117.2272,31.8206", Type: "智算中心"},
+		{Name: "wuhan", Content: "武汉人工智能计算中心", ContentEN: "Wuhan AI Center", Loc: "114.3055,30.5928", Type: "智算中心"},
+		{Name: "xian", Content: "西安未来人工智能计算中心", ContentEN: "Xi'an AI Center", Loc: "108.9398,34.2632", Type: "智算中心"},
+		{Name: "pclcci", Content: "鹏城云计算所", ContentEN: "Pengcheng Cloud Computing Institute", Loc: "114.0490,22.5600", Type: "智算中心"},
+		{Name: "xuchang", Content: "中原人工智能计算中心", ContentEN: "Zhongyuan AI Center", Loc: "113.8526,34.0357", Type: "智算中心"},
+		{Name: "chengdu", Content: "成都人工智能计算中心", ContentEN: "Chengdu AI Center", Loc: "104.0665,30.5723", Type: "智算中心"},
+		{Name: "hengqin", Content: "横琴先进智能计算中心", ContentEN: "Hengqin AI Center", Loc: "113.5460,22.1200", Type: "智算中心"},
+		{Name: "jinan", Content: "国家超级计算济南中心", ContentEN: "Jinan Supercomputing Center", Loc: "117.1205,36.6512", Type: "超算中心"},
+		{Name: "tianjin", Content: "国家超级计算天津中心", ContentEN: "Tianjin Supercomputing Center", Loc: "117.2008,39.0842", Type: "超算中心"},
+		{Name: "guiyang", Content: "贵安算力枢纽", ContentEN: "Gui'an Computing Hub", Loc: "106.6302,26.6477", Type: "东数西算"},
+		{Name: "ningxia", Content: "宁夏中卫算力枢纽", ContentEN: "Zhongwei Computing Hub", Loc: "105.1967,37.5002", Type: "东数西算"},
+	}
+	if AiCenterCodeAndNameAndLocMapInfo == nil {
+		AiCenterCodeAndNameAndLocMapInfo = make(map[string]*C2NetSequenceInfo)
+	}
+	for _, item := range defaults {
+		existing, ok := AiCenterCodeAndNameAndLocMapInfo[item.Name]
+		if !ok || existing == nil {
+			copied := *item
+			AiCenterCodeAndNameAndLocMapInfo[item.Name] = &copied
+			continue
+		}
+		if existing.Loc == "" {
+			existing.Loc = item.Loc
+		}
+		if existing.Type == "" {
+			existing.Type = item.Type
+		}
+		if existing.Content == "" {
+			existing.Content = item.Content
+		}
+		if existing.ContentEN == "" {
+			existing.ContentEN = item.ContentEN
+		}
+	}
+}
+
 type AiCenterInfo struct {
 	CenterID           string `json:"center_id"`
 	Name               string `json:"name"`
@@ -2201,6 +2243,7 @@ func GetGrampusConfig() {
 		for _, value := range C2NetLocInfos.C2NetSqInfo {
 			AiCenterCodeAndNameAndLocMapInfo[value.Name] = value
 		}
+		applyDemoAiCenterLocations()
 	}
 	if Grampus.AiCenterCodeAndNameInfo != "" {
 		if err := json.Unmarshal([]byte(Grampus.AiCenterCodeAndNameInfo), &C2NetInfos); err != nil {

@@ -862,6 +862,11 @@ func RegisterRoutes(m *macaron.Macaron) {
 			// m.Get("/batch", admin.BatchAccess)
 		})
 		m.Get("/roles", admin.Roles)
+		m.Group("/points", func() {
+			m.Get("", admin.Points)
+			m.Get("/search", point.SearchPointAccount)
+			m.Post("/operate", binding.Bind(models.AdminRewardOperateReq{}), point.OperatePointAccountBalance)
+		})
 
 	}, adminReq)
 	// ***** END: Admin *****
@@ -878,7 +883,7 @@ func RegisterRoutes(m *macaron.Macaron) {
 			m.Post("/account/operate", binding.Bind(models.AdminRewardOperateReq{}), point.OperatePointAccountBalance)
 			m.Post("/account/batch_operate", point.BatchOperatePointAccountBalance)
 			m.Get("/list", point.GetAdminRewardList)
-		}, apiv1.HasOperRole(role.ROLE_OPER_RewardPointAdmin))
+		}, apiv1.HasOperRoleOrAdmin(role.ROLE_OPER_RewardPointAdmin))
 
 		m.Group("/task/config", func() {
 			m.Get("/list", task.GetTaskConfigList)

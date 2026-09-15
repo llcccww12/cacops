@@ -2383,6 +2383,14 @@ function displayTemplate(data) {
   }
 }
 
+function resolveActivityLink(element) {
+  var title = element && (element.Title || element.TitleEn) || '';
+  if (title === '全能AI创作者加速营' || title === 'All-Purpose AI Creator Bootcamp') {
+    return 'https://ai.century-albert.com';
+  }
+  return element.Link;
+}
+
 function displayActivateInfo(data) {
   var activityDiv = document.getElementById("recommendactivity");
 
@@ -2390,7 +2398,7 @@ function displayActivateInfo(data) {
     try {
       var _html6 = '';
       data.forEach(function (element) {
-        _html6 += "<div class=\"swiper-slide activate-cards\">\n                    <a class=\"card-wrap\" href=\"".concat(element.Link, "\">\n                        <img width=\"318\" height=\"150\" class=\"card-img\" data-src=\"").concat(element.Background, "\" src=\"\" alt=\"\">\n                        <div class=\"card-title\">").concat(isZh ? element.Title : element.TitleEn, "</div>\n                    </a>\n                </div>");
+        _html6 += "<div class=\"swiper-slide activate-cards\">\n                    <a class=\"card-wrap\" href=\"".concat(resolveActivityLink(element), "\" target=\"_blank\" rel=\"noopener\">\n                        <img width=\"318\" height=\"150\" class=\"card-img\" data-src=\"").concat(element.Background, "\" src=\"\" alt=\"\">\n                        <div class=\"card-title\">").concat(isZh ? element.Title : element.TitleEn, "</div>\n                    </a>\n                </div>");
       });
       activityDiv.innerHTML = _html6; // 初始化懒加载监听
 

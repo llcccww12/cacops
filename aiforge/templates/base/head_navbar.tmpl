@@ -65,6 +65,26 @@
 		box-shadow: 0px 2px 3px 0px rgba(16,16,16,0.2);
 		padding: 0 12px;
 	}
+	#navbar .menu-link .ui.dropdown.menu-item {
+		cursor: pointer;
+	}
+	#navbar .menu-link .ui.dropdown.menu-item > .menu {
+		margin-top: 8px;
+		min-width: 148px;
+		border: none;
+		border-radius: 10px;
+		box-shadow: 0 8px 24px rgba(16,16,16,0.12);
+		padding: 6px 0;
+	}
+	#navbar .menu-link .ui.dropdown.menu-item > .menu > .item {
+		color: rgba(32,37,101,0.9) !important;
+		font-size: 14px;
+		padding: 10px 16px !important;
+	}
+	#navbar .menu-link .ui.dropdown.menu-item > .menu > .item:hover {
+		background: rgba(228,241,255,0.7);
+		color: rgba(0,26,199,1) !important;
+	}
 </style>
 
 <style>
@@ -141,10 +161,17 @@
 		</div>
 		<div class="menu-link normal">
 			<a class="menu-item" key="workspace" href="/dashboard">{{.i18n.Tr "explore.workspace"}}</a>
-			<a class="menu-item" key="agent" href="/agent">{{.i18n.Tr "explore.agent"}}</a>
-			<a class="menu-item" key="modelbase" href="/modelbase">{{.i18n.Tr "repo.model_base"}}</a>
-			<a class="menu-item" key="resources" href="/explore/datasets">{{.i18n.Tr "explore.open_resources"}}</a>
-			<a class="menu-item" key="computingpower" href="/computingpower/demand">{{.i18n.Tr "explore.inclusive_computing_power"}}</a>
+			<a class="menu-item" key="modelgateway" href="https://ai.century-albert.com" target="_blank" rel="noopener noreferrer">{{.i18n.Tr "explore.model_gateway"}}</a>
+			<div class="ui simple dropdown menu-item" key="computingpower">
+				<span><a style="color:inherit;display:inline" href="{{AppSubUrl}}/computingpower/demand" onclick="javascript:event.preventDefault();event.stopPropagation();window.location.href='{{AppSubUrl}}/computingpower/demand';">{{.i18n.Tr "explore.inclusive_computing_power"}}</a></span>
+				<svg style="margin-left:6px" xmlns="http://www.w3.org/2000/svg" fill="rgb(187, 187, 187)" viewBox="0 0 32 32" width="10" height="10"><defs></defs><g><path d="M15.811 23.47c-0.252-0.060-0.47-0.185-0.641-0.356l-10.685-10.685c-0.521-0.521-0.521-1.365 0-1.886s1.365-0.521 1.886 0l9.746 9.746 9.745-9.745c0.521-0.521 1.365-0.521 1.886 0s0.521 1.365 0 1.886l-10.685 10.685c-0.339 0.339-0.816 0.458-1.251 0.355z"></path></g></svg>
+				<div class="menu">
+					<a class="item" href="{{AppSubUrl}}/agent">{{.i18n.Tr "explore.agent"}}</a>
+					<a class="item" href="{{AppSubUrl}}/modelbase">{{.i18n.Tr "repo.model_base"}}</a>
+					<a class="item" href="{{AppSubUrl}}/explore/datasets">{{.i18n.Tr "explore.open_resources"}}</a>
+				</div>
+			</div>
+			<a class="menu-item" key="opsplatform" href="http://192.168.239.201:9999/dash/main" target="_blank" rel="noopener noreferrer">{{.i18n.Tr "explore.ops_platform"}}</a>
 			{{if .IsOperator}}
 			<div class="ui simple dropdown menu-item">
 				<span>{{.i18n.Tr "repo.more"}}</span>
@@ -163,9 +190,12 @@
   <script>
     ; (function () {
       const activeMenu = window.MENU_CONFIG.activeTopMenu;
-      if (activeMenu) {
+      const highlightKey = (activeMenu === 'agent' || activeMenu === 'modelbase' || activeMenu === 'resources' || activeMenu === 'computingpower')
+        ? 'computingpower'
+        : activeMenu;
+      if (highlightKey) {
         document.querySelectorAll('#navbar .menu-link .menu-item').forEach(function (ele) {
-          if (activeMenu == ele.getAttribute('key')) {
+          if (highlightKey == ele.getAttribute('key')) {
             ele.classList.add('focused')
           }
         })

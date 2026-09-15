@@ -587,6 +587,15 @@ func HasOperRole(operName string) macaron.Handler {
 	}
 }
 
+func HasOperRoleOrAdmin(operName string) macaron.Handler {
+	return func(ctx *context.Context) {
+		if ctx.IsSigned && ctx.User != nil && (ctx.User.IsAdmin || role.UserHasOper(ctx.User.ID, operName)) {
+			return
+		}
+		ctx.Error(http.StatusForbidden)
+	}
+}
+
 // reqOwner user should be the owner of the repo or site admin.
 func reqOwner() macaron.Handler {
 	return func(ctx *context.Context) {

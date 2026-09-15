@@ -496,6 +496,37 @@ func ListRightOperation() ([]*AiforgeOperation, error) {
 	return r, nil
 }
 
+func EnsureDefaultAiforgeOperations() error {
+	defaults := []AiforgeOperation{
+		{Name: "online_infer_path", Description: "允许创建在线推理服务"},
+		{Name: "debug_time", Description: "允许使用调试任务时长配额"},
+		{Name: "multi_node", Description: "运行训练任务时可以使用多节点计算资源"},
+		{Name: "multi_task", Description: "可以同时运行多个计算任务"},
+		{Name: "ignore_flow_control", Description: "忽略上传流控限制"},
+		{Name: "RewardPointAdmin", Description: "算力积分管理员（可给用户发放/扣减积分）"},
+		{Name: "MonitorAdmin", Description: "任务监控管理员"},
+		{Name: "KANBANAdmin", Description: "看板管理员"},
+		{Name: "TechProgramAdmin", Description: "科技计划项目管理员"},
+	}
+	existing, err := ListRightOperation()
+	if err != nil {
+		return err
+	}
+	have := make(map[string]bool, len(existing))
+	for _, item := range existing {
+		have[item.Name] = true
+	}
+	for _, item := range defaults {
+		if have[item.Name] {
+			continue
+		}
+		if _, err := AddRightOperation(item); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 func QueryRightOperation(id int64) (*AiforgeOperation, error) {
 	r := &AiforgeOperation{}
 	has, err := x.Where("id = ?", id).Get(r)
